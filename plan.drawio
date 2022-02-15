@@ -1,0 +1,28 @@
+<mxfile host="65bd71144e">
+    <diagram id="tE0pKnJeG2X2ftlu6iPr" name="Page-1">
+        <mxGraphModel dx="1015" dy="354" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="USER/&lt;br&gt;PROBLEM" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="300" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;br&gt;What doesn't already exist?&amp;nbsp;&lt;br&gt;************************&lt;br&gt;✅&amp;nbsp; 1&lt;br&gt;- CV Review and critique&lt;br&gt;- Track job applications&lt;br&gt;-- Share interview tips&lt;br&gt;&lt;br&gt;**************************&lt;br&gt;❌&amp;nbsp; 4&lt;br&gt;- Practice codewars in pairs&lt;br&gt;- Q&amp;amp;A with industry experts&lt;br&gt;- Community code club&lt;br&gt;- Hackathons for fun&lt;br&gt;************************" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="270" width="210" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="EMPHASISE&lt;br&gt;Community Focused" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="VALUE?&lt;br&gt;Bootcampers with extensive experience in other industries.&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="340" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;br&gt;&lt;span&gt;PROBLEM STATEMENT:&lt;/span&gt;&lt;br&gt;&lt;span&gt;- Bootcampers are likely to feel lost in the interim period between the completion of the bootcamp and settling into a new job.&amp;nbsp;&lt;br&gt;&lt;br&gt;- We want to create an app that will enable the continuation of the feeling of community and collaboration that one gets in the school of code.&lt;br&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="120" width="500" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Bootcampers are likely to feel lost in the interim period between the completion of the bootcamp and settling into a new job. Our group wants to create an app that will enable the continuation of the feeling of community and collaboration that one gets whilst in the school of code.&lt;br&gt;&lt;br&gt;USER RESEARCH&lt;br&gt;1. On a scale of 1-5 (where 1 is unlikely and 5 is highly likely) which of the following features would you use?&amp;nbsp;&lt;br&gt;a.&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="570" width="630" height="210" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
