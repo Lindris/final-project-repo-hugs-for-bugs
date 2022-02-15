@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="tE0pKnJeG2X2ftlu6iPr" name="Page-1">
-        <mxGraphModel dx="2451" dy="2181" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1841" dy="1788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -57,6 +57,36 @@
                 </mxCell>
                 <mxCell id="19" value="Why hackathons for fun?&amp;nbsp;&lt;br&gt;- Fun social coding&amp;nbsp;&lt;br&gt;- Targeted learning while building something tangible and&amp;nbsp;&lt;br&gt;- Opportunity to strengthen skills" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="730" y="590" width="240" height="125" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.351;entryY=0.977;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" edge="1" parent="1" source="27" target="28">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="27" target="29">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="STAKEHOLDERS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="850" width="130" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;font style=&quot;font-size: 10px&quot;&gt;SOC RECRUITMENT&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="740" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;font style=&quot;font-size: 12px&quot;&gt;HUGS FOR BUGS&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="870" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="How will success be measured? (if we can't measure it we can't improve it...)&lt;br&gt;- How many users are attending the q &amp;amp; a sessions?&lt;br&gt;- How many users are running/attending code clubs?&lt;br&gt;- How often are users participating in hackathons?&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="760" width="430" height="125" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Existing Solutions&lt;br&gt;- MeetUp/ Eventbrite&amp;nbsp;&lt;br&gt;- Facebook groups&lt;br&gt;- Codebar/code first girls etc&lt;br&gt;&lt;br&gt;Good&lt;br&gt;- Gather with other like-minded people&lt;br&gt;- Find groups based on location/proximity&lt;br&gt;&lt;br&gt;Bad&amp;nbsp;&lt;br&gt;- Open to everyone/strangers&lt;br&gt;- Users join groups on a whim and don't show up/engage&lt;br&gt;- Content/information can get lost in feeds/timeline&lt;br&gt;- fake accounts/ multiple accounts by same members/inactive members" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="900" width="470" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="What are the most important things to the user?&lt;br&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;- Q &amp;amp; A with experts - 48% highly likely, 26% likely&lt;br&gt;&lt;br&gt;&lt;br&gt;- Hackathons for fun - 36.6% highly likely, 31% likely&lt;br&gt;&lt;br&gt;&lt;br&gt;- Community driven code club - 26% highly likely, 36% likely" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="30" y="980" width="460" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="&lt;font style=&quot;font-size: 14px&quot;&gt;Find the holes in your understanding&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="1180" width="460" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="To do list&lt;br&gt;&lt;br&gt;15/2/22&lt;br&gt;&amp;nbsp;1- User personas - Amrit/Kavita/Linda&lt;br&gt;2 - Planning the tech - Hajara/Josh/Rebwar&lt;br&gt;&amp;nbsp;3 - Speak to SOC/partners - Linda&lt;br&gt;&amp;nbsp;4 - User stories - Amrit/Kavita/Linda&lt;br&gt;&amp;nbsp;5 - Holes in plan&lt;br&gt;6 - MVP - All together @ 4.15pm&lt;br&gt;7 - What we will build? (website, mobile app, voice app...) -&amp;nbsp;All together @ 4.30pm&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;br&gt;*******************************&lt;br&gt;- Lo-fi diagrams -&amp;nbsp;&lt;br&gt;- Design and branding inspiration - Amrit/Linda&lt;br&gt;- Plan data/tables&lt;br&gt;- Architectural diagram&lt;br&gt;- Think of the contracts btw each part of your app&lt;br&gt;- Dive deeper into front-end" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="1190" width="530" height="330" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
