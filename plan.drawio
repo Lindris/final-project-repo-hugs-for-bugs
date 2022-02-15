@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="tE0pKnJeG2X2ftlu6iPr" name="Page-1">
-        <mxGraphModel dx="1841" dy="1788" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2199" dy="1948" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -87,6 +87,99 @@
                 </mxCell>
                 <mxCell id="39" value="To do list&lt;br&gt;&lt;br&gt;15/2/22&lt;br&gt;&amp;nbsp;1- User personas - Amrit/Kavita/Linda&lt;br&gt;2 - Planning the tech - Hajara/Josh/Rebwar&lt;br&gt;&amp;nbsp;3 - Speak to SOC/partners - Linda&lt;br&gt;&amp;nbsp;4 - User stories - Amrit/Kavita/Linda&lt;br&gt;&amp;nbsp;5 - Holes in plan&lt;br&gt;6 - MVP - All together @ 4.15pm&lt;br&gt;7 - What we will build? (website, mobile app, voice app...) -&amp;nbsp;All together @ 4.30pm&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;br&gt;*******************************&lt;br&gt;- Lo-fi diagrams -&amp;nbsp;&lt;br&gt;- Design and branding inspiration - Amrit/Linda&lt;br&gt;- Plan data/tables&lt;br&gt;- Architectural diagram&lt;br&gt;- Think of the contracts btw each part of your app&lt;br&gt;- Dive deeper into front-end" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry x="500" y="1190" width="530" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="PLANNING THE TECH" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1600" width="740" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="FRONT END" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1670" width="350" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="BACK END" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="432.5" y="1670" width="350" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="REACT&amp;nbsp;&lt;br&gt;- Easily incorporate components" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1720" width="350" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="TYPESCRIPT&lt;br&gt;- Helps prevent errors/bugs&lt;br&gt;- Maintanability" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1790" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="NEXT&lt;br&gt;- Linking pages and routes" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1870" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="NETLIFY&lt;br&gt;- Version control" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="1950" width="165" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="FIREBASE&lt;br&gt;- Dynamic sites" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="1950" width="165" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="AUTH0&lt;br&gt;- Authentication/Authorisation" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="2030" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="FIGMA&lt;br&gt;- Hi Fi diagrams" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="2110" width="350" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="Ant Design" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="2200" width="105" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Bootstrap" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="167.5" y="2200" width="105" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Chakra" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="295" y="2200" width="105" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="JEST&lt;br&gt;- Unit testing" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="1720" width="365" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="CYPRESS&lt;br&gt;- Front end testing" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="45" y="2280" width="355" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=-0.02;entryY=0.375;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="56" target="61">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="890" y="1900" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="890" y="1820"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="56" value="NODE/EXPRESS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="1795" width="365" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="POSTGRES SQL" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="1870" width="185" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="58" target="61">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="890" y="1900" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" value="MYSQL" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="1870" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;" edge="1" parent="1" source="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="910" y="1900" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="890" y="1980"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="POSTMAN" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="1950" width="365" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="HEROKU" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="2030" width="365" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="REST API" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="910" y="1870" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="2200" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="740" y="1870" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="MILESTONES&lt;br&gt;&lt;br&gt;MVP - END OF WEEK 2/ END OF WEEK 1?&lt;br&gt;&amp;nbsp;FRONT END DEPLOYMENT - END OF WEEK 1&amp;nbsp;&lt;br&gt;BACK END DEPLOYMENT - END OF WEEK 1&lt;br&gt;AUTHENTICATION - AUTHORISATION - END OF WEEK 2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1121" y="1600" width="449" height="180" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
