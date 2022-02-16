@@ -1,92 +1,95 @@
 <mxfile host="65bd71144e">
     <diagram id="tE0pKnJeG2X2ftlu6iPr" name="Page-1">
-        <mxGraphModel dx="2621" dy="1698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1448" dy="2150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="20" style="edgeStyle=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="3" target="8">
+                <mxCell id="20" style="edgeStyle=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="3" target="8" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="&lt;font style=&quot;font-size: 14px&quot;&gt;USER/&lt;br&gt;PROBLEM&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                <mxCell id="3" value="&lt;font style=&quot;font-size: 14px&quot;&gt;USER/&lt;br&gt;PROBLEM&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="40" y="-70" width="160" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="5" target="19">
+                <mxCell id="22" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="5" target="19" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="850" y="520"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="24" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.438;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" edge="1" parent="1" source="5" target="17">
+                <mxCell id="24" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.438;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" parent="1" source="5" target="17" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="5" target="18">
+                <mxCell id="25" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="5" target="18" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="600" y="520"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="26" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="5" target="16">
+                <mxCell id="26" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="5" target="16" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="100" y="520"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="5" value="&lt;br&gt;What doesn't already exist?&amp;nbsp;&lt;br&gt;************************&lt;br&gt;✅&amp;nbsp; 1&lt;br&gt;- CV Review and critique&lt;br&gt;- Track job applications&lt;br&gt;-- Share interview tips&lt;br&gt;&lt;br&gt;**************************&lt;br&gt;❌&amp;nbsp; 4&lt;br&gt;- Practice codewars in pairs&lt;br&gt;- Q&amp;amp;A with industry experts&lt;br&gt;- Community code club&lt;br&gt;- Hackathons for fun&lt;br&gt;************************" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="5" value="&lt;br&gt;What doesn't already exist?&amp;nbsp;&lt;br&gt;************************&lt;br&gt;✅&amp;nbsp; 1&lt;br&gt;- CV Review and critique&lt;br&gt;- Track job applications&lt;br&gt;-- Share interview tips&lt;br&gt;&lt;br&gt;**************************&lt;br&gt;❌&amp;nbsp; 4&lt;br&gt;- Practice codewars in pairs&lt;br&gt;- Q&amp;amp;A with industry experts&lt;br&gt;- Community code club&lt;br&gt;- Hackathons for fun&lt;br&gt;************************" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="230" y="270" width="210" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="EMPHASISE&lt;br&gt;Community Focused" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="6" value="EMPHASISE&lt;br&gt;Community Focused" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="500" y="300" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="VALUE?&lt;br&gt;Teamwork and collaborative working skills" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="7" value="VALUE?&lt;br&gt;Teamwork and collaborative working skills" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="500" y="380" width="120" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="&lt;br&gt;&lt;span&gt;PROBLEM STATEMENT:&lt;/span&gt;&lt;br&gt;Bootcampers are likely to feel lost in the interim period between the completion of the bootcamp and settling into a new job. Our group wants to create an app that will enable the continuation of the feeling of community and collaboration that one gets whilst in the school of code." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="8" value="&lt;br&gt;&lt;span&gt;PROBLEM STATEMENT:&lt;/span&gt;&lt;br&gt;Bootcampers are likely to feel lost in the interim period between the completion of the bootcamp and settling into a new job. Our group wants to create an app that will enable the continuation of the feeling of community and collaboration that one gets whilst in the school of code." style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="210" y="120" width="500" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="Why practice codewars in pairs?&amp;nbsp;&lt;br&gt;- Good for bouncing ideas off&lt;br&gt;- Thinking out loud&lt;br&gt;- Breaking it down&lt;br&gt;- Practising and improving coding skills&lt;br&gt;- Mimics interview practice&lt;br&gt;- Keeping up with languages learned" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="16" value="Why practice codewars in pairs?&amp;nbsp;&lt;br&gt;- Good for bouncing ideas off&lt;br&gt;- Thinking out loud&lt;br&gt;- Breaking it down&lt;br&gt;- Practising and improving coding skills&lt;br&gt;- Mimics interview practice&lt;br&gt;- Keeping up with languages learned" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-20" y="590" width="240" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="Why q &amp;amp; a with experts?&lt;br&gt;- Having time to ask specific question about their roles/talk&lt;br&gt;- Getting an insight into industry&lt;br&gt;- Find out more about different companies&lt;br&gt;- Find out more about different fields&lt;br&gt;- Build up contacts and networks" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="17" value="Why q &amp;amp; a with experts?&lt;br&gt;- Having time to ask specific question about their roles/talk&lt;br&gt;- Getting an insight into industry&lt;br&gt;- Find out more about different companies&lt;br&gt;- Find out more about different fields&lt;br&gt;- Build up contacts and networks" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="230" y="590" width="240" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="Why community code club?&lt;br&gt;- Practising and improving skills&lt;br&gt;- Skills are improved and further cemented by teaching others&lt;br&gt;- Sociable/interactive way of learning&lt;br&gt;- Get help with specific problems" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="18" value="Why community code club?&lt;br&gt;- Practising and improving skills&lt;br&gt;- Skills are improved and further cemented by teaching others&lt;br&gt;- Sociable/interactive way of learning&lt;br&gt;- Get help with specific problems" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="480" y="590" width="240" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="Why hackathons for fun?&amp;nbsp;&lt;br&gt;- Fun social coding&amp;nbsp;&lt;br&gt;- Targeted learning while building something tangible and&amp;nbsp;&lt;br&gt;- Opportunity to strengthen skills" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="19" value="Why hackathons for fun?&amp;nbsp;&lt;br&gt;- Fun social coding&amp;nbsp;&lt;br&gt;- Targeted learning while building something tangible and&amp;nbsp;&lt;br&gt;- Opportunity to strengthen skills" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="730" y="590" width="240" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" style="edgeStyle=none;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.351;entryY=0.977;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" edge="1" parent="1" source="27" target="28">
+                <mxCell id="31" style="edgeStyle=none;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.351;entryY=0.977;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=14;" parent="1" source="27" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="27" target="29">
+                <mxCell id="32" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" parent="1" source="27" target="29" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="STAKEHOLDERS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="27" value="STAKEHOLDERS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="30" y="850" width="130" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" value="&lt;font style=&quot;font-size: 10px&quot;&gt;SOC RECRUITMENT&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="28" value="&lt;font style=&quot;font-size: 10px&quot;&gt;SOC RECRUITMENT&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="150" y="740" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" value="&lt;font style=&quot;font-size: 12px&quot;&gt;HUGS FOR BUGS&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="29" value="&lt;font style=&quot;font-size: 12px&quot;&gt;HUGS FOR BUGS&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="180" y="870" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" value="How will success be measured? (if we can't measure it we can't improve it...)&lt;br&gt;- How many users are attending the q &amp;amp; a sessions?&lt;br&gt;- How many users are running/attending code clubs?&lt;br&gt;- How often are users participating in hackathons?&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="34" value="How will success be measured? (if we can't measure it we can't improve it...)&lt;br&gt;- How many users are attending the q &amp;amp; a sessions?&lt;br&gt;- How many users are running/attending code clubs?&lt;br&gt;- How often are users participating in hackathons?&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="550" y="760" width="430" height="125" as="geometry"/>
                 </mxCell>
-                <mxCell id="35" value="Existing Solutions&lt;br&gt;- MeetUp/ Eventbrite&amp;nbsp;&lt;br&gt;- Facebook groups&lt;br&gt;- Codebar/code first girls etc&lt;br&gt;&lt;br&gt;Good&lt;br&gt;- Gather with other like-minded people&lt;br&gt;- Find groups based on location/proximity&lt;br&gt;&lt;br&gt;Bad&amp;nbsp;&lt;br&gt;- Open to everyone/strangers&lt;br&gt;- Users join groups on a whim and don't show up/engage&lt;br&gt;- Content/information can get lost in feeds/timeline&lt;br&gt;- fake accounts/ multiple accounts by same members/inactive members" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="35" value="Existing Solutions&lt;br&gt;- MeetUp/ Eventbrite&amp;nbsp;&lt;br&gt;- Facebook groups&lt;br&gt;- Codebar/code first girls etc&lt;br&gt;&lt;br&gt;Good&lt;br&gt;- Gather with other like-minded people&lt;br&gt;- Find groups based on location/proximity&lt;br&gt;&lt;br&gt;Bad&amp;nbsp;&lt;br&gt;- Open to everyone/strangers&lt;br&gt;- Users join groups on a whim and don't show up/engage&lt;br&gt;- Content/information can get lost in feeds/timeline&lt;br&gt;- fake accounts/ multiple accounts by same members/inactive members" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="530" y="900" width="470" height="280" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="What are the most important things to the user?&lt;br&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;- Q &amp;amp; A with experts - 48% highly likely, 26% likely&lt;br&gt;&lt;br&gt;&lt;br&gt;- Hackathons for fun - 36.6% highly likely, 31% likely&lt;br&gt;&lt;br&gt;&lt;br&gt;- Community driven code club - 26% highly likely, 36% likely" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+                <mxCell id="37" value="What are the most important things to the user?&lt;br&gt;&amp;nbsp;&lt;br&gt;&lt;br&gt;- Q &amp;amp; A with experts - 48% highly likely, 26% likely&lt;br&gt;&lt;br&gt;&lt;br&gt;- Hackathons for fun - 36.6% highly likely, 31% likely&lt;br&gt;&lt;br&gt;&lt;br&gt;- Community driven code club - 26% highly likely, 36% likely" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="30" y="980" width="460" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" value="&lt;font style=&quot;font-size: 14px&quot;&gt;Find the holes in your understanding&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
+                <mxCell id="38" value="&lt;font style=&quot;font-size: 14px&quot;&gt;Find the holes in your understanding&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;" parent="1" vertex="1">
                     <mxGeometry x="20" y="1180" width="460" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="To do list&lt;br&gt;&lt;br&gt;15/2/22&lt;br&gt;&amp;nbsp;1- User personas - Amrit/Kavita/Linda&lt;br&gt;2 - Planning the tech - Hajara/Josh/Rebwar&lt;br&gt;&amp;nbsp;3 - Speak to SOC/partners - Linda&lt;br&gt;&amp;nbsp;4 - User stories - Amrit/Kavita/Linda&lt;br&gt;&amp;nbsp;5 - Holes in plan&lt;br&gt;6 - MVP - All together @ 4.15pm&lt;br&gt;7 - What we will build? (website, mobile app, voice app...) -&amp;nbsp;All together @ 4.30pm&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;br&gt;*******************************&lt;br&gt;- Lo-fi diagrams -&amp;nbsp;&lt;br&gt;- Design and branding inspiration - Amrit/Linda&lt;br&gt;- Plan data/tables&lt;br&gt;- Architectural diagram&lt;br&gt;- Think of the contracts btw each part of your app&lt;br&gt;- Dive deeper into front-end" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="500" y="1190" width="530" height="330" as="geometry"/>
+                <mxCell id="39" value="To do list&lt;br&gt;&lt;br&gt;15/2/22&lt;br&gt;&amp;nbsp;1- User personas - Amrit/Kavita/Linda&lt;br&gt;2 - Planning the tech - Hajara/Josh/Rebwar&lt;br&gt;&amp;nbsp;3 - Speak to SOC/partners - Linda&lt;br&gt;&amp;nbsp;4 - User stories - Amrit/Kavita/Linda&lt;br&gt;&amp;nbsp;5 - Holes in plan&lt;br&gt;6 - MVP - All together @ 4.15pm&lt;br&gt;7 - What we will build? (website, mobile app, voice app...) -&amp;nbsp;All together @ 4.30pm&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;br&gt;*******************************&lt;br&gt;- Lo-fi diagrams -&amp;nbsp;&lt;br&gt;- Design and branding inspiration - Amrit/Linda&lt;br&gt;- Plan data/tables&lt;br&gt;- Architectural diagram&lt;br&gt;- Think of the contracts btw each part of your app&lt;br&gt;- Dive deeper into front-end&lt;br&gt;Ts &amp;amp; C's code of conduct&lt;br&gt;decide app name / logo/ strapline?" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="1190" width="530" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="AnvaBn-kyIvDwreXPjd7-39" value="MVP -&amp;nbsp;&amp;nbsp;&lt;br&gt;Event planning app for Bootcamper Graduates to&amp;nbsp; bridge the gap in the interim period between the completion of the bootcamp and settling into a new job. The an app that will enable the continuation of the feeling of community and collaboration that one gets whilst in the school of code. The app will provide value by enabling members to continue learning and participate collaboratively in coding and industry related activities.&lt;br&gt;&lt;br&gt;&lt;br&gt;The MVP app will allow user to:&lt;br&gt;&amp;nbsp;- set up a profile and &lt;br&gt;- have identity authenticated &lt;br&gt;- set up an event&lt;br&gt;- view events organised&lt;br&gt;&amp;nbsp;- join an already existing event&lt;br&gt;&lt;br&gt;&lt;br&gt;Test on bootcampers - &lt;br&gt;once successful -&amp;nbsp; create for wider user group" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="810" y="2050" width="340" height="390" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" value="PLANNING THE TECH" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry x="50" y="1600" width="740" height="50" as="geometry"/>
@@ -178,8 +181,8 @@
                 <mxCell id="72" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry x="740" y="1870" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="76" value="MILESTONES&lt;br&gt;&lt;br&gt;MVP - END OF WEEK 2/ END OF WEEK 1?&lt;br&gt;&amp;nbsp;FRONT END DEPLOYMENT - END OF WEEK 1&amp;nbsp;&lt;br&gt;BACK END DEPLOYMENT - END OF WEEK 1&lt;br&gt;AUTHENTICATION - AUTHORISATION - END OF WEEK 2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="1121" y="1600" width="449" height="180" as="geometry"/>
+                <mxCell id="76" value="MILESTONES&lt;br&gt;&lt;br&gt;MVP - functioning only - END OF WEEK 2 or sooner&lt;br&gt;&amp;nbsp;FRONT END DEPLOYMENT - END OF WEEK 1 or sooner&lt;br&gt;BACK END DEPLOYMENT - END OF WEEK 1 or sooner&lt;br&gt;&lt;br&gt;MVP - designed for user&amp;nbsp;&lt;br&gt;TESTING - most vital elements - front/back end&lt;br&gt;MVP 2 - PRODUCT DEVELOPMENT and IMPROVEMENT&lt;br&gt;&lt;br&gt;EXTRA&amp;nbsp; AUTHENTICATION AND&amp;nbsp; AUTHORISATION (2 Factor?)&lt;br&gt;&lt;br&gt;ADMIN - ability to add/delete/manage users&amp;nbsp;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1040" y="1210" width="439" height="270" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
