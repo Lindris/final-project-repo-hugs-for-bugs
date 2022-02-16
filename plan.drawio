@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="tE0pKnJeG2X2ftlu6iPr" name="Page-1">
-        <mxGraphModel dx="1448" dy="2150" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3060" dy="1927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -89,54 +89,54 @@
                     <mxGeometry x="510" y="1190" width="530" height="360" as="geometry"/>
                 </mxCell>
                 <mxCell id="AnvaBn-kyIvDwreXPjd7-39" value="MVP -&amp;nbsp;&amp;nbsp;&lt;br&gt;Event planning app for Bootcamper Graduates to&amp;nbsp; bridge the gap in the interim period between the completion of the bootcamp and settling into a new job. The an app that will enable the continuation of the feeling of community and collaboration that one gets whilst in the school of code. The app will provide value by enabling members to continue learning and participate collaboratively in coding and industry related activities.&lt;br&gt;&lt;br&gt;&lt;br&gt;The MVP app will allow user to:&lt;br&gt;&amp;nbsp;- set up a profile and &lt;br&gt;- have identity authenticated &lt;br&gt;- set up an event&lt;br&gt;- view events organised&lt;br&gt;&amp;nbsp;- join an already existing event&lt;br&gt;&lt;br&gt;&lt;br&gt;Test on bootcampers - &lt;br&gt;once successful -&amp;nbsp; create for wider user group" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="810" y="2050" width="340" height="390" as="geometry"/>
+                    <mxGeometry x="425" y="2120" width="365" height="340" as="geometry"/>
                 </mxCell>
-                <mxCell id="40" value="PLANNING THE TECH" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="40" value="PLANNING THE TECH" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="50" y="1600" width="740" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="FRONT END" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="41" value="FRONT END" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="50" y="1670" width="350" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="42" value="BACK END" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="42" value="BACK END" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="432.5" y="1670" width="350" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="43" value="REACT&amp;nbsp;&lt;br&gt;- Easily incorporate components" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="43" value="REACT&amp;nbsp;&lt;br&gt;- Easily incorporate components" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="50" y="1720" width="350" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="44" value="TYPESCRIPT&lt;br&gt;- Helps prevent errors/bugs&lt;br&gt;- Maintanability" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="44" value="TYPESCRIPT&lt;br&gt;- Helps prevent errors/bugs&lt;br&gt;- Maintanability" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="50" y="1790" width="350" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="45" value="NEXT&lt;br&gt;- Linking pages and routes" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="45" value="NEXT&lt;br&gt;- Linking pages and routes" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="50" y="1870" width="350" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" value="NETLIFY&lt;br&gt;- Version control" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="46" value="NETLIFY&lt;br&gt;- Version control" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="45" y="1950" width="165" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" value="FIREBASE&lt;br&gt;- Dynamic sites" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="47" value="FIREBASE&lt;br&gt;- Dynamic sites" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="235" y="1950" width="165" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="48" value="AUTH0&lt;br&gt;- Authentication/Authorisation" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="48" value="AUTH0&lt;br&gt;- Authentication/Authorisation" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="50" y="2030" width="350" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="49" value="FIGMA&lt;br&gt;- Hi Fi diagrams" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="49" value="FIGMA&lt;br&gt;- Hi Fi diagrams" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="50" y="2110" width="350" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="Ant Design" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="50" value="Ant Design" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="45" y="2200" width="105" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="Bootstrap" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="52" value="Bootstrap" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="167.5" y="2200" width="105" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="Chakra" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="53" value="Chakra" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="295" y="2200" width="105" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="54" value="JEST&lt;br&gt;- Unit testing" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="54" value="JEST&lt;br&gt;- Unit testing" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="425" y="1720" width="365" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="CYPRESS&lt;br&gt;- Front end testing" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="55" value="CYPRESS&lt;br&gt;- Front end testing" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="45" y="2280" width="355" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=-0.02;entryY=0.375;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="56" target="61">
+                <mxCell id="64" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=-0.02;entryY=0.375;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="56" target="61" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="890" y="1900" as="targetPoint"/>
                         <Array as="points">
@@ -144,21 +144,21 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="56" value="NODE/EXPRESS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="56" value="NODE/EXPRESS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="425" y="1795" width="365" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" value="POSTGRES SQL" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="57" value="POSTGRES SQL" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="425" y="1870" width="185" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="65" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="58" target="61">
+                <mxCell id="65" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="58" target="61" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="890" y="1900" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="58" value="MYSQL" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="58" value="MYSQL" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="630" y="1870" width="160" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="67" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;" edge="1" parent="1" source="59">
+                <mxCell id="67" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;" parent="1" source="59" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="910" y="1900" as="targetPoint"/>
                         <Array as="points">
@@ -166,23 +166,50 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="59" value="POSTMAN" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="59" value="POSTMAN" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="425" y="1950" width="365" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="60" value="HEROKU" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="60" value="HEROKU" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="425" y="2030" width="365" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="61" value="REST API" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="61" value="REST API" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="910" y="1870" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="70" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="10" y="2180" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="72" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="740" y="1870" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="76" value="MILESTONES&lt;br&gt;&lt;br&gt;MVP - functioning only - END OF WEEK 2 or sooner&lt;br&gt;&amp;nbsp;FRONT END DEPLOYMENT - END OF WEEK 1 or sooner&lt;br&gt;BACK END DEPLOYMENT - END OF WEEK 1 or sooner&lt;br&gt;&lt;br&gt;MVP - designed for user&amp;nbsp;&lt;br&gt;TESTING - most vital elements - front/back end&lt;br&gt;MVP 2 - PRODUCT DEVELOPMENT and IMPROVEMENT&lt;br&gt;&lt;br&gt;EXTRA&amp;nbsp; AUTHENTICATION AND&amp;nbsp; AUTHORISATION (2 Factor?)&lt;br&gt;&lt;br&gt;ADMIN - ability to add/delete/manage users&amp;nbsp;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="76" value="MILESTONES&lt;br&gt;&lt;br&gt;MVP - functioning only - END OF WEEK 2 or sooner&lt;br&gt;&amp;nbsp;FRONT END DEPLOYMENT - END OF WEEK 1 or sooner&lt;br&gt;BACK END DEPLOYMENT - END OF WEEK 1 or sooner&lt;br&gt;&lt;br&gt;MVP - designed for user&amp;nbsp;&lt;br&gt;TESTING - most vital elements - front/back end&lt;br&gt;MVP 2 - PRODUCT DEVELOPMENT and IMPROVEMENT&lt;br&gt;&lt;br&gt;EXTRA&amp;nbsp; AUTHENTICATION AND&amp;nbsp; AUTHORISATION (2 Factor?)&lt;br&gt;&lt;br&gt;ADMIN - ability to add/delete/manage users&amp;nbsp;&lt;br&gt;&lt;br&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="1040" y="1210" width="439" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="COLOR PALETTE" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1080.5" y="1600" width="350" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="#000000" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1080" y="1645" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="1270.5" y="1645" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#D30AFF;" vertex="1" parent="1">
+                    <mxGeometry x="1271" y="1720" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="#D30AFF" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1080.5" y="1720" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fillColor=#580AFF;" vertex="1" parent="1">
+                    <mxGeometry x="1271" y="1800" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="#580AFF" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1080.5" y="1800" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1270.5" y="1880" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="#FFFFFF" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="1080" y="1880" width="160" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
