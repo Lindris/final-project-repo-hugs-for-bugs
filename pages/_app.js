@@ -1,6 +1,6 @@
 // pages/_app.js
 import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./customtheme";
+import theme from "../customtheme";
 import React from "react";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import "@fontsource/quicksand/400.css";

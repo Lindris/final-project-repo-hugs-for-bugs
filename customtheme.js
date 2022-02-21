@@ -10,3 +10,6 @@ const colors = {
 };
 const theme = extendTheme({ colors });
 export default theme;
+export function create() {
+  return <p>create</p>;
+}
