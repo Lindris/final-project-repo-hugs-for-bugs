@@ -1,5 +1,6 @@
 // import { Menu } from "antd";
-import { Menu, MenuList, MenuItem } from "@chakra-ui/react";
+import { Menu, MenuList, MenuItem, MenuButton, Button } from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
@@ -31,14 +32,11 @@ export default function Navbar() {
           <MenuButton
             as={Button}
             rightIcon={<ChevronDownIcon />}
-            colorScheme="brand"
+            // colorScheme="brand"
           >
             Actions
           </MenuButton>
-          <MenuList
-
-          // icon={<SettingOutlined />}
-          >
+          <MenuList>
             <MenuItem>
               <Link href="/profile">
                 <a>My events</a>
