@@ -1,20 +1,21 @@
-import { Menu } from "antd";
+// import { Menu } from "antd";
+import { Menu, MenuList, MenuItem } from "@chakra-ui/react";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
-const { SubMenu } = Menu;
+// const { SubMenu } = Menu;
 
 export default function Navbar() {
   const { user } = useUser();
   user ? console.log(user) : console.log("user");
   return (
-    <Menu mode="horizontal" style={{ border: "0" }}>
-      <Menu.Item key="logo">
+    <Menu>
+      <MenuItem>
         <Link href="/">
           <a>LOGO</a>
         </Link>
-      </Menu.Item>
-      <Menu.Item key="userCreate">
+      </MenuItem>
+      <MenuItem>
         {user ? (
           <Link href="/create">
             <a>Create an Event</a>
@@ -24,42 +25,49 @@ export default function Navbar() {
             <a>Create an Event</a>
           </Link>
         )}
-      </Menu.Item>
+      </MenuItem>
       {user ? (
-        <SubMenu
-          key="SubMenu"
+        <>
+          <MenuButton
+            as={Button}
+            rightIcon={<ChevronDownIcon />}
+            colorScheme="brand"
+          >
+            Actions
+          </MenuButton>
+          <MenuList
+
           // icon={<SettingOutlined />}
-          title={user.name}
-          style={{ marginLeft: "auto" }}
-        >
-          <Menu.Item key="profile">
-            <Link href="/profile">
-              <a>My events</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item disabled key="Past events">
-            <Link href="/api/auth/logout">
-              <a>Organised events</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item disabled key="Past events">
-            <Link href="/api/auth/logout">
-              <a>Past events</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="logout">
-            <Link href="/api/auth/logout">
-              <a>Log out</a>
-            </Link>
-          </Menu.Item>
-        </SubMenu>
+          >
+            <MenuItem>
+              <Link href="/profile">
+                <a>My events</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/api/auth/logout">
+                <a>Organised events</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/api/auth/logout">
+                <a>Past events</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/api/auth/logout">
+                <a>Log out</a>
+              </Link>
+            </MenuItem>
+          </MenuList>
+        </>
       ) : (
-        <Menu.Item style={{ marginLeft: "auto" }} key="login">
+        <MenuItem>
           <Link href="/api/auth/login">
             {/* put in href once auth0 had been set up */}
             <a>Sign up/Log in</a>
           </Link>
-        </Menu.Item>
+        </MenuItem>
       )}
     </Menu>
   );
