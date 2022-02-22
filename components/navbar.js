@@ -1,11 +1,10 @@
-// import { Menu } from "antd";
 import { Menu, MenuList, MenuItem, MenuButton, Button } from "@chakra-ui/react";
 import { HStack, Flex, Box, Spacer } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
-// const { SubMenu } = Menu;
+
 
 export default function Navbar() {
 	const { user } = useUser();

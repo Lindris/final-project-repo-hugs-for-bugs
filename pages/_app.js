@@ -6,6 +6,7 @@ import { UserProvider } from "@auth0/nextjs-auth0";
 import "@fontsource/quicksand/400.css";
 import "./styles.css";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 
 // import { extendTheme } from "@chakra-ui/react";
 
@@ -25,6 +26,7 @@ function App({ Component, pageProps }) {
 			<UserProvider>
 				<Navbar />
 				<Component {...pageProps} />
+				<Footer />
 			</UserProvider>
 		</ChakraProvider>
 	);
