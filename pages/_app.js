@@ -4,7 +4,7 @@ import theme from "../customtheme";
 import React from "react";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import "@fontsource/quicksand/400.css";
-import "./styles.css";
+import "../styles.css"
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
@@ -26,7 +26,9 @@ function App({ Component, pageProps }) {
 			<UserProvider>
 				<Navbar />
 				<Component {...pageProps} />
-				<Footer />
+				<div className="footer">
+					<Footer />
+				</div>
 			</UserProvider>
 		</ChakraProvider>
 	);
