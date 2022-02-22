@@ -5,6 +5,7 @@ import React from "react";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import "@fontsource/quicksand/400.css";
 import "./styles.css";
+import Navbar from "../components/navbar";
 
 // import { extendTheme } from "@chakra-ui/react";
 
@@ -19,13 +20,14 @@ import "./styles.css";
 // const theme = extendTheme({ colors });
 
 function App({ Component, pageProps }) {
-  return (
-    <ChakraProvider theme={theme}>
-      <UserProvider>
-        <Component {...pageProps} />
-      </UserProvider>
-    </ChakraProvider>
-  );
+	return (
+		<ChakraProvider theme={theme}>
+			<UserProvider>
+				<Navbar />
+				<Component {...pageProps} />
+			</UserProvider>
+		</ChakraProvider>
+	);
 }
 
 export default App;
