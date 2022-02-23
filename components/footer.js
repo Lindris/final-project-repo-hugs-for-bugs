@@ -1,6 +1,5 @@
 import {
   ButtonGroup,
-  Container,
   IconButton,
   Stack,
   Text,
@@ -21,13 +20,14 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 export default function Footer() {
   return (
     <Flex>
-      <Container Container as="footer" role="contentinfo" py={{ base: "12", md: "16" }}>
+      <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Stack spacing={{ base: "4", md: "5" }}>
-          <Stack justify="space-between" direction="row" align="center">
+          <Stack justify="space-between" direction="row">
             <Box>
               <h1>Logo</h1>
-              </Box>
-              <Spacer />
+            </Box>
+            <Spacer />
+            <Box>
               <ButtonGroup variant="ghost">
                 <IconButton
                   as="a"
@@ -48,13 +48,15 @@ export default function Footer() {
                   icon={<FaTwitter fontSize="1.25rem" />}
                 />
               </ButtonGroup>
+            </Box>
           </Stack>
           <Text fontSize="sm" color="subtle">
             &copy; {new Date().getFullYear()} Co:llab, Inc. All rights
             reserved.
           </Text>
         </Stack>
-      </Container>
+      </Box>
     </Flex>
   );
 }
+

@@ -1,4 +1,6 @@
 import { Button } from "@chakra-ui/react";
+import Link from "next/link";
+
 //use chakra 'button' component - choose
 //create export default function LargeButton - call different name than chakra button
 //return button with color, size - from chacka UI Library
@@ -11,12 +13,15 @@ import { Button } from "@chakra-ui/react";
 export default function LargeButton({ text }) {
   return (
     <Button
-      color="brand.quaternary"
-      bg="brand.primary"
+      color="brand.primaryLight"
+      bg="brand.mainPurple"
       borderRadius="25px"
       size="lg"
+      letterSpacing="0.5px"
     >
-      {text}
+      <Link href="/events">
+        {text}
+      </Link>
     </Button>
   );
 }

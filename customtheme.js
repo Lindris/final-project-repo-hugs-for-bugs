@@ -11,10 +11,10 @@ import { extendTheme } from "@chakra-ui/react";
 
 const colors = {
   brand: {
-    primary: "#580AFF",
-    secondary: "#9E89F1",
-    tertiary: "#000000",
-    quaternary: "#FFFFFF"
+    mainPurple: "#580AFF",
+    secondaryPurple: "#9E89F1",
+    primaryDark: "#000000",
+    primaryLight: "#FFFFFF"
   },
 };
 
