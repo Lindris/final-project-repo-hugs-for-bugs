@@ -1,8 +1,11 @@
 import Head from "next/head";
-import LargeButton from "../components/button";
+import MainButton from "../components/mainButton";
+import MainImage from "../components/mainImage";
 
 //add button tag below h1
-//import Largebutton from components/button
+//import mainButon from components/button
+
+// import mainImage component and pass down the src and alt as props
 
 export default function Home() {
   return (
@@ -12,7 +15,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Code & Collab</h1>
-      <LargeButton text={"Explore all events"} />
+      <MainImage src={"https://i.ibb.co/WKTyGwF/1-WPPKg-TLkh-Iphro-To-MHVoo-Q-1.png"} alt={"collaboration"} />
+      <MainButton text={"Explore all events"} route={"/events"} />
     </div>
   );
 }

@@ -10,7 +10,7 @@ import Link from "next/link";
 //set colour of font and background using color='brand.quaternary' for white text and bg='brand.primary' (for purple)
 //round off corners using borderRadius
 
-export default function mainButton({ text }) {
+export default function MainButton({ text, route }) {
   return (
     <Button
       color="brand.primaryLight"
@@ -19,7 +19,7 @@ export default function mainButton({ text }) {
       size="lg"
       letterSpacing="0.5px"
     >
-      <Link href="/events">
+      <Link href={route}>
         {text}
       </Link>
     </Button>
