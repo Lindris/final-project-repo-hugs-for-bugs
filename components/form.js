@@ -1,7 +1,6 @@
 import {
   // Form,
   Select,
-  FormControl,
   FormLabel,
   Button,
   Input,
@@ -15,7 +14,7 @@ import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { SingleDatepicker } from "chakra-dayzed-datepicker";
+
 export default function CreateEventForm() {
   const [startDate, setStartDate] = useState(new Date());
   const {
@@ -28,7 +27,7 @@ export default function CreateEventForm() {
 
   function onSubmit(values, e) {
     console.log(values);
-    e.target.reset();
+    // e.target.reset();
     // send data to API
     // confirm with modal
     // clear the form fields
@@ -68,32 +67,69 @@ export default function CreateEventForm() {
         <FormLabel>Date</FormLabel>
         <Controller
           control={control}
-          name="SingleDatepicker"
+          name="DatePicker"
           render={({ field }) => (
-            <SingleDatepicker
-              placeholderText="Select date"
-              onDateChange={(e) => field.onChange(e)}
+            <DatePicker
+              dateFormat="MMMM d, yyyy"
+              onChange={(e) => field.onChange(e)}
               selected={field.value}
             />
           )}
         />
-        {/* event duration */}
-        <p> insert duration here</p>
+        {/*start time range picker */}
+        <FormLabel>Start Time</FormLabel>
+        <section>
+          <Controller
+            control={control}
+            name="StartTimeRange"
+            render={({ field }) => (
+              <DatePicker
+                selected={field.value}
+                onChange={(e) => field.onChange(e)}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={30}
+                timeCaption="Time"
+                dateFormat="h:mm aa"
+              />
+            )}
+          />
+        </section>
+
+        {/* end time range picker */}
+        <FormLabel>End Time</FormLabel>
+        <section>
+          <Controller
+            control={control}
+            name="EndTimeRange"
+            render={({ field }) => (
+              <DatePicker
+                selected={field.value}
+                onChange={(e) => field.onChange(e)}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={30}
+                timeCaption="Time"
+                dateFormat="h:mm aa"
+              />
+            )}
+          />
+        </section>
         {/* tags  */}
         <FormLabel>
           <EditIcon /> Provide three tags to help describe your event
         </FormLabel>
-        <Editable defaultValue="Tag 1" width="200px" {...register("Editable")}>
+        <Editable defaultValue="Tag 1" width="200px">
           <EditablePreview />
-          <EditableInput />
+          <EditableInput {...register("tag1")} />
         </Editable>
         <Editable defaultValue="Tag 2" width="200px">
           <EditablePreview />
-          <EditableInput {...register("EditableInput")} />
+          <EditableInput {...register("tag2")} />
         </Editable>
         <Editable defaultValue="Tag 3" width="200px">
-          <EditablePreview {...register("Editablep")} />
-          <EditableInput />
+          <EditablePreview />
+          <EditableInput {...register("tag3")} />
         </Editable>
         <Button width="200px" mt={4} type="submit" isLoading={isSubmitting}>
           Submit
@@ -101,16 +137,4 @@ export default function CreateEventForm() {
       </form>
     </Box>
   );
-}
-
-{
-  /* <DatePicker
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          showTimeSelect
-          timeFormat="HH:mm"
-          timeIntervals={30}
-          timeCaption="time"
-          dateFormat="MMMM d, yyyy h:mm aa"
-        /> */
 }
