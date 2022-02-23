@@ -21,7 +21,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 export default function Footer() {
   return (
     <Flex>
-      <Container Container as="footer" role="contentinfo" py={{ base: "12", md: "16" }} color="brand.quaternary">
+      <Container Container as="footer" role="contentinfo" py={{ base: "12", md: "16" }}>
         <Stack spacing={{ base: "4", md: "5" }}>
           <Stack justify="space-between" direction="row" align="center">
             <Box>
