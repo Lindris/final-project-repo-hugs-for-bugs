@@ -5,9 +5,7 @@
 //in heading tag, pass in {heading} under font and {content} under color
 //position and size -  layout
 
-
-
-import Image from 'next/image';
+import MainImage from "../mainImage.js";
 import {
   Box,
   Center,
@@ -17,7 +15,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-export default function InfoCard({content, heading}) {
+export default function InfoCard({ content, heading, src }) {
   return (
     <Center py={6}>
       <Box
@@ -35,10 +33,9 @@ export default function InfoCard({content, heading}) {
           mx={-6}
           mb={6}
           pos={'relative'}>
-          
+          <MainImage src={src} />
         </Box>
         <Stack>
-          
           <Heading
             color={useColorModeValue('gray.700', 'white')}
             fontSize={'2xl'}
@@ -46,7 +43,7 @@ export default function InfoCard({content, heading}) {
             {heading}
           </Heading>
           <Text color={'gray.500'}>
-           {content}
+            {content}
           </Text>
         </Stack>
       </Box>

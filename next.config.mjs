@@ -7,3 +7,4 @@ export default {
     AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
   },
 };
+
