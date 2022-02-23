@@ -27,7 +27,7 @@ function App({ Component, pageProps }) {
 				<Navbar />
 				<Component {...pageProps} />
 				<div className="footer">
-					<Footer />
+					<Footer theme={theme}/>
 				</div>
 			</UserProvider>
 		</ChakraProvider>
