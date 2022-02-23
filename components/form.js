@@ -38,15 +38,22 @@ export default function CreateEventForm() {
   function onSubmit(values, e) {
     console.log(values);
     onOpen();
+    let tags = new Array();
     const newValues = Object.keys(values).map((key) => {
-      console.log(values[key]);
       if (key === "Date") {
         values[key] = values[key].toString().slice(0, 16);
       } else if (key === "Start time" || key === "End time") {
         values[key] = values[key].toString().slice(16, 25);
       }
+      // let tags = new Array(3)
+      else if (key === "tag1" || key === "tag2" || key === "tag3") {
+        console.log(key);
+        tags.push(values[key]);
+        delete values[key];
+      }
     });
-
+    console.log(tags);
+    values["Tags"] = tags;
     const valuesArray = Object.entries(values);
     console.log(valuesArray);
     setEventDetails(valuesArray);
@@ -190,7 +197,7 @@ export default function CreateEventForm() {
               return (
                 <p>
                   <b>{`${item[0]}`}</b>
-                  {` :  ${item[1].toString()}`}
+                  {` :  ${item[1]}`}
                 </p>
               );
             })}
