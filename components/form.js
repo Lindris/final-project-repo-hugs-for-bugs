@@ -38,6 +38,15 @@ export default function CreateEventForm() {
   function onSubmit(values, e) {
     console.log(values);
     onOpen();
+    const newValues = Object.keys(values).map((key) => {
+      console.log(values[key]);
+      if (key === "Date") {
+        values[key] = values[key].toString().slice(0, 16);
+      } else if (key === "Start time" || key === "End time") {
+        values[key] = values[key].toString().slice(16, 25);
+      }
+    });
+
     const valuesArray = Object.entries(values);
     console.log(valuesArray);
     setEventDetails(valuesArray);
@@ -49,100 +58,119 @@ export default function CreateEventForm() {
 
   return (
     <>
-      <Box p={12}>
+      <Box
+        py={4}
+        px={10}
+        // pl={10}
+        maxW="md"
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        display="flex"
+        m="0 auto"
+        mt={10}
+        // align="center"
+      >
         {/* event type */}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FormLabel htmlFor="type">Event type</FormLabel>
+          <FormLabel htmlFor="type" mt={4}>
+            Event type
+          </FormLabel>
           <Select
             placeholder="Select the type of event"
             {...register("Type", {
-              required: "This is required",
-              minLength: {
-                value: 4,
-                message: "Plase provide a link to your event",
-              },
+              required: true,
             })}
           >
             <option value="Hackathon">Hackathon</option>
             <option value="Code Club">Code Club</option>
           </Select>
-          <FormLabel htmlFor="name">Description</FormLabel>
-          <Input id="Description" {...register("title")} />
-          <FormLabel htmlFor="Location">Meeting URL</FormLabel>
+          <FormLabel htmlFor="name" mt={4}>
+            Description
+          </FormLabel>
           <Input
-            id="Location"
-            {...register("Location", {
-              required: "This is required",
-              minLength: {
-                value: 4,
-                message: "Plase provide a link to your event",
-              },
+            id="Description"
+            {...register("Description", {
+              required: true,
             })}
           />
-          <FormLabel>Date</FormLabel>
-          {/* <Controller
+          <FormLabel htmlFor="Location" mt={4}>
+            Meeting URL
+          </FormLabel>
+          <Input
+            id="Location"
+            {...register("Meeting URL", {
+              required: true,
+            })}
+          />
+          <FormLabel mt={4}>Date</FormLabel>
+          <Controller
+            rules={{ required: true }}
             control={control}
-            name="DatePicker"
+            name="Date"
+            required="true"
             render={({ field }) => (
               <DatePicker
-                dateFormat="MMMM d, yyyy"
+                dateFormat="MMMM d yyyy"
                 onChange={(e) => field.onChange(e)}
                 selected={field.value}
               />
             )}
-          /> */}
+          />
+
           {/*start time range picker */}
-          {/* <FormLabel>Start Time</FormLabel>
-          <section>
-            <Controller
-              control={control}
-              name="StartTimeRange"
-              render={({ field }) => (
-                <DatePicker
-                  selected={field.value}
-                  onChange={(e) => field.onChange(e)}
-                  showTimeSelect
-                  showTimeSelectOnly
-                  timeIntervals={30}
-                  timeCaption="Time"
-                  dateFormat="h:mm aa"
-                />
-              )}
-            />
-          </section> */}
+          <FormLabel mt={4}>Start Time</FormLabel>
+
+          <Controller
+            rules={{ required: true }}
+            control={control}
+            name="Start time"
+            render={({ field }) => (
+              <DatePicker
+                selected={field.value}
+                onChange={(e) => field.onChange(e)}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={30}
+                timeCaption="Time"
+                dateFormat="h:mm aa"
+              />
+            )}
+          />
 
           {/* end time range picker */}
-          <FormLabel>End Time</FormLabel>
-          <section>
-            <Controller
-              control={control}
-              name="EndTimeRange"
-              render={({ field }) => (
-                <DatePicker
-                  selected={field.value}
-                  onChange={(e) => field.onChange(e)}
-                  showTimeSelect
-                  showTimeSelectOnly
-                  timeIntervals={30}
-                  timeCaption="Time"
-                  dateFormat="h:mm aa"
-                />
-              )}
-            />
-          </section>
+          <FormLabel mt={4}>End Time</FormLabel>
+
+          <Controller
+            rules={{ required: true }}
+            control={control}
+            name="End time"
+            render={({ field }) => (
+              <DatePicker
+                selected={field.value}
+                onChange={(e) => field.onChange(e)}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={30}
+                timeCaption="Time"
+                dateFormat="h:mm aa"
+              />
+            )}
+          />
+
           {/* tags  */}
-          <FormLabel>
+          <FormLabel mt={2}>
             <EditIcon /> Provide three tags to help describe your event
           </FormLabel>
-          <Editable defaultValue="Tag 1" width="200px">
+          <Editable defaultValue="Tag 1" width="200px" mt={2}>
             <EditablePreview />
             <EditableInput {...register("tag1")} />
           </Editable>
-          <Editable defaultValue="Tag 2" width="200px">
+          <Editable defaultValue="Tag 2" width="200px" mt={2}>
             <EditablePreview />
             <EditableInput {...register("tag2")} />
           </Editable>
-          <Editable defaultValue="Tag 3" width="200px">
+          <Editable defaultValue="Tag 3" width="200px" mt={2}>
             <EditablePreview />
             <EditableInput {...register("tag3")} />
           </Editable>
@@ -159,7 +187,12 @@ export default function CreateEventForm() {
           <ModalCloseButton />
           <ModalBody>
             {eventdetails.map((item, i) => {
-              return <p>{`${item[0]}: ${item[1].toString()}`}</p>;
+              return (
+                <p>
+                  <b>{`${item[0]}`}</b>
+                  {` :  ${item[1].toString()}`}
+                </p>
+              );
             })}
           </ModalBody>
 
