@@ -1,8 +1,9 @@
-import { Grid, GridItem, Box, Center } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Center, Spacer, HStack, Text } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
+import Paragraph from "../components/Paragraph";
 
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
@@ -31,19 +32,31 @@ export default function Profile() {
           </Box>
         </GridItem>
         <GridItem colSpan={1}>
-          <Box></Box>
+          <Box
+            p={5}
+            shadow='md'
+            borderWidth='1px'
+            flex='1'
+            borderRadius='md'>
+            <HStack mb="4">
+              <Paragraph fontSize={"1.6em"} fontWeight={"extrabold"} text={"Your next event"} />
+              <Spacer />
+              <Paragraph fontSize={"1em"} colour={"brand.mainPurple"} fontWeight={"extrabold"} text={"View all"} />
+            </HStack>
+            <Paragraph text={"Test Event"} fontSize={"1.2em"} fontWeight={"bold"} />
+            <Paragraph text={"Wed 16 Feb 2022, 00:00"} fontSize={"0.9em"} fontWeight={"bold"} colour={"brand.mainPurple"} />
+            <Paragraph text={"Online Event"} fontSize={"0.8em"} fontWeight={"medium"} />
+          </Box>
         </GridItem>
         <GridItem colSpan={1}>
-          <Box></Box>
         </GridItem>
         <GridItem colSpan={1}>
-          <Box></Box>
         </GridItem>
         <GridItem colSpan={3}>
           <Box>
-            <SubHeader text={"Suggested events"} />
+            <SubHeader text={" Suggested events"} />
+            <Spacer />
             <Box>
-              <EventListingCard />
               <EventListingCard />
               <EventListingCard />
               <EventListingCard />
@@ -57,3 +70,4 @@ export default function Profile() {
     </>
   );
 }
+

@@ -35,9 +35,9 @@ function App({ Component, pageProps }) {
 				<div className="container">
 					<Component {...pageProps} />
 				</div>
-				<div className="footer">
+				{/* <div className="footer">
 					<Footer />
-				</div>
+				</div> */}
 			</UserProvider>
 			</AppContainer>
 		</ChakraProvider >
