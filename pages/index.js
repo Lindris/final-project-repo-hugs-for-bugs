@@ -4,7 +4,17 @@ import MainImage from "../components/mainImage";
 import InfoCard from "../components/cards/infoCard";
 import Paragraph from "../components/paragraph";
 import Header from "../components/header";
-import { GridItem, Grid, HStack, Spacer, Flex, Box, Center, Text } from '@chakra-ui/react'
+import SubHeader from "../components/subheader";
+import {
+  GridItem,
+  Grid,
+  HStack,
+  Spacer,
+  Flex,
+  Box,
+  Center,
+  Text,
+} from "@chakra-ui/react";
 
 //add button tag below h1
 //import mainButon from components/button
@@ -12,14 +22,14 @@ import { GridItem, Grid, HStack, Spacer, Flex, Box, Center, Text } from '@chakra
 //import InfoCard
 //add image link
 //in main div create react component for InfoCard with content props {text} and heading {}
-// create grid to wrap main content in 
-// grid should encompass the header, main image, cards and button 
+// create grid to wrap main content in
+// grid should encompass the header, main image, cards and button
 
 // Replace any text on the page using the Paragraph component so we avoid hard-coding the font-family and maintain re-usability
+//import SubHeader and replace paragraph tag with SubHeader tag - remove fontsize and weight
 
-
-const placeholderText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
+const placeholderText =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 export default function Home() {
   return (
@@ -29,14 +39,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Grid
-        templateRows='repeat(2, 1fr)'
-        templateColumns='repeat(4, 1fr)'
+        templateRows="repeat(2, 1fr)"
+        templateColumns="repeat(4, 1fr)"
         gap={4}
       >
         <GridItem colSpan={2}>
           <Box textAlign="center">
-          <Header text={"Code"} />
-          <Header text={"& Collab"} />
+            <Header text={"Code"} />
+            <Header text={"& Collab"} />
           </Box>
         </GridItem>
         <GridItem colSpan={2}>
@@ -47,7 +57,7 @@ export default function Home() {
         </GridItem>
         <GridItem colSpan={4}>
           <Center p="1em">
-            <Paragraph fontSize={"3em"} text={"See what's happening"} fontWeight={"extrabold"} />
+            <SubHeader text={"See what's happening"} />
           </Center>
           <Center>
             <Box>
@@ -72,4 +82,3 @@ export default function Home() {
     </>
   );
 }
-
