@@ -1,0 +1,16 @@
+body {
+  font-family: "Quicksand";
+  position: relative;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  margin: 5em;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+}
