@@ -24,6 +24,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useUser } from "@auth0/nextjs-auth0";
+import Router from 'next/router'
+
 
 export default function CreateEventForm() {
   const { user } = useUser();
@@ -61,6 +63,7 @@ export default function CreateEventForm() {
     console.log(formValues);
     axios.post("http://localhost:5000/events", formValues).then((response) => {
       console.log("New Event Created");
+      Router.reload(window.location.pathname)
     });
   }
 
@@ -77,7 +80,7 @@ export default function CreateEventForm() {
         display="flex"
         m="0 auto"
         mt={10}
-        // align="center"
+      // align="center"
       >
         {/* event type */}
         <form onSubmit={handleSubmit(onSubmit)}>

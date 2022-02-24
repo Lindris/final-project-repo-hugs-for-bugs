@@ -3,8 +3,8 @@ import MainButton from "../components/mainButton";
 import MainImage from "../components/mainImage";
 import InfoCard from "../components/cards/infoCard";
 import Paragraph from "../components/paragraph";
-import Header from "../components/header";
-import SubHeader from "../components/subheader";
+import Header from "../components/headers/header";
+import SubHeader from "../components/headers/subheader";
 import {
   GridItem,
   Grid,

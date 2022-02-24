@@ -5,7 +5,7 @@
 //replace in index.js
 
 import React from "react";
-import Paragraph from "./paragraph";
+import Paragraph from "../paragraph";
 
 const SubHeader = ({ text }) => {
   return (

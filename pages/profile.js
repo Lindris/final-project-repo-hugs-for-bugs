@@ -1,6 +1,6 @@
 import { Grid, GridItem, Box, Center } from "@chakra-ui/react";
-import Header from "../components/header";
-import SubHeader from "../components/subheader";
+import Header from "../components/headers/header";
+import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
 
