@@ -13,9 +13,16 @@
     "@emotion/styled": "^11.8.1",
     "@fontsource/quicksand": "^4.5.4",
     "@leight-core/leight": "^0.12.130",
+    "axios": "^0.26.0",
+    "chakra-dayzed-datepicker": "^0.1.5",
+    "date-fns": "^2.28.0",
+    "dayzed": "^3.2.2",
     "framer-motion": "^6.2.6",
     "next": "latest",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-datepicker": "^4.6.0",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.27.1",
+    "react-time-range": "^1.0.4"
   }
 }
