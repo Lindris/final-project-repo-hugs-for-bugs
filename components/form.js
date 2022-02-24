@@ -37,25 +37,6 @@ export default function CreateEventForm() {
 		reset,
 	} = useForm();
 
-	function renameKeys() {
-		formValues;
-		const mapping = {
-			Description: "event_desc",
-			Date: "event_date",
-			"Start time": "event_start_time",
-			"End time": "event_end_time",
-			"Meeting URL": "event_location",
-			Type: "event_type",
-			Tags: "event_tags",
-		};
-
-		const mapped = Object.keys(formValues).reduce((acc, key) => {
-			acc[mapping[key]] = formValues[key];
-			return acc;
-		}, {});
-		console.log(mapped);
-	}
-
 	function onSubmit(values, e) {
 		console.log(values);
 		setFormValues(values);
@@ -83,34 +64,36 @@ export default function CreateEventForm() {
 		// send data to API
 		// confirm with modal
 		// clear the form fields
-
-		renameKeys();
+		//replaceObjKeys();
 	}
 
-	// const properties = {
-	//   folder_name: "test",
-	//   user_email: "test@example.com",
-	//   user_agreed: 1,
-	//   site: "example.com"
-	// };
-
-	// function handleModalSubmit() {
-	// 	formValues.map(() => {});
-	// 	// const data = {
-	// 	// 	event_desc,
-	// 	// 	event_date,
-	// 	// 	event_start_time,
-	// 	// 	event_end_time,
-	// 	// 	event_location,
-	// 	// 	event_type,
-	// 	// 	event_tags,
-	// 	// 	auth_id,
-	// 	// };
-	// 	axios.post("http://localhost:5000/events", formValues).then((response) => {
-	// 		console.log(formValues);
-	// 		console.log("New Event Created");
-	// 	});
-	// }
+	function handleModalSubmit() {
+		const arr = [
+			"event_desc",
+			"event_date",
+			"event_start_time",
+			"event_end_time",
+			"event_location",
+			"event_type",
+			"event_tags",
+		];
+		let obj = formValues;
+		const replaceKeys = (arr, obj) => {
+			const keys = Object.keys(obj);
+			const res = {};
+			for (let i = 0; i < arr.length; i++) // (let a in arr)
+			{
+				res[arr[i]] = obj[keys[i]];
+				obj[arr[i]] = obj[keys[i]];
+				delete obj[keys[i]];
+			}
+		};
+		replaceKeys(arr, obj);
+		console.log(obj);
+		axios.post("http://localhost:5000/events", obj).then((response) => {
+			console.log("New Event Created");
+		});
+	}
 
 	return (
 		<>
@@ -256,10 +239,7 @@ export default function CreateEventForm() {
 						<Button colorScheme="blue" mr={3} onClick={onClose}>
 							Edit details
 						</Button>
-						<Button
-							variant="ghost"
-							// onClick={handleModalSubmit}
-						>
+						<Button variant="ghost" onClick={handleModalSubmit}>
 							Confirm event
 						</Button>
 					</ModalFooter>
