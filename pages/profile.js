@@ -2,6 +2,7 @@ import { Grid, GridItem, Box, Center } from "@chakra-ui/react";
 import Header from "../components/header";
 import SubHeader from "../components/subheader";
 import MainButton from "../components/mainButton";
+import EventListingCard from "../components/cards/eventListingCard";
 
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
@@ -13,6 +14,7 @@ import MainButton from "../components/mainButton";
 //add a center tag to centre the welcome message
 //In bottom row - add our sub header and Mainbutton
 //import subHeader and MainButton
+// imported in eventlisting component and added in row 3 within a box
 
 export default function Profile() {
   return (
@@ -24,9 +26,7 @@ export default function Profile() {
     >
       <GridItem colSpan={3} >
         <Box>
-          <Center>
-            <Header text={"Welcome back, Hajara!"} />
-          </Center>
+          <Header text={"Welcome back, Hajara!"} />
         </Box>
       </GridItem>
       <GridItem colSpan={1}>
@@ -41,6 +41,9 @@ export default function Profile() {
       <GridItem colSpan={3}>
         <Box>
           <SubHeader text={"Suggested events"} />
+          <Box>
+            <EventListingCard />
+          </Box>
           <Center>
             <MainButton text={"Explore all events"} route={"/events"} />
           </Center>
