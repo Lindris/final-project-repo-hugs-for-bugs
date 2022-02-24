@@ -18,37 +18,42 @@ import EventListingCard from "../components/cards/eventListingCard";
 
 export default function Profile() {
   return (
-    <Grid
-      h="200px"
-      templateRows="repeat(3, 1fr)"
-      templateColumns="repeat(3, 1fr)"
-      gap={4}
-    >
-      <GridItem colSpan={3} >
-        <Box>
-          <Header text={"Welcome back, Hajara!"} />
-        </Box>
-      </GridItem>
-      <GridItem colSpan={1}>
-        <Box></Box>
-      </GridItem>
-      <GridItem colSpan={1}>
-        <Box></Box>
-      </GridItem>
-      <GridItem colSpan={1}>
-        <Box></Box>
-      </GridItem>
-      <GridItem colSpan={3}>
-        <Box>
-          <SubHeader text={"Suggested events"} />
+    <>
+      <Grid
+        h="200px"
+        templateRows="repeat(3, 1fr)"
+        templateColumns="repeat(3, 1fr)"
+        gap={4}
+      >
+        <GridItem colSpan={3} >
           <Box>
-            <EventListingCard />
+            <Header text={"Welcome back, Hajara!"} />
           </Box>
-          <Center>
-            <MainButton text={"Explore all events"} route={"/events"} />
-          </Center>
-        </Box>
-      </GridItem>
-    </Grid>
+        </GridItem>
+        <GridItem colSpan={1}>
+          <Box></Box>
+        </GridItem>
+        <GridItem colSpan={1}>
+          <Box></Box>
+        </GridItem>
+        <GridItem colSpan={1}>
+          <Box></Box>
+        </GridItem>
+        <GridItem colSpan={3}>
+          <Box>
+            <SubHeader text={"Suggested events"} />
+            <Box>
+              <EventListingCard />
+              <EventListingCard />
+              <EventListingCard />
+              <EventListingCard />
+            </Box>
+            <Center>
+              <MainButton text={"Explore all events"} route={"/events"} />
+            </Center>
+          </Box>
+        </GridItem>
+      </Grid>
+    </>
   );
 }

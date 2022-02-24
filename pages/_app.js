@@ -35,9 +35,9 @@ function App({ Component, pageProps }) {
 				<div className="container">
 					<Component {...pageProps} />
 				</div>
-				{/* <div className="footer">
-					<Footer theme={theme} />
-				</div> */}
+				<div className="footer">
+					<Footer />
+				</div>
 			</UserProvider>
 			</AppContainer>
 		</ChakraProvider >

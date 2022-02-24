@@ -1,4 +1,10 @@
-import { Stack, Box, HStack, Spacer } from '@chakra-ui/react';
+import {
+    Box,
+    Center,
+    Flex,
+    Stack,
+    useColorModeValue,
+} from '@chakra-ui/react';
 import Paragraph from '../paragraph';
 import MainImage from '../mainImage';
 
@@ -13,24 +19,41 @@ const event_name = "Test Event";
 const event_date = "Wed 16 Feb 2022, 00:00";
 const event_location = "Online Event";
 
+
+
 export default function EventListingCard() {
     return (
-        <Stack p="4" boxShadow="lg" borderRadius="sm">
-            <HStack>
-                <Box>
-                    <Stack direction="column"
-                        justifyContent={'space-between'}>
-                        <Paragraph text={event_name} fontSize={"2em"} fontWeight={"bold"} />
-                        <Paragraph text={event_date} fontSize={"1em"} fontWeight={"bold"} colour={"brand.mainPurple"} />
-                        <Paragraph text={event_location} fontSize={"0.9em"} fontWeight={"medium"} />
-                    </Stack>
-                </Box>
-                <Spacer />
-                <Box maxW="300px">
-                    <MainImage src={"https://i.ibb.co/4jBv2Fr/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"} alt={"image of friends meeting"} />
-                </Box>
-            </HStack>
-        </Stack>
+        <Center py={6}>
+            <Stack
+                w={{ sm: '100%' }}
+                height={{ sm: '300px', md: '15rem' }}
+                direction={{ base: 'column', md: 'row' }}
+                bg={useColorModeValue('white', 'gray.900')}
+                boxShadow={'md'}
+                padding={4}
+                _hover={{ border: "solid 4px #580AFF" }}>
+                <Stack
+                    flex={1}
+                    flexDirection="column"
+                    justifyContent={"flex-start"}
+                    alignItems={"flex-start"}
+                    p={1}
+                    pt={2}>
+                    <Paragraph text={event_name} fontSize={"2em"} fontWeight={"bold"} />
+                    <Paragraph text={event_date} fontSize={"1em"} fontWeight={"bold"} colour={"brand.mainPurple"} />
+                    <Paragraph text={event_location} fontSize={"0.9em"} fontWeight={"medium"} />
+                </Stack>
+                <Flex
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                >
+                    <Box boxSize='200px' align="center">
+                        <MainImage src={"https://i.ibb.co/4jBv2Fr/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"} alt={"image of friends meeting"} />
+                    </Box>
+                </Flex>
+            </Stack>
+        </Center >
     );
 }
+
 
