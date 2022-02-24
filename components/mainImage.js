@@ -5,8 +5,8 @@ import { Image, Box } from '@chakra-ui/react';
 
 export default function mainImage({src, alt}) {
     return (
-        <Box boxSize='lg'>
-            <Image src={src} alt={alt} />
+        <Box>
+            <Image src={src} alt={alt}/>
         </Box>
     )
 }

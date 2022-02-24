@@ -19,7 +19,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <Flex>
+    <Flex fontFamily="Quicksand">
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Stack spacing={{ base: "4", md: "5" }}>
           <Stack justify="space-between" direction="row">

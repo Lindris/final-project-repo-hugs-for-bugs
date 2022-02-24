@@ -10,8 +10,8 @@ export default function Navbar() {
 	const { user } = useUser();
 	user ? console.log(user) : console.log("user");
 	return (
-		<Flex>
-			<Box>
+		<Flex fontFamily="Quicksand">
+			<Box m="2" >
 				<HStack>
 					<Menu>
 						<MenuItem>
@@ -19,14 +19,14 @@ export default function Navbar() {
 								<a>LOGO</a>
 							</Link>
 						</MenuItem>
-						<MenuItem>
+						<MenuItem color="brand.mainPurple" fontWeight="bold">
 							{user ? (
 								<Link href="/create">
-									<a>Create an Event</a>
+									<a>Create an event</a>
 								</Link>
 							) : (
 								<Link href="/api/auth/login">
-									<a>Create an Event</a>
+									<a>Create an event</a>
 								</Link>
 							)}
 						</MenuItem>

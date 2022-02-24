@@ -18,6 +18,7 @@ export default function MainButton({ text, route }) {
       borderRadius="25px"
       size="lg"
       letterSpacing="0.5px"
+      fontFamily="Quicksand"
     >
       <Link href={route}>
         {text}

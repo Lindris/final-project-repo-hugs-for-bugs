@@ -2,11 +2,15 @@ body {
   font-family: "Quicksand";
   position: relative;
   min-height: 100vh;
+  margin: 0 auto;
+}
+
+.container {
+  position: relative;
+  margin: 5em;
 }
 
 .footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
-/* background-color: #000000; */
 }

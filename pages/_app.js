@@ -32,7 +32,7 @@ function App({ Component, pageProps }) {
 					<Footer theme={theme} />
 				</div>
 			</UserProvider>
-		</ChakraProvider>
+		</ChakraProvider >
 	);
 }
 
