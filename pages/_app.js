@@ -3,10 +3,12 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../customtheme";
 import React from "react";
 import { UserProvider } from "@auth0/nextjs-auth0";
-import "@fontsource/quicksand/400.css";
 import "../styles.css"
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import styled from "@emotion/styled";
+import "@fontsource/quicksand";
+import "@fontsource/quicksand/400.css";
 
 // import { extendTheme } from "@chakra-ui/react";
 
@@ -20,9 +22,14 @@ import Footer from "../components/footer";
 // };
 // const theme = extendTheme({ colors });
 
+const AppContainer = styled.div`
+	font-family: "Quicksand";
+`;
+
 function App({ Component, pageProps }) {
 	return (
 		<ChakraProvider theme={theme}>
+			<AppContainer>
 			<UserProvider>
 				<Navbar />
 				<div className="container">
@@ -32,6 +39,7 @@ function App({ Component, pageProps }) {
 					<Footer theme={theme} />
 				</div>
 			</UserProvider>
+			</AppContainer>
 		</ChakraProvider >
 	);
 }

@@ -6,7 +6,7 @@ import { Text } from '@chakra-ui/react'
 const Paragraph = ({ text, fontSize, fontWeight }) => {
     return (
         <div>
-            <Text fontSize={fontSize} fontFamily="Quicksand" fontWeight={fontWeight}>{text}</Text>
+            <Text fontSize={fontSize} fontWeight={fontWeight}>{text}</Text>
         </div>
     )
 }
