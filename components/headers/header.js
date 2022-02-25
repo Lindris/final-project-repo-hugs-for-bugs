@@ -3,10 +3,10 @@
 // Only need to pass in text as a prop
 import Paragraph from "../paragraph";
 
-const Header = ({ text }) => {
+const Header = ({ content }) => {
     return (
         <div>
-            <Paragraph fontSize={"5em"} text={text} fontWeight={"extrabold"} />
+            <Paragraph fontSize={"5em"} content={content} fontWeight={"extrabold"} />
         </div>
     )
 }

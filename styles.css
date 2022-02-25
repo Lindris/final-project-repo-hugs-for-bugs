@@ -2,7 +2,7 @@ body {
   font-family: "Quicksand";
   position: relative;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .container {
@@ -10,7 +10,28 @@ body {
   margin: 5em;
 }
 
+.favourite {
+  display: block;
+}
+
+.fav--before {
+  display: block;
+}
+
+.fav--after {
+  display: none;
+  color :red;
+}
+
+.favourite:hover .fav--before {
+  display:none
+}
+
+.favourite:hover .fav--after {
+  display:block
+}
+
 .footer {
-  bottom: 0;
-  width: 100%;
+  bottom:0;
+  left:0;
 }
