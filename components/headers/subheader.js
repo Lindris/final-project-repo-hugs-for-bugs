@@ -7,10 +7,10 @@
 import React from "react";
 import Paragraph from "../paragraph";
 
-const SubHeader = ({ text }) => {
+const SubHeader = ({ content }) => {
   return (
     <div>
-      <Paragraph fontSize={"3em"} text={text} fontWeight={"extrabold"} />
+      <Paragraph fontSize={"3em"} content={content} fontWeight={"extrabold"} />
     </div>
   );
 };

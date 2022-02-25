@@ -2,7 +2,6 @@ import Head from "next/head";
 import MainButton from "../components/mainButton";
 import MainImage from "../components/mainImage";
 import InfoCard from "../components/cards/infoCard";
-import Paragraph from "../components/paragraph";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import {
@@ -45,8 +44,8 @@ export default function Home() {
       >
         <GridItem colSpan={2}>
           <Box textAlign="center">
-            <Header text={"Code"} />
-            <Header text={"& Collab"} />
+            <Header content={"Code"} />
+            <Header content={"& Collab"} />
           </Box>
         </GridItem>
         <GridItem colSpan={2}>
@@ -57,7 +56,7 @@ export default function Home() {
         </GridItem>
         <GridItem colSpan={4}>
           <Center p="1em">
-            <SubHeader text={"See what's happening"} />
+            <SubHeader content={"See what's happening"} />
           </Center>
           <Center>
             <Box>
@@ -74,7 +73,7 @@ export default function Home() {
           </Center>
           <Box p="5">
             <Center>
-              <MainButton text={"Explore all events"} route={"/events"} />
+              <MainButton content={"Explore all events"} route={"/events"} />
             </Center>
           </Box>
         </GridItem>

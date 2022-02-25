@@ -1,9 +1,9 @@
-import { Grid, GridItem, Box, Center, Spacer, HStack, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Center, Spacer, HStack } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
-import Paragraph from "../components/Paragraph";
+import Paragraph from "../components/paragraph";
 
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
@@ -28,7 +28,7 @@ export default function Profile() {
       >
         <GridItem colSpan={3} >
           <Box>
-            <Header text={"Welcome back, Hajara!"} />
+            <Header content={"Welcome back, Hajara!"} />
           </Box>
         </GridItem>
         <GridItem colSpan={1}>
@@ -39,13 +39,13 @@ export default function Profile() {
             flex='1'
             borderRadius='md'>
             <HStack mb="4">
-              <Paragraph fontSize={"1.6em"} fontWeight={"extrabold"} text={"Your next event"} />
+              <Paragraph fontSize={"1.5em"} fontWeight={"extrabold"} content={"Your next event"} />
               <Spacer />
-              <Paragraph fontSize={"1em"} colour={"brand.mainPurple"} fontWeight={"extrabold"} text={"View all"} />
+              <Paragraph fontSize={"1em"} colour={"brand.mainPurple"} fontWeight={"extrabold"} content={"View all"} />
             </HStack>
-            <Paragraph text={"Test Event"} fontSize={"1.2em"} fontWeight={"bold"} />
-            <Paragraph text={"Wed 16 Feb 2022, 00:00"} fontSize={"0.9em"} fontWeight={"bold"} colour={"brand.mainPurple"} />
-            <Paragraph text={"Online Event"} fontSize={"0.8em"} fontWeight={"medium"} />
+            <Paragraph content={"Test Event"} fontSize={"1.2em"} fontWeight={"bold"} />
+            <Paragraph content={"Wed 16 Feb 2022, 00:00"} fontSize={"0.9em"} fontWeight={"bold"} colour={"brand.mainPurple"} />
+            <Paragraph content={"Online Event"} fontSize={"0.8em"} fontWeight={"medium"} />
           </Box>
         </GridItem>
         <GridItem colSpan={1}>
@@ -54,7 +54,7 @@ export default function Profile() {
         </GridItem>
         <GridItem colSpan={3}>
           <Box>
-            <SubHeader text={" Suggested events"} />
+            <SubHeader content={" Suggested events"} />
             <Spacer />
             <Box>
               <EventListingCard />
@@ -62,7 +62,7 @@ export default function Profile() {
               <EventListingCard />
             </Box>
             <Center>
-              <MainButton text={"Explore all events"} route={"/events"} />
+              <MainButton content={"Explore all events"} route={"/events"} />
             </Center>
           </Box>
         </GridItem>

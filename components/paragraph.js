@@ -3,10 +3,10 @@
 
 import { Text } from '@chakra-ui/react'
 
-const Paragraph = ({ text, fontSize, fontWeight, colour }) => {
+const Paragraph = ({ content, fontSize, fontWeight, colour }) => {
     return (
         <div>
-            <Text color={colour} fontSize={fontSize} fontWeight={fontWeight}>{text}</Text>
+            <Text color={colour} fontSize={fontSize} fontWeight={fontWeight}>{content}</Text>
         </div>
     )
 }

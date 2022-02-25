@@ -5,6 +5,7 @@ import {
     Stack,
     useColorModeValue,
 } from '@chakra-ui/react';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 import Paragraph from '../paragraph';
 import MainImage from '../mainImage';
 
@@ -31,7 +32,7 @@ export default function EventListingCard() {
                 bg={useColorModeValue('white', 'gray.900')}
                 boxShadow={'md'}
                 padding={4}
-                _hover={{ border: "solid 4px #580AFF" }}>
+                _hover={{ boxShadow: "0px 0px 0px 5px #580AFF" }}>
                 <Stack
                     flex={1}
                     flexDirection="column"
@@ -39,9 +40,9 @@ export default function EventListingCard() {
                     alignItems={"flex-start"}
                     p={1}
                     pt={2}>
-                    <Paragraph text={event_name} fontSize={"2em"} fontWeight={"bold"} />
-                    <Paragraph text={event_date} fontSize={"1em"} fontWeight={"bold"} colour={"brand.mainPurple"} />
-                    <Paragraph text={event_location} fontSize={"0.9em"} fontWeight={"medium"} />
+                    <Paragraph content={event_name} fontSize={"2em"} fontWeight={"bold"} />
+                    <Paragraph content={event_date} fontSize={"1em"} fontWeight={"bold"} colour={"brand.mainPurple"} />
+                    <Paragraph content={event_location} fontSize={"0.9em"} fontWeight={"medium"} />
                 </Stack>
                 <Flex
                     justifyContent={"center"}
@@ -51,6 +52,10 @@ export default function EventListingCard() {
                         <MainImage src={"https://i.ibb.co/4jBv2Fr/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"} alt={"image of friends meeting"} />
                     </Box>
                 </Flex>
+                <Box className="favourite">
+                    <FaRegHeart className="fav--before" />
+                    <FaHeart className="fav--after" />
+                </Box>
             </Stack>
         </Center >
     );

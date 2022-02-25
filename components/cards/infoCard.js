@@ -11,7 +11,6 @@ import {
   Box,
   Center,
   Heading,
-  Text,
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react';
@@ -43,7 +42,7 @@ export default function infoCard({ header, content }) {
             fontFamily={'body'}>
             {header}
           </Heading>
-          <Paragraph text={content }/>
+          <Paragraph content={content }/>
         </Stack>
       </Box>
     </Center>
