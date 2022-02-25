@@ -15,9 +15,10 @@ import MainImage from "../mainImage";
 //added flex for 2 heart icons classNames --before --after
 //in CSS specify the hearts and responses
 
-const event_name = "Test Event";
-const event_date = "Wed 16 Feb 2022, 00:00";
-const event_location = "Online Event";
+
+// const event_name = "Test Event";
+// const event_date = "Wed 16 Feb 2022, 00:00";
+// const event_location = "Online Event";
 
 export default function EventListingCard({ }) {
     return (
