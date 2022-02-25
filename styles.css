@@ -20,18 +20,19 @@ body {
 
 .fav--after {
   display: none;
-  color :red;
+  color: red;
 }
 
+/* hide before heart */
 .favourite:hover .fav--before {
-  display:none
+  display: none;
 }
-
+/* when hover show red heart */
 .favourite:hover .fav--after {
-  display:block
+  display: block;
 }
 
 .footer {
-  bottom:0;
-  left:0;
+  bottom: 0;
+  left: 0;
 }
