@@ -2,17 +2,41 @@ import { useState } from "react";
 import EventListingCard from "../components/cards/eventListingCard.js";
 import BasicModal from "../components/modal.js";
 import { useDisclosure } from "@chakra-ui/react";
+import { useUser } from "@auth0/nextjs-auth0";
+
 export default function Events({ payload }) {
   const [eventData, seteventData] = useState(false);
+  const { user } = useUser();
   // console.log(payload);
   const { isOpen, onOpen, onClose } = useDisclosure();
   function sendEventData(event_id) {
     const datatosend = payload.filter((event) => event.event_id === event_id);
     seteventData(datatosend);
-
     onOpen();
   }
-  console.log(eventData);
+  // console.log(eventData);
+  function addUsertoEvent(event_id) {
+    console.log(event_id);
+    if (!user) {
+      // display something in the modal to create an account
+    } else if (user) {
+      try {
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            auth_id: user.sub,
+            event_attend: event_id,
+          }),
+        });
+      } catch (error) {
+        console.log("User not added to event");
+      }
+    }
+    onClose();
+  }
   return (
     <>
       {payload.map(({ event_type, event_date, event_desc, event_id }) => {
@@ -38,7 +62,8 @@ export default function Events({ payload }) {
           event_location={eventData[0].event_location}
           event_tags={eventData[0].event_tags}
           button1="Close"
-          button2="Attend Event"
+          button2="Attend event"
+          onClick={() => addUsertoEvent(eventData[0].event_id)}
         />
       ) : (
         <></>

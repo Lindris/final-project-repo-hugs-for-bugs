@@ -28,7 +28,9 @@ function BasicModal(props) {
     onClose,
     button1,
     button2,
+    onClick,
   } = props;
+  console.log(event_tags);
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -52,7 +54,11 @@ function BasicModal(props) {
               pt={2}
             >
               <Paragraph
-                content={event_date.slice(0, 10)}
+                content={
+                  button2 === "Confirm event"
+                    ? event_date
+                    : event_date.slice(0, 10)
+                }
                 fontSize={"1em"}
                 fontWeight={"bold"}
                 colour={"brand.primaryDark"}
@@ -68,20 +74,24 @@ function BasicModal(props) {
                 fontSize={"0.9em"}
                 color={"brand.primaryDark"}
               />
-
               <Paragraph content={event_desc} fontSize={"0.9em"} />
               <HStack spacing={4}>
-                {event_tags.map((tag) => (
-                  <Tag
-                    size={"md"}
-                    key={tag}
-                    variant="solid"
-                    bgColor={"brand.secondaryPurple"}
-                  >
-                    Teal
-                  </Tag>
-                ))}
+                {event_tags.map((tag) =>
+                  tag !== "" ? (
+                    <Tag
+                      size={"md"}
+                      key={tag}
+                      variant="solid"
+                      bgColor={"brand.secondaryPurple"}
+                    >
+                      {tag}
+                    </Tag>
+                  ) : (
+                    <></>
+                  )
+                )}
               </HStack>
+              )
             </Stack>
           </ModalBody>
 
@@ -94,7 +104,9 @@ function BasicModal(props) {
             >
               {button1}
             </Button>
-            <Button variant="ghost">{button2}</Button>
+            <Button variant="ghost" onClick={onClick}>
+              {button2}
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

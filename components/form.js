@@ -9,13 +9,6 @@ import {
   Editable,
   EditableInput,
   EditablePreview,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
@@ -25,7 +18,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useUser } from "@auth0/nextjs-auth0";
 import Router from "next/router";
-
+import BasicModal from "../components/modal.js";
 export default function CreateEventForm() {
   const { user } = useUser();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -48,7 +41,7 @@ export default function CreateEventForm() {
         values[key] = values[key].toString().slice(16, 24);
       }
     });
-    console.log(values);
+    // console.log(values);
     const valuesArray = Object.entries(values);
     setEventDetails(valuesArray);
     console.log(user);
@@ -60,10 +53,18 @@ export default function CreateEventForm() {
 
   function handleModalSubmit() {
     console.log(formValues);
-    axios.post("http://localhost:5000/events", formValues).then((response) => {
-      console.log("New Event Created");
-      Router.reload(window.location.pathname);
-    });
+    try {
+      fetch("http://localhost:5000/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+    } catch (error) {
+      console.log("User not added to event");
+    }
+    Router.reload(window.location.pathname);
   }
 
   return (
@@ -172,15 +173,15 @@ export default function CreateEventForm() {
           <FormLabel mt={2}>
             <EditIcon /> Provide three tags to help describe your event
           </FormLabel>
-          <Editable defaultValue="Tag 1" width="200px" mt={2}>
+          <Editable width="200px" mt={2} placeholder="Tag 1">
             <EditablePreview />
             <EditableInput {...register("event_tags.0")} />
           </Editable>
-          <Editable defaultValue="Tag 2" width="200px" mt={2}>
+          <Editable placeholder="Tag 2" width="200px" mt={2}>
             <EditablePreview />
             <EditableInput {...register("event_tags.1")} />
           </Editable>
-          <Editable defaultValue="Tag 3" width="200px" mt={2}>
+          <Editable placeholder="Tag 3" width="200px" mt={2}>
             <EditablePreview />
             <EditableInput {...register("event_tags.2")} />
           </Editable>
@@ -189,33 +190,24 @@ export default function CreateEventForm() {
           </Button>
         </form>
       </Box>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Confirmation</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            {eventdetails.map((item, i) => {
-              return (
-                <p>
-                  <b>{`${item[0]}`}</b>
-                  {` :  ${item[1]}`}
-                </p>
-              );
-            })}
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Edit details
-            </Button>
-            <Button variant="ghost" onClick={handleModalSubmit}>
-              Confirm event
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      {formValues ? (
+        <BasicModal
+          isOpen={isOpen}
+          onClose={onClose}
+          button1="Edit details"
+          button2="Confirm event"
+          onClick={handleModalSubmit}
+          event_date={formValues.event_date}
+          event_type={formValues.event_type}
+          event_desc={formValues.event_desc}
+          event_start_time={formValues.event_start_time}
+          event_end_time={formValues.event_end_time}
+          event_location={formValues.event_location}
+          event_tags={formValues.event_tags}
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 }
