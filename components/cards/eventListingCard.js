@@ -15,68 +15,72 @@ import MainImage from "../mainImage";
 //added flex for 2 heart icons classNames --before --after
 //in CSS specify the hearts and responses
 
-
 // const event_name = "Test Event";
 // const event_date = "Wed 16 Feb 2022, 00:00";
 // const event_location = "Online Event";
 
-export default function EventListingCard({ }) {
-    return (
-        <Center py={6}>
-            <Stack
-                w={{ sm: "100%" }}
-                height={{ sm: "300px", md: "15rem" }}
-                direction={{ base: "column", md: "row" }}
-                bg={useColorModeValue("white", "gray.900")}
-                boxShadow={"md"}
-                borderRadius={"12px"}
-                padding={4}
-                _hover={{
-                    boxShadow: "0px 0px 0px 5px #580AFF"
-                }}
-            >
-                <Stack
-                    flex={1}
-                    flexDirection="column"
-                    justifyContent={"flex-start"}
-                    alignItems={"flex-start"}
-                    p={1} //padding
-                    pt={2}
-                >
-                    <Paragraph
-                        content={event_name}
-                        fontSize={"2em"}
-                        fontWeight={"bold"}
-                    />
-                    <Paragraph
-                        content={event_date}
-                        fontSize={"1em"}
-                        fontWeight={"bold"}
-                        colour={"brand.mainPurple"}
-                    />
-                    <Paragraph
-                        content={event_location}
-                        fontSize={"0.9em"}
-                        fontWeight={"medium"}
-                    />
-                </Stack>
-                {/* image positioning centred in own box */}
-                <Flex justifyContent={"center"} alignItems={"center"}>
-                    <Box boxSize="200px" align="center">
-                        <MainImage
-                            src={
-                                "https://i.ibb.co/4jBv2Fr/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"
-                            }
-                            alt={"image of friends meeting"}
-                        />
-                    </Box>
-                </Flex>
-                {/* heart = 2 icons 1 empty, replaced by 1 red when hover. See css*/}
-                <Box className="favourite">
-                    <FaRegHeart className="fav--before" />
-                    <FaHeart className="fav--after" />
-                </Box>
-            </Stack>
-        </Center >
-    );
+export default function EventListingCard({
+  event_date,
+  event_name,
+  event_desc,
+  onClick,
+}) {
+  return (
+    <Center py={6} onClick={onClick}>
+      <Stack
+        w={{ sm: "100%" }}
+        height={{ sm: "300px", md: "15rem" }}
+        direction={{ base: "column", md: "row" }}
+        bg={useColorModeValue("white", "gray.900")}
+        boxShadow={"md"}
+        borderRadius={"12px"}
+        padding={4}
+        _hover={{
+          boxShadow: "0px 0px 0px 5px #580AFF",
+        }}
+      >
+        <Stack
+          flex={1}
+          flexDirection="column"
+          justifyContent={"flex-start"}
+          alignItems={"flex-start"}
+          p={1} //padding
+          pt={2}
+        >
+          <Paragraph
+            content={event_name}
+            fontSize={"2em"}
+            fontWeight={"bold"}
+          />
+          <Paragraph
+            content={event_date.slice(0, 10)}
+            fontSize={"1em"}
+            fontWeight={"bold"}
+            colour={"brand.mainPurple"}
+          />
+          <Paragraph
+            content={event_desc}
+            fontSize={"0.9em"}
+            fontWeight={"medium"}
+          />
+        </Stack>
+        {/* image positioning centred in own box */}
+        <Flex justifyContent={"center"} alignItems={"center"}>
+          <Box boxSize="200px" align="center">
+            <MainImage
+              src={
+                "https://i.ibb.co/4jBv2Fr/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"
+              }
+              alt={"image of friends meeting"}
+            />
+          </Box>
+        </Flex>
+        {/* heart = 2 icons 1 empty, replaced by 1 red when hover. See css*/}
+        <Box className="favourite">
+          <FaRegHeart className="fav--before" />
+          <FaHeart className="fav--after" />
+        </Box>
+      </Stack>
+    </Center>
+  );
 }
