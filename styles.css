@@ -32,6 +32,17 @@ body {
   display: block;
 }
 
+.tag {
+  border-radius: 12px; 
+  background-color: #580AFF;
+  text-transform: lowercase;
+  padding: .7em;
+  font-size: .9em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+}
+
 .footer {
   bottom: 0;
   left: 0;

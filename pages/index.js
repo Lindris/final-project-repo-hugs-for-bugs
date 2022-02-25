@@ -39,7 +39,7 @@ export default function Home() {
       </Head>
       <Grid
         templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(4, 1fr)"
+        templateColumns="repeat(2, 1fr)"
         gap={4}
       >
         <GridItem colSpan={2}>

@@ -1,4 +1,4 @@
-import { Grid, GridItem, Box, Center, Spacer, HStack } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Center, Spacer, HStack, Flex } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
@@ -27,7 +27,8 @@ import EventDetails from "../components/eventListingDetails";
 //duplicated the element
 //create grid with 2 grid items - templateRows=2 (2 rows 1 fr) and borderTop= solid 1px lightgray - to separate events with a line
 //use padding p=2 to make border space between 2 text events
-//create
+// Added another box in column 3 for card (purpose is unconfirmed). Added two paragraph components for a header and a text.
+// Added a span div to display tag - added a border radius of 25px, background color, letter-spacing
 
 export default function Profile() {
   return (
@@ -44,7 +45,7 @@ export default function Profile() {
           </Box>
         </GridItem>
         <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" >
             <HStack mb="4">
               <Paragraph
                 fontSize={"1.5em"}
@@ -97,10 +98,18 @@ export default function Profile() {
             </Grid>
           </Box>
         </GridItem>
-        <GridItem colSpan={1}></GridItem>
+        <GridItem colSpan={1}>
+          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+            <Flex flexDirection="column" mb="5">
+              <Paragraph color={"dark grey"} fontSize={"1.2em"} fontWeight={"800"} content={"Example header"} />
+              <Paragraph color={"light grey"} fontSize={".9em"} fontWeight={"400"} content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} />
+            </Flex>
+            <span className="tag"># Hackathon</span>
+          </Box>
+        </GridItem>
         <GridItem colSpan={3}>
           <Box>
-            <SubHeader content={" Suggested events"} />
+            <SubHeader content={"Suggested events"} />
             <Spacer />
             <Box>
               <EventListingCard />
