@@ -20,9 +20,7 @@ const event_name = "Test Event";
 const event_date = "Wed 16 Feb 2022, 00:00";
 const event_location = "Online Event";
 
-
-
-export default function EventListingCard() {
+export default function EventListingCard({}) {
     return (
         <Center py={6}>
             <Stack
