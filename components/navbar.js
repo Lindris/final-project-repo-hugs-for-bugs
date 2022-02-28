@@ -47,7 +47,6 @@ const NavLink = ({ children }) => (
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
-  user ? console.log(user) : console.log("user");
   return (
     <Box fontFamily="Quicksand" px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
@@ -60,7 +59,9 @@ export default function Navbar() {
         />
         <HStack spacing={8} alignItems={"center"}>
           <Link href="/">
-            <Box cursor={"pointer"}>LOGO</Box>
+            <Box cursor={"pointer"} fontSize="xl">
+              Co:llab
+            </Box>
           </Link>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {user
@@ -130,76 +131,6 @@ export default function Navbar() {
         </Box>
       ) : null}
     </Box>
-
-    // <Flex fontFamily="Quicksand">
-    // 	<Box m="2" >
-    // 		<HStack>
-    // 			<Menu>
-    //
-    // 				<MenuItem color="brand.mainPurple" fontWeight="bold">
-    // 					{user ? (
-    // 						<Link href="/create">
-    // 							<a>Create an event</a>
-    // 						</Link>
-    // 					) : (
-    // 						<Link href="/api/auth/login">
-    // 							<a>Create an event</a>
-    // 						</Link>
-    // 					)}
-    // 				</MenuItem>
-    // 			</Menu>
-    // 		</HStack>
-    // 	</Box>
-    // 	<Spacer />
-    // 	{user ? (
-    // 		<>
-    // 			<Box >
-    // 				<Menu>
-    // 					<MenuButton
-    // 						as={Button}
-    // 						rightIcon={<ChevronDownIcon />}
-    // 						colorScheme="brand"
-    // 					>
-    // 						Actions
-    // 					</MenuButton>
-    // 					<MenuList>
-    // 						<MenuItem>
-    // 							<Link href="/profile">
-    // 								<a>My events</a>
-    // 							</Link>
-    // 						</MenuItem>
-    // 						<MenuItem>
-    // 							<Link href="/api/auth/logout">
-    // 								<a>Organised events</a>
-    // 							</Link>
-    // 						</MenuItem>
-    // 						<MenuItem>
-    // 							<Link href="/api/auth/logout">
-    // 								<a>Past events</a>
-    // 							</Link>
-    // 						</MenuItem>
-    // 						<MenuItem>
-    // 							<Link href="/api/auth/logout">
-    // 								<a>Log out</a>
-    // 							</Link>
-    // 						</MenuItem>
-    // 					</MenuList>
-    // 				</Menu>
-    // 			</Box>
-    // 		</>
-    // 	) : (
-    // 		<Box >
-    // 			<Menu>
-    // 				<MenuItem>
-    // 					<Link href="/api/auth/login">
-    // 						{/* put in href once auth0 had been set up */}
-    // 						<a>Sign up/Log in</a>
-    // 					</Link>
-    // 				</MenuItem>
-    // 			</Menu>
-    // 		</Box>
-    // 	)}
-    // </Flex >
   );
 }
 
