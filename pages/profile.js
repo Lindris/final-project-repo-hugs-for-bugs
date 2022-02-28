@@ -1,4 +1,12 @@
-import { Grid, GridItem, Box, Center, Spacer, HStack, Flex } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  Box,
+  Center,
+  Spacer,
+  HStack,
+  Flex,
+} from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
@@ -34,7 +42,7 @@ export default function Profile() {
   return (
     <>
       <Grid
-        h="200px"
+        // h="200px"
         templateRows="repeat(3, 1fr)"
         templateColumns="repeat(3, 1fr)"
         gap={4}
@@ -45,7 +53,7 @@ export default function Profile() {
           </Box>
         </GridItem>
         <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" >
+          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
             <HStack mb="4">
               <Paragraph
                 fontSize={"1.5em"}
@@ -101,8 +109,20 @@ export default function Profile() {
         <GridItem colSpan={1}>
           <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
             <Flex flexDirection="column" mb="5">
-              <Paragraph color={"dark grey"} fontSize={"1.2em"} fontWeight={"800"} content={"Example header"} />
-              <Paragraph color={"light grey"} fontSize={".9em"} fontWeight={"400"} content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} />
+              <Paragraph
+                color={"dark grey"}
+                fontSize={"1.2em"}
+                fontWeight={"800"}
+                content={"Example header"}
+              />
+              <Paragraph
+                color={"light grey"}
+                fontSize={".9em"}
+                fontWeight={"400"}
+                content={
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                }
+              />
             </Flex>
             <span className="tag"># Hackathon</span>
           </Box>
