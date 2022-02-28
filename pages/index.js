@@ -1,5 +1,6 @@
 import Head from "next/head";
 import MainButton from "../components/mainButton";
+import SecondaryButton from "../components/SecondaryButton";
 import MainImage from "../components/mainImage";
 import InfoCard from "../components/cards/infoCard";
 import Header from "../components/headers/header";
@@ -74,6 +75,7 @@ export default function Home() {
           <Box p="5">
             <Center>
               <MainButton content={"Explore all events"} route={"/events"} />
+              <SecondaryButton content={"Our story"} route={"/"} />
             </Center>
           </Box>
         </GridItem>
