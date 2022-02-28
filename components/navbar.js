@@ -33,7 +33,7 @@ const NavLink = ({ children }) => (
     rounded={"md"}
     _hover={{
       textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
+      color: "brand.primaryDark",
     }}
     color="brand.mainPurple"
     fontWeight="bold"
@@ -49,7 +49,15 @@ export default function Navbar() {
   const { user } = useUser();
   return (
     <Box fontFamily="Quicksand" px={4}>
-      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+      <Flex
+        minH={"60px"}
+        py={{ base: 2 }}
+        px={{ base: 4 }}
+        borderBottom={1.5}
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+        justifyContent={"space-between"}
+      >
         <IconButton
           size={"md"}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -65,8 +73,8 @@ export default function Navbar() {
           </Link>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {user
-              ? UserLinks.map((link, i) => <NavLink key={link}>{link}</NavLink>)
-              : Links.map((link, i) => <NavLink key={link}>{link}</NavLink>)}
+              ? UserLinks.map((link) => <NavLink key={link}>{link}</NavLink>)
+              : Links.map((link) => <NavLink key={link}>{link}</NavLink>)}
           </HStack>
         </HStack>
         <Flex alignItems={"center"}>
@@ -110,35 +118,32 @@ export default function Navbar() {
               </MenuList>
             </Menu>
           ) : (
-            <Menu>
-              <MenuItem>
-                <Link href="/api/auth/login">
-                  <a>Sign up/Log in</a>
-                </Link>
-              </MenuItem>
-            </Menu>
+            <Button
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"brand.mainPurple"}
+              _hover={{
+                bg: "brand.primaryDark",
+              }}
+            >
+              <Link href="/api/auth/login">
+                <a>Sign up/Log in</a>
+              </Link>
+            </Button>
           )}
         </Flex>
       </Flex>
 
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>
-          <Stack as={"nav"} spacing={4}>
+          <Stack as={"nav"} spacing={3} pt={3}>
             {user
-              ? UserLinks.map((link, i) => <NavLink key={link}>{link}</NavLink>)
-              : Links.map((link, i) => <NavLink key={link}>{link}</NavLink>)}
+              ? UserLinks.map((link) => <NavLink key={link}>{link}</NavLink>)
+              : Links.map((link) => <NavLink key={link}>{link}</NavLink>)}
           </Stack>
         </Box>
       ) : null}
     </Box>
   );
 }
-
-// each menu and menu.item is from antd (UI library)
-// menu.item is a list item so they need a key for react to render
-// add a search bar
-// create a page for contact and connect link to page
-
-// could organised events just be in my events?
-
-// Signup/login rather than two seperate buttons?
