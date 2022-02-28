@@ -62,11 +62,11 @@ export default function Home() {
             <Box>
               <Flex>
                 <HStack>
-                  <InfoCard header="Some header here" content={placeholderText} />
+                  <InfoCard headerContent={"Code Clubs"} textContent={placeholderText} src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"} alt={"coding"} />
                   <Spacer />
-                  <InfoCard header="Some header here" content={placeholderText} />
+                  <InfoCard headerContent={"Hackathons"} textContent={placeholderText} src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"} alt={"people working around a table"} />
                   <Spacer />
-                  <InfoCard header="Some header here" content={placeholderText} />
+                  <InfoCard headerContent={"Q&A Events"} textContent={placeholderText} src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"} alt={"speaker talking to a group"} />
                 </HStack>
               </Flex>
             </Box>
@@ -81,3 +81,4 @@ export default function Home() {
     </>
   );
 }
+

@@ -18,7 +18,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-export default function infoCard({ header, content }) {
+export default function infoCard({ headerContent, textContent, src, alt }) {
   return (
     <Center py={6}>
       <Box
@@ -39,21 +39,20 @@ export default function infoCard({ header, content }) {
           pos={'relative'}
           align="center"
         >
-          <Image maxWidth={'inherit'} height="100%" src="https://i.ibb.co/bJQL0fJ/icons8-business-400.png" alt="code image" />
+          <Image maxWidth={'inherit'} height="100%" src={src} alt={alt} />
         </Box>
-        <Stack>
+        <Stack textAlign={"center"}>
           <Paragraph
             p={"1"}
-            colour={"brand.mainPurple"}
+            colour={"brand.primaryDark"}
             fontWeight={"extrabold"}
             fontSize="2.3em"
-            content="Some header here">
-            {content}
+            content={headerContent}>
           </Paragraph>
-          <Paragraph content={content} />
+          <Paragraph content={textContent}/>
         </Stack>
       </Box>
-    </Center>
+    </Center >
   );
 }
 
