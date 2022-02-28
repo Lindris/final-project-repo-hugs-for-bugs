@@ -4,86 +4,84 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
-
-
 export default function Navbar() {
-	const { user } = useUser();
-	user ? console.log(user) : console.log("user");
-	return (
-		<Flex fontFamily="Quicksand">
-			<Box m="2" >
-				<HStack>
-					<Menu>
-						<MenuItem>
-							<Link href="/">
-								<a>LOGO</a>
-							</Link>
-						</MenuItem>
-						<MenuItem color="brand.mainPurple" fontWeight="bold">
-							{user ? (
-								<Link href="/create">
-									<a>Create an event</a>
-								</Link>
-							) : (
-								<Link href="/api/auth/login">
-									<a>Create an event</a>
-								</Link>
-							)}
-						</MenuItem>
-					</Menu>
-				</HStack>
-			</Box>
-			<Spacer />
-			{user ? (
-				<>
-					<Box >
-						<Menu>
-							<MenuButton
-								as={Button}
-								rightIcon={<ChevronDownIcon />}
-								colorScheme="brand"
-							>
-								Actions
-							</MenuButton>
-							<MenuList>
-								<MenuItem>
-									<Link href="/profile">
-										<a>My events</a>
-									</Link>
-								</MenuItem>
-								<MenuItem>
-									<Link href="/api/auth/logout">
-										<a>Organised events</a>
-									</Link>
-								</MenuItem>
-								<MenuItem>
-									<Link href="/api/auth/logout">
-										<a>Past events</a>
-									</Link>
-								</MenuItem>
-								<MenuItem>
-									<Link href="/api/auth/logout">
-										<a>Log out</a>
-									</Link>
-								</MenuItem>
-							</MenuList>
-						</Menu>
-					</Box>
-				</>
-			) : (
-				<Box >
-					<Menu>
-						<MenuItem>
-							<Link href="/api/auth/login">
-								{/* put in href once auth0 had been set up */}
-								<a>Sign up/Log in</a>
-							</Link>
-						</MenuItem>
-					</Menu>
-				</Box>
-			)}
-		</Flex >
-	);
+  const { user } = useUser();
+  // user ? console.log(user) : console.log("user");
+  return (
+    <Flex fontFamily="Quicksand">
+      <Box m="2">
+        <HStack>
+          <Menu>
+            <MenuItem>
+              <Link href="/">
+                <a>LOGO</a>
+              </Link>
+            </MenuItem>
+            <MenuItem color="brand.mainPurple" fontWeight="bold">
+              {user ? (
+                <Link href="/create">
+                  <a>Create an event</a>
+                </Link>
+              ) : (
+                <Link href="/api/auth/login">
+                  <a>Create an event</a>
+                </Link>
+              )}
+            </MenuItem>
+          </Menu>
+        </HStack>
+      </Box>
+      <Spacer />
+      {user ? (
+        <>
+          <Box>
+            <Menu>
+              <MenuButton
+                as={Button}
+                rightIcon={<ChevronDownIcon />}
+                colorScheme="brand"
+              >
+                Actions
+              </MenuButton>
+              <MenuList>
+                <MenuItem>
+                  <Link href="/profile">
+                    <a>My events</a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/api/auth/logout">
+                    <a>Organised events</a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/api/auth/logout">
+                    <a>Past events</a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/api/auth/logout">
+                    <a>Log out</a>
+                  </Link>
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          </Box>
+        </>
+      ) : (
+        <Box>
+          <Menu>
+            <MenuItem>
+              <Link href="/api/auth/login">
+                {/* put in href once auth0 had been set up */}
+                <a>Sign up/Log in</a>
+              </Link>
+            </MenuItem>
+          </Menu>
+        </Box>
+      )}
+    </Flex>
+  );
 }
 
 // each menu and menu.item is from antd (UI library)
