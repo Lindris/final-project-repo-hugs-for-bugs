@@ -6,7 +6,7 @@ import Paragraph from "../paragraph";
 const Header = ({ content }) => {
     return (
         <div>
-            <Paragraph fontSize={"5em"} content={content} fontWeight={"extrabold"} />
+            <Paragraph fontSize={"6em"} content={content} fontWeight={"extrabold"} />
         </div>
     )
 }

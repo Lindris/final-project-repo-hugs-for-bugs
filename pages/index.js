@@ -56,29 +56,27 @@ export default function Home() {
         templateColumns="repeat(2, 1fr)"
         gap={4}
       >
-        <GridItem colSpan={2}>
+        <GridItem colSpan={2} marginRight="10em" marginLeft="10em" paddingBottom="2em">
           <Grid
             templateRows="repeat(2, 1fr)"
             templateColumns="repeat(2, 1fr)"
             gap={4}
-            border={"solid 1px pink"}
           >
-            <GridItem rowSpan={2} colSpan={1} border={"solid 1px green"}>
-              <Box textAlign={'left'}>
-                <Flex
-                  flexDirection={"column"}
-                  height={"auto"}
-                  border={"solid 1px red"}
-                  flexGrow='1'
-                >
-                  <Header content={"Code & Collab"} />
-                  <SubHeader content={"Our vision"} />
+            <GridItem rowSpan={2} colSpan={1}>
+              <Flex padding="1em" height="100%" flexDirection="column" justifyContent={"flex-end"}>
+                <Box mt="1em" mb="1em">
+                  <Header content={"Code & Collab"}/>
+                </Box>
+                <SubHeader content={"Our vision"} />
+                <Box mt="1em" mb="1em">
                   <Paragraph content={placeholderText} />
+                </Box>
+                <Box>
                   <SecondaryButton content={"Learn more"} route={"/"} />
-                </Flex>
-              </Box>
+                </Box>
+              </Flex>
             </GridItem>
-            <GridItem rowSpan={1} colSpan={1} border={"solid 1px green"}>
+            <GridItem rowSpan={1} colSpan={1} align="center">
               <Box boxSize="sm">
                 <MainImage
                   src="https://i.ibb.co/8X8cpTH/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"
@@ -86,7 +84,7 @@ export default function Home() {
                 />
               </Box>
             </GridItem>
-            <GridItem rowSpan={1} colSpan={1} border={"solid 1px green"}>
+            <GridItem rowSpan={1} colSpan={1} align="center">
               <Box boxSize="sm">
                 <MainImage
                   src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
@@ -131,11 +129,10 @@ export default function Home() {
           <Box p="5">
             <Center>
               <MainButton content={"Explore all events"} route={"/events"} />
-              <SecondaryButton content={"Our story"} route={"/"} />
             </Center>
           </Box>
         </GridItem>
-      </Grid>
+      </Grid >
     </>
   );
 }
