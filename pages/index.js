@@ -23,7 +23,7 @@ import {
 //in main div create react component for InfoCard with content props {text} and heading {}
 // create grid to wrap main content in
 // grid should encompass the header, main image, cards and button
-
+// Added header placeholder text in infocard
 // Replace any text on the page using the Paragraph component so we avoid hard-coding the font-family and maintain re-usability
 //import SubHeader and replace paragraph tag with SubHeader tag - remove fontsize and weight
 
@@ -62,11 +62,11 @@ export default function Home() {
             <Box>
               <Flex>
                 <HStack>
-                  <InfoCard content={placeholderText} />
+                  <InfoCard header="Some header here" content={placeholderText} />
                   <Spacer />
-                  <InfoCard content={placeholderText} />
+                  <InfoCard header="Some header here" content={placeholderText} />
                   <Spacer />
-                  <InfoCard content={placeholderText} />
+                  <InfoCard header="Some header here" content={placeholderText} />
                 </HStack>
               </Flex>
             </Box>

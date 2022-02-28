@@ -5,9 +5,12 @@
 //in heading tag, pass in {heading} under font and {content} under color
 //position and size -  layout
 // import Paragraph component and changing the Text component to now use our Paragraph component
+// Add Paragraph component in last stack instead of Chakra's heading component to add headers to each info card
+// Add Chakra's Image component above text and header in the second box to render an image with the src and alt passed down as props
 
 import Paragraph from "../paragraph.js";
 import {
+  Image,
   Box,
   Center,
   Heading,
@@ -20,7 +23,7 @@ export default function infoCard({ header, content }) {
     <Center py={6}>
       <Box
         fontFamily="Quicksand"
-        maxWidth={'350px'}
+        maxWidth={'max-content'}
         bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'md'}
@@ -33,18 +36,25 @@ export default function infoCard({ header, content }) {
           mt={-6}
           mx={-6}
           mb={6}
-          pos={'relative'}>
+          pos={'relative'}
+          align="center"
+        >
+          <Image maxWidth={'inherit'} height="100%" src="https://i.ibb.co/bJQL0fJ/icons8-business-400.png" alt="code image" />
         </Box>
         <Stack>
-          <Heading
-            color={useColorModeValue('gray.700', 'white')}
-            fontSize={'2xl'}
-            fontFamily={'body'}>
-            {header}
-          </Heading>
-          <Paragraph content={content }/>
+          <Paragraph
+            p={"1"}
+            colour={"brand.mainPurple"}
+            fontWeight={"extrabold"}
+            fontSize="2.3em"
+            content="Some header here">
+            {content}
+          </Paragraph>
+          <Paragraph content={content} />
         </Stack>
       </Box>
     </Center>
   );
 }
+
+
