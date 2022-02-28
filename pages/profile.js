@@ -1,11 +1,19 @@
-import { Grid, GridItem, Box, Center, Spacer, HStack, Flex } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  Box,
+  Center,
+  Spacer,
+  HStack,
+  Flex,
+} from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
 import Paragraph from "../components/paragraph";
 import EventDetails from "../components/eventListingDetails";
-
+import { ContactUs } from "../components/emailform/emailform";
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
 //Adjust row numbers and columns
@@ -34,18 +42,20 @@ export default function Profile() {
   return (
     <>
       <Grid
-        h="200px"
+        h="1600px"
+        // h="200px"
         templateRows="repeat(3, 1fr)"
         templateColumns="repeat(3, 1fr)"
         gap={4}
       >
+        <ContactUs />
         <GridItem colSpan={3}>
           <Box>
             <Header content={"Welcome back, Hajara!"} />
           </Box>
         </GridItem>
         <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" >
+          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
             <HStack mb="4">
               <Paragraph
                 fontSize={"1.5em"}
@@ -101,8 +111,20 @@ export default function Profile() {
         <GridItem colSpan={1}>
           <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
             <Flex flexDirection="column" mb="5">
-              <Paragraph color={"dark grey"} fontSize={"1.2em"} fontWeight={"800"} content={"Example header"} />
-              <Paragraph color={"light grey"} fontSize={".9em"} fontWeight={"400"} content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."} />
+              <Paragraph
+                color={"dark grey"}
+                fontSize={"1.2em"}
+                fontWeight={"800"}
+                content={"Example header"}
+              />
+              <Paragraph
+                color={"light grey"}
+                fontSize={".9em"}
+                fontWeight={"400"}
+                content={
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                }
+              />
             </Flex>
             <span className="tag"># Hackathon</span>
           </Box>
