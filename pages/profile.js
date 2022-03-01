@@ -48,7 +48,7 @@ export default function Profile() {
         templateColumns="repeat(3, 1fr)"
         gap={4}
       >
-        <ContactUs />
+        {/* <ContactUs /> */}
         <GridItem colSpan={3}>
           <Box>
             <Header content={"Welcome back, Hajara!"} />
