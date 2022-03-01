@@ -21,11 +21,6 @@ export default function EventDetails({ type, date, starttime, endtime }) {
         fontSize={"0.8em"}
         fontWeight={"bold"}
       />
-      <Paragraph
-        content={"discuss whats is necessary to display"}
-        fontSize={"0.7em"}
-        fontWeight={"medium"}
-      />
     </>
   );
 }

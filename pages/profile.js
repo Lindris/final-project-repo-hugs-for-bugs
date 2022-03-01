@@ -6,6 +6,9 @@ import {
   Spacer,
   HStack,
   Flex,
+  Tag,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
@@ -46,145 +49,215 @@ import {
 
 export default function Profile({ payload, allEvents }) {
   const { user } = useUser();
-  console.log(allEvents);
+  console.log(payload);
   return user ? (
     <>
-      <Grid
-        h="200px"
-        templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(3, 1fr)"
-        gap={4}
+      <Box pb={5}>
+        <Header content={`Welcome back, ${user.given_name}!`} />
+      </Box>
+      <Wrap
+        margin="0 auto"
+        maxWidth="1200px"
+        justify="space-evenly"
+        spacing="50px"
+        pb={10}
       >
-        <GridItem colSpan={3}>
-          <Box>
-            <Header content={`Welcome back, ${user.given_name}!`} />
-          </Box>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
-            <HStack mb="4">
-              <Paragraph
-                fontSize={"1.5em"}
-                fontWeight={"extrabold"}
-                content={"Your next event"}
-              />
-              <Spacer />
-            </HStack>
-            <Paragraph
-              content={`${payload[0].event_type}`}
-              fontSize={"1.2em"}
-              fontWeight={"bold"}
-            />
-            <Paragraph
-              content={`${new Date(payload[0].event_date)
-                .toString()
-                .slice(0, 15)}`}
-              fontSize={"0.9em"}
-              fontWeight={"bold"}
-              colour={"brand.mainPurple"}
-            />
-            <Paragraph
-              content={`${payload[0].event_start_time.slice(
-                0,
-                5
-              )} - ${payload[0].event_end_time.slice(0, 5)}`}
-              fontSize={"0.8em"}
-              fontWeight={"bold"}
-            />
-            <Paragraph
-              content={`${payload[0].event_desc}`}
-              fontSize={"0.8em"}
-              fontWeight={"medium"}
-            />
-            <Paragraph
-              content={"Online Event"}
-              fontSize={"0.8em"}
-              fontWeight={"medium"}
-            />
-          </Box>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
-            <HStack mb="4">
-              <Paragraph
-                fontSize={"1.5em"}
-                fontWeight={"extrabold"}
-                content={"Your upcoming events"}
-              />
-              <Spacer />
-              <Paragraph
-                fontSize={"1em"}
-                colour={"brand.mainPurple"}
-                fontWeight={"extrabold"}
-                content={"View all"}
-              />
-            </HStack>
-            <Grid templateRows="repeat(2,1fr)">
-              <GridItem p="2">
-                <EventDetails
-                  type={payload[0].event_type}
-                  date={payload[0].event_date}
-                  starttime={payload[0].event_start_time}
-                  endtime={payload[0].event_end_time}
+        {payload.length >= 1 ? (
+          <WrapItem>
+            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+              <HStack mb="4">
+                <Paragraph
+                  fontSize={"1.5em"}
+                  fontWeight={"extrabold"}
+                  content={"Your next event"}
                 />
-              </GridItem>
-              <GridItem borderTop="solid 1px lightgray" p="2">
+              </HStack>
+              <Paragraph
+                content={`${payload[0].event_type}`}
+                fontSize={"1.2em"}
+                fontWeight={"bold"}
+              />
+              <Paragraph
+                content={`${new Date(payload[0].event_date)
+                  .toString()
+                  .slice(0, 15)}`}
+                fontSize={"0.9em"}
+                fontWeight={"bold"}
+                colour={"brand.mainPurple"}
+              />
+              <Paragraph
+                content={`${payload[0].event_start_time.slice(
+                  0,
+                  5
+                )} - ${payload[0].event_end_time.slice(0, 5)}`}
+                fontSize={"0.8em"}
+                fontWeight={"bold"}
+              />
+              <Paragraph
+                content={`${payload[0].event_desc}`}
+                fontSize={"0.8em"}
+                fontWeight={"medium"}
+              />
+              <Paragraph
+                content={`${payload[0].event_location}`}
+                fontSize={"0.8em"}
+                fontWeight={"medium"}
+              />
+
+              <Paragraph
+                content={"Online Event"}
+                fontSize={"0.6em"}
+                fontWeight={"medium"}
+              />
+            </Box>
+          </WrapItem>
+        ) : (
+          <WrapItem>
+            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+              <HStack mb="4">
+                <Paragraph
+                  fontSize={"1.5em"}
+                  fontWeight={"extrabold"}
+                  content={"Your next event"}
+                />
+              </HStack>
+              <Paragraph
+                content={`You have not signed up for any events, please browse our events below`}
+                fontSize={"1.2em"}
+                fontWeight={"bold"}
+              />
+            </Box>
+          </WrapItem>
+        )}
+        {payload.length >= 1 ? (
+          <WrapItem>
+            <Box
+              p={5}
+              shadow="md"
+              borderWidth="1px"
+              borderRadius="md"
+              maxWidth="400px"
+            >
+              <HStack mb="4">
+                <Paragraph
+                  fontSize={"1.5em"}
+                  fontWeight={"extrabold"}
+                  content={"Your upcoming events"}
+                />
+                <Spacer />
+              </HStack>
+              <EventDetails
+                type={payload[0].event_type}
+                date={payload[0].event_date}
+                starttime={payload[0].event_start_time}
+                endtime={payload[0].event_end_time}
+              />
+              {payload.length >= 2 ? (
                 <EventDetails
                   type={payload[1].event_type}
                   date={payload[1].event_date}
                   starttime={payload[1].event_start_time}
                   endtime={payload[1].event_end_time}
                 />
-              </GridItem>
-            </Grid>
-          </Box>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
-            <Flex flexDirection="column" mb="5">
-              <Paragraph
-                color={"dark grey"}
-                fontSize={"1.2em"}
-                fontWeight={"800"}
-                content={"Example header"}
-              />
-              <Paragraph
-                color={"light grey"}
-                fontSize={".9em"}
-                fontWeight={"400"}
-                content={
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-              />
-            </Flex>
-            <span className="tag"># Hackathon</span>
-          </Box>
-        </GridItem>
-        <GridItem colSpan={3}>
-          <Box>
-            <SubHeader content={"Suggested events"} />
-            <Spacer />
-            <Box>
-              {allEvents.map(
-                ({ event_type, event_date, event_desc, event_id }) => {
-                  return (
-                    <EventListingCard
-                      key={event_id}
-                      event_name={event_type}
-                      event_date={event_date.slice(0, 10)}
-                      event_desc={event_desc}
-                      // onClick={() => sendEventData(event_id)}
-                    />
-                  );
-                }
+              ) : (
+                <Paragraph
+                  content={`To sign up for more, browse events below or on the events page`}
+                  fontSize={"1em"}
+                />
               )}
             </Box>
-            <Center>
-              <MainButton content={"Explore all events"} route={"/events"} />
-            </Center>
-          </Box>
-        </GridItem>
-      </Grid>
+          </WrapItem>
+        ) : (
+          <WrapItem>
+            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+              <HStack mb="4">
+                <Paragraph
+                  fontSize={"1.5em"}
+                  fontWeight={"extrabold"}
+                  content={"Your upcoming events"}
+                />
+                <Spacer />
+              </HStack>
+              <Grid templateRows="repeat(2,1fr)">
+                <GridItem p="2">
+                  <Paragraph
+                    content={`To sign up for more, browse events below or on the events page`}
+                    fontSize={"1em"}
+                  />
+                </GridItem>
+              </Grid>
+            </Box>
+          </WrapItem>
+        )}
+
+        <Box
+          p={5}
+          shadow="md"
+          borderWidth="1px"
+          borderRadius="md"
+          maxWidth="400px"
+        >
+          <Flex flexDirection="column" mb="5">
+            <HStack mb="4">
+              <Paragraph
+                fontSize={"1.5em"}
+                fontWeight={"extrabold"}
+                content={"Why not host your own?"}
+              />
+            </HStack>
+            <Paragraph
+              color={"light grey"}
+              fontSize={"1em"}
+              fontWeight={"400"}
+              content={
+                "Have any ideas or like some of our own? Create an event using our form."
+              }
+            />
+            <Wrap pt={3}>
+              {[
+                "Imposter syndrome",
+                "React Frameworks",
+                "Docker",
+                "API's",
+                "Hooks",
+              ].map((event) => (
+                <WrapItem>
+                  <Tag
+                    size={"sm"}
+                    key={event}
+                    variant="solid"
+                    bgColor={"brand.secondaryPurple"}
+                  >
+                    {event}
+                  </Tag>
+                </WrapItem>
+              ))}
+            </Wrap>
+          </Flex>
+          {/* <span className="tag"># Hackathon</span> */}
+        </Box>
+      </Wrap>
+
+      <Box>
+        <SubHeader content={"Suggested events"} />
+        <Spacer />
+        <Box>
+          {allEvents.map(({ event_type, event_date, event_desc, event_id }) => {
+            return (
+              <EventListingCard
+                key={event_id}
+                event_name={event_type}
+                event_date={event_date.slice(0, 10)}
+                event_desc={event_desc}
+                // onClick={() => sendEventData(event_id)}
+              />
+            );
+          })}
+        </Box>
+        <Center py={10}>
+          <MainButton content={"Explore all events"} route={"/events"} />
+        </Center>
+      </Box>
     </>
   ) : (
     <></>
@@ -210,6 +283,7 @@ export const getServerSideProps = withPageAuthRequired({
       }),
     });
     let { payload } = await res.json();
+    payload = payload.slice(0, 2);
     if (!session.user.sub) {
       return {
         redirect: {
@@ -218,6 +292,7 @@ export const getServerSideProps = withPageAuthRequired({
         },
       };
     }
+
     const response = await fetch(`http://localhost:5000/events`);
     const data = await response.json();
     let allEvents = data.payload.slice(0, 3);
