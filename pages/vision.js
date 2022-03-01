@@ -43,7 +43,6 @@ export default function Vision() {
             content={"Helping programmers grow and collaborate together"}
           />
         </Flex>
-        {/* <GridItem colSpan={2} p="2em" bg="#f8f9fa"> */}
       </GridItem>
       <GridItem colSpan={2} rowSpan={2} border="solid 1px orange">
         <Flex>
@@ -63,29 +62,31 @@ export default function Vision() {
         </Flex>
       </GridItem>
       <GridItem colSpan={2} rowSpan={3} border='solid 1px green'>
-<Flex>
- <Box>
-  <Paragraph 
-   content={'Our Story'}
-   fontSize={'2.5em'}
-   fontWeight={'bold'}
-  />
-  <Paragraph content={"As SoC Bootcamp graduates, in a very short time we\'ve come a very long way, from Zero to Programmer. Our journey has been one of the hardest we\'ve ever travelled. Climbing this intensive learning curve has been hugely challenging."} fontSize={'1.4em'}/>
-  <Paragraph content={`Mainly we’ve realised that our supportive community is hugely valuable. Coding with others is so much more fun and really helps manage the intensity.`}
-fontSize={'1.4em'} />
+        <Flex>
+          <Box>
+            <Paragraph
+              content={'Our Story'}
+              fontSize={'2.5em'}
+              fontWeight={'bold'}
+            />
+            <Paragraph content={"As SoC Bootcamp graduates, in a very short time we\'ve come a very long way, from Zero to Programmer. Our journey has been one of the hardest we\'ve ever travelled. Climbing this intensive learning curve has been hugely challenging."} fontSize={'1.4em'} />
+            <Paragraph content={`Mainly we’ve realised that our supportive community is hugely valuable. Coding with others is so much more fun and really helps manage the intensity.`}
+              fontSize={'1.4em'} />
 
-<Paragraph content={`Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our experience and learning.  The Co:llab space lets us collaborate with others in a space for growing each other through shared experiences with pair programming and team working`}
-fontSize={'1.4em'}
-/>
- </Box>
-</Flex>
+            <Paragraph content={`Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our experience and learning.  The Co:llab space lets us collaborate with others in a space for growing each other through shared experiences with pair programming and team working`}
+              fontSize={'1.4em'}
+            />
+          </Box>
+        </Flex>
       </GridItem>
       <GridItem>
-       <Flex>
-<Box></Box>
-       </Flex>
-      <GridItem/>
-    
+        <Flex>
+          <Box>
+
+          </Box>
+        </Flex>
+      </GridItem>
+
     </Grid>
   );
 }
