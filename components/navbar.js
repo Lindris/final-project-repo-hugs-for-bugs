@@ -18,6 +18,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
+
 const Links = [
   ["Create an event", "/api/auth/login"],
   ["See all Events", "/events"],
