@@ -57,7 +57,7 @@ export default function Home() {
         templateRows="repeat(3, 1fr)"
         templateColumns="repeat(2, 1fr)"
       >
-        <GridItem colSpan={2} p="2em" bg="#f8f9fa">
+        <GridItem colSpan={2} p="3em" bg="#f8f9fa">
           <Grid
             templateRows="repeat(2, 1fr)"
             templateColumns="repeat(2, 1fr)"
@@ -73,7 +73,7 @@ export default function Home() {
                   <Paragraph content={placeholderText} />
                 </Box>
                 <Box pt="1em">
-                  <SecondaryButton content={"Learn more"} route={"/"} />
+                  <SecondaryButton content={"Learn more"} route={"/vision"} />
                 </Box>
               </Flex>
             </GridItem>

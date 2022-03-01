@@ -10,8 +10,7 @@ import {
   Spacer,
   Flex,
   Box,
-  Center,
-  Text,
+  Image
 } from "@chakra-ui/react";
 
 //import chakra - done
@@ -29,72 +28,97 @@ import {
 //grid item for 2nd and 3rd rows - e.g. rowSpan{3} is the 3rd row
 //insert text and image content inside the boxes
 //use styling
+// Put each component in a box and apply flex properties to the flex container they are within > align center and justify content center 
+// Added a placeholder image to the second column of the second row in its own box
 
 export default function Vision() {
   return (
+
     <Grid
       templateRows="repeat(4, 1fr)"
       templateColumns="repeat(2, 1fr)"
-      border="solid 1px purple"
-    >
+      pl="10em"
+      pr="10em">
       <GridItem colSpan={2}>
-        <Flex>
-          <SubHeader
-            content={"Helping programmers grow and collaborate together"}
-          />
-        </Flex>
-      </GridItem>
-      <GridItem colSpan={2} border="solid 1px orange">
-        <Flex>
+        <Flex padding="1em" height="100%" flexDirection="column" alignItems="center" justifyContent="center">
           <Box>
-            <Paragraph
-              content={"Our vision"}
-              fontSize={"2.5em"}
-              fontWeight={"bold"}
-            />
-            <Paragraph
-              content={
-                "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for  coders and the people we are coding for. We know that sharing experience, problems and learning means better end products for users."
-              }
-              fontSize={"1.4em"}
+            <SubHeader
+              content={"Helping programmers grow and collaborate together."}
             />
           </Box>
         </Flex>
       </GridItem>
-      <GridItem colSpan={2} border='solid 1px green'>
-        <Flex>
+      <GridItem colSpan={1}>
+        <Flex padding="1em" height="100%" flexDirection="row" alignItems={"flex-start"} justifyContent="center">
+          <HStack>
+            <Box>
+              <Box mb="1em">
+                <Paragraph
+                  content={"Our vision"}
+                  fontSize={"2.5em"}
+                  fontWeight={"bold"}
+                />
+              </Box>
+              <Box>
+                <Paragraph
+                  content={
+                    "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for  coders and the people we are coding for. We know that sharing experience, problems and learning means better end products for users."
+                  }
+                  fontSize={"1.4em"}
+                />
+              </Box>
+            </Box>
+          </HStack>
+        </Flex>
+      </GridItem>
+      <GridItem colSpan={1}>
+        <Flex padding="1em" height="100%" flexDirection="column" alignItems="center" justifyContent="center">
           <Box>
+            <Image src='gibbresh.png' fallbackSrc='https://via.placeholder.com/500x400' />
+          </Box>
+        </Flex>
+      </GridItem>
+      <GridItem colSpan={2}>
+        <Flex padding="1em" height="100%" flexDirection="column" alignItems={"flex-start"} justifyContent="center">
+          <Box mb="1em">
             <Paragraph
-              content={'Our Story'}
+              content={'Our story'}
               fontSize={'2.5em'}
               fontWeight={'bold'}
             />
+          </Box>
+          <Box>
             <Paragraph content={"As SoC Bootcamp graduates, in a very short time we\'ve come a very long way, from Zero to Programmer. Our journey has been one of the hardest we\'ve ever travelled. Climbing this intensive learning curve has been hugely challenging."} fontSize={'1.4em'} />
+          </Box>
+          <Box>
             <Paragraph content={`Mainly we’ve realised that our supportive community is hugely valuable. Coding with others is so much more fun and really helps manage the intensity.`}
               fontSize={'1.4em'} />
-
+          </Box>
+          <Box>
             <Paragraph content={`Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our experience and learning.  The Co:llab space lets us collaborate with others in a space for growing each other through shared experiences with pair programming and team working.`}
               fontSize={'1.4em'}
             />
           </Box>
-         
         </Flex>
       </GridItem>
-      <GridItem colSpan={2} border={'solid 1px red'
-      }>
-        <Flex>
+      <GridItem colSpan={2}>
+        <Flex padding="1em" height="100%" flexDirection="column" alignItems={"flex-start"} justifyContent="center">
           <Box>
-<Paragraph content={'Our ethos'} 
-fontSize={'2.5em'}
-fontWeight={'bold'} 
-/>
-<Paragraph content={"Make a change in the world of programming. We’re confident in it and know it works - want to engage others in it."} 
-fontSize={'1.4em'}
-/>
+            <Box mb="1em">
+              <Paragraph content={'Our ethos'}
+                fontSize={'2.5em'}
+                fontWeight={'bold'}
+              />
+            </Box>
+            <Box>
+              <Paragraph content={"Make a change in the world of programming. We’re confident in it and know it works - want to engage others in it."}
+                fontSize={'1.4em'}
+              />
+            </Box>
+          </Box >
+        </Flex >
+      </GridItem >
+    </Grid >
 
-          </Box>
-        </Flex>
-      </GridItem>
-</Grid>
   );
 }
