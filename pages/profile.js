@@ -57,15 +57,12 @@ export default function Profile({ payload, allEvents }) {
   console.log(payload);
   return user ? (
     <>
-
-    
-
       <Box pb={10}>
         <Header content={`Welcome back, ${user.given_name}!`} />
       </Box>
       <Wrap
         margin="0 auto"
-        maxWidth="1200px"
+        maxWidth="1500px"
         justify="space-evenly"
         spacing="30px"
         pb={10}
@@ -130,7 +127,8 @@ export default function Profile({ payload, allEvents }) {
           </WrapItem>
         ) : (
           <WrapItem>
-            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" maxWidth="400px"
+              minWidth="300px">
               <HStack mb="4">
                 <Paragraph
                   fontSize={"1.5em"}
@@ -186,7 +184,7 @@ export default function Profile({ payload, allEvents }) {
           </WrapItem>
         ) : (
           <WrapItem>
-            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" maxWidth="400px">
               <HStack mb="4">
                 <Paragraph
                   fontSize={"1.5em"}
@@ -267,7 +265,7 @@ export default function Profile({ payload, allEvents }) {
                 event_name={event_type}
                 event_date={event_date.slice(0, 10)}
                 event_desc={event_desc}
-                // onClick={() => sendEventData(event_id)}
+              // onClick={() => sendEventData(event_id)}
               />
             );
           })}
