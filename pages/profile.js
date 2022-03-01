@@ -80,6 +80,7 @@ export default function Profile({ payload, allEvents }) {
                   content={"Your next event"}
                 />
               </HStack>
+
               <Paragraph
                 content={`${payload[0].event_type}`}
                 fontSize={"1.2em"}
@@ -213,6 +214,7 @@ export default function Profile({ payload, allEvents }) {
                 content={"Why not host your own?"}
               />
             </HStack>
+
             <Paragraph
               color={"light grey"}
               fontSize={"1em"}
