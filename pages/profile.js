@@ -49,7 +49,13 @@ export default function Profile({ payload, allEvents }) {
       <Box pb={10}>
         <Header content={`Welcome back, ${username}!`} />
       </Box>
-      <Wrap margin="0 auto" maxWidth="1500px" justify="space-evenly" pb={10}>
+      <Wrap
+        spacing={10}
+        margin="0 auto"
+        maxWidth="1500px"
+        justify="space-evenly"
+        pb={10}
+      >
         {payload.length >= 1 ? (
           <WrapItem>
             <ReusableBox
@@ -87,25 +93,22 @@ export default function Profile({ payload, allEvents }) {
           // </WrapItem>
           <></>
         )}
-
-        <ReusableBox
-          title="Why not host your own?"
-          content1={`Have any ideas or like some of our own? Create an event using our
-            ${(
-              <Link href={"/create"}>
-                <a>"form"</a>
-              </Link>
-            )}
-          `}
-          tags={[
-            "Imposter syndrome",
-            "React Frameworks",
-            "Docker",
-            "API's",
-            "React Hooks",
-            "Rock, Paper, Scissors",
-          ]}
-        />
+        <Link href="/create">
+          <a>
+            <ReusableBox
+              title="Why not host your own?"
+              content1="Have any ideas or like some of our own? Create an event using our form."
+              tags={[
+                "Imposter syndrome",
+                "React Frameworks",
+                "Docker",
+                "API's",
+                "React Hooks",
+                "Rock, Paper, Scissors",
+              ]}
+            />
+          </a>
+        </Link>
       </Wrap>
 
       <Box>
