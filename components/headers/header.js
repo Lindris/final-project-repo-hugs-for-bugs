@@ -4,6 +4,7 @@
 import Paragraph from "../paragraph";
 
 const Header = ({ content }) => {
+
   return (
     <div>
       <Paragraph
@@ -14,5 +15,6 @@ const Header = ({ content }) => {
     </div>
   );
 };
+
 
 export default Header;

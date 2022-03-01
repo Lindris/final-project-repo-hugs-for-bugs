@@ -9,6 +9,7 @@ import {
   Tag,
   Wrap,
   WrapItem,
+
 } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
@@ -16,12 +17,16 @@ import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
 import Paragraph from "../components/paragraph";
 import EventDetails from "../components/eventListingDetails";
+
+import { ContactUs } from "../components/emailform/emailform";
+
 import {
   getSession,
   userProfile,
   withPageAuthRequired,
   useUser,
 } from "@auth0/nextjs-auth0";
+
 
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
@@ -52,6 +57,9 @@ export default function Profile({ payload, allEvents }) {
   console.log(payload);
   return user ? (
     <>
+
+    
+
       <Box pb={10}>
         <Header content={`Welcome back, ${user.given_name}!`} />
       </Box>
@@ -268,6 +276,7 @@ export default function Profile({ payload, allEvents }) {
           <MainButton content={"Explore all events"} route={"/events"} />
         </Center>
       </Box>
+
     </>
   ) : (
     <></>

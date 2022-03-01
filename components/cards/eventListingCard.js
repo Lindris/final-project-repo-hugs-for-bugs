@@ -14,6 +14,7 @@ import MainImage from "../mainImage";
 //put image in a box and centred
 //added flex for 2 heart icons classNames --before --after
 //in CSS specify the hearts and responses
+// Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end 
 
 // const event_name = "Test Event";
 // const event_date = "Wed 16 Feb 2022, 00:00";
@@ -53,7 +54,11 @@ export default function EventListingCard({
             fontWeight={"bold"}
           />
           <Paragraph
+
+         
+
             content={new Date(event_date).toString().slice(0, 15)}
+
             fontSize={"1em"}
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
@@ -76,11 +81,13 @@ export default function EventListingCard({
           </Box>
         </Flex>
         {/* heart = 2 icons 1 empty, replaced by 1 red when hover. See css*/}
-        <Box className="favourite">
-          <FaRegHeart className="fav--before" />
-          <FaHeart className="fav--after" />
-        </Box>
+        <Flex alignItems={"flex-end"}>
+          <Box className="favourite">
+            <FaRegHeart className="fav--before" />
+            <FaHeart className="fav--after" />
+          </Box>
+        </Flex>
       </Stack>
-    </Center>
+    </Center >
   );
 }
