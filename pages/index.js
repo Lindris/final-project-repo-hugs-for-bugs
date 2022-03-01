@@ -49,9 +49,9 @@ const placeholderText =
 
 export default function Home() {
   return (
-    <>
+    <Box w="100%" m="0">
       <Head>
-        <title>Create Next App</title>
+        <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box bg="#f8f9fa">
@@ -104,7 +104,7 @@ export default function Home() {
           </Flex>
         </Flex>
       </Box>
-      <Box p="2em">
+      <Box>
         <Center mt="3em">
           <SubHeader content={"See what's happening"} />
         </Center>
@@ -135,7 +135,7 @@ export default function Home() {
           </Box>
         </Center>
       </Box>
-      <Box mb="5em">
+      <Box my="4em">
         <Center>
           <MainButton content={"Explore all events"} route={"/events"} />
         </Center>
@@ -143,6 +143,6 @@ export default function Home() {
       <Box bg="#f8f9fa" py="5em">
         <ContactUs />
       </Box>
-    </>
+    </Box>
   );
 }
