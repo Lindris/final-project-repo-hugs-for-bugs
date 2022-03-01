@@ -1,15 +1,20 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import MainButton from "../mainButton";
+import SubHeader from "../headers/subheader";
+
 import {
   // Form,
-  Select,
+
   FormLabel,
   Button,
   Input,
   Box,
+  Textarea,
+  Grid,
+  GridItem,
+  Center,
 } from "@chakra-ui/react";
-export const ContactUs = () => {
+export default function ContactUs() {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -44,54 +49,60 @@ export const ContactUs = () => {
     //   <textarea name="message" />
     //   <input type="submit" value="Send" />
     // </form><>
-    <Box
-      py={4}
-      px={10}
-      // pl={10}
-      maxW="md"
-      borderWidth="1px"
-      borderRadius="lg"
-      overflow="hidden"
-      display="flex"
-      m="0 auto"
-      mt={10}
-      // align="center"
-    >
-      {/* event type */}
-      <form ref={form} onSubmit={sendEmail}>
-        <FormLabel htmlFor="name" mt={4}>
-          Name
-        </FormLabel>
-        <Input name="name" />
-        <FormLabel htmlFor="type" mt={4}>
-          Event type
-        </FormLabel>
-        <Select>
-          <option value="Hackathon">Hackathon</option>
-          <option value="Code Club">Code Club</option>
-        </Select>
-        <FormLabel htmlFor="email" mt={4}>
-          Email
-        </FormLabel>
-        <Input name="email" type="email" />
-        <FormLabel htmlFor="Message" mt={4}>
-          Message
-        </FormLabel>
-        <Input name="message" />
+    <Center>
+      <Box
+        py={4}
+        px={10}
+        // pl={10}
+        // maxW=""
 
-        <Button
-          color="brand.primaryLight"
-          bg="brand.mainPurple"
-          borderRadius="25px"
-          size="lg"
-          letterSpacing="0.5px"
-          fontFamily="Quicksand"
-          width="200px"
-          mt={4}
-          type="submit"
-          value="Send"
-        ></Button>
-      </form>
-    </Box>
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        display="flex"
+        m="0 auto"
+        mt={10}
+        // align="center"
+      >
+        <form ref={form} onSubmit={sendEmail}>
+          <Grid templateRows="repeat(1, 2fr)" templateColumns="repeat(1, 1fr)">
+            <GridItem colStart={1} colEnd={3} rowStart={1}>
+              <SubHeader content={"Want to be a guest speaker?"} />
+            </GridItem>
+            <GridItem colSpan={1} rowStart={2}>
+              <FormLabel mt={4}>First Name</FormLabel>
+              <Input name="firstname" />
+              <FormLabel mt={4}>Last Name</FormLabel>
+              <Input name="lastname" />
+            </GridItem>
+            <GridItem ml={1} colSpan={1} rowStart={2}>
+              <FormLabel mt={4}>Subject</FormLabel>
+              <Input name="subject" />
+              <FormLabel mt={4}>Email</FormLabel>
+              <Input name="email" type="email" />
+            </GridItem>
+            <GridItem colSpan={2}>
+              <FormLabel mt={4}>Message</FormLabel>
+              <Textarea name="message" placeholder="Tell us more" />
+              <Center>
+                <Button
+                  color="brand.primaryLight"
+                  bg="brand.mainPurple"
+                  borderRadius="25px"
+                  size="lg"
+                  letterSpacing="0.5px"
+                  fontFamily="Quicksand"
+                  width="200px"
+                  mt={4}
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </Center>
+            </GridItem>
+          </Grid>
+        </form>
+      </Box>
+    </Center>
   );
-};
+}
