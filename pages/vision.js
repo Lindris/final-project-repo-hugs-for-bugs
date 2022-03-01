@@ -44,7 +44,7 @@ export default function Vision() {
           />
         </Flex>
       </GridItem>
-      <GridItem colSpan={2} rowSpan={2} border="solid 1px orange">
+      <GridItem colSpan={2} border="solid 1px orange">
         <Flex>
           <Box>
             <Paragraph
@@ -61,7 +61,7 @@ export default function Vision() {
           </Box>
         </Flex>
       </GridItem>
-      <GridItem colSpan={2} rowSpan={3} border='solid 1px green'>
+      <GridItem colSpan={2} border='solid 1px green'>
         <Flex>
           <Box>
             <Paragraph
@@ -73,20 +73,28 @@ export default function Vision() {
             <Paragraph content={`Mainly we’ve realised that our supportive community is hugely valuable. Coding with others is so much more fun and really helps manage the intensity.`}
               fontSize={'1.4em'} />
 
-            <Paragraph content={`Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our experience and learning.  The Co:llab space lets us collaborate with others in a space for growing each other through shared experiences with pair programming and team working`}
+            <Paragraph content={`Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our experience and learning.  The Co:llab space lets us collaborate with others in a space for growing each other through shared experiences with pair programming and team working.`}
               fontSize={'1.4em'}
             />
           </Box>
+         
         </Flex>
       </GridItem>
-      <GridItem>
+      <GridItem colSpan={2} border={'solid 1px red'
+      }>
         <Flex>
           <Box>
+<Paragraph content={'Our ethos'} 
+fontSize={'2.5em'}
+fontWeight={'bold'} 
+/>
+<Paragraph content={"Make a change in the world of programming. We’re confident in it and know it works - want to engage others in it."} 
+fontSize={'1.4em'}
+/>
 
           </Box>
         </Flex>
       </GridItem>
-
-    </Grid>
+</Grid>
   );
 }
