@@ -16,6 +16,7 @@ import {
   Box,
   Center,
   Text,
+  Stack
 } from "@chakra-ui/react";
 
 //add button tag below h1
@@ -53,100 +54,95 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Grid
-        templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(2, 1fr)"
-      >
-        <GridItem colSpan={2} p="3em" bg="#f8f9fa">
-
-          <Grid
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(2, 1fr)"
-            gap={4}
+      <Box bg="#f8f9fa">
+        <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center">
+          <Flex
+            w={{ sm: '100%', md: '50%' }}
+            height={{
+              sm: 'auto', md: 'auto'
+            }}
+            direction={"column"}
+            justifyContent={"flex-end"}
+            padding={4}
+            my="2em"
           >
-            <GridItem rowSpan={2} colSpan={1}>
-              <Flex
-                padding="1em"
-                height="100%"
-                flexDirection="column"
-                justifyContent={"flex-end"}
-              >
-                <Box mt="1em" mb="1em">
-                  <Header content={"Code & Collab"} />
-                </Box>
-                <SubHeader content={"Our vision"} />
-                <Box mt="1em" mb="1em">
-                  <Paragraph content={placeholderText} />
-                </Box>
-                <Box pt="1em">
-                  <SecondaryButton content={"Learn more"} route={"/vision"} />
-                </Box>
-              </Flex>
-            </GridItem>
-            <GridItem rowSpan={1} colSpan={1} align="center">
-              <Box boxSize="sm">
+            <Box mt="1em" mb="1em">
+              <Header content={"Code & Collab"} />
+            </Box>
+            <SubHeader content={"Our vision"} />
+            <Box mt="1em" mb="1em">
+              <Paragraph content={placeholderText} />
+            </Box>
+            <Box pt="1em">
+              <SecondaryButton content={"Learn more"} route={"/vision"} />
+            </Box>
+          </Flex>
+          <Flex>
+            <Box
+              px="1em"
+              my="2em"
+              height={"auto"}
+              width={[
+                '100%',
+                '50%',
+                '75%',
+                '350px'
+              ]}>
+              <Box py="1em">
                 <MainImage
                   src="https://i.ibb.co/8X8cpTH/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"
                   alt="online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration"
                 />
               </Box>
-            </GridItem>
-            <GridItem rowSpan={1} colSpan={1} align="center">
-              <Box boxSize="sm">
+              <Box>
                 <MainImage
                   src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
                   alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
                 />
               </Box>
-            </GridItem>
-          </Grid>
-        </GridItem>
-        <GridItem colSpan={4} bg="white">
-          <Center mt="3em">
-            <SubHeader content={"See what's happening"} />
-          </Center>
-          <Center>
-            <Box>
-              <Flex>
-                <HStack>
-                  <InfoCard
-                    headerContent={"Code Clubs"}
-                    textContent={placeholderText}
-                    src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"}
-                    alt={"coding"}
-                  />
-                  <Spacer />
-                  <InfoCard
-                    headerContent={"Hackathons"}
-                    textContent={placeholderText}
-                    src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"}
-                    alt={"people working around a table"}
-                  />
-                  <Spacer />
-                  <InfoCard
-                    headerContent={"Q&A Events"}
-                    textContent={placeholderText}
-                    src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"}
-                    alt={"speaker talking to a group"}
-                  />
-                </HStack>
-              </Flex>
             </Box>
-          </Center>
-          <Box p="5">
-            <Center>
-              <MainButton content={"Explore all events"} route={"/events"} />
-            </Center>
+          </Flex>
+        </Flex>
+      </Box>
+      <Box p="2em">
+        <Center mt="3em">
+          <SubHeader content={"See what's happening"} />
+        </Center>
+        <Center>
+          <Box mt="2.5em">
+            <Flex mx="5em" direction={{ base: 'column', md: 'row' }}>
+              <InfoCard
+                headerContent={"Code Clubs"}
+                textContent={placeholderText}
+                src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"}
+                alt={"coding"}
+              />
+              <Spacer />
+              <InfoCard
+                headerContent={"Hackathons"}
+                textContent={placeholderText}
+                src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"}
+                alt={"people working around a table"}
+              />
+              <Spacer />
+              <InfoCard
+                headerContent={"Q&A Events"}
+                textContent={placeholderText}
+                src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"}
+                alt={"speaker talking to a group"}
+              />
+            </Flex>
           </Box>
-        </GridItem>
-
-        <GridItem colSpan={2} p="2em" bg="#f8f9fa">
-          <>
-            <ContactUs />
-          </>
-        </GridItem>
-      </Grid>
+        </Center>
+      </Box>
+      <Box mb="5em">
+        <Center>
+          <MainButton content={"Explore all events"} route={"/events"} />
+        </Center>
+      </Box>
+      <Box bg="#f8f9fa" py="5em">
+        <ContactUs />
+      </Box>
     </>
   );
 }

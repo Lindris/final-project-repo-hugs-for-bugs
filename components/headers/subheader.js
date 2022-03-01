@@ -10,9 +10,11 @@ import Paragraph from "../paragraph";
 const SubHeader = ({ content }) => {
   return (
     <div>
-      <Paragraph fontSize={"3em"} content={content} fontWeight={"extrabold"} />
+      <Paragraph fontSize={{ base: '2em', md: '2.5em', lg: '3em' }} content={content} fontWeight={"extrabold"} />
     </div>
   );
 };
 
 export default SubHeader;
+
+

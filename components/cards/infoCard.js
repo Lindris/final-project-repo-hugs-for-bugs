@@ -23,15 +23,14 @@ import {
 
 export default function infoCard({ headerContent, textContent, src, alt }) {
   return (
-    <Center py={6}>
+    <Center py={4}>
       <Box
         fontFamily="Quicksand"
-        maxWidth={"max-content"}
         bg={useColorModeValue("white", "gray.900")}
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
-        margin="3em"
+        mx="2em"
         overflow={"hidden"}
       >
         <Box
@@ -43,7 +42,7 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
           pos={"relative"}
           align="center"
         >
-          <Image maxWidth={"inherit"} height="100%" src={src} alt={alt} />
+          <Image height="100%" src={src} alt={alt} />
         </Box>
         <Stack textAlign={"center"}>
           <Paragraph
