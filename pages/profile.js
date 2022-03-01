@@ -52,19 +52,27 @@ export default function Profile({ payload, allEvents }) {
   console.log(payload);
   return user ? (
     <>
-      <Box pb={5}>
+      <Box pb={10}>
         <Header content={`Welcome back, ${user.given_name}!`} />
       </Box>
       <Wrap
         margin="0 auto"
         maxWidth="1200px"
         justify="space-evenly"
-        spacing="50px"
+        spacing="30px"
         pb={10}
       >
         {payload.length >= 1 ? (
           <WrapItem>
-            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
+            <Box
+              p={5}
+              shadow="md"
+              maxWidth="400px"
+              minWidth="300px"
+              borderWidth="1px"
+              flex="1"
+              borderRadius="md"
+            >
               <HStack mb="4">
                 <Paragraph
                   fontSize={"1.5em"}
@@ -81,7 +89,7 @@ export default function Profile({ payload, allEvents }) {
                 content={`${new Date(payload[0].event_date)
                   .toString()
                   .slice(0, 15)}`}
-                fontSize={"0.9em"}
+                fontSize={"1em"}
                 fontWeight={"bold"}
                 colour={"brand.mainPurple"}
               />
@@ -90,23 +98,23 @@ export default function Profile({ payload, allEvents }) {
                   0,
                   5
                 )} - ${payload[0].event_end_time.slice(0, 5)}`}
-                fontSize={"0.8em"}
+                fontSize={"1em"}
                 fontWeight={"bold"}
               />
               <Paragraph
                 content={`${payload[0].event_desc}`}
-                fontSize={"0.8em"}
+                fontSize={"0.9em"}
                 fontWeight={"medium"}
               />
               <Paragraph
                 content={`${payload[0].event_location}`}
-                fontSize={"0.8em"}
+                fontSize={"0.9em"}
                 fontWeight={"medium"}
               />
 
               <Paragraph
                 content={"Online Event"}
-                fontSize={"0.6em"}
+                fontSize={"0.7em"}
                 fontWeight={"medium"}
               />
             </Box>
@@ -223,7 +231,7 @@ export default function Profile({ payload, allEvents }) {
               ].map((event) => (
                 <WrapItem>
                   <Tag
-                    size={"sm"}
+                    size={"md"}
                     key={event}
                     variant="solid"
                     bgColor={"brand.secondaryPurple"}
