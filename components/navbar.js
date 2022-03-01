@@ -18,7 +18,6 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
-
 const Links = [
   ["Create an event", "/api/auth/login"],
   ["See all Events", "/events"],
@@ -48,6 +47,7 @@ const NavLink = ({ children }) => (
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
+  console.log(user);
   return (
     <Box fontFamily="Quicksand" px={4}>
       <Flex
@@ -88,12 +88,7 @@ export default function Navbar() {
                 cursor={"pointer"}
                 minW={0}
               >
-                <Avatar
-                  size={"sm"}
-                  src={
-                    "https://lh3.googleusercontent.com/a/AATXAJwg6hNxXw0Ir5vsCmcNT5Wq3z_RcN3RglEYFSWs=s96-c"
-                  }
-                />
+                <Avatar size={"sm"} src={user.picture} />
               </MenuButton>
               <MenuList>
                 <MenuItem>
@@ -101,7 +96,7 @@ export default function Navbar() {
                     <a>My events</a>
                   </Link>
                 </MenuItem>
-                <MenuItem>
+                {/* <MenuItem>
                   <Link href="/api/auth/logout">
                     <a>Organised events</a>
                   </Link>
@@ -110,7 +105,7 @@ export default function Navbar() {
                   <Link href="/api/auth/logout">
                     <a>Past events</a>
                   </Link>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem>
                   <Link href="/api/auth/logout">
                     <a>Log out</a>
