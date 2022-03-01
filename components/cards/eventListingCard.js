@@ -54,8 +54,11 @@ export default function EventListingCard({
             fontWeight={"bold"}
           />
           <Paragraph
-            // .slice(0, 10)
-            content={event_date}
+
+         
+
+            content={new Date(event_date).toString().slice(0, 15)}
+
             fontSize={"1em"}
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
