@@ -6,7 +6,7 @@ import InfoCard from "../components/cards/infoCard";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
-
+import ContactUs from "../components/emailform/emailform";
 import {
   GridItem,
   Grid,
@@ -38,7 +38,7 @@ import {
 //create secondary button component in a file and import here
 //created 2nd grid item within grid, to have 2nd image
 //added image code and links from ImgBB website with stored images - delete href and border and a tag.
-//put images in boxes and resize to 'sm' 
+//put images in boxes and resize to 'sm'
 // swapped out stack for flex for text in first column of nested grid (header, subheader and learn more button)
 // Broke up the sections of the page with colours: alternating between grey and white to add depth > added bg="" in griditem
 // Created another row in the overall grid to make room for the form at the bottom by amending the rows to 3 and adding another griditem
@@ -53,18 +53,25 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <Grid
         templateRows="repeat(3, 1fr)"
         templateColumns="repeat(2, 1fr)"
       >
         <GridItem colSpan={2} p="3em" bg="#f8f9fa">
+
           <Grid
             templateRows="repeat(2, 1fr)"
             templateColumns="repeat(2, 1fr)"
             gap={4}
           >
             <GridItem rowSpan={2} colSpan={1}>
-              <Flex padding="1em" height="100%" flexDirection="column" justifyContent={"flex-end"}>
+              <Flex
+                padding="1em"
+                height="100%"
+                flexDirection="column"
+                justifyContent={"flex-end"}
+              >
                 <Box mt="1em" mb="1em">
                   <Header content={"Code & Collab"} />
                 </Box>
@@ -133,8 +140,13 @@ export default function Home() {
             </Center>
           </Box>
         </GridItem>
-        <GridItem colSpan={2} p="2em" bg="#f8f9fa"></GridItem>
-      </Grid >
+
+        <GridItem colSpan={2} p="2em" bg="#f8f9fa">
+          <>
+            <ContactUs />
+          </>
+        </GridItem>
+      </Grid>
     </>
   );
 }
