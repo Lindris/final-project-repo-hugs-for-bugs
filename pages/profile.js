@@ -1,32 +1,16 @@
-import {
-  Grid,
-  GridItem,
-  Box,
-  Center,
-  Spacer,
-  HStack,
-  Flex,
-  Tag,
-  Wrap,
-  WrapItem,
-
-} from "@chakra-ui/react";
+import { Box, Center, Spacer, HStack, Wrap, WrapItem } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
-import Paragraph from "../components/paragraph";
-import EventDetails from "../components/eventListingDetails";
-
-import { ContactUs } from "../components/emailform/emailform";
-
+import ReusableBox from "../components/box.js";
+import Link from "next/link";
 import {
   getSession,
   userProfile,
   withPageAuthRequired,
   useUser,
 } from "@auth0/nextjs-auth0";
-
 
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
@@ -54,204 +38,74 @@ import {
 
 export default function Profile({ payload, allEvents }) {
   const { user } = useUser();
-  console.log(payload);
+  let username;
+  if (user) {
+    if ("given_name" in user) {
+      username = user.given_name;
+    } else username = user.nickname;
+  }
   return user ? (
     <>
       <Box pb={10}>
-        <Header content={`Welcome back, ${user.given_name}!`} />
+        <Header content={`Welcome back, ${username}!`} />
       </Box>
-      <Wrap
-        margin="0 auto"
-        maxWidth="1500px"
-        justify="space-evenly"
-        spacing="30px"
-        pb={10}
-      >
+      <Wrap margin="0 auto" maxWidth="1500px" justify="space-evenly" pb={10}>
         {payload.length >= 1 ? (
           <WrapItem>
-            <Box
-              p={5}
-              shadow="md"
-              maxWidth="400px"
-              minWidth="300px"
-              borderWidth="1px"
-              flex="1"
-              borderRadius="md"
-            >
-              <HStack mb="4">
-                <Paragraph
-                  fontSize={"1.5em"}
-                  fontWeight={"extrabold"}
-                  content={"Your next event"}
-                />
-              </HStack>
-
-              <Paragraph
-                content={`${payload[0].event_type}`}
-                fontSize={"1.2em"}
-                fontWeight={"bold"}
-              />
-              <Paragraph
-                content={`${new Date(payload[0].event_date)
-                  .toString()
-                  .slice(0, 15)}`}
-                fontSize={"1em"}
-                fontWeight={"bold"}
-                colour={"brand.mainPurple"}
-              />
-              <Paragraph
-                content={`${payload[0].event_start_time.slice(
-                  0,
-                  5
-                )} - ${payload[0].event_end_time.slice(0, 5)}`}
-                fontSize={"1em"}
-                fontWeight={"bold"}
-              />
-              <Paragraph
-                content={`${payload[0].event_desc}`}
-                fontSize={"0.9em"}
-                fontWeight={"medium"}
-              />
-              <Paragraph
-                content={`${payload[0].event_location}`}
-                fontSize={"0.9em"}
-                fontWeight={"medium"}
-              />
-
-              <Paragraph
-                content={"Online Event"}
-                fontSize={"0.7em"}
-                fontWeight={"medium"}
-              />
-            </Box>
-          </WrapItem>
-        ) : (
-          <WrapItem>
-            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" maxWidth="400px"
-              minWidth="300px">
-              <HStack mb="4">
-                <Paragraph
-                  fontSize={"1.5em"}
-                  fontWeight={"extrabold"}
-                  content={"Your next event"}
-                />
-              </HStack>
-              <Paragraph
-                content={`You have not signed up for any events, please browse our events below`}
-                fontSize={"1.2em"}
-                fontWeight={"bold"}
-              />
-            </Box>
-          </WrapItem>
-        )}
-        {payload.length >= 1 ? (
-          <WrapItem>
-            <Box
-              p={5}
-              shadow="md"
-              borderWidth="1px"
-              borderRadius="md"
-              maxWidth="400px"
-            >
-              <HStack mb="4">
-                <Paragraph
-                  fontSize={"1.5em"}
-                  fontWeight={"extrabold"}
-                  content={"Your upcoming events"}
-                />
-                <Spacer />
-              </HStack>
-              <EventDetails
-                type={payload[0].event_type}
-                date={payload[0].event_date}
-                starttime={payload[0].event_start_time}
-                endtime={payload[0].event_end_time}
-              />
-              {payload.length >= 2 ? (
-                <EventDetails
-                  type={payload[1].event_type}
-                  date={payload[1].event_date}
-                  starttime={payload[1].event_start_time}
-                  endtime={payload[1].event_end_time}
-                />
-              ) : (
-                <Paragraph
-                  content={`To sign up for more, browse events below or on the events page`}
-                  fontSize={"1em"}
-                />
-              )}
-            </Box>
-          </WrapItem>
-        ) : (
-          <WrapItem>
-            <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md" maxWidth="400px">
-              <HStack mb="4">
-                <Paragraph
-                  fontSize={"1.5em"}
-                  fontWeight={"extrabold"}
-                  content={"Your upcoming events"}
-                />
-                <Spacer />
-              </HStack>
-              <Grid templateRows="repeat(2,1fr)">
-                <GridItem p="2">
-                  <Paragraph
-                    content={`To sign up for more, browse events below or on the events page`}
-                    fontSize={"1em"}
-                  />
-                </GridItem>
-              </Grid>
-            </Box>
-          </WrapItem>
-        )}
-
-        <Box
-          p={5}
-          shadow="md"
-          borderWidth="1px"
-          borderRadius="md"
-          maxWidth="400px"
-        >
-          <Flex flexDirection="column" mb="5">
-            <HStack mb="4">
-              <Paragraph
-                fontSize={"1.5em"}
-                fontWeight={"extrabold"}
-                content={"Why not host your own?"}
-              />
-            </HStack>
-
-            <Paragraph
-              color={"light grey"}
-              fontSize={"1em"}
-              fontWeight={"400"}
-              content={
-                "Have any ideas or like some of our own? Create an event using our form."
-              }
+            <ReusableBox
+              title="Your next event"
+              type={`${payload[0].event_type}`}
+              date={`${new Date(payload[0].event_date)
+                .toString()
+                .slice(0, 15)}`}
+              time={`${payload[0].event_start_time.slice(
+                0,
+                5
+              )} - ${payload[0].event_end_time.slice(0, 5)}`}
+              description={`${payload[0].event_desc}`}
+              link={`${payload[0].event_location}`}
             />
-            <Wrap pt={3}>
-              {[
-                "Imposter syndrome",
-                "React Frameworks",
-                "Docker",
-                "API's",
-                "Hooks",
-              ].map((event) => (
-                <WrapItem>
-                  <Tag
-                    size={"md"}
-                    key={event}
-                    variant="solid"
-                    bgColor={"brand.secondaryPurple"}
-                  >
-                    {event}
-                  </Tag>
-                </WrapItem>
-              ))}
-            </Wrap>
-          </Flex>
-          {/* <span className="tag"># Hackathon</span> */}
-        </Box>
+          </WrapItem>
+        ) : (
+          <WrapItem>
+            <ReusableBox
+              title="Your next event"
+              content1="You have not signed up for any events, please browse our events below"
+            />
+          </WrapItem>
+        )}
+        {payload.length >= 1 ? (
+          <WrapItem>
+            <ReusableBox title={"Your upcoming events"} payload={payload} />
+          </WrapItem>
+        ) : (
+          // <WrapItem>
+          //   <ReusableBox
+          //     title="Your upcoming events"
+          //     content1="To sign up for more, browse events below or on the events page"
+          //   />
+          // </WrapItem>
+          <></>
+        )}
+
+        <ReusableBox
+          title="Why not host your own?"
+          content1={`Have any ideas or like some of our own? Create an event using our
+            ${(
+              <Link href={"/create"}>
+                <a>"form"</a>
+              </Link>
+            )}
+          `}
+          tags={[
+            "Imposter syndrome",
+            "React Frameworks",
+            "Docker",
+            "API's",
+            "React Hooks",
+            "Rock, Paper, Scissors",
+          ]}
+        />
       </Wrap>
 
       <Box>
@@ -265,7 +119,6 @@ export default function Profile({ payload, allEvents }) {
                 event_name={event_type}
                 event_date={event_date.slice(0, 10)}
                 event_desc={event_desc}
-              // onClick={() => sendEventData(event_id)}
               />
             );
           })}
@@ -274,17 +127,11 @@ export default function Profile({ payload, allEvents }) {
           <MainButton content={"Explore all events"} route={"/events"} />
         </Center>
       </Box>
-
     </>
   ) : (
     <></>
   );
 }
-
-// what needs to be sent in order to render the page?
-// render only if user is logged in, else redirect to login page
-// request needs to get events based on a specific user
-// http://localhost:5000/users/profile - request url (send auth_id in body)
 
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
