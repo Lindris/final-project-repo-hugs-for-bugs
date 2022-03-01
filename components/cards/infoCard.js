@@ -26,8 +26,8 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
     <Center py={6}>
       <Box
         fontFamily="Quicksand"
-        maxWidth={"max-content"}
-        bg={useColorModeValue("white", "gray.900")}
+        maxWidth={"400px"}
+        maxHeight={'auto'}
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
