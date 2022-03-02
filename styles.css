@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -87,4 +88,10 @@ body {
 
 #Location {
   background-color: none;
+}
+
+@media screen and (min-width: 48em) {
+  .css-3m0ceo > .css-19teblb {
+    width: 100%;
+  }
 }
