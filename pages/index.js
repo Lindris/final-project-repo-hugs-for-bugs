@@ -54,7 +54,7 @@ export default function Home() {
         <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box bg="#f8f9fa" height="100vh">
+      <Box bg="#f8f9fa" height={{ base: "100%", sm: '100%', md: '100vh' }}>
         <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center" border={"solid 1px p"}>
           <Flex
             w={{ sm: '100%', md: '50%' }}
