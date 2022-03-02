@@ -4,13 +4,12 @@ import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
 
 import {
-  GridItem,
-  Grid,
-  HStack,
-  Spacer,
   Flex,
   Box,
-  Image
+  Image,
+  List,
+  ListItem,
+  UnorderedList,
 } from "@chakra-ui/react";
 
 //import chakra - done
@@ -28,26 +27,28 @@ import {
 //grid item for 2nd and 3rd rows - e.g. rowSpan{3} is the 3rd row
 //insert text and image content inside the boxes
 //use styling
-// Put each component in a box and apply flex properties to the flex container they are within > align center and justify content center 
+// Put each component in a box and apply flex properties to the flex container they are within > align center and justify content center
 // Added a placeholder image to the second column of the second row in its own box
 
 const placeholderText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
 
 export default function Vision() {
   return (
     <>
       <Flex justifyContent="center" my="3em">
         <Box p="1em">
-          <SubHeader content={"Helping programmers grow and collaborate together."} />
+          <SubHeader
+            content={"Helping programmers grow and collaborate together."}
+          />
         </Box>
       </Flex>
-      <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center">
+      <Flex direction={{ base: "column", md: "row" }} justifyContent="center">
         <Flex
-          w={{ sm: '100%', md: '50%' }}
+          w={{ sm: "100%", md: "50%" }}
           height={{
-            sm: 'auto', md: 'auto'
+            sm: "auto",
+            md: "auto",
           }}
           direction={"column"}
           justifyContent={"center"}
@@ -55,8 +56,12 @@ export default function Vision() {
           my="2em"
         >
           <SubHeader content={"Our vision"} />
-          <Box my="1em">
-            <Paragraph content={placeholderText} />
+          <Box mt="2em">
+            <Paragraph
+              content={
+                "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for  coders and the people we are coding for. We know that sharing experience, problems and learning means better end products for users."
+              }
+            />
           </Box>
         </Flex>
         <Flex>
@@ -64,87 +69,125 @@ export default function Vision() {
             px="1em"
             my="2em"
             height={"auto"}
-            width={[
-              '100%',
-              '50%',
-              '75%',
-              '350px'
-            ]}>
+            width={["100%", "50%", "75%", "350px"]}
+          >
+            {/* <Box>
+              {/* <MainImage
+                src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
+                alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
+              />
+            </Box> */} 
+          </Box>
+        </Flex>
+      </Flex>
+      <Flex direction={{ base: "column", md: "row" }} justifyContent="center">
+        <Flex>
+          <Box
+            px="1em"
+            my="2em"
+            height={"auto"}
+            width={["100%", "50%", "75%", "350px"]}
+          >
             <Box>
               <MainImage
-                src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
+                src="https://i.ibb.co/WD9rHDW/Wavy-Bus-32-Single-05.jpg"
                 alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
               />
             </Box>
           </Box>
         </Flex>
-      </Flex>
-      <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center">
-        <Flex>
-          <Box
-            px="1em"
-            my="2em"
-            height={"auto"}
-            width={[
-              '100%',
-              '50%',
-              '75%',
-              '350px'
-            ]}>
-            <Box>
-              <MainImage
-                src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
-                alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
+        <Flex
+          w={{ sm: "100%", md: "50%" }}
+          height={{
+            sm: "auto",
+            md: "auto",
+          }}
+          direction={"column"}
+          justifyContent={"center"}
+          padding={4}
+          my="2em"
+        >
+          <SubHeader content={"Our story"} />
+          <Flex direction={"column"} my="1em">
+            <Box mt="1em">
+              <Paragraph
+                content={
+                  "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for  coders and the people we are coding for. We know that sharing experience, problems and learning means better end products for users."
+                }
               />
             </Box>
-          </Box>
-        </Flex>
-        <Flex
-          w={{ sm: '100%', md: '50%' }}
-          height={{
-            sm: 'auto', md: 'auto'
-          }}
-          direction={"column"}
-          justifyContent={"center"}
-          padding={4}
-          my="2em"
-        >
-          <SubHeader content={"Our vision"} />
-          <Box my="1em">
-            <Paragraph content={placeholderText} />
-          </Box>
+            <Box my="1.2em">
+              <Paragraph
+                content={
+                  "As SoC Bootcamp graduates,  in a very short time we’ve come a very long way, from Zero to Programmer. Our journey has been one of the hardest we’ve ever travelled. Climbing this intensive learning curve has been hugely challenging."
+                }
+              />
+            </Box>
+            <Box>
+              <Paragraph
+                content={
+                  "Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our experience and learning.  The Co:llab space lets us collaborate with others in a space for growing each other through shared experiences with pair programming and team working."
+                }
+              />
+            </Box>
+          </Flex>
         </Flex>
       </Flex>
-      <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center">
+      <Flex direction={{ base: "column", md: "row" }} justifyContent="center">
         <Flex
-          w={{ sm: '100%', md: '50%' }}
+          w={{ sm: "100%", md: "50%" }}
           height={{
-            sm: 'auto', md: 'auto'
+            sm: "auto",
+            md: "auto",
           }}
           direction={"column"}
           justifyContent={"center"}
           padding={4}
           my="2em"
         >
-          <SubHeader content={"Our vision"} />
-          <Box my="1em">
-            <Paragraph content={placeholderText} />
-          </Box>
+          <SubHeader content={"Our ethos"} />
+          <Flex direction={"column"} my="1em">
+            <Box mt="1em">
+              <Paragraph
+                content={
+                  "To make a change in the world of programming the Co:llab vision is to create better opportunities to meet with like-minded people to code collaboratively. We’re confident in sharing our Community Manifesto - we know it works and want to engage others in it."
+                }
+              />
+            </Box>
+            <Box my="1.2em">
+              <Paragraph
+                content={
+                  "To make our space as open and welcoming as possible our culture and values are essential to embrace/accept/sign up to as a requirement of membership"
+                }
+              />
+            </Box>
+            <Box>
+              <Paragraph
+                content={
+                  "Programming with others, transparancy - , honesty, prime directive? co-elevation? character, credibility, trustworthiness - creating a community, good intentions and open about it, hoping people will resonate with what we’re talking about. Be respectful, positive and encouraging. Help each other, collaborative problem solving."
+                }
+              />
+            </Box>
+            <Box>
+              <UnorderedList>
+                <ListItem>Lorem ipsum dolor sit amet</ListItem>
+                <ListItem>Consectetur adipiscing elit</ListItem>
+                <ListItem>Integer molestie lorem at massa</ListItem>
+                <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+              </UnorderedList>
+            </Box>
+          </Flex>
         </Flex>
         <Flex>
           <Box
             px="1em"
             my="2em"
             height={"auto"}
-            width={[
-              '100%',
-              '50%',
-              '75%',
-              '350px'
-            ]}>
+            width={["100%", "50%", "75%", "350px"]}
+          >
             <Box>
               <MainImage
-                src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
+                src="https://i.ibb.co/6D4LPvL/Wavy-Bus-32-Single-11.jpg"
                 alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
               />
             </Box>
@@ -154,12 +197,6 @@ export default function Vision() {
     </>
   );
 }
-
-
-
-
-
-
 
 // export default function Vision() {
 //   return (

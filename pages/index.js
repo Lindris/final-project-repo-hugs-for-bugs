@@ -110,7 +110,7 @@ export default function Home() {
         <Center>
           <Box mt="2.5em" mx="1em">
             <Flex
-              direction={{ sm: "column", md: "column", lg: "row" }}
+              direction={{ base: "column", sm: "column", md: "column", lg: "row" }}
               justifyContent="center"
             >
               <InfoCard

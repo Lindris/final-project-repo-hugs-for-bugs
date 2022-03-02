@@ -70,13 +70,13 @@ export default function Footer() {
         </Flex >
         <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
           <Flex grow="1">
-            <Text fontSize=".9em" color="white" mr="1em">
+            <Text fontSize=".9em" color="white" mr="2em">
               &copy; {new Date().getFullYear()} co:llab
             </Text>
-            <Text fontSize=".9em" color='lightgray' pr="1em">Terms & Privacy</Text>
-            <Text fontSize=".9em" color='lightgray' pr="1em">Community Guidelines</Text>
-            <Text fontSize=".9em" color='lightgray' pr="1em">Cookie Policy</Text>
-            <Text fontSize=".9em" color='lightgray' pr="1em">Help</Text>
+            <Text fontSize=".9em" color='lightgray' pr="2em">Terms & Privacy</Text>
+            <Text fontSize=".9em" color='lightgray' pr="2em">Community Guidelines</Text>
+            <Text fontSize=".9em" color='lightgray' pr="2em">Cookie Policy</Text>
+            <Text fontSize=".9em" color='lightgray' pr="2em">Help</Text>
           </Flex>
           <ButtonGroup variant="ghost">
             <IconButton
