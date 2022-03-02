@@ -23,27 +23,34 @@ import {
 
 export default function infoCard({ headerContent, textContent, src, alt }) {
   return (
-    <Center py={6}>
+    <Center py={4}>
       <Box
         fontFamily="Quicksand"
+        bg={useColorModeValue("white", "gray.900")}
         maxWidth={"400px"}
         maxHeight={'auto'}
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
-        margin="3em"
-        overflow={"hidden"}
+        mx={{
+          sm: '1em', md: '1em', lg: "2em"
+        }}
+        w={{ sm: '100%', md: '100px', lg: "400px" }}
+        h={{
+          sm: 'auto', md: '100%'
+        }}
       >
-        <Box
-          h={"210px"}
-          bg={"gray.100"}
+        <Box bg={"gray.100"}
           mt={-6}
           mx={-6}
           mb={6}
           pos={"relative"}
           align="center"
         >
-          <Image maxWidth={"inherit"} height="100%" src={src} alt={alt} />
+          <Image w={{ sm: '100%', md: '200px', lg: "200px" }}
+            height={{
+              sm: 'auto', md: 'auto'
+            }} src={src} alt={alt} />
         </Box>
         <Stack textAlign={"center"}>
           <Paragraph
@@ -56,6 +63,6 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
           <Paragraph content={textContent} />
         </Stack>
       </Box>
-    </Center>
+    </Center >
   );
 }

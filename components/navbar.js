@@ -68,8 +68,8 @@ export default function Navbar() {
         />
         <HStack spacing={8} alignItems={"center"}>
           <Link href="/">
-            <Box cursor={"pointer"} fontSize="xl">
-              Co:llab
+            <Box cursor={"pointer"} fontSize="xl" fontWeight="bold">
+              &#x7b;co:llab&#x7d;
             </Box>
           </Link>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
