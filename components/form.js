@@ -38,7 +38,6 @@ export default function CreateEventForm() {
     register,
     control,
     formState: { errors, isSubmitting },
-    reset,
   } = useForm();
 
   function onSubmit(values, e) {
@@ -101,8 +100,6 @@ export default function CreateEventForm() {
         m="0 auto"
         my={10}
       >
-        {/* event type */}
-
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormLabel htmlFor="type" mt={4}>
             Event type

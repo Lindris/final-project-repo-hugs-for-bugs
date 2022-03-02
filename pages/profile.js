@@ -1,16 +1,21 @@
-import { Box, Center, Spacer, HStack, Wrap, WrapItem } from "@chakra-ui/react";
+import { useState } from "react";
+import {
+  Box,
+  Center,
+  Spacer,
+  HStack,
+  Wrap,
+  WrapItem,
+  useDisclosure,
+} from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
 import ReusableBox from "../components/box.js";
 import Link from "next/link";
-import {
-  getSession,
-  userProfile,
-  withPageAuthRequired,
-  useUser,
-} from "@auth0/nextjs-auth0";
+import BasicModal from "../components/modal.js";
+import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
@@ -37,12 +42,52 @@ import {
 // Added a span div to display tag - added a border radius of 25px, background color, letter-spacing
 
 export default function Profile({ payload, allEvents }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [eventData, seteventData] = useState(false);
+  const [confirmEvent, setConfirmEvent] = useState("");
   const { user } = useUser();
   let username;
   if (user) {
     if ("given_name" in user) {
       username = user.given_name;
     } else username = user.nickname;
+  }
+  async function addUsertoEvent(event_id) {
+    console.log(event_id);
+    if (!user) {
+      // display something in the modal to create an account
+    } else if (user) {
+      try {
+        const response = await fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            auth_id: user.sub,
+            event_attend: event_id,
+          }),
+        });
+        console.log(response.status);
+        if (response.status === 400) {
+          console.log(response.status);
+          setConfirmEvent("You have already signed up to attend this event");
+        } else if (response.status === 200) {
+          setConfirmEvent("You have successfully registered for this event");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+      setTimeout(function () {
+        onClose();
+        setConfirmEvent("");
+      }, 4000);
+    }
+  }
+  function sendEventData(event_id) {
+    const datatosend = payload.filter((event) => event.event_id === event_id);
+    seteventData(datatosend);
+    onOpen();
   }
   return user ? (
     <Box m="0 auto" p={10}>
@@ -85,12 +130,6 @@ export default function Profile({ payload, allEvents }) {
             <ReusableBox title={"Your upcoming events"} payload={payload} />
           </WrapItem>
         ) : (
-          // <WrapItem>
-          //   <ReusableBox
-          //     title="Your upcoming events"
-          //     content1="To sign up for more, browse events below or on the events page"
-          //   />
-          // </WrapItem>
           <></>
         )}
         <Link href="/create">
@@ -105,6 +144,7 @@ export default function Profile({ payload, allEvents }) {
                 "API's",
                 "React Hooks",
                 "Rock, Paper, Scissors",
+                "Tick, Tack, Toe",
               ]}
             />
           </a>
@@ -125,6 +165,7 @@ export default function Profile({ payload, allEvents }) {
                 event_name={event_type}
                 event_date={event_date.slice(0, 10)}
                 event_desc={event_desc}
+                onClick={() => sendEventData(event_id)}
               />
             );
           })}
@@ -133,6 +174,26 @@ export default function Profile({ payload, allEvents }) {
           <MainButton content={"Explore all events"} route={"/events"} />
         </Center>
       </Box>
+
+      {eventData ? (
+        <BasicModal
+          isOpen={isOpen}
+          onClose={onClose}
+          event_type={eventData[0].event_type}
+          event_desc={eventData[0].event_desc}
+          event_date={eventData[0].event_date}
+          event_start_time={eventData[0].event_start_time}
+          event_end_time={eventData[0].event_end_time}
+          event_location={eventData[0].event_location}
+          event_tags={eventData[0].event_tags}
+          button1="Close"
+          button2="Attend event"
+          onClick={() => addUsertoEvent(eventData[0].event_id)}
+          confirm={confirmEvent}
+        />
+      ) : (
+        <></>
+      )}
     </Box>
   ) : (
     <></>
@@ -153,7 +214,7 @@ export const getServerSideProps = withPageAuthRequired({
       }),
     });
     let { payload } = await res.json();
-    payload = payload.slice(0, 2);
+    payload = payload.slice(0, 3);
     if (!session.user.sub) {
       return {
         redirect: {
