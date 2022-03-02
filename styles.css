@@ -77,7 +77,7 @@ body {
 .react-datepicker-ignore-onclickoutside:focus,
 .chakra-select__wrapper > .chakra-select:focus {
   z-index: 1;
-  border-color: #580aff;
+  border: 1px solid #580aff;
   box-shadow: 0 0 0 1px #580aff;
 }
 

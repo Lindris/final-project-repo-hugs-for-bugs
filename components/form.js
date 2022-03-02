@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  // Form,
+  Header,
   Select,
   FormLabel,
   Button,
@@ -76,16 +76,19 @@ export default function CreateEventForm() {
 
   return (
     <>
-      <SubHeader
-        align="center"
-        content={`${username}, create your own event here!`}
-      />
+      <Box m="0 auto" textAlign={"center"} pt={5}>
+        <SubHeader
+          align="center"
+          content={`${username}, create your own event here!`}
+        />
+      </Box>
       <Box
         py={5}
         px={10}
         maxW="md"
         borderWidth="1px"
         borderRadius="lg"
+        borderColor={"brand.secondaryPurple"}
         overflow="hidden"
         display="flex"
         m="0 auto"
@@ -200,7 +203,7 @@ export default function CreateEventForm() {
             color="brand.mainPurple"
             borderRadius="25px"
             letterSpacing="0.5px"
-            border="1px"
+            border="2px"
             borderColor="brand.mainPurple"
             _hover={{
               textDecoration: "none",
