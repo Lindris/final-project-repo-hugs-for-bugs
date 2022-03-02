@@ -54,8 +54,8 @@ export default function Home() {
         <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box bg="#f8f9fa">
-        <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center">
+      <Box bg="#f8f9fa" height="100vh">
+        <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center" border={"solid 1px p"}>
           <Flex
             w={{ sm: '100%', md: '50%' }}
             height={{
@@ -86,11 +86,11 @@ export default function Home() {
                 '100%',
                 '50%',
                 '75%',
-                '500px'
+                '600px'
               ]}>
               <Box py="1em">
                 <MainImage
-                  src="https://i.ibb.co/nk0Wf1N/New-Project-6.png"
+                  src="https://i.ibb.co/Cwd43Ds/New-Project-7.png"
                   alt="online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration"
                 />
               </Box>
