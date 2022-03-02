@@ -86,7 +86,7 @@ export default function CreateEventForm() {
         py={5}
         px={10}
         maxW="md"
-        borderWidth="1px"
+        borderWidth="2px"
         borderRadius="lg"
         borderColor={"brand.secondaryPurple"}
         overflow="hidden"

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import EventListingCard from "../components/cards/eventListingCard.js";
 import BasicModal from "../components/modal.js";
-import { useDisclosure } from "@chakra-ui/react";
+import { useDisclosure, Box } from "@chakra-ui/react";
 import { useUser } from "@auth0/nextjs-auth0";
-
+import Header from "../components/headers/header";
 export default function Events({ payload }) {
   const [eventData, seteventData] = useState(false);
   const { user } = useUser();
-  // console.log(payload);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   function sendEventData(event_id) {
     const datatosend = payload.filter((event) => event.event_id === event_id);
@@ -38,7 +38,10 @@ export default function Events({ payload }) {
     onClose();
   }
   return (
-    <>
+    <Box m="0 auto" textAlign={"center"} py={10}>
+      <Box pb={5}>
+        <Header content={"Upcoming events"} />
+      </Box>
       {payload.map(({ event_type, event_date, event_desc, event_id }) => {
         return (
           <EventListingCard
@@ -68,7 +71,7 @@ export default function Events({ payload }) {
       ) : (
         <></>
       )}
-    </>
+    </Box>
   );
 }
 export async function getServerSideProps() {
