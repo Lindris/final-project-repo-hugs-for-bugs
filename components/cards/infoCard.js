@@ -27,6 +27,8 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
       <Box
         fontFamily="Quicksand"
         bg={useColorModeValue("white", "gray.900")}
+        maxWidth={"400px"}
+        maxHeight={'auto'}
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
