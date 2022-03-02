@@ -64,6 +64,9 @@ export default function ContactUs() {
           overflow="hidden"
           display="flex"
           mt={10}
+          // boxShadow={
+          //   "0px 0px 0px 2px #580AFF"
+          // }
         >
           <form ref={form} onSubmit={sendEmail} >
             <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>First Name</FormLabel>
