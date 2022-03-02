@@ -11,19 +11,22 @@ import Link from "next/link";
 //round off corners using borderRadius
 
 export default function SecondaryButton({ content, route }) {
-    return (
-        <Button
-            bg="brand.primaryLight"
-            color="brand.mainPurple"
-            borderRadius="25px"
-            size="lg"
-            letterSpacing="0.5px"
-            border='1px'
-            borderColor='brand.mainPurple'
-        >
-            <Link href={route}>
-                {content}
-            </Link>
-        </Button>
-    );
+  return (
+    <Button
+      bg="brand.primaryLight"
+      color="brand.mainPurple"
+      borderRadius="25px"
+      size="lg"
+      letterSpacing="0.5px"
+      border="1px"
+      borderColor="brand.mainPurple"
+      _hover={{
+        textDecoration: "none",
+        color: "brand.primaryDark",
+        borderColor: "brand.primaryDark",
+      }}
+    >
+      <Link href={route}>{content}</Link>
+    </Button>
+  );
 }

@@ -5,7 +5,7 @@ import {
   Text,
   Flex,
   Spacer,
-  Box
+  Box,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
@@ -51,12 +51,10 @@ export default function Footer() {
             </Box>
           </Stack>
           <Text fontSize="sm" color="subtle">
-            &copy; {new Date().getFullYear()} Co:llab, Inc. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} Co:llab, Inc. All rights reserved.
           </Text>
         </Stack>
       </Box>
     </Flex>
   );
 }
-
