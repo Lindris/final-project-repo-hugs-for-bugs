@@ -45,7 +45,7 @@ import {
 // Created another row in the overall grid to make room for the form at the bottom by amending the rows to 3 and adding another griditem
 
 const placeholderText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+  "Welcome to the space where you can meet and collaborate with other programmers. Join like-minded people who love to share coding experiences and learn from each other.  A mutually supportive programming community to help each other continue on our self-development journey towards continued growth and acheivement of our aspirations.";
 
 export default function Home() {
   return (
@@ -77,7 +77,7 @@ export default function Home() {
             </Box>
             <Paragraph
               fontSize="2em"
-              content={"This header needs to be changed"}
+              content={"A community space to program collaboratively"}
             />
             <Box mt="1em" mb="1em">
               <Paragraph content={placeholderText} />
@@ -110,7 +110,12 @@ export default function Home() {
         <Center>
           <Box mt="2.5em" mx="1em">
             <Flex
-              direction={{ base: "column", sm: "column", md: "column", lg: "row" }}
+              direction={{
+                base: "column",
+                sm: "column",
+                md: "column",
+                lg: "row",
+              }}
               justifyContent="center"
             >
               <InfoCard

@@ -59,7 +59,7 @@ export default function Vision() {
           <Box mt="2em">
             <Paragraph
               content={
-                "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for  coders and the people we are coding for. We know that sharing experience, problems and learning means better end products for users."
+                "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for coders and also for the people we are coding for. Our vision in creating Co:llab is to create opportunities to continue our journey - working through problems together, learning from each other and industry experts, which will ultimately lead to developing better end products for users."
               }
             />
           </Box>
@@ -112,21 +112,21 @@ export default function Vision() {
             <Box mt="1em">
               <Paragraph
                 content={
-                  "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for  coders and the people we are coding for. We know that sharing experience, problems and learning means better end products for users."
+                  "As School of Code Bootcamp Graduates, in a very short time we’ve come a very long way, from 'Zero to Programmer'. Our journey has been one of the hardest we’ve ever travelled and climbing this intensive learning curve has been hugely challenging."
                 }
               />
             </Box>
             <Box my="1.2em">
               <Paragraph
                 content={
-                  "As SoC Bootcamp graduates,  in a very short time we’ve come a very long way, from Zero to Programmer. Our journey has been one of the hardest we’ve ever travelled. Climbing this intensive learning curve has been hugely challenging."
+                  "Mainly we’ve realised that our supportive community is immensely valuable. Coding with others is so much more fun and makes it much easier to manage the intensity."
                 }
               />
             </Box>
             <Box>
               <Paragraph
                 content={
-                  "Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our experience and learning.  The Co:llab space lets us collaborate with others in a space for growing each other through shared experiences with pair programming and team working."
+                  "Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our programming experience. The Co:llab space gives us a platform to keep doing what we've come to value - working in tandem, practising with each other through pair programming and team working to keep learning and growing."
                 }
               />
             </Box>
@@ -150,31 +150,40 @@ export default function Vision() {
             <Box mt="1em">
               <Paragraph
                 content={
-                  "To make a change in the world of programming the Co:llab vision is to create better opportunities to meet with like-minded people to code collaboratively. We’re confident in sharing our Community Manifesto - we know it works and want to engage others in it."
+                  "Our aspiration to make a change in the world of programming through creating better opportunities to code collaboratively with like-minded people, we are confident in sharing our community manifesto - we know it works and want to engage others in it."
                 }
               />
             </Box>
             <Box my="1.2em">
               <Paragraph
                 content={
-                  "To make our space as open and welcoming as possible our culture and values are essential to embrace/accept/sign up to as a requirement of membership"
+                  "To make our space as open and welcoming as possible we set out our culture and values. Embracing our ethos is an essential requirement of community membership."
                 }
               />
             </Box>
             <Box>
               <Paragraph
                 content={
-                  "Programming with others, transparancy - , honesty, prime directive? co-elevation? character, credibility, trustworthiness - creating a community, good intentions and open about it, hoping people will resonate with what we’re talking about. Be respectful, positive and encouraging. Help each other, collaborative problem solving."
+                  "Our ethos is enveloped in our Manifesto:-"
                 }
               />
             </Box>
             <Box>
               <UnorderedList>
-                <ListItem>Lorem ipsum dolor sit amet</ListItem>
-                <ListItem>Consectetur adipiscing elit</ListItem>
-                <ListItem>Integer molestie lorem at massa</ListItem>
-                <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+                <ListItem>being friendly and welcoming when collaboratively programming and solving problems with others
+              </ListItem>
+                <ListItem>being respectful and understanding towards everyone in the community and visiting guests</ListItem>
+                <ListItem>making sure everyone is heard and has the opportunity to share</ListItem>
+                <ListItem>being suportive and patient towards others - appreciating the premise that everyone is doing the best they can within their unique cabilities and constraints</ListItem>
+                <ListItem>being positive and constructive - not critical - so everyone feels safe to speak openly </ListItem>
               </UnorderedList>
+            </Box>
+            <Box my="1.2em">
+              <Paragraph
+                content={
+                  "We hope our manifesto is appreciated and resonates with all our members. Keeping our shared values in mind at all times will ensure a safe, fun and productive community experience. "
+                }
+              />
             </Box>
           </Flex>
         </Flex>
