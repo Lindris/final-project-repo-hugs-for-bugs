@@ -29,6 +29,7 @@ function BasicModal(props) {
     button1,
     button2,
     onClick,
+    confirm,
   } = props;
   console.log(event_tags);
   return (
@@ -91,6 +92,17 @@ function BasicModal(props) {
                   )
                 )}
               </HStack>
+              {confirm ? (
+                <Paragraph
+                  pt={3}
+                  content={confirm}
+                  fontSize={"0.9em"}
+                  color={"brand.primaryDark"}
+                  fontWeight={"bold"}
+                />
+              ) : (
+                <></>
+              )}
               )
             </Stack>
           </ModalBody>

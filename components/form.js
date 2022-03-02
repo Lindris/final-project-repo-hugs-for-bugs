@@ -32,6 +32,7 @@ export default function CreateEventForm() {
   // const [startDate, setStartDate] = useState(new Date());
   const [eventdetails, setEventDetails] = useState([]);
   const [formValues, setFormValues] = useState("");
+  const [confirmEvent, setConfirmEvent] = useState("");
   const {
     handleSubmit,
     register,
@@ -58,20 +59,26 @@ export default function CreateEventForm() {
     onOpen();
   }
 
-  function handleModalSubmit() {
+  async function handleModalSubmit() {
     console.log(formValues);
     try {
-      fetch("http://localhost:5000/events", {
+      const response = await fetch("http://localhost:5000/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formValues),
       });
+      if (response.status === 200) {
+        setConfirmEvent("Event successfully added");
+      }
     } catch (error) {
-      console.log("User not added to event");
+      setConfirmEvent("An error occurred, please try again");
     }
-    Router.reload(window.location.pathname);
+
+    setTimeout(function () {
+      Router.reload(window.location.pathname);
+    }, 2000);
   }
 
   return (
@@ -233,6 +240,7 @@ export default function CreateEventForm() {
           event_end_time={formValues.event_end_time}
           event_location={formValues.event_location}
           event_tags={formValues.event_tags}
+          confirm={confirmEvent}
         />
       ) : (
         <></>
