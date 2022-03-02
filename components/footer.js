@@ -16,6 +16,9 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 //fix footer to bottom of pageBreakAfter:
 //icons moved to right
 //insert dummy logo
+//make footer responsive, using flex direction
+//in flex tag insert a Box with footer content, including copyright &copy, newDate, co:llab, your Account
+//in last flex tab insert text tags with size and colour for text along bottom of footer e.g. Terms, guidelines, cookies 
 
 export default function Footer() {
   return (
