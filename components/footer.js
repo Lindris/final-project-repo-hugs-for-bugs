@@ -23,9 +23,13 @@ export default function Footer() {
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Stack spacing={{ base: "4", md: "5" }}>
           <Stack justify="space-between" direction="row">
-            <Box>
-              <h1>Logo</h1>
-            </Box>
+          <Box>
+          <Text fontSize="1.1em" color='white'>Your Account</Text>
+          <Text fontSize=".9em" color='lightgray'>Settings</Text>
+          <Text fontSize=".9em" color='lightgray'>Log out</Text>
+          <Text fontSize=".9em" color='lightgray'>Help</Text>
+          </Box>
+            
             <Spacer />
             <Box>
               <ButtonGroup variant="ghost">
@@ -51,13 +55,14 @@ export default function Footer() {
             </Box>
           </Stack>
           <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
-            <Text fontSize=".9em">Terms & Privacy</Text>
-            <Text fontSize=".9em">Community Guidelines</Text>
-          </Flex>
-          <Text fontSize=".7em" color="subtle">
-            &copy; {new Date().getFullYear()} co:llab, Inc. All rights
-            reserved.
+          <Text fontSize=".9em" color="white">
+            &copy; {new Date().getFullYear()} co:llab 
           </Text>
+            <Text fontSize=".9em" color='lightgray'>Terms & Privacy</Text>
+            <Text fontSize=".9em" color='lightgray'>Community Guidelines</Text>
+            <Text fontSize=".9em" color='lightgray'>Cookie Policy</Text>
+            <Text fontSize=".9em" color='lightgray'>Help</Text>
+          </Flex>
         </Stack>
       </Box>
     </Flex>

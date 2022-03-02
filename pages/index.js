@@ -107,21 +107,21 @@ export default function Home() {
             <Flex mx="5em" direction={{ base: 'column', md: 'row' }}>
               <InfoCard
                 headerContent={"Code Clubs"}
-                textContent={placeholderText}
+                textContent={'Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects.'}
                 src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"}
                 alt={"coding"}
               />
               <Spacer />
               <InfoCard
                 headerContent={"Hackathons"}
-                textContent={placeholderText}
+                textContent={'Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. '}
                 src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"}
                 alt={"people working around a table"}
               />
               <Spacer />
               <InfoCard
                 headerContent={"Q&A Events"}
-                textContent={placeholderText}
+                textContent={'Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  '}
                 src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"}
                 alt={"speaker talking to a group"}
               />
