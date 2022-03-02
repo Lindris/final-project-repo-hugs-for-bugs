@@ -45,9 +45,9 @@ export default function Profile({ payload, allEvents }) {
     } else username = user.nickname;
   }
   return user ? (
-    <>
-      <Box pb={10}>
-        <Header content={`Welcome back, ${username}!`} />
+    <Box m="0 auto" p={10}>
+      <Box textAlign={"center"} pb={10}>
+        <Header content={`Welcome back ${username}!`} />
       </Box>
       <Wrap
         spacing={10}
@@ -112,7 +112,10 @@ export default function Profile({ payload, allEvents }) {
       </Wrap>
 
       <Box>
-        <SubHeader content={"Suggested events"} />
+        <Box textAlign={"center"} pt={10} pb={5}>
+          <SubHeader content={"Suggested events"} />
+        </Box>
+
         <Spacer />
         <Box>
           {allEvents.map(({ event_type, event_date, event_desc, event_id }) => {
@@ -130,7 +133,7 @@ export default function Profile({ payload, allEvents }) {
           <MainButton content={"Explore all events"} route={"/events"} />
         </Center>
       </Box>
-    </>
+    </Box>
   ) : (
     <></>
   );

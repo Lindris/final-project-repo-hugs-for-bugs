@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  // Form,
+  Header,
   Select,
   FormLabel,
   Button,
@@ -19,8 +19,15 @@ import axios from "axios";
 import { useUser } from "@auth0/nextjs-auth0";
 import Router from "next/router";
 import BasicModal from "../components/modal.js";
+import SubHeader from "./headers/subheader.js";
 export default function CreateEventForm() {
   const { user } = useUser();
+  let username;
+  if (user) {
+    if ("given_name" in user) {
+      username = user.given_name;
+    } else username = user.nickname;
+  }
   const { isOpen, onOpen, onClose } = useDisclosure();
   // const [startDate, setStartDate] = useState(new Date());
   const [eventdetails, setEventDetails] = useState([]);
@@ -69,20 +76,26 @@ export default function CreateEventForm() {
 
   return (
     <>
+      <Box m="0 auto" textAlign={"center"} pt={5}>
+        <SubHeader
+          align="center"
+          content={`${username}, create your own event here!`}
+        />
+      </Box>
       <Box
-        py={4}
+        py={5}
         px={10}
-        // pl={10}
         maxW="md"
-        borderWidth="1px"
+        borderWidth="2px"
         borderRadius="lg"
+        borderColor={"brand.secondaryPurple"}
         overflow="hidden"
         display="flex"
         m="0 auto"
-        mt={10}
-        // align="center"
+        my={10}
       >
         {/* event type */}
+
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormLabel htmlFor="type" mt={4}>
             Event type
@@ -170,7 +183,7 @@ export default function CreateEventForm() {
           />
 
           {/* tags  */}
-          <FormLabel mt={2}>
+          <FormLabel my={5}>
             <EditIcon /> Provide three tags to help describe your event
           </FormLabel>
           <Editable width="200px" mt={2} placeholder="Tag 1">
@@ -185,7 +198,23 @@ export default function CreateEventForm() {
             <EditablePreview />
             <EditableInput {...register("event_tags.2")} />
           </Editable>
-          <Button width="200px" mt={4} type="submit" isLoading={isSubmitting}>
+          <Button
+            bg="brand.primaryLight"
+            color="brand.mainPurple"
+            borderRadius="25px"
+            letterSpacing="0.5px"
+            border="2px"
+            borderColor="brand.mainPurple"
+            _hover={{
+              textDecoration: "none",
+              color: "brand.primaryDark",
+              borderColor: "brand.primaryDark",
+            }}
+            width="125px"
+            mt={4}
+            type="submit"
+            isLoading={isSubmitting}
+          >
             Submit
           </Button>
         </form>

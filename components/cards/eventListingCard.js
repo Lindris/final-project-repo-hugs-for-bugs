@@ -14,7 +14,7 @@ import MainImage from "../mainImage";
 //put image in a box and centred
 //added flex for 2 heart icons classNames --before --after
 //in CSS specify the hearts and responses
-// Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end 
+// Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end
 
 // const event_name = "Test Event";
 // const event_date = "Wed 16 Feb 2022, 00:00";
@@ -29,6 +29,8 @@ export default function EventListingCard({
   return (
     <Center py={6} onClick={onClick}>
       <Stack
+        maxWidth={"1000px"}
+        margin={8}
         w={{ sm: "100%" }}
         height={{ sm: "300px", md: "15rem" }}
         direction={{ base: "column", md: "row" }}
@@ -55,13 +57,13 @@ export default function EventListingCard({
           />
           <Paragraph
             content={new Date(event_date).toString().slice(0, 15)}
-            fontSize={"1em"}
+            fontSize={"1.3em"}
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
           />
           <Paragraph
             content={event_desc}
-            fontSize={"0.9em"}
+            fontSize={"1em"}
             fontWeight={"medium"}
           />
         </Stack>
@@ -84,6 +86,6 @@ export default function EventListingCard({
           </Box>
         </Flex>
       </Stack>
-    </Center >
+    </Center>
   );
 }

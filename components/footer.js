@@ -5,7 +5,7 @@ import {
   Text,
   Flex,
   Spacer,
-  Box
+  Box,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
@@ -71,4 +71,3 @@ export default function Footer() {
     </Flex>
   );
 }
-

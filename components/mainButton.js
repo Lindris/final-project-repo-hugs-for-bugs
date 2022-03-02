@@ -19,10 +19,12 @@ export default function MainButton({ content, route }) {
       size="lg"
       letterSpacing="0.5px"
       fontFamily="Quicksand"
+      _hover={{
+        textDecoration: "none",
+        bg: "brand.primaryDark",
+      }}
     >
-      <Link href={route}>
-        {content}
-      </Link>
+      <Link href={route}>{content}</Link>
     </Button>
   );
 }
