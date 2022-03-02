@@ -25,46 +25,47 @@ export default function Footer() {
     <Flex fontFamily="Quicksand">
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Stack spacing={{ base: "4", md: "5" }}>
-          <Stack justify="space-between" direction="row">
-          <Box>
-          <Text fontSize="1.1em" color='white'>Your Account</Text>
-          <Text fontSize=".9em" color='lightgray'>Settings</Text>
-          <Text fontSize=".9em" color='lightgray'>Log out</Text>
-          <Text fontSize=".9em" color='lightgray'>Help</Text>
-          </Box>
-            
-            <Spacer />
-            <Box>
-              <ButtonGroup variant="ghost">
-                <IconButton
-                  as="a"
-                  href="#"
-                  aria-label="LinkedIn"
-                  icon={<FaLinkedin fontSize="1.25rem" />}
-                />
-                <IconButton
-                  as="a"
-                  href="#"
-                  aria-label="GitHub"
-                  icon={<FaGithub fontSize="1.25rem" />}
-                />
-                <IconButton
-                  as="a"
-                  href="#"
-                  aria-label="Twitter"
-                  icon={<FaTwitter fontSize="1.25rem" />}
-                />
-              </ButtonGroup>
+          <Flex justify="space-between" direction="column">
+            <Box my="1em">
+              <Text fontSize="1.1em" color='white'>Your Account</Text>
             </Box>
-          </Stack>
+            <Box my="1em">
+              <Text fontSize=".9em" color='lightgray'>Settings</Text>
+              <Text fontSize=".9em" color='lightgray'>Log out</Text>
+              <Text fontSize=".9em" color='lightgray'>Help</Text>
+            </Box>
+            <Spacer />
+          </Flex>
           <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
-          <Text fontSize=".9em" color="white">
-            &copy; {new Date().getFullYear()} co:llab 
-          </Text>
-            <Text fontSize=".9em" color='lightgray'>Terms & Privacy</Text>
-            <Text fontSize=".9em" color='lightgray'>Community Guidelines</Text>
-            <Text fontSize=".9em" color='lightgray'>Cookie Policy</Text>
-            <Text fontSize=".9em" color='lightgray'>Help</Text>
+            <Flex grow="1">
+              <Text fontSize=".9em" color="white" mr="1em">
+                &copy; {new Date().getFullYear()} co:llab
+              </Text>
+              <Text fontSize=".9em" color='lightgray' pr="1em">Terms & Privacy</Text>
+              <Text fontSize=".9em" color='lightgray' pr="1em">Community Guidelines</Text>
+              <Text fontSize=".9em" color='lightgray' pr="1em">Cookie Policy</Text>
+              <Text fontSize=".9em" color='lightgray' pr="1em">Help</Text>
+            </Flex>
+            <ButtonGroup variant="ghost">
+              <IconButton
+                as="a"
+                href="#"
+                aria-label="LinkedIn"
+                icon={<FaLinkedin fontSize="1.25rem" />}
+              />
+              <IconButton
+                as="a"
+                href="#"
+                aria-label="GitHub"
+                icon={<FaGithub fontSize="1.25rem" />}
+              />
+              <IconButton
+                as="a"
+                href="#"
+                aria-label="Twitter"
+                icon={<FaTwitter fontSize="1.25rem" />}
+              />
+            </ButtonGroup>
           </Flex>
         </Stack>
       </Box>

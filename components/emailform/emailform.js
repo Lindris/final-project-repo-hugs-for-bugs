@@ -64,16 +64,15 @@ export default function ContactUs() {
           overflow="hidden"
           display="flex"
           mt={10}
-
         >
-          <form ref={form} onSubmit={sendEmail}>
-            <FormLabel mt={4} >First Name</FormLabel>
-            <Input name="firstname"  />
+          <form ref={form} onSubmit={sendEmail} >
+            <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>First Name</FormLabel>
+            <Input name="firstname" />
             <FormLabel mt={4}>Last Name</FormLabel>
             <Input name="lastname" />
             <FormLabel mt={4}>Subject</FormLabel>
             <Input name="subject" />
-            <FormLabel mt={4}>Email</FormLabel>
+            <FormLabel htmlFor='email'>Email address</FormLabel>
             <Input name="email" type="email" />
             <FormLabel mt={4}>Message</FormLabel>
             <Textarea name="message" placeholder="Tell us more" />
