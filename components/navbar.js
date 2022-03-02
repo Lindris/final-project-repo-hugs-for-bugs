@@ -68,7 +68,7 @@ export default function Navbar() {
         />
         <HStack spacing={8} alignItems={"center"}>
           <Link href="/">
-            <Box cursor={"pointer"} fontSize="xl">
+            <Box cursor={"pointer"} fontSize="xl" fontWeight="bold">
               &#x7b;co:llab&#x7d;
             </Box>
           </Link>

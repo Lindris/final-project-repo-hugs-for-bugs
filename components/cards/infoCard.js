@@ -33,16 +33,17 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
         mx="2em"
         overflow={"hidden"}
       >
-        <Box
-          h={"210px"}
-          bg={"gray.100"}
+        <Box bg={"gray.100"}
           mt={-6}
           mx={-6}
           mb={6}
           pos={"relative"}
           align="center"
         >
-          <Image height="100%" src={src} alt={alt} />
+          <Image w={{ sm: '100%', md: '50%', lg: "200px" }}
+            height={{
+              sm: 'auto', md: 'auto'
+            }} src={src} alt={alt} />
         </Box>
         <Stack textAlign={"center"}>
           <Paragraph
