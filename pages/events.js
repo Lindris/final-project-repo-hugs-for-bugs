@@ -5,86 +5,86 @@ import { useDisclosure } from "@chakra-ui/react";
 import { useUser } from "@auth0/nextjs-auth0";
 
 export default function Events({ payload }) {
-	const [eventData, seteventData] = useState(false);
-	const { user } = useUser();
-	// console.log(payload);
-	const { isOpen, onOpen, onClose } = useDisclosure();
+  const [eventData, seteventData] = useState(false);
+  const { user } = useUser();
+  // console.log(payload);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-	function sendEventData(event_id) {
-		const datatosend = payload.filter((event) => event.event_id === event_id);
-		seteventData(datatosend);
-		onOpen();
-	}
+  function sendEventData(event_id) {
+    const datatosend = payload.filter((event) => event.event_id === event_id);
+    seteventData(datatosend);
+    onOpen();
+  }
 
-	// console.log(eventData);
-	function addUsertoEvent(event_id) {
-		console.log(event_id);
-		if (!user) {
-			// display something in the modal to create an account
-		} else if (user) {
-			try {
-				fetch("http://localhost:5000/users", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({
-						auth_id: user.sub,
-						event_attend: event_id,
-					}),
-				});
-			} catch (error) {
-				console.log("User not added to event");
-			}
-		}
-		onClose();
-	}
-	return (
-		<>
-			{payload.map(({ event_type, event_date, event_desc, event_id }) => {
-				return (
-					<EventListingCard
-						key={event_id}
-						event_name={event_type}
-						event_date={event_date.slice(0, 10)}
-						event_desc={event_desc}
-						onClick={() => sendEventData(event_id)}
-					/>
-				);
-			})}
-			{eventData ? (
-				<BasicModal
-					isOpen={isOpen}
-					onClose={onClose}
-					event_type={eventData[0].event_type}
-					event_desc={eventData[0].event_desc}
-					event_date={eventData[0].event_date}
-					event_start_time={eventData[0].event_start_time}
-					event_end_time={eventData[0].event_end_time}
-					event_location={eventData[0].event_location}
-					event_tags={eventData[0].event_tags}
-					button1="Close"
-					button2="Attend event"
-					onClick={() => addUsertoEvent(eventData[0].event_id)}
-				/>
-			) : (
-				<></>
-			)}
-		</>
-	);
+  // console.log(eventData);
+  function addUsertoEvent(event_id) {
+    console.log(event_id);
+    if (!user) {
+      // display something in the modal to create an account
+    } else if (user) {
+      try {
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            auth_id: user.sub,
+            event_attend: event_id,
+          }),
+        });
+      } catch (error) {
+        console.log("User not added to event");
+      }
+    }
+    onClose();
+  }
+  return (
+    <>
+      {payload.map(({ event_type, event_date, event_desc, event_id }) => {
+        return (
+          <EventListingCard
+            key={event_id}
+            event_name={event_type}
+            event_date={event_date.slice(0, 10)}
+            event_desc={event_desc}
+            onClick={() => sendEventData(event_id)}
+          />
+        );
+      })}
+      {eventData ? (
+        <BasicModal
+          isOpen={isOpen}
+          onClose={onClose}
+          event_type={eventData[0].event_type}
+          event_desc={eventData[0].event_desc}
+          event_date={eventData[0].event_date}
+          event_start_time={eventData[0].event_start_time}
+          event_end_time={eventData[0].event_end_time}
+          event_location={eventData[0].event_location}
+          event_tags={eventData[0].event_tags}
+          button1="Close"
+          button2="Attend event"
+          onClick={() => addUsertoEvent(eventData[0].event_id)}
+        />
+      ) : (
+        <></>
+      )}
+    </>
+  );
 }
 export async function getServerSideProps() {
-	// Fetch data from external AP
-	const response = await fetch(`http://localhost:5000/events`);
-	const data = await response.json();
-	let payload = data.payload;
-	// maximum 10 cards
-	if (payload.length > 10) {
-		payload = payload.slice(0, 10);
-	}
-	// Pass data to the page via props
-	console.log(payload);
-	return { props: { payload } };
+  // Fetch data from external AP
+  const response = await fetch(`http://localhost:5000/events`);
+  const data = await response.json();
+  let payload = data.payload;
+  // maximum 10 cards
+  if (payload.length > 10) {
+    payload = payload.slice(0, 10);
+  }
+  // Pass data to the page via props
+  console.log(payload);
+  return { props: { payload } };
 }
 
 // have a condition that check if user exists first
