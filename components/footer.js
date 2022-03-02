@@ -50,8 +50,12 @@ export default function Footer() {
               </ButtonGroup>
             </Box>
           </Stack>
-          <Text fontSize="sm" color="subtle">
-            &copy; {new Date().getFullYear()} Co:llab, Inc. All rights
+          <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
+            <Text fontSize=".9em">Terms & Privacy</Text>
+            <Text fontSize=".9em">Community Guidelines</Text>
+          </Flex>
+          <Text fontSize=".7em" color="subtle">
+            &copy; {new Date().getFullYear()} co:llab, Inc. All rights
             reserved.
           </Text>
         </Stack>
