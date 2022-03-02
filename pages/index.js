@@ -16,7 +16,7 @@ import {
   Box,
   Center,
   Text,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 
 //add button tag below h1
@@ -54,12 +54,13 @@ export default function Home() {
         <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box bg="#f8f9fa" height={{ base: "100%", sm: '100%', md: '100vh' }}>
-        <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center">
+      <Box bg="#f8f9fa" height={{ base: "100%", sm: "100%", md: "100vh" }}>
+        <Flex direction={{ base: "column", md: "row" }} justifyContent="center">
           <Flex
-            w={{ sm: '100%', md: '50%' }}
+            w={{ sm: "100%", md: "50%" }}
             height={{
-              sm: 'auto', md: 'auto'
+              sm: "auto",
+              md: "auto",
             }}
             direction={"column"}
             justifyContent={"flex-end"}
@@ -69,7 +70,10 @@ export default function Home() {
             <Box mt="1em" mb="1em">
               <Header content={"Code & Collab"} />
             </Box>
-            <Paragraph fontSize="2em" content={"This header needs to be changed"} />
+            <Paragraph
+              fontSize="2em"
+              content={"This header needs to be changed"}
+            />
             <Box mt="1em" mb="1em">
               <Paragraph content={placeholderText} />
             </Box>
@@ -82,12 +86,8 @@ export default function Home() {
               px="1em"
               my="2em"
               height={"auto"}
-              width={[
-                '100%',
-                '50%',
-                '75%',
-                '600px'
-              ]}>
+              width={["100%", "50%", "75%", "600px"]}
+            >
               <Box py="1em">
                 <MainImage
                   src="https://i.ibb.co/Cwd43Ds/New-Project-7.png"
@@ -104,24 +104,30 @@ export default function Home() {
         </Center>
         <Center>
           <Box mt="2.5em">
-            <Flex mx="5em" direction={{ base: 'column', md: 'row' }}>
+            <Flex mx="5em" direction={{ base: "column", md: "row" }}>
               <InfoCard
                 headerContent={"Code Clubs"}
-                textContent={'Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects.'}
+                textContent={
+                  "Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects."
+                }
                 src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"}
                 alt={"coding"}
               />
               <Spacer />
               <InfoCard
                 headerContent={"Hackathons"}
-                textContent={'Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. '}
+                textContent={
+                  "Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. "
+                }
                 src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"}
                 alt={"people working around a table"}
               />
               <Spacer />
               <InfoCard
                 headerContent={"Q&A Events"}
-                textContent={'Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  '}
+                textContent={
+                  "Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  "
+                }
                 src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"}
                 alt={"speaker talking to a group"}
               />
@@ -140,4 +146,3 @@ export default function Home() {
     </Box>
   );
 }
-
