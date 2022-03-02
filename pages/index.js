@@ -69,7 +69,7 @@ export default function Home() {
             <Box mt="1em" mb="1em">
               <Header content={"Code & Collab"} />
             </Box>
-            <SubHeader content={"Our vision"} />
+            <Paragraph fontSize="2em" content={"This header needs to be changed"} />
             <Box mt="1em" mb="1em">
               <Paragraph content={placeholderText} />
             </Box>
@@ -86,18 +86,12 @@ export default function Home() {
                 '100%',
                 '50%',
                 '75%',
-                '350px'
+                '500px'
               ]}>
               <Box py="1em">
                 <MainImage
-                  src="https://i.ibb.co/8X8cpTH/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"
+                  src="https://i.ibb.co/nk0Wf1N/New-Project-6.png"
                   alt="online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration"
-                />
-              </Box>
-              <Box>
-                <MainImage
-                  src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
-                  alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
                 />
               </Box>
             </Box>
@@ -146,3 +140,4 @@ export default function Home() {
     </Box>
   );
 }
+
