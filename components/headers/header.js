@@ -7,7 +7,7 @@ const Header = ({ content }) => {
   return (
     <div>
       <Paragraph
-        fontSize={{ sm: "4em", md: "5em" }}
+        fontSize={{ base: "3em", sm: "4em", md: "5em" }}
         content={content}
         fontWeight={"extrabold"}
       />

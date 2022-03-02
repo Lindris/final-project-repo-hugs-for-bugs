@@ -16,6 +16,7 @@ import {
   Box,
   Center,
   Text,
+  Stack
 } from "@chakra-ui/react";
 
 //add button tag below h1
@@ -48,105 +49,96 @@ const placeholderText =
 
 export default function Home() {
   return (
-    <>
+    <Box w="100%" m="0">
       <Head>
-        <title>Create Next App</title>
+        <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <Grid
-        templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(2, 1fr)"
-      >
-        <GridItem colSpan={2} p="3em" bg="#f8f9fa">
-
-          <Grid
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(2, 1fr)"
-            gap={4}
+      <Box bg="#f8f9fa">
+        <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center" pb={{ base: "1.5em", sm: '3em', md: '5em' }} height={{ base: "100%", sm: '100%', md: '100vh' }}>
+          <Flex
+            w={{ sm: '100%', md: '50%' }}
+            height={{
+              sm: 'auto', md: 'auto'
+            }}
+            direction={"column"}
+            justifyContent={"flex-end"}
+            padding={4}
+            my="2em"
           >
-            <GridItem rowSpan={2} colSpan={1}>
-              <Flex
-                padding="1em"
-                height="100%"
-                flexDirection="column"
-                justifyContent={"flex-end"}
-              >
-                <Box mt="1em" mb="1em">
-                  <Header content={"Code & Collab"} />
-                </Box>
-                <SubHeader content={"Our vision"} />
-                <Box mt="1em" mb="1em">
-                  <Paragraph content={placeholderText} />
-                </Box>
-                <Box pt="1em">
-                  <SecondaryButton content={"Learn more"} route={"/vision"} />
-                </Box>
-              </Flex>
-            </GridItem>
-            <GridItem rowSpan={1} colSpan={1} align="center">
-              <Box boxSize="sm">
+            <Box mt="1em" mb="1em">
+              <Header content={"Code & Collab"} />
+            </Box>
+            <Paragraph fontSize="2em" content={"This header needs to be changed"} />
+            <Box mt="1em" mb="1em">
+              <Paragraph content={placeholderText} />
+            </Box>
+            <Box pt="1em">
+              <SecondaryButton content={"Learn more"} route={"/vision"} />
+            </Box>
+          </Flex>
+          <Flex>
+            <Box
+              px="1em"
+              my="2em"
+              height={"auto"}
+              width={[
+                '100%',
+                '50%',
+                '75%',
+                '600px'
+              ]}>
+              <Box py="1em">
                 <MainImage
-                  src="https://i.ibb.co/8X8cpTH/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"
+                  src="https://i.ibb.co/Cwd43Ds/New-Project-7.png"
                   alt="online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration"
                 />
               </Box>
-            </GridItem>
-            <GridItem rowSpan={1} colSpan={1} align="center">
-              <Box boxSize="sm">
-                <MainImage
-                  src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
-                  alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
-                />
-              </Box>
-            </GridItem>
-          </Grid>
-        </GridItem>
-        <GridItem colSpan={4} bg="white">
-          <Center mt="3em">
-            <SubHeader content={"See what's happening"} />
-          </Center>
-          <Center>
-            <Box>
-              <Flex>
-                <HStack>
-                  <InfoCard
-                    headerContent={"Code Clubs"}
-                    textContent={'Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects.'}
-                    src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"}
-                    alt={"coding"}
-                  />
-                  <Spacer />
-                  <InfoCard
-                    headerContent={"Hackathons"}
-                    textContent={'Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. '}
-                    src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"}
-                    alt={"people working around a table"}
-                  />
-                  <Spacer />
-                  <InfoCard
-                    headerContent={"Q&A Events"}
-                    textContent={'Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  '}
-                    src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"}
-                    alt={"speaker talking to a group"}
-                  />
-                </HStack>
-              </Flex>
             </Box>
-          </Center>
-          <Box p="5">
-            <Center>
-              <MainButton content={"Explore all events"} route={"/events"} />
-            </Center>
+          </Flex>
+        </Flex>
+      </Box>
+      <Box>
+        <Center mt="3em">
+          <SubHeader content={"See what's happening"} />
+        </Center>
+        <Center>
+          <Box mt="2.5em" mx="1em">
+            <Flex direction={{ base: 'column', sm: 'column', md: 'row' }} justifyContent="center">
+              <InfoCard
+                headerContent={"Code Clubs"}
+                textContent={'Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects.'}
+                src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"}
+                alt={"coding"}
+              />
+              <Spacer />
+              <InfoCard
+                headerContent={"Hackathons"}
+                textContent={'Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. '}
+                src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"}
+                alt={"people working around a table"}
+              />
+              <Spacer />
+              <InfoCard
+                headerContent={"Q&A Events"}
+                textContent={'Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  '}
+                src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"}
+                alt={"speaker talking to a group"}
+              />
+            </Flex>
           </Box>
-        </GridItem>
-
-        <GridItem colSpan={2} p="2em" bg="#f8f9fa">
-          <>
-            <ContactUs />
-          </>
-        </GridItem>
-      </Grid>
-    </>
+        </Center>
+      </Box>
+      <Box my="4em">
+        <Center>
+          <MainButton content={"Explore all events"} route={"/events"} />
+        </Center>
+      </Box>
+      <Box bg="#f8f9fa" py="5em">
+        <ContactUs />
+      </Box>
+    </Box>
   );
 }
+
+
