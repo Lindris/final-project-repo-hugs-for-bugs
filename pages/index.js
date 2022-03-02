@@ -54,8 +54,8 @@ export default function Home() {
         <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box bg="#f8f9fa" height={{ base: "100%", sm: '100%', md: '100vh' }}>
-        <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center">
+      <Box bg="#f8f9fa">
+        <Flex direction={{ base: 'column', md: 'row' }} justifyContent="center" pb={{ base: "1.5em", sm: '3em', md: '5em' }} height={{ base: "100%", sm: '100%', md: '100vh' }}>
           <Flex
             w={{ sm: '100%', md: '50%' }}
             height={{
@@ -103,8 +103,8 @@ export default function Home() {
           <SubHeader content={"See what's happening"} />
         </Center>
         <Center>
-          <Box mt="2.5em">
-            <Flex mx="5em" direction={{ base: 'column', md: 'row' }}>
+          <Box mt="2.5em" mx="1em">
+            <Flex direction={{ base: 'column', sm: 'column', md: 'row' }} justifyContent="center">
               <InfoCard
                 headerContent={"Code Clubs"}
                 textContent={'Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects.'}

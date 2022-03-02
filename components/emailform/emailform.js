@@ -68,7 +68,7 @@ export default function ContactUs() {
         >
           <form ref={form} onSubmit={sendEmail}>
             <FormLabel mt={4} >First Name</FormLabel>
-            <Input name="firstname" />
+            <Input name="firstname" px={{ base: '1.5em', sm: '5em', md: '8em' }} />
             <FormLabel mt={4}>Last Name</FormLabel>
             <Input name="lastname" />
             <FormLabel mt={4}>Subject</FormLabel>

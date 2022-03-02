@@ -30,8 +30,13 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
         boxShadow={"2xl"}
         rounded={"md"}
         p={6}
-        mx="2em"
-        overflow={"hidden"}
+        mx={{
+          sm: '1em', md: '1em', lg: "2em"
+        }}
+        w={{ sm: '100%', md: '100px', lg: "400px" }}
+        h={{
+          sm: 'auto', md: '100%'
+        }}
       >
         <Box bg={"gray.100"}
           mt={-6}
@@ -40,7 +45,7 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
           pos={"relative"}
           align="center"
         >
-          <Image w={{ sm: '100%', md: '50%', lg: "200px" }}
+          <Image w={{ sm: '100%', md: '200px', lg: "200px" }}
             height={{
               sm: 'auto', md: 'auto'
             }} src={src} alt={alt} />
@@ -56,6 +61,6 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
           <Paragraph content={textContent} />
         </Stack>
       </Box>
-    </Center>
+    </Center >
   );
 }
