@@ -1,20 +1,21 @@
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  Stack,
-  Tag,
-  HStack,
-  background,
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalFooter,
+	ModalBody,
+	ModalCloseButton,
+	Button,
+	Stack,
+	Tag,
+	HStack,
+	background,
 } from "@chakra-ui/react";
 import Paragraph from "./paragraph.js";
 
 function BasicModal(props) {
+
   console.log(props);
   const {
     event_type,
@@ -107,23 +108,25 @@ function BasicModal(props) {
             </Stack>
           </ModalBody>
 
-          <ModalFooter fontFamily={"Quicksand"}>
-            <Button
-              bgColor={"brand.mainPurple"}
-              mr={3}
-              onClick={onClose}
-              color={"brand.primaryLight"}
-            >
-              {button1}
-            </Button>
-            <Button variant="ghost" onClick={onClick}>
-              {button2}
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
-  );
+
+					<ModalFooter fontFamily={"Quicksand"}>
+						<Button
+							bgColor={"brand.mainPurple"}
+							mr={3}
+							onClick={onClose}
+							color={"brand.primaryLight"}
+							className="button-1"
+						>
+							{button1}
+						</Button>
+						<Button variant="ghost" onClick={onClick} className="button-2">
+							{button2}
+						</Button>
+					</ModalFooter>
+				</ModalContent>
+			</Modal>
+		</>
+	);
 }
 
 export default BasicModal;

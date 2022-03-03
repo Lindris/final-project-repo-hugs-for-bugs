@@ -9,11 +9,13 @@ export default function Events({ payload }) {
   const { user } = useUser();
   const [confirmEvent, setConfirmEvent] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   function sendEventData(event_id) {
     const datatosend = payload.filter((event) => event.event_id === event_id);
     seteventData(datatosend);
     onOpen();
   }
+
   // console.log(eventData);
   async function addUsertoEvent(event_id) {
     console.log(event_id);
@@ -95,6 +97,7 @@ export async function getServerSideProps() {
     payload = payload.slice(0, 10);
   }
   // Pass data to the page via props
+  console.log(payload);
   return { props: { payload } };
 }
 
