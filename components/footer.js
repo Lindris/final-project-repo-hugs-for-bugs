@@ -30,7 +30,7 @@ export default function Footer() {
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Your Account</Text>
               </Box>
-              <Box my="1em">
+              <Box my="0.5em">
                 <Text fontSize=".9em" color='lightgray'>Settings</Text>
                 <Text fontSize=".9em" color='lightgray'>Log out</Text>
                 <Text fontSize=".9em" color='lightgray'>Help</Text>
@@ -44,7 +44,7 @@ export default function Footer() {
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Discover</Text>
               </Box>
-              <Box my="1em">
+              <Box my="0.5em">
                 <Text fontSize=".9em" color='lightgray'>Topics</Text>
                 <Text fontSize=".9em" color='lightgray'>Groups</Text>
                 <Text fontSize=".9em" color='lightgray'>Learn</Text>
@@ -58,7 +58,7 @@ export default function Footer() {
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>&#x7b;co:llab&#x7d;</Text>
               </Box>
-              <Box my="1em">
+              <Box my="0.5em">
                 <Text fontSize=".9em" color='lightgray'>About us</Text>
                 <Text fontSize=".9em" color='lightgray'>Ethos</Text>
                 <Text fontSize=".9em" color='lightgray'>Careers</Text>
@@ -73,10 +73,12 @@ export default function Footer() {
             <Text fontSize={{ base: ".5em", sm: ".5em", lg: ".9em" }} color="white" mr="2em">
               &copy; {new Date().getFullYear()} co:llab
             </Text>
+            <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Vectors by Vecteezy</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Terms & Privacy</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Community Guidelines</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Cookie Policy</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Help</Text>
+
           </Flex>
           <ButtonGroup variant="ghost">
             <IconButton
