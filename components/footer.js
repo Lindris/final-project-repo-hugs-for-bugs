@@ -25,7 +25,7 @@ export default function Footer() {
     <Flex fontFamily="Quicksand">
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Flex direction={{ base: "column", sm: "column", md: "row", lg: "row" }}>
-          <Box mr={{ base: "1em", sm: "1em", md: "4em", lg: "10em" }} my="1em">
+          <Box mr={{ base: "0em", sm: "1em", md: "4em", lg: "10em" }} my={{ sm: "0em", md: "1em" }}>
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Your Account</Text>
@@ -70,13 +70,13 @@ export default function Footer() {
         </Flex >
         <Flex direction={{ base: 'column', md: 'row' }} gap={4} mt="2em">
           <Flex grow="1">
-            <Text fontSize=".9em" color="white" mr="2em">
+            <Text fontSize={{ base: ".5em", sm: ".5em", lg: ".9em" }} color="white" mr="2em">
               &copy; {new Date().getFullYear()} co:llab
             </Text>
-            <Text fontSize=".9em" color='lightgray' pr="2em">Terms & Privacy</Text>
-            <Text fontSize=".9em" color='lightgray' pr="2em">Community Guidelines</Text>
-            <Text fontSize=".9em" color='lightgray' pr="2em">Cookie Policy</Text>
-            <Text fontSize=".9em" color='lightgray' pr="2em">Help</Text>
+            <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Terms & Privacy</Text>
+            <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Community Guidelines</Text>
+            <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Cookie Policy</Text>
+            <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Help</Text>
           </Flex>
           <ButtonGroup variant="ghost">
             <IconButton

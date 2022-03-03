@@ -105,7 +105,7 @@ export default function Home() {
             </Box>
           </Flex>
         </Flex>
-        <svg className={"wave-home"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f8f9fa" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+        <svg className={"wave-home"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 290"><path fill="#f8f9fa" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
       </Box>
       <Box>
         <Center>
@@ -127,8 +127,8 @@ export default function Home() {
                 textContent={
                   "Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects."
                 }
-                src={"https://i.ibb.co/bJQL0fJ/icons8-business-400.png"}
-                alt={"coding"}
+                src={"https://i.ibb.co/XDkK2vF/icons8-coding-240-2-1-3.png"}
+                alt={"code on a screen"}
               />
               <Spacer />
               <InfoCard
@@ -136,8 +136,8 @@ export default function Home() {
                 textContent={
                   "Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. "
                 }
-                src={"https://i.ibb.co/0tF64tY/icons8-business-400-1.png"}
-                alt={"people working around a table"}
+                src={"https://i.ibb.co/Y23N24q/icons8-coding-240-1-1.png"}
+                alt={"cogwheel"}
               />
               <Spacer />
               <InfoCard
@@ -145,8 +145,8 @@ export default function Home() {
                 textContent={
                   "Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  "
                 }
-                src={"https://i.ibb.co/pP15jcR/icons8-business-400-3.png"}
-                alt={"speaker talking to a group"}
+                src={"https://i.ibb.co/FmDvVHV/icons8-microphone-240-1-1.png"}
+                alt={"micrphone"}
               />
             </Flex>
           </Box>
@@ -163,3 +163,4 @@ export default function Home() {
     </Box >
   );
 }
+
