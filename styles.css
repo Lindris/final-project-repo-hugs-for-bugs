@@ -81,7 +81,9 @@ body {
 #Location:focus,
 #Description:focus,
 .react-datepicker-ignore-onclickoutside:focus,
-.chakra-select__wrapper > .chakra-select:focus {
+.chakra-select__wrapper > .chakra-select:focus,
+form > .chakra-input:focus,
+form > .chakra-textarea:focus {
   z-index: 1;
   border: 1px solid #580aff;
   box-shadow: 0 0 0 1px #580aff;
@@ -101,7 +103,6 @@ body {
   background-color: #ffffff;
 }
 
-
 @media only screen and (max-width: 768px) {
   .footer-container {
     padding-bottom: -7em;
@@ -113,7 +114,7 @@ body {
 
 /* lineup class and keyframes */
 .fadeUpAnimation {
-  animation: 2s anim-lineUp ease-out ;
+  animation: 2s anim-lineUp ease-out;
 }
 
 @keyframes anim-lineUp {
