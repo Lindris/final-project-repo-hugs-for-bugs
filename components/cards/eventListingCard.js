@@ -1,5 +1,6 @@
 import { Box, Center, Flex, Stack, useColorModeValue } from "@chakra-ui/react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { MdPeople } from "react-icons/md";
 import Paragraph from "../paragraph";
 import MainImage from "../mainImage";
 
@@ -25,6 +26,7 @@ export default function EventListingCard({
   event_name,
   event_desc,
   onClick,
+  count,
 }) {
   return (
     <Center py={6} onClick={onClick}>
@@ -66,6 +68,10 @@ export default function EventListingCard({
             fontSize={"1em"}
             fontWeight={"medium"}
           />
+          <Box className="favourite">
+            <Paragraph content={count} fontSize={"1em"} fontWeight={"medium"} />
+            <MdPeople />
+          </Box>
         </Stack>
         {/* image positioning centred in own box */}
         <Flex justifyContent={"center"} alignItems={"center"}>

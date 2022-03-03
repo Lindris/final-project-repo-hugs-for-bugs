@@ -133,17 +133,20 @@ export default function Profile({ payload, allEvents }) {
 
         <Spacer />
         <Box>
-          {allEvents.map(({ event_type, event_date, event_desc, event_id }) => {
-            return (
-              <EventListingCard
-                key={event_id}
-                event_name={event_type}
-                event_date={event_date.slice(0, 10)}
-                event_desc={event_desc}
-                onClick={() => sendEventData(event_id)}
-              />
-            );
-          })}
+          {allEvents.map(
+            ({ event_type, event_date, event_desc, event_id, count }) => {
+              return (
+                <EventListingCard
+                  key={event_id}
+                  event_name={event_type}
+                  event_date={event_date.slice(0, 10)}
+                  event_desc={event_desc}
+                  onClick={() => sendEventData(event_id)}
+                  count={count}
+                />
+              );
+            }
+          )}
         </Box>
         <Center py={10}>
           <MainButton content={"Explore all events"} route={"/events"} />
