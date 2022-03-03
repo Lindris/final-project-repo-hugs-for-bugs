@@ -5,7 +5,7 @@ import Paragraph from "../paragraph";
 import MainButton from "../mainButton";
 import {
   FormLabel,
-  Button,
+  FormControl,
   Input,
   Box,
   Textarea,
@@ -64,25 +64,27 @@ export default function ContactUs() {
           overflow="hidden"
           display="flex"
           mt={10}
-          // boxShadow={
-          //   "0px 0px 0px 2px #580AFF"
-          // }
+        // boxShadow={
+        //   "0px 0px 0px 2px #580AFF"
+        // }
+        // borderWidth="2px"
+        // borderColor={"brand.secondaryPurple"}
         >
-          <form ref={form} onSubmit={sendEmail} >
-            <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>First Name</FormLabel>
+          <FormControl ref={form} onSubmit={sendEmail} isRequired >
+            <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }} >First Name</FormLabel>
             <Input name="firstname" />
             <FormLabel mt={4}>Last Name</FormLabel>
             <Input name="lastname" />
-            <FormLabel mt={4}>Subject</FormLabel>
-            <Input name="subject" />
             <FormLabel htmlFor='email'>Email address</FormLabel>
             <Input name="email" type="email" />
+            <FormLabel mt={4}>Subject</FormLabel>
+            <Input name="subject" />
             <FormLabel mt={4}>Message</FormLabel>
             <Textarea name="message" placeholder="Tell us more" />
             <Center py="2em">
               <MainButton content="Submit" route="/" />
             </Center>
-          </form>
+          </FormControl>
         </Box>
       </Center>
     </>
