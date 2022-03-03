@@ -52,8 +52,18 @@ export default function ContactUs() {
         <SubHeader content={"Want to be a guest speaker?"} />
       </Flex>
       <Flex my="2em" flexDirection={"column"} alignItems="center" px="1em">
-        <Paragraph fontSize="1.4em" content={"If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."} />
-        <Paragraph fontSize="1.4em" content={"Our ethusiastic and talented community would love to hear from you."} />
+        <Paragraph
+          fontSize="1.4em"
+          content={
+            "If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."
+          }
+        />
+        <Paragraph
+          fontSize="1.4em"
+          content={
+            "Our ethusiastic and talented community would love to hear from you."
+          }
+        />
       </Flex>
       <Center>
         <Box
@@ -64,11 +74,10 @@ export default function ContactUs() {
           overflow="hidden"
           display="flex"
           mt={10}
-
         >
           <form ref={form} onSubmit={sendEmail}>
-            <FormLabel mt={4} >First Name</FormLabel>
-            <Input name="firstname"  />
+            <FormLabel mt={4}>First Name</FormLabel>
+            <Input name="firstname" />
             <FormLabel mt={4}>Last Name</FormLabel>
             <Input name="lastname" />
             <FormLabel mt={4}>Subject</FormLabel>
