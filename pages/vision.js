@@ -54,7 +54,6 @@ export default function Vision() {
           justifyContent={"center"}
           padding={4}
           my="2em"
-          className="fadeUpAnimation"
         >
           <SubHeader content={"Our vision"} />
           <Box mt="2em" >
@@ -107,7 +106,6 @@ export default function Vision() {
           justifyContent={"center"}
           padding={4}
           my="2em"
-          className="fadeUpAnimation"
         >
           <SubHeader content={"Our story"} />
           <Flex direction={"column"} my="1em">
@@ -146,7 +144,6 @@ export default function Vision() {
           justifyContent={"center"}
           padding={4}
           my="2em"
-          className="fadeUpAnimation"
         >
           <SubHeader content={"Our ethos"} />
           <Flex direction={"column"} my="1em">
