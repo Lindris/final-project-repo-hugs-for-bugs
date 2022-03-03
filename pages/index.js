@@ -44,8 +44,8 @@ import {
 // Broke up the sections of the page with colours: alternating between grey and white to add depth > added bg="" in griditem
 // Created another row in the overall grid to make room for the form at the bottom by amending the rows to 3 and adding another griditem
 
-const placeholderText =
-  "Welcome to the space where you can meet and collaborate with other programmers. Join like-minded people who love to share coding experiences and learn from each other.  A mutually supportive programming community to help each other continue on our self-development journey towards continued growth and acheivement of our aspirations.";
+// const placeholderText =
+//   "Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together.  Co:llab is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow.";
 
 export default function Home() {
   return (
@@ -80,7 +80,7 @@ export default function Home() {
               content={"A community space to program collaboratively"}
             />
             <Box mt="1em" mb="1em">
-              <Paragraph content={placeholderText} />
+              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together.  Co:llab is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow."} />
             </Box>
             <Box pt="1em">
               <SecondaryButton content={"Learn more"} route={"/vision"} />
