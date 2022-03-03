@@ -7,6 +7,7 @@ import Header from "../components/headers/header";
 import { API_URL } from "../config/index.js";
 
 export default function Events({ payload }) {
+  console.log(payload);
   const [eventData, seteventData] = useState(false);
   const { user } = useUser();
   const [confirmEvent, setConfirmEvent] = useState("");
@@ -18,9 +19,7 @@ export default function Events({ payload }) {
     onOpen();
   }
 
-  // console.log(eventData);
   async function addUsertoEvent(event_id) {
-    console.log(event_id);
     if (!user) {
       // display something in the modal to create an account
     } else if (user) {
@@ -35,9 +34,7 @@ export default function Events({ payload }) {
             event_attend: event_id,
           }),
         });
-        console.log(response.status);
         if (response.status === 400) {
-          console.log(response.status);
           setConfirmEvent("You have already signed up to attend this event");
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
@@ -56,17 +53,20 @@ export default function Events({ payload }) {
       <Box pb={5}>
         <Header content={"Upcoming events"} />
       </Box>
-      {payload.map(({ event_type, event_date, event_desc, event_id }) => {
-        return (
-          <EventListingCard
-            key={event_id}
-            event_name={event_type}
-            event_date={event_date.slice(0, 10)}
-            event_desc={event_desc}
-            onClick={() => sendEventData(event_id)}
-          />
-        );
-      })}
+      {payload.map(
+        ({ event_type, event_date, event_desc, event_id, count }) => {
+          return (
+            <EventListingCard
+              key={event_id}
+              event_name={event_type}
+              event_date={event_date.slice(0, 10)}
+              event_desc={event_desc}
+              count={count}
+              onClick={() => sendEventData(event_id)}
+            />
+          );
+        }
+      )}
       {eventData ? (
         <BasicModal
           isOpen={isOpen}
@@ -99,7 +99,6 @@ export async function getServerSideProps() {
     payload = payload.slice(0, 10);
   }
   // Pass data to the page via props
-  console.log(payload);
   return { props: { payload } };
 }
 
