@@ -48,7 +48,7 @@ export default function Footer() {
                 <Text fontSize=".9em" color='lightgray'>Topics</Text>
                 <Text fontSize=".9em" color='lightgray'>Groups</Text>
                 <Text fontSize=".9em" color='lightgray'>Learn</Text>
-                <Text fontSize=".9em" color='lightgray'>Guest speakers</Text>
+                <Text fontSize=".9em" color='lightgray'>Speakers</Text>
               </Box>
               <Spacer />
             </Flex>
