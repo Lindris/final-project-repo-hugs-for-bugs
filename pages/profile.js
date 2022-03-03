@@ -20,7 +20,7 @@ import { API_URL } from "../config/index.js";
 
 export default function Profile({ payload, allEvents }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [eventData, seteventData] = useState(false);
+  const [eventData, setEventData] = useState(false);
   const [confirmEvent, setConfirmEvent] = useState("");
   const { user } = useUser();
   let username;
@@ -30,7 +30,6 @@ export default function Profile({ payload, allEvents }) {
     } else username = user.nickname;
   }
   async function addUsertoEvent(event_id) {
-    console.log(event_id);
     if (!user) {
       // display something in the modal to create an account
     } else if (user) {
@@ -45,9 +44,7 @@ export default function Profile({ payload, allEvents }) {
             event_attend: event_id,
           }),
         });
-        console.log(response.status);
         if (response.status === 400) {
-          console.log(response.status);
           setConfirmEvent("You have already signed up to attend this event");
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
@@ -63,7 +60,7 @@ export default function Profile({ payload, allEvents }) {
   }
   function sendEventData(event_id) {
     const datatosend = payload.filter((event) => event.event_id === event_id);
-    seteventData(datatosend);
+    setEventData(datatosend);
     onOpen();
   }
   return user ? (
