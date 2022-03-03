@@ -1,13 +1,13 @@
 import { useState } from "react";
 import EventListingCard from "../components/cards/eventListingCard.js";
 import BasicModal from "../components/modal.js";
-import { useDisclosure } from "@chakra-ui/react";
+import { useDisclosure, Box } from "@chakra-ui/react";
 import { useUser } from "@auth0/nextjs-auth0";
-
+import Header from "../components/headers/header";
 export default function Events({ payload }) {
   const [eventData, seteventData] = useState(false);
   const { user } = useUser();
-  // console.log(payload);
+  const [confirmEvent, setConfirmEvent] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   function sendEventData(event_id) {
@@ -17,13 +17,13 @@ export default function Events({ payload }) {
   }
 
   // console.log(eventData);
-  function addUsertoEvent(event_id) {
+  async function addUsertoEvent(event_id) {
     console.log(event_id);
     if (!user) {
       // display something in the modal to create an account
     } else if (user) {
       try {
-        fetch("http://localhost:5000/users", {
+        const response = await fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -33,14 +33,27 @@ export default function Events({ payload }) {
             event_attend: event_id,
           }),
         });
+        console.log(response.status);
+        if (response.status === 400) {
+          console.log(response.status);
+          setConfirmEvent("You have already signed up to attend this event");
+        } else if (response.status === 200) {
+          setConfirmEvent("You have successfully registered for this event");
+        }
       } catch (error) {
-        console.log("User not added to event");
+        console.log(error);
       }
+      setTimeout(function () {
+        onClose();
+        setConfirmEvent("");
+      }, 4000);
     }
-    onClose();
   }
   return (
-    <>
+    <Box m="0 auto" textAlign={"center"} py={10}>
+      <Box pb={5}>
+        <Header content={"Upcoming events"} />
+      </Box>
       {payload.map(({ event_type, event_date, event_desc, event_id }) => {
         return (
           <EventListingCard
@@ -66,11 +79,12 @@ export default function Events({ payload }) {
           button1="Close"
           button2="Attend event"
           onClick={() => addUsertoEvent(eventData[0].event_id)}
+          confirm={confirmEvent}
         />
       ) : (
         <></>
       )}
-    </>
+    </Box>
   );
 }
 export async function getServerSideProps() {

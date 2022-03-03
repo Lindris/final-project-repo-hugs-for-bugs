@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import {
-	// Form,
-	Select,
-	FormLabel,
-	Button,
-	Input,
-	Box,
-	Editable,
-	EditableInput,
-	EditablePreview,
-	useDisclosure,
+  Header,
+  Select,
+  FormLabel,
+  Button,
+  Input,
+  Box,
+  Editable,
+  EditableInput,
+  EditablePreview,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import { useForm, Controller } from "react-hook-form";
@@ -19,19 +19,28 @@ import axios from "axios";
 import { useUser } from "@auth0/nextjs-auth0";
 import Router from "next/router";
 import BasicModal from "../components/modal.js";
+import SubHeader from "./headers/subheader.js";
 export default function CreateEventForm() {
-	const { user } = useUser();
-	const { isOpen, onOpen, onClose } = useDisclosure();
-	// const [startDate, setStartDate] = useState(new Date());
-	const [eventdetails, setEventDetails] = useState([]);
-	const [formValues, setFormValues] = useState("");
-	const {
-		handleSubmit,
-		register,
-		control,
-		formState: { errors, isSubmitting },
-		reset,
-	} = useForm();
+
+  const { user } = useUser();
+  let username;
+  if (user) {
+    if ("given_name" in user) {
+      username = user.given_name;
+    } else username = user.nickname;
+  }
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const [startDate, setStartDate] = useState(new Date());
+  const [eventdetails, setEventDetails] = useState([]);
+  const [formValues, setFormValues] = useState("");
+  const [confirmEvent, setConfirmEvent] = useState("");
+  const {
+    handleSubmit,
+    register,
+    control,
+    formState: { errors, isSubmitting },
+  } = useForm();
+
 
 	function onSubmit(values, e) {
 		Object.keys(values).map((key) => {
@@ -51,21 +60,28 @@ export default function CreateEventForm() {
 		onOpen();
 	}
 
-	function handleModalSubmit() {
-		console.log(formValues);
-		try {
-			fetch("http://localhost:5000/events", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formValues),
-			});
-		} catch (error) {
-			console.log("User not added to event");
-		}
-		Router.reload(window.location.pathname);
-	}
+
+async function handleModalSubmit() {
+    console.log(formValues);
+    try {
+      const response = await fetch("http://localhost:5000/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+      if (response.status === 200) {
+        setConfirmEvent("Event successfully added");
+      }
+    } catch (error) {
+      setConfirmEvent("An error occurred, please try again");
+    }
+
+    setTimeout(function () {
+      Router.reload(window.location.pathname);
+    }, 2000);
+  }
 
 	return (
 		<>
@@ -175,6 +191,7 @@ export default function CreateEventForm() {
 						)}
 					/>
 
+
 					{/* tags  */}
 					<FormLabel mt={2}>
 						<EditIcon /> Provide three tags to help describe your event
@@ -224,12 +241,15 @@ export default function CreateEventForm() {
 					event_end_time={formValues.event_end_time}
 					event_location={formValues.event_location}
 					event_tags={formValues.event_tags}
+          confirm={confirmEvent}
 				/>
 			) : (
 				<></>
 			)}
 		</>
 	);
+
+          
 }
 
 // limit description length (discuss length)

@@ -10,18 +10,20 @@ import Link from "next/link";
 //set colour of font and background using color='brand.quaternary' for white text and bg='brand.primary' (for purple)
 //round off corners using borderRadius
 
-export default function MainButton({ content, route }) {
+export default function SecondaryButton({ content, route }) {
   return (
     <Button
-      color="brand.primaryLight"
-      bg="brand.mainPurple"
+      bg="brand.primaryLight"
+      color="brand.mainPurple"
       borderRadius="25px"
       size="lg"
       letterSpacing="0.5px"
-      fontFamily="Quicksand"
+      border="1px"
+      borderColor="brand.mainPurple"
       _hover={{
         textDecoration: "none",
-        bg: "brand.primaryDark",
+        color: "brand.primaryDark",
+        borderColor: "brand.primaryDark",
       }}
     >
       <Link href={route}>{content}</Link>

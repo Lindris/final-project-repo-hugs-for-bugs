@@ -1,18 +1,21 @@
+import { useState } from "react";
 import {
-  Grid,
-  GridItem,
   Box,
   Center,
   Spacer,
   HStack,
-  Flex,
+  Wrap,
+  WrapItem,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
-import Paragraph from "../components/paragraph";
-import EventDetails from "../components/eventListingDetails";
+import ReusableBox from "../components/box.js";
+import Link from "next/link";
+import BasicModal from "../components/modal.js";
+import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 
 //create grid with 3 rows and 3 columns using chakra template
 //import grid, gridItem from Chakra
@@ -38,110 +41,192 @@ import EventDetails from "../components/eventListingDetails";
 // Added another box in column 3 for card (purpose is unconfirmed). Added two paragraph components for a header and a text.
 // Added a span div to display tag - added a border radius of 25px, background color, letter-spacing
 
-export default function Profile() {
-  return (
-    <>
-      <Grid
-        // h="200px"
-        templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(3, 1fr)"
-        gap={4}
+export default function Profile({ payload, allEvents }) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [eventData, seteventData] = useState(false);
+  const [confirmEvent, setConfirmEvent] = useState("");
+  const { user } = useUser();
+  let username;
+  if (user) {
+    if ("given_name" in user) {
+      username = user.given_name;
+    } else username = user.nickname;
+  }
+  async function addUsertoEvent(event_id) {
+    console.log(event_id);
+    if (!user) {
+      // display something in the modal to create an account
+    } else if (user) {
+      try {
+        const response = await fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            auth_id: user.sub,
+            event_attend: event_id,
+          }),
+        });
+        console.log(response.status);
+        if (response.status === 400) {
+          console.log(response.status);
+          setConfirmEvent("You have already signed up to attend this event");
+        } else if (response.status === 200) {
+          setConfirmEvent("You have successfully registered for this event");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+      setTimeout(function () {
+        onClose();
+        setConfirmEvent("");
+      }, 4000);
+    }
+  }
+  function sendEventData(event_id) {
+    const datatosend = payload.filter((event) => event.event_id === event_id);
+    seteventData(datatosend);
+    onOpen();
+  }
+  return user ? (
+    <Box m="0 auto" p={10}>
+      <Box textAlign={"center"} pb={10}>
+        <Header content={`Welcome back ${username}!`} />
+      </Box>
+      <Wrap
+        spacing={10}
+        margin="0 auto"
+        maxWidth="1500px"
+        justify="space-evenly"
+        pb={10}
       >
-        <GridItem colSpan={3}>
-          <Box>
-            <Header content={"Welcome back, Hajara!"} />
-          </Box>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
-            <HStack mb="4">
-              <Paragraph
-                fontSize={"1.5em"}
-                fontWeight={"extrabold"}
-                content={"Your next event"}
-              />
-              <Spacer />
-            </HStack>
-            <Paragraph
-              content={"Test Event"}
-              fontSize={"1.2em"}
-              fontWeight={"bold"}
+        {payload.length >= 1 ? (
+          <WrapItem>
+            <ReusableBox
+              title="Your next event"
+              type={`${payload[0].event_type}`}
+              date={`${new Date(payload[0].event_date)
+                .toString()
+                .slice(0, 15)}`}
+              time={`${payload[0].event_start_time.slice(
+                0,
+                5
+              )} - ${payload[0].event_end_time.slice(0, 5)}`}
+              description={`${payload[0].event_desc}`}
+              link={`${payload[0].event_location}`}
             />
-            <Paragraph
-              content={"Wed 16 Feb 2022, 00:00"}
-              fontSize={"0.9em"}
-              fontWeight={"bold"}
-              colour={"brand.mainPurple"}
+          </WrapItem>
+        ) : (
+          <WrapItem>
+            <ReusableBox
+              title="Your next event"
+              content1="You have not signed up for any events, please browse our events below"
             />
-            <Paragraph
-              content={"Online Event"}
-              fontSize={"0.8em"}
-              fontWeight={"medium"}
+          </WrapItem>
+        )}
+        {payload.length >= 1 ? (
+          <WrapItem>
+            <ReusableBox title={"Your upcoming events"} payload={payload} />
+          </WrapItem>
+        ) : (
+          <></>
+        )}
+        <Link href="/create">
+          <a>
+            <ReusableBox
+              title="Why not host your own?"
+              content1="Have any ideas or like some of our own? Create an event using our form."
+              tags={[
+                "Imposter syndrome",
+                "React Frameworks",
+                "Docker",
+                "API's",
+                "React Hooks",
+                "Rock, Paper, Scissors",
+                "Tick, Tack, Toe",
+              ]}
             />
-          </Box>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
-            <HStack mb="4">
-              <Paragraph
-                fontSize={"1.5em"}
-                fontWeight={"extrabold"}
-                content={"Your upcoming events"}
+          </a>
+        </Link>
+      </Wrap>
+
+      <Box>
+        <Box textAlign={"center"} pt={10} pb={5}>
+          <SubHeader content={"Suggested events"} />
+        </Box>
+
+        <Spacer />
+        <Box>
+          {allEvents.map(({ event_type, event_date, event_desc, event_id }) => {
+            return (
+              <EventListingCard
+                key={event_id}
+                event_name={event_type}
+                event_date={event_date.slice(0, 10)}
+                event_desc={event_desc}
+                onClick={() => sendEventData(event_id)}
               />
-              <Spacer />
-              <Paragraph
-                fontSize={"1em"}
-                colour={"brand.mainPurple"}
-                fontWeight={"extrabold"}
-                content={"View all"}
-              />
-            </HStack>
-            <Grid templateRows="repeat(2,1fr)">
-              <GridItem p="2">
-                <EventDetails />
-              </GridItem>
-              <GridItem borderTop="solid 1px lightgray" p="2">
-                <EventDetails />
-              </GridItem>
-            </Grid>
-          </Box>
-        </GridItem>
-        <GridItem colSpan={1}>
-          <Box p={5} shadow="md" borderWidth="1px" flex="1" borderRadius="md">
-            <Flex flexDirection="column" mb="5">
-              <Paragraph
-                color={"dark grey"}
-                fontSize={"1.2em"}
-                fontWeight={"800"}
-                content={"Example header"}
-              />
-              <Paragraph
-                color={"light grey"}
-                fontSize={".9em"}
-                fontWeight={"400"}
-                content={
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                }
-              />
-            </Flex>
-            <span className="tag"># Hackathon</span>
-          </Box>
-        </GridItem>
-        <GridItem colSpan={3}>
-          <Box>
-            <SubHeader content={"Suggested events"} />
-            <Spacer />
-            <Box>
-              <EventListingCard />
-              <EventListingCard />
-              <EventListingCard />
-            </Box>
-            <Center>
-              <MainButton content={"Explore all events"} route={"/events"} />
-            </Center>
-          </Box>
-        </GridItem>
-      </Grid>
-    </>
+            );
+          })}
+        </Box>
+        <Center py={10}>
+          <MainButton content={"Explore all events"} route={"/events"} />
+        </Center>
+      </Box>
+
+      {eventData ? (
+        <BasicModal
+          isOpen={isOpen}
+          onClose={onClose}
+          event_type={eventData[0].event_type}
+          event_desc={eventData[0].event_desc}
+          event_date={eventData[0].event_date}
+          event_start_time={eventData[0].event_start_time}
+          event_end_time={eventData[0].event_end_time}
+          event_location={eventData[0].event_location}
+          event_tags={eventData[0].event_tags}
+          button1="Close"
+          button2="Attend event"
+          onClick={() => addUsertoEvent(eventData[0].event_id)}
+          confirm={confirmEvent}
+        />
+      ) : (
+        <></>
+      )}
+    </Box>
+  ) : (
+    <></>
   );
 }
+
+export const getServerSideProps = withPageAuthRequired({
+  async getServerSideProps(ctx) {
+    const session = getSession(ctx.req, ctx.res);
+    let topic = "all";
+    const res = await fetch(`http://localhost:5000/users/profile`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        auth_id: session.user.sub,
+      }),
+    });
+    let { payload } = await res.json();
+    payload = payload.slice(0, 3);
+    if (!session.user.sub) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/api/auth/login",
+        },
+      };
+    }
+
+    const response = await fetch(`http://localhost:5000/events`);
+    const data = await response.json();
+    let allEvents = data.payload.slice(0, 3);
+    return { props: { payload, allEvents } };
+  },
+});

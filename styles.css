@@ -1,3 +1,8 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Quicksand";
   position: relative;
@@ -7,7 +12,6 @@ body {
 
 .container {
   position: relative;
-  margin: 5em;
 }
 
 .favourite {
@@ -33,11 +37,11 @@ body {
 }
 
 .tag {
-  border-radius: 12px; 
-  background-color: #580AFF;
+  border-radius: 12px;
+  background-color: #580aff;
   text-transform: lowercase;
-  padding: .7em;
-  font-size: .9em;
+  padding: 0.7em;
+  font-size: 0.9em;
   font-weight: 700;
   letter-spacing: 1px;
   color: white;
@@ -46,4 +50,48 @@ body {
 .footer {
   bottom: 0;
   left: 0;
+}
+
+.react-datepicker-ignore-onclickoutside {
+  width: 100%;
+  min-width: 0px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  position: relative;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  font-size: var(--chakra-fontSizes-md);
+  height: var(--chakra-sizes-10);
+  border-radius: var(--chakra-radii-md);
+}
+.react-datepicker__input-container {
+  border: 1px solid;
+  border-color: inherit;
+  background: inherit;
+  border-color: var(--chakra-colors-gray-300);
+  border-radius: var(--chakra-radii-md);
+  height: var(--chakra-sizes-10);
+}
+
+.react-datepicker__input-container > input {
+  padding: 7px 16px;
+}
+.chakra-editable > .chakra-editable__input:focus,
+#Location:focus,
+#Description:focus,
+.react-datepicker-ignore-onclickoutside:focus,
+.chakra-select__wrapper > .chakra-select:focus {
+  z-index: 1;
+  border: 1px solid #580aff;
+  box-shadow: 0 0 0 1px #580aff;
+}
+
+#Location {
+  background-color: none;
+}
+
+@media screen and (min-width: 48em) {
+  .css-3m0ceo > .css-19teblb {
+    width: 100%;
+  }
 }
