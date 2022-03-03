@@ -43,18 +43,20 @@ export default function ReusableBox({
 
       {payload ? (
         payload.map(
-          ({ event_type, event_date, event_start_time, event_end_time }) => {
-            return (
-              <>
-                <EventDetails
-                  type={event_type}
-                  date={event_date}
-                  starttime={event_start_time}
-                  endtime={event_end_time}
-                />
-                <br />
-              </>
-            );
+          ({ event_type, event_date, event_start_time, event_end_time }, i) => {
+            if (i > 0) {
+              return (
+                <>
+                  <EventDetails
+                    type={event_type}
+                    date={event_date}
+                    starttime={event_start_time}
+                    endtime={event_end_time}
+                  />
+                  <br />
+                </>
+              );
+            } else return;
           }
         )
       ) : (

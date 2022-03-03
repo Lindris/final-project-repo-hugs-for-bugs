@@ -4,6 +4,8 @@ import BasicModal from "../components/modal.js";
 import { useDisclosure, Box } from "@chakra-ui/react";
 import { useUser } from "@auth0/nextjs-auth0";
 import Header from "../components/headers/header";
+import { API_URL } from "../config/index.js";
+
 export default function Events({ payload }) {
   const [eventData, seteventData] = useState(false);
   const { user } = useUser();
@@ -23,7 +25,7 @@ export default function Events({ payload }) {
       // display something in the modal to create an account
     } else if (user) {
       try {
-        const response = await fetch("http://localhost:5000/users", {
+        const response = await fetch(`${API_URL}/users`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -89,7 +91,7 @@ export default function Events({ payload }) {
 }
 export async function getServerSideProps() {
   // Fetch data from external AP
-  const response = await fetch(`http://localhost:5000/events`);
+  const response = await fetch(`${API_URL}/events`);
   const data = await response.json();
   let payload = data.payload;
   // maximum 10 cards

@@ -13,13 +13,11 @@ export default function EventDetails({ type, date, starttime, endtime }) {
       <Paragraph
         content={new Date(date).toString().slice(0, 15)}
         fontSize={"1em"}
-        fontWeight={"bold"}
         colour={"brand.mainPurple"}
       />
       <Paragraph
         content={`${starttime.slice(0, 5)} - ${endtime.slice(0, 5)}`}
         fontSize={"1em"}
-        fontWeight={"bold"}
       />
     </>
   );
