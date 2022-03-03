@@ -16,9 +16,6 @@ import MainImage from "../mainImage";
 //in CSS specify the hearts and responses
 // Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end
 
-// const event_name = "Test Event";
-// const event_date = "Wed 16 Feb 2022, 00:00";
-// const event_location = "Online Event";
 
 export default function EventListingCard({
   event_date,

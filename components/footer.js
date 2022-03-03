@@ -25,7 +25,7 @@ export default function Footer() {
     <Flex fontFamily="Quicksand">
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Flex direction={{ base: "column", sm: "column", md: "row", lg: "row" }}>
-          <Box mr={{ base: "0em", sm: "1em", md: "4em", lg: "10em" }} my={{ sm: "0em", md: "1em" }}>
+          <Box mr={{ base: "0em", sm: "1em", md: "4em", lg: "10em" }}>
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Your Account</Text>
@@ -39,7 +39,7 @@ export default function Footer() {
               <Spacer />
             </Flex>
           </Box>
-          <Box mr="10em" my="1em">
+          <Box mr={{ base: "0em", sm: "1em", md: "5em", lg: "10em" }}>
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Discover</Text>
@@ -53,7 +53,7 @@ export default function Footer() {
               <Spacer />
             </Flex>
           </Box>
-          <Box mr="10em" my="1em">
+          <Box mr={{ base: "0em", sm: "1em", md: "5em", lg: "10em" }}>
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>&#x7b;co:llab&#x7d;</Text>
