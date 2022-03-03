@@ -40,14 +40,15 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
           sm: 'auto', md: '100%'
         }}
       >
-        <Box bg={"gray.100"}
-          mt={-6}
+        <Box
+          // bg={"gray.100"}
+          mt={5}
           mx={-6}
           mb={6}
           pos={"relative"}
           align="center"
         >
-          <Image w={{ sm: '100%', md: '200px', lg: "200px" }}
+          <Image mb={"-1em"} m={3} w={{ sm: '25%', md: '150px', lg: "100px" }}
             height={{
               sm: 'auto', md: 'auto'
             }} src={src} alt={alt} />
@@ -55,7 +56,7 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
         <Stack textAlign={"center"}>
           <Paragraph
             p={"1"}
-            colour={"brand.primaryDark"}
+            colour={"brand.mainPurple"}
             fontWeight={"extrabold"}
             fontSize="2.3em"
             content={headerContent}

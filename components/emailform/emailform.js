@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import SubHeader from "../headers/subheader";
 import Paragraph from "../paragraph";
 import MainButton from "../mainButton";
 import {
   FormLabel,
-  Button,
+  FormHelperText,
+  FormErrorMessage,
+  FormControl,
   Input,
   Box,
   Textarea,
@@ -35,23 +37,13 @@ export default function ContactUs() {
       );
   };
 
+
   return (
-    // <form ref={form} onSubmit={sendEmail}>
-    //   <label>Name</label>
-    //   <input type="text" name="name" />
-    //   <label>Email</label>
-    //   <input type="email" name="email" />
-    //   <label>Subject</label>
-    //   <input type="subject" name="subject" />
-    //   <label>Message</label>
-    //   <textarea name="message" />
-    //   <input type="submit" value="Send" />
-    // </form><>
     <>
-      <Flex my="2em" flexDirection={"column"} alignItems="center" px="1em">
+      <Flex my="2em" flexDirection={"column"} alignItems="center" px={{ base: "2em" }}>
         <SubHeader content={"Want to be a guest speaker?"} />
       </Flex>
-      <Flex my="2em" flexDirection={"column"} alignItems="center" px="1em">
+      <Flex my="2em" flexDirection={"column"} alignItems="center" px={{ base: "2em" }}>
         <Paragraph fontSize="1.4em" content={"If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."} />
         <Paragraph fontSize="1.4em" content={"Our ethusiastic and talented community would love to hear from you."} />
       </Flex>
@@ -64,23 +56,22 @@ export default function ContactUs() {
           overflow="hidden"
           display="flex"
           mt={10}
-
         >
-          <form ref={form} onSubmit={sendEmail}>
-            <FormLabel mt={4} >First Name</FormLabel>
-            <Input name="firstname"  />
+          <FormControl ref={form} onSubmit={sendEmail}>
+            <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }} >First Name</FormLabel>
+            <Input name="firstname" />
             <FormLabel mt={4}>Last Name</FormLabel>
             <Input name="lastname" />
+            <FormLabel htmlFor='email'>Email address</FormLabel>
+            <Input name="email" type="email" />
             <FormLabel mt={4}>Subject</FormLabel>
             <Input name="subject" />
-            <FormLabel mt={4}>Email</FormLabel>
-            <Input name="email" type="email" />
             <FormLabel mt={4}>Message</FormLabel>
             <Textarea name="message" placeholder="Tell us more" />
             <Center py="2em">
               <MainButton content="Submit" route="/" />
             </Center>
-          </form>
+          </FormControl>
         </Box>
       </Center>
     </>
