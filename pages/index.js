@@ -18,6 +18,7 @@ import {
   Text,
   Stack,
 } from "@chakra-ui/react";
+import { FaBox } from "react-icons/fa";
 
 //add button tag below h1
 //import mainButon from components/button
@@ -54,12 +55,13 @@ export default function Home() {
         <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box bg="#f8f9fa">
+      <Box>
         <Flex
-          direction={{ base: "column", md: "row" }}
+          direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
           justifyContent="center"
-          pb={{ base: "1.5em", sm: "3em", md: "5em" }}
-          height={{ base: "100%", sm: "100%", md: "100vh" }}
+          // pb={{ base: "1.5em", sm: "3em", md: "5em" }}
+          // height={{ base: "100%", sm: "100%", md: "100vh" }}
+          bg="#f8f9fa"
         >
           <Flex
             w={{ sm: "100%", md: "50%" }}
@@ -69,11 +71,13 @@ export default function Home() {
             }}
             direction={"column"}
             justifyContent={"flex-end"}
+            ml="2em"
             padding={4}
-            my="2em"
+            className="fadeUpAnimation"
           >
             <Box mt="1em" mb="1em">
-              <Header content={"Code & Collab"} />
+              <Header content={"Code"} />
+              <Header content={"Code & Collab."} />
             </Box>
             <Paragraph
               fontSize="2em"
@@ -89,11 +93,11 @@ export default function Home() {
           <Flex>
             <Box
               px="1em"
-              my="2em"
+              mt=".5em"
               height={"auto"}
-              width={["100%", "50%", "75%", "600px"]}
+              width={["100%", "50%", "75%", "700px"]}
             >
-              <Box py="1em">
+              <Box pt="3em">
                 <MainImage
                   src="https://i.ibb.co/Cwd43Ds/New-Project-7.png"
                   alt="online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration"
@@ -102,9 +106,10 @@ export default function Home() {
             </Box>
           </Flex>
         </Flex>
+        <svg className={"wave-home"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f8f9fa" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
       </Box>
       <Box>
-        <Center mt="3em">
+        <Center>
           <SubHeader content={"See what's happening"} />
         </Center>
         <Center>
@@ -151,6 +156,6 @@ export default function Home() {
       <Box bg="#f8f9fa" py="5em">
         <ContactUs />
       </Box>
-    </Box>
+    </Box >
   );
 }

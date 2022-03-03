@@ -24,8 +24,8 @@ export default function Footer() {
   return (
     <Flex fontFamily="Quicksand">
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
-        <Flex direction={{ sm: "column", md: "row", lg: "row" }}>
-          <Box pl="1em" mr="10em" my="1em">
+        <Flex direction={{ base: "column", sm: "column", md: "row", lg: "row" }}>
+          <Box mr={{ base: "1em", sm: "1em", md: "4em", lg: "10em" }} my="1em">
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Your Account</Text>
@@ -68,7 +68,7 @@ export default function Footer() {
             </Flex>
           </Box>
         </Flex >
-        <Flex direction={{ base: 'column', md: 'row' }} gap={4}>
+        <Flex direction={{ base: 'column', md: 'row' }} gap={4} mt="2em">
           <Flex grow="1">
             <Text fontSize=".9em" color="white" mr="2em">
               &copy; {new Date().getFullYear()} co:llab
