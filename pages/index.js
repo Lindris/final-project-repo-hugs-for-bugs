@@ -76,7 +76,6 @@ export default function Home() {
             className="fadeUpAnimation"
           >
             <Box mt="1em" mb="1em">
-              <Header content={"Code"} />
               <Header content={"Code & Collab."} />
             </Box>
             <Paragraph
