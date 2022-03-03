@@ -40,10 +40,10 @@ export default function ContactUs() {
 
   return (
     <>
-      <Flex my="2em" flexDirection={"column"} alignItems="center">
+      <Flex my="2em" flexDirection={"column"} alignItems="center" px={{ base: "2em" }}>
         <SubHeader content={"Want to be a guest speaker?"} />
       </Flex>
-      <Flex my="2em" flexDirection={"column"} alignItems="center" mx="1em">
+      <Flex my="2em" flexDirection={"column"} alignItems="center" px={{ base: "2em" }}>
         <Paragraph fontSize="1.4em" content={"If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."} />
         <Paragraph fontSize="1.4em" content={"Our ethusiastic and talented community would love to hear from you."} />
       </Flex>

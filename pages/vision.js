@@ -43,7 +43,7 @@ export default function Vision() {
           />
         </Box>
       </Flex>
-      <Flex direction={{ base: "column", md: "row" }} justifyContent="center">
+      <Flex direction={{ base: "column", md: "row" }} justifyContent={"center"}>
         <Flex
           w={{ sm: "100%", md: "50%" }}
           height={{
@@ -54,9 +54,10 @@ export default function Vision() {
           justifyContent={"center"}
           padding={4}
           my="2em"
+          className="fadeUpAnimation"
         >
           <SubHeader content={"Our vision"} />
-          <Box mt="2em">
+          <Box mt="2em" >
             <Paragraph
               content={
                 "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for coders and also for the people we are coding for. Our vision in creating Co:llab is to create opportunities to continue our journey - working through problems together, learning from each other and industry experts, which will ultimately lead to developing better end products for users."
@@ -72,11 +73,11 @@ export default function Vision() {
             width={["100%", "50%", "75%", "350px"]}
           >
             {/* <Box>
-              {/* <MainImage
-                src="https://i.ibb.co/5L8dV0k/online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration.jpg"
+              <MainImage
+                src="https://i.ibb.co/WD9rHDW/Wavy-Bus-32-Single-05.jpg"
                 alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
               />
-            </Box> */} 
+            </Box> */}
           </Box>
         </Flex>
       </Flex>
@@ -106,6 +107,7 @@ export default function Vision() {
           justifyContent={"center"}
           padding={4}
           my="2em"
+          className="fadeUpAnimation"
         >
           <SubHeader content={"Our story"} />
           <Flex direction={"column"} my="1em">
@@ -144,6 +146,7 @@ export default function Vision() {
           justifyContent={"center"}
           padding={4}
           my="2em"
+          className="fadeUpAnimation"
         >
           <SubHeader content={"Our ethos"} />
           <Flex direction={"column"} my="1em">
@@ -171,7 +174,7 @@ export default function Vision() {
             <Box>
               <UnorderedList>
                 <ListItem>being friendly and welcoming when collaboratively programming and solving problems with others
-              </ListItem>
+                </ListItem>
                 <ListItem>being respectful and understanding towards everyone in the community and visiting guests</ListItem>
                 <ListItem>making sure everyone is heard and has the opportunity to share</ListItem>
                 <ListItem>being suportive and patient towards others - appreciating the premise that everyone is doing the best they can within their unique cabilities and constraints</ListItem>

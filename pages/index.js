@@ -94,7 +94,7 @@ export default function Home() {
               px="1em"
               mt=".5em"
               height={"auto"}
-              width={["100%", "50%", "75%", "700px"]}
+              width={{ base: "100%", sm: "50%", md: "75%", lg: "750px" }}
             >
               <Box pt="3em">
                 <MainImage
