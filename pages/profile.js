@@ -20,7 +20,7 @@ import { API_URL } from "../config/index.js";
 
 export default function Profile({ payload, allEvents }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [eventData, setEventData] = useState(false);
+  const [eventData, seteventData] = useState(false);
   const [confirmEvent, setConfirmEvent] = useState("");
   const { user } = useUser();
   let username;
@@ -59,10 +59,11 @@ export default function Profile({ payload, allEvents }) {
     }
   }
   function sendEventData(event_id) {
-    const datatosend = payload.filter((event) => event.event_id === event_id);
-    setEventData(datatosend);
+    const datatosend = allEvents.filter((event) => event.event_id === event_id);
+    seteventData(datatosend);
     onOpen();
   }
+  console.log(eventData);
   return user ? (
     <Box m="0 auto" p={10}>
       <Box textAlign={"center"} pb={10}>
