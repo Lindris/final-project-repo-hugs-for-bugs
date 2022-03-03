@@ -56,7 +56,7 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
         <Stack textAlign={"center"}>
           <Paragraph
             p={"1"}
-            colour={"brand.primaryDark"}
+            colour={"brand.mainPurple"}
             fontWeight={"extrabold"}
             fontSize="2.3em"
             content={headerContent}
