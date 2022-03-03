@@ -37,9 +37,6 @@ export default function ContactUs() {
       );
   };
 
-  const [input, setInput] = useState('')
-  const handleInputChange = (e) => setInput(e.target.value)
-  const isError = input === ''
 
   return (
     <>
@@ -60,13 +57,13 @@ export default function ContactUs() {
           display="flex"
           mt={10}
         >
-          <FormControl ref={form} onSubmit={sendEmail} isRequired >
+          <FormControl ref={form} onSubmit={sendEmail}>
             <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }} >First Name</FormLabel>
             <Input name="firstname" />
             <FormLabel mt={4}>Last Name</FormLabel>
             <Input name="lastname" />
             <FormLabel htmlFor='email'>Email address</FormLabel>
-            <Input name="email" type="email" onChange={handleInputChange} isInvalid={isError} />
+            <Input name="email" type="email" />
             <FormLabel mt={4}>Subject</FormLabel>
             <Input name="subject" />
             <FormLabel mt={4}>Message</FormLabel>
@@ -74,13 +71,6 @@ export default function ContactUs() {
             <Center py="2em">
               <MainButton content="Submit" route="/" />
             </Center>
-            {!isError ? (
-              <FormHelperText>
-                Enter the email you'd like to receive the newsletter on.
-              </FormHelperText>
-            ) : (
-              <FormErrorMessage>Email is required.</FormErrorMessage>
-            )}
           </FormControl>
         </Box>
       </Center>
