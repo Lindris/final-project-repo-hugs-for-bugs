@@ -1,12 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import SubHeader from "../headers/subheader";
 import Paragraph from "../paragraph";
-import MainButton from "../mainButton";
 import {
+  Button,
   FormLabel,
-  FormHelperText,
-  FormErrorMessage,
   FormControl,
   Input,
   Box,
@@ -37,15 +35,34 @@ export default function ContactUs() {
       );
   };
 
-
   return (
     <>
-      <Flex my="2em" flexDirection={"column"} alignItems="center" px={{ base: "2em" }}>
+      <Flex
+        my="2em"
+        flexDirection={"column"}
+        alignItems="center"
+        px={{ base: "2em" }}
+      >
         <SubHeader content={"Want to be a guest speaker?"} />
       </Flex>
-      <Flex my="2em" flexDirection={"column"} alignItems="center" px={{ base: "2em" }}>
-        <Paragraph fontSize="1.4em" content={"If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."} />
-        <Paragraph fontSize="1.4em" content={"Our ethusiastic and talented community would love to hear from you."} />
+      <Flex
+        my="2em"
+        flexDirection={"column"}
+        alignItems="center"
+        px={{ base: "2em" }}
+      >
+        <Paragraph
+          fontSize="1.4em"
+          content={
+            "If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."
+          }
+        />
+        <Paragraph
+          fontSize="1.4em"
+          content={
+            "Our ethusiastic and talented community would love to hear from you."
+          }
+        />
       </Flex>
       <Center>
         <Box
@@ -57,21 +74,39 @@ export default function ContactUs() {
           display="flex"
           mt={10}
         >
-          <FormControl ref={form} onSubmit={sendEmail}>
-            <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }} >First Name</FormLabel>
+          <form ref={form} onSubmit={sendEmail}>
+            <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>
+              First Name
+            </FormLabel>
             <Input name="firstname" />
             <FormLabel mt={4}>Last Name</FormLabel>
             <Input name="lastname" />
-            <FormLabel htmlFor='email'>Email address</FormLabel>
+            <FormLabel mt={4} htmlFor="email">
+              Email address
+            </FormLabel>
             <Input name="email" type="email" />
             <FormLabel mt={4}>Subject</FormLabel>
             <Input name="subject" />
             <FormLabel mt={4}>Message</FormLabel>
             <Textarea name="message" placeholder="Tell us more" />
             <Center py="2em">
-              <MainButton content="Submit" route="/" />
+              <Button
+                color="brand.primaryLight"
+                bg="brand.mainPurple"
+                borderRadius="25px"
+                size="lg"
+                letterSpacing="0.5px"
+                fontFamily="Quicksand"
+                _hover={{
+                  textDecoration: "none",
+                  bg: "brand.primaryDark",
+                }}
+                type="submit"
+              >
+                Submit
+              </Button>
             </Center>
-          </FormControl>
+          </form>
         </Box>
       </Center>
     </>
