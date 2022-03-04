@@ -1,6 +1,16 @@
-import { Box, Center, Flex, Stack, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Stack,
+  useColorModeValue,
+  Wrap,
+  WrapItem,
+  Button,
+  Tooltip,
+} from "@chakra-ui/react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { MdPeople } from "react-icons/md";
+import { MdPeople, MdPersonAdd } from "react-icons/md";
 import Paragraph from "../paragraph";
 import MainImage from "../mainImage";
 
@@ -38,11 +48,13 @@ export default function EventListingCard({
   event_date,
   event_name,
   event_desc,
+  event_start_time,
+  event_end_time,
   onClick,
   count,
 }) {
   return (
-    <Center py={6} onClick={onClick}>
+    <Center py={6}>
       <Stack
         maxWidth={"1000px"}
         margin={8}
@@ -63,16 +75,21 @@ export default function EventListingCard({
           justifyContent={"flex-start"}
           alignItems={"flex-start"}
           p={1} //padding
-          pt={2}
+          pb={2}
         >
           <Paragraph
             content={event_name}
-            fontSize={"2em"}
+            fontSize={"1.5em"}
             fontWeight={"bold"}
           />
           <Paragraph
-            content={new Date(event_date).toString().slice(0, 15)}
-            fontSize={"1.3em"}
+            content={`${new Date(event_date)
+              .toString()
+              .slice(0, 10)}, ${event_start_time.slice(
+              0,
+              5
+            )} - ${event_end_time.slice(0, 5)}`}
+            fontSize={"1.2em"}
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
           />
@@ -81,10 +98,36 @@ export default function EventListingCard({
             fontSize={"1em"}
             fontWeight={"medium"}
           />
-          <Box className="favourite">
-            <Paragraph content={count} fontSize={"1em"} fontWeight={"medium"} />
-            <MdPeople />
-          </Box>
+          <Wrap align="center" spacing={1}>
+            <WrapItem>
+              <Paragraph
+                content={count}
+                fontSize={"1.5em"}
+                fontWeight={"medium"}
+              />
+            </WrapItem>
+            <WrapItem pt={0.5}>
+              <MdPeople size={30} />
+            </WrapItem>
+          </Wrap>
+          <Tooltip
+            hasArrow
+            label="Attend event"
+            fontSize="md"
+            placement="right"
+          >
+            <Button
+              onClick={onClick}
+              bg="none"
+              p={0}
+              _hover={{
+                textDecoration: "none",
+                borderColor: "brand.primaryDark",
+              }}
+            >
+              <MdPersonAdd size={30} />
+            </Button>
+          </Tooltip>
         </Stack>
         {/* image positioning centred in own box */}
         <Flex justifyContent={{ sm: "flex-end", md: "center" }} alignItems={"center"}>

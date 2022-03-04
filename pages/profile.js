@@ -63,7 +63,7 @@ export default function Profile({ payload, allEvents }) {
     seteventData(datatosend);
     onOpen();
   }
-  console.log(eventData);
+  console.log(payload[0]);
   return user ? (
     <Box m="0 auto" p={10}>
       <Box textAlign={"center"} pb={10}>
@@ -80,16 +80,15 @@ export default function Profile({ payload, allEvents }) {
           <WrapItem>
             <ReusableBox
               title="Your next event"
-              type={`${payload[0].event_type}`}
-              date={`${new Date(payload[0].event_date)
-                .toString()
-                .slice(0, 15)}`}
+              type={payload[0].event_type}
+              date={new Date(payload[0].event_date).toString().slice(0, 15)}
               time={`${payload[0].event_start_time.slice(
                 0,
                 5
               )} - ${payload[0].event_end_time.slice(0, 5)}`}
-              description={`${payload[0].event_desc}`}
-              link={`${payload[0].event_location}`}
+              description={payload[0].event_desc}
+              link={payload[0].event_location}
+              tags={payload[0].event_tags}
             />
           </WrapItem>
         ) : (
@@ -134,13 +133,23 @@ export default function Profile({ payload, allEvents }) {
         <Spacer />
         <Box>
           {allEvents.map(
-            ({ event_type, event_date, event_desc, event_id, count }) => {
+            ({
+              event_type,
+              event_date,
+              event_desc,
+              event_id,
+              count,
+              event_end_time,
+              event_start_time,
+            }) => {
               return (
                 <EventListingCard
                   key={event_id}
                   event_name={event_type}
                   event_date={event_date.slice(0, 10)}
                   event_desc={event_desc}
+                  event_end_time={event_end_time}
+                  event_start_time={event_start_time}
                   onClick={() => sendEventData(event_id)}
                   count={count}
                 />
