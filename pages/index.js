@@ -80,10 +80,10 @@ export default function Home() {
             </Box>
             <Paragraph
               fontSize="2em"
-              content={"A community space to program collaboratively"}
+              content={"A space to program collaboratively"}
             />
             <Box mt="1em" mb="1em">
-              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together.  Co:llab is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow."} />
+              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together.   Co:llab is a mutually supportive programming community to help each other grow and continue on our self-development journey."} />
             </Box>
             <Box pt="1em">
               <SecondaryButton content={"Learn more"} route={"/vision"} />
@@ -91,7 +91,7 @@ export default function Home() {
           </Flex>
           <Flex>
             <Box
-              px="1em"
+              px="2em"
               mt=".5em"
               height={"auto"}
               width={{ base: "100%", sm: "50%", md: "75%", lg: "750px" }}
@@ -122,13 +122,14 @@ export default function Home() {
               }}
               justifyContent="center"
             >
-              <InfoCard
+           <InfoCard
                 headerContent={"Code Clubs"}
                 textContent={
                   "Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects."
                 }
-                src={"https://i.ibb.co/XDkK2vF/icons8-coding-240-2-1-3.png"}
-                alt={"code on a screen"}
+                src={"https://i.ibb.co/1zSMfnC/icons8-programming-256.png"}
+                alt={"code on a screen"} 
+
               />
               <Spacer />
               <InfoCard
@@ -136,8 +137,9 @@ export default function Home() {
                 textContent={
                   "Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. "
                 }
-                src={"https://i.ibb.co/Y23N24q/icons8-coding-240-1-1.png"}
+                src={"https://i.ibb.co/CHydWcQ/icons8-backend-development-256.png"}
                 alt={"cogwheel"}
+
               />
               <Spacer />
               <InfoCard
@@ -145,8 +147,10 @@ export default function Home() {
                 textContent={
                   "Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  "
                 }
-                src={"https://i.ibb.co/FmDvVHV/icons8-microphone-240-1-1.png"}
-                alt={"micrphone"}
+                src={"https://i.ibb.co/wh5h8cf/icons8-lecturer-512.png"}
+                alt={"speaker"}
+
+
               />
             </Flex>
           </Box>
