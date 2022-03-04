@@ -65,18 +65,22 @@ export default function ReusableBox({
       <Paragraph content={content1} fontSize={"1.1em"} fontWeight={"bold"} />
       {tags ? (
         <Wrap pt={3}>
-          {tags.map((tag) => (
-            <WrapItem>
-              <Tag
-                size={"md"}
-                key={tag}
-                variant="solid"
-                bgColor={"brand.secondaryPurple"}
-              >
-                {tag}
-              </Tag>
-            </WrapItem>
-          ))}
+          {tags.map((tag) =>
+            tag !== "" ? (
+              <WrapItem>
+                <Tag
+                  size={"md"}
+                  key={tag}
+                  variant="solid"
+                  bgColor={"brand.secondaryPurple"}
+                >
+                  {tag}
+                </Tag>
+              </WrapItem>
+            ) : (
+              <></>
+            )
+          )}
         </Wrap>
       ) : (
         <></>
