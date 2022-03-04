@@ -1,13 +1,10 @@
 import MainImage from "../components/mainImage";
-import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
 
 import {
   Flex,
   Box,
-  Image,
-  List,
   ListItem,
   UnorderedList,
 } from "@chakra-ui/react";

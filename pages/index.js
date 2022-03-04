@@ -1,6 +1,6 @@
 import Head from "next/head";
 import MainButton from "../components/mainButton";
-import SecondaryButton from "../components/SecondaryButton";
+import SecondaryButton from "../components/secondaryButton";
 import MainImage from "../components/mainImage";
 import InfoCard from "../components/cards/infoCard";
 import Header from "../components/headers/header";
@@ -114,13 +114,13 @@ export default function Home() {
               }}
               justifyContent="center"
             >
-           <InfoCard
+              <InfoCard
                 headerContent={"Code Clubs"}
                 textContent={
                   "Code along with others in community-driven code clubs. Create or join a session to practice pair programming. Work together on solving your coding problems, or create new projects."
                 }
                 src={"https://i.ibb.co/1zSMfnC/icons8-programming-256.png"}
-                alt={"code on a screen"} 
+                alt={"code on a screen"}
 
               />
               <Spacer />
