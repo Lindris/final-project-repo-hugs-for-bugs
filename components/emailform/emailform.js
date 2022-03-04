@@ -130,7 +130,6 @@ export default function ContactUs() {
 							"Thank you for getting in touch with us. We will get back to you shortly."
 						}
 					/>
-					;
 				</Box>
 			</Center>
 		</>
