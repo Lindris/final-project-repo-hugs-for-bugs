@@ -18,10 +18,14 @@ export default function Events({ payload }) {
     seteventData(datatosend);
     onOpen();
   }
-
+  console.log(eventData);
   async function addUsertoEvent(event_id) {
     if (!user) {
-      // display something in the modal to create an account
+      setConfirmEvent("Please sign up or log in to attend");
+      setTimeout(function () {
+        onClose();
+        setConfirmEvent("");
+      }, 3000);
     } else if (user) {
       try {
         const response = await fetch(`${API_URL}/users`, {

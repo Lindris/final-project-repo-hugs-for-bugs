@@ -1,6 +1,15 @@
-import { Box, Center, Flex, Stack, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Stack,
+  useColorModeValue,
+  Wrap,
+  WrapItem,
+  Button,
+} from "@chakra-ui/react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { MdPeople } from "react-icons/md";
+import { MdPeople, MdPersonAdd } from "react-icons/md";
 import Paragraph from "../paragraph";
 import MainImage from "../mainImage";
 
@@ -29,7 +38,7 @@ export default function EventListingCard({
   count,
 }) {
   return (
-    <Center py={6} onClick={onClick}>
+    <Center py={6}>
       <Stack
         maxWidth={"1000px"}
         margin={8}
@@ -68,10 +77,29 @@ export default function EventListingCard({
             fontSize={"1em"}
             fontWeight={"medium"}
           />
-          <Box className="favourite">
-            <Paragraph content={count} fontSize={"1em"} fontWeight={"medium"} />
-            <MdPeople />
-          </Box>
+          <Wrap align="center" spacing={1}>
+            <WrapItem>
+              <Paragraph
+                content={count}
+                fontSize={"1.5em"}
+                fontWeight={"medium"}
+              />
+            </WrapItem>
+            <WrapItem pt={0.5}>
+              <MdPeople size={30} />
+            </WrapItem>
+          </Wrap>
+          <Button
+            onClick={onClick}
+            bg="none"
+            p={0}
+            _hover={{
+              textDecoration: "none",
+              borderColor: "brand.primaryDark",
+            }}
+          >
+            <MdPersonAdd size={30} />
+          </Button>
         </Stack>
         {/* image positioning centred in own box */}
         <Flex justifyContent={"center"} alignItems={"center"}>
