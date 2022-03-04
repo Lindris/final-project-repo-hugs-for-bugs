@@ -30,7 +30,6 @@ export default function Profile({ payload, allEvents }) {
     } else username = user.nickname;
   }
   async function addUsertoEvent(event_id) {
-    console.log(event_id);
     if (!user) {
       // display something in the modal to create an account
     } else if (user) {
@@ -45,9 +44,7 @@ export default function Profile({ payload, allEvents }) {
             event_attend: event_id,
           }),
         });
-        console.log(response.status);
         if (response.status === 400) {
-          console.log(response.status);
           setConfirmEvent("You have already signed up to attend this event");
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
@@ -62,10 +59,11 @@ export default function Profile({ payload, allEvents }) {
     }
   }
   function sendEventData(event_id) {
-    const datatosend = payload.filter((event) => event.event_id === event_id);
+    const datatosend = allEvents.filter((event) => event.event_id === event_id);
     seteventData(datatosend);
     onOpen();
   }
+  console.log(eventData);
   return user ? (
     <Box m="0 auto" p={10}>
       <Box textAlign={"center"} pb={10}>
@@ -135,17 +133,20 @@ export default function Profile({ payload, allEvents }) {
 
         <Spacer />
         <Box>
-          {allEvents.map(({ event_type, event_date, event_desc, event_id }) => {
-            return (
-              <EventListingCard
-                key={event_id}
-                event_name={event_type}
-                event_date={event_date.slice(0, 10)}
-                event_desc={event_desc}
-                onClick={() => sendEventData(event_id)}
-              />
-            );
-          })}
+          {allEvents.map(
+            ({ event_type, event_date, event_desc, event_id, count }) => {
+              return (
+                <EventListingCard
+                  key={event_id}
+                  event_name={event_type}
+                  event_date={event_date.slice(0, 10)}
+                  event_desc={event_desc}
+                  onClick={() => sendEventData(event_id)}
+                  count={count}
+                />
+              );
+            }
+          )}
         </Box>
         <Center py={10}>
           <MainButton content={"Explore all events"} route={"/events"} />

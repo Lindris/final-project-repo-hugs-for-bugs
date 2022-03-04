@@ -45,7 +45,6 @@ const NavLink = ({ children }) => (
 );
 
 export default function Navbar() {
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
   console.log(user);
@@ -92,47 +91,37 @@ export default function Navbar() {
                 <Avatar size={"sm"} src={user.picture} />
               </MenuButton>
               <MenuList>
-                <MenuItem>
-                  <Link href="/profile">
+                <Link href="/profile" passHref>
+                  <MenuItem>
                     <a>My events</a>
-                  </Link>
-                </MenuItem>
-                {/* <MenuItem>
-                  <Link href="/api/auth/logout">
-                    <a>Organised events</a>
-                  </Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link href="/api/auth/logout">
-                    <a>Past events</a>
-                  </Link>
-                </MenuItem> */}
-                <MenuItem>
-                  <Link href="/api/auth/logout">
+                  </MenuItem>
+                </Link>
+                <Link href="/api/auth/logout" passHref>
+                  <MenuItem>
                     <a>Log out</a>
-                  </Link>
-                </MenuItem>
+                  </MenuItem>
+                </Link>
               </MenuList>
             </Menu>
           ) : (
-            <Button
-              fontSize={"sm"}
-              fontWeight={600}
-              color={"white"}
-              bg={"brand.mainPurple"}
-              _hover={{
-                bg: "brand.primaryDark",
-              }}
-            >
-              <Link href="/api/auth/login">
+            <Link href="/api/auth/login">
+              <Box
+                fontSize={"sm"}
+                fontWeight={600}
+                color={"white"}
+                bg={"brand.mainPurple"}
+                _hover={{
+                  bg: "brand.primaryDark",
+                }}
+                p={2}
+                borderRadius="5px"
+              >
                 <a>Sign up/Log in</a>
-              </Link>
-            </Button>
+              </Box>
+            </Link>
           )}
         </Flex>
       </Flex>
-
-
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>
           <Stack as={"nav"} spacing={3} pt={3}>
