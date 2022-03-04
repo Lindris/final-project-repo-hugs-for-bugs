@@ -7,6 +7,7 @@ import {
   Wrap,
   WrapItem,
   Button,
+  Tooltip,
 } from "@chakra-ui/react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { MdPeople, MdPersonAdd } from "react-icons/md";
@@ -34,6 +35,8 @@ export default function EventListingCard({
   event_date,
   event_name,
   event_desc,
+  event_start_time,
+  event_end_time,
   onClick,
   count,
 }) {
@@ -59,16 +62,21 @@ export default function EventListingCard({
           justifyContent={"flex-start"}
           alignItems={"flex-start"}
           p={1} //padding
-          pt={2}
+          pb={2}
         >
           <Paragraph
             content={event_name}
-            fontSize={"2em"}
+            fontSize={"1.5em"}
             fontWeight={"bold"}
           />
           <Paragraph
-            content={new Date(event_date).toString().slice(0, 15)}
-            fontSize={"1.3em"}
+            content={`${new Date(event_date)
+              .toString()
+              .slice(0, 10)}, ${event_start_time.slice(
+              0,
+              5
+            )} - ${event_end_time.slice(0, 5)}`}
+            fontSize={"1.2em"}
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
           />
@@ -89,17 +97,24 @@ export default function EventListingCard({
               <MdPeople size={30} />
             </WrapItem>
           </Wrap>
-          <Button
-            onClick={onClick}
-            bg="none"
-            p={0}
-            _hover={{
-              textDecoration: "none",
-              borderColor: "brand.primaryDark",
-            }}
+          <Tooltip
+            hasArrow
+            label="Attend event"
+            fontSize="md"
+            placement="right"
           >
-            <MdPersonAdd size={30} />
-          </Button>
+            <Button
+              onClick={onClick}
+              bg="none"
+              p={0}
+              _hover={{
+                textDecoration: "none",
+                borderColor: "brand.primaryDark",
+              }}
+            >
+              <MdPersonAdd size={30} />
+            </Button>
+          </Tooltip>
         </Stack>
         {/* image positioning centred in own box */}
         <Flex justifyContent={"center"} alignItems={"center"}>

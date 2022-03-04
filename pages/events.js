@@ -58,10 +58,20 @@ export default function Events({ payload }) {
         <Header content={"Upcoming events"} />
       </Box>
       {payload.map(
-        ({ event_type, event_date, event_desc, event_id, count }) => {
+        ({
+          event_type,
+          event_date,
+          event_desc,
+          event_id,
+          count,
+          event_start_time,
+          event_end_time,
+        }) => {
           return (
             <EventListingCard
               key={event_id}
+              event_start_time={event_start_time}
+              event_end_time={event_end_time}
               event_name={event_type}
               event_date={event_date.slice(0, 10)}
               event_desc={event_desc}

@@ -15,6 +15,7 @@ import {
 import Paragraph from "./paragraph.js";
 
 function BasicModal(props) {
+  console.log(props);
   const {
     event_type,
     event_desc,
@@ -30,6 +31,7 @@ function BasicModal(props) {
     onClick,
     confirm,
   } = props;
+  console.log(event_tags);
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -56,14 +58,17 @@ function BasicModal(props) {
                 content={
                   button2 === "Confirm event"
                     ? event_date
-                    : event_date.slice(0, 10)
+                    : new Date(event_date).toString().slice(0, 10)
                 }
                 fontSize={"1em"}
                 fontWeight={"bold"}
                 colour={"brand.primaryDark"}
               />
               <Paragraph
-                content={`${event_start_time}-${event_end_time}`}
+                content={`${event_start_time.slice(
+                  0,
+                  5
+                )} - ${event_end_time.slice(0, 5)}`}
                 fontSize={"1em"}
                 fontWeight={"bold"}
                 colour={"brand.mainPurple"}
