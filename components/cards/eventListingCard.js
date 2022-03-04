@@ -45,8 +45,8 @@ export default function EventListingCard({
         maxWidth={"1000px"}
         margin={8}
         w={{ sm: "100%" }}
-        height={{ sm: "300px", md: "15rem" }}
-        direction={{ base: "column", md: "row" }}
+        height={{ base: "100%", sm: "100%", md: "15rem" }}
+        direction={{ base: "column", sm: "column", md: "row" }}
         bg={useColorModeValue("white", "gray.900")}
         boxShadow={"md"}
         borderRadius={"12px"}
@@ -81,7 +81,7 @@ export default function EventListingCard({
           />
         </Stack>
         {/* image positioning centred in own box */}
-        <Flex justifyContent={"center"} alignItems={"center"}>
+        <Flex justifyContent={{ sm: "flex-end", md: "center" }} alignItems={"center"}>
           <Box boxSize="170px" align="center">
             <MainImage
               src={
@@ -99,6 +99,6 @@ export default function EventListingCard({
           </Box>
         </Flex>
       </Stack>
-    </Center>
+    </Center >
   );
 }

@@ -8,17 +8,11 @@ import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
 import ContactUs from "../components/emailform/emailform";
 import {
-  GridItem,
-  Grid,
-  HStack,
   Spacer,
   Flex,
   Box,
   Center,
-  Text,
-  Stack,
 } from "@chakra-ui/react";
-import { FaBox } from "react-icons/fa";
 
 //add button tag below h1
 //import mainButon from components/button
@@ -59,8 +53,6 @@ export default function Home() {
         <Flex
           direction={{ base: "column", sm: "column", md: "row", lg: "row" }}
           justifyContent="center"
-          // pb={{ base: "1.5em", sm: "3em", md: "5em" }}
-          // height={{ base: "100%", sm: "100%", md: "100vh" }}
           bg="#f8f9fa"
         >
           <Flex
@@ -83,7 +75,7 @@ export default function Home() {
               content={"A community space to program collaboratively"}
             />
             <Box mt="1em" mb="1em">
-              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together.  Co:llab is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow."} />
+              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow."} />
             </Box>
             <Box pt="1em">
               <SecondaryButton content={"Learn more"} route={"/vision"} />

@@ -5,7 +5,6 @@ import Paragraph from "../paragraph";
 import {
   Button,
   FormLabel,
-  FormControl,
   Input,
   Box,
   Textarea,

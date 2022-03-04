@@ -1,47 +1,47 @@
 import {
-	Box,
-	Flex,
-	Avatar,
-	HStack,
-	IconButton,
-	Button,
-	Menu,
-	MenuButton,
-	MenuList,
-	MenuItem,
-	MenuDivider,
-	useDisclosure,
-	useColorModeValue,
-	Stack,
+  Box,
+  Flex,
+  Avatar,
+  HStack,
+  IconButton,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+  useColorModeValue,
+  Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
 const Links = [
-	["Create an event", "/api/auth/login"],
-	["See all Events", "/events"],
+  ["Create an event", "/api/auth/login"],
+  ["See all Events", "/events"],
 ];
 const UserLinks = [
-	["Create an event", "/create"],
-	["See all Events", "/events"],
+  ["Create an event", "/create"],
+  ["See all events", "/events"],
 ];
 const NavLink = ({ children }) => (
-	<Box
-		px={2}
-		py={1}
-		rounded={"md"}
-		_hover={{
-			textDecoration: "none",
-			color: "brand.primaryDark",
-		}}
-		color="brand.mainPurple"
-		fontWeight="bold"
-	>
-		<Link href={children[1]}>
-			<a>{children[0]}</a>
-		</Link>
-	</Box>
+  <Box
+    px={2}
+    py={1}
+    rounded={"md"}
+    _hover={{
+      textDecoration: "none",
+      color: "brand.primaryDark",
+    }}
+    color="brand.mainPurple"
+    fontWeight="bold"
+  >
+    <Link href={children[1]}>
+      <a>{children[0]}</a>
+    </Link>
+  </Box>
 );
 
 export default function Navbar() {
@@ -69,7 +69,7 @@ export default function Navbar() {
         />
         <HStack spacing={8} alignItems={"center"}>
           <Link href="/">
-            <Box cursor={"pointer"} fontSize="xl" fontWeight="bold">
+            <Box cursor={"pointer"} fontSize="1.8em" fontWeight="bold">
               &#x7b;co:llab&#x7d;
             </Box>
           </Link>
@@ -133,15 +133,15 @@ export default function Navbar() {
       </Flex>
 
 
-			{isOpen ? (
-				<Box pb={4} display={{ md: "none" }}>
-					<Stack as={"nav"} spacing={3} pt={3}>
-						{user
-							? UserLinks.map((link) => <NavLink key={link}>{link}</NavLink>)
-							: Links.map((link) => <NavLink key={link}>{link}</NavLink>)}
-					</Stack>
-				</Box>
-			) : null}
-		</Box>
-	);
+      {isOpen ? (
+        <Box pb={4} display={{ md: "none" }}>
+          <Stack as={"nav"} spacing={3} pt={3}>
+            {user
+              ? UserLinks.map((link) => <NavLink key={link}>{link}</NavLink>)
+              : Links.map((link) => <NavLink key={link}>{link}</NavLink>)}
+          </Stack>
+        </Box>
+      ) : null}
+    </Box>
+  );
 }
