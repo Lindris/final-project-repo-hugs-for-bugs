@@ -17,9 +17,22 @@ import MainImage from "../mainImage";
 //in CSS specify the hearts and responses
 // Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end
 
-// const event_name = "Test Event";
-// const event_date = "Wed 16 Feb 2022, 00:00";
-// const event_location = "Online Event";
+const images = [
+  "https://i.ibb.co/cX4HMrH/2626-R0l-VIEFOTi-Ay-MTMt-NDU.jpg",
+  "https://i.ibb.co/v4yxCp4/2626-R0l-VIEFOTi-Ay-MTMt-NDE.jpg",
+  "https://i.ibb.co/yqLcVxG/2658-R0l-VIEFOTi-Ay-MTQt-Mj-A.jpg",
+  "https://i.ibb.co/wrq4ZXW/2626-R0l-VIEFOTi-Ay-MTMt-Mz-E.jpg",
+  "https://i.ibb.co/d2PjYHW/2626-R0l-VIEFOTi-Ay-MTMt-Mj-Y.jpg",
+  "https://i.ibb.co/jr91jrF/2626-R0l-VIEFOTi-Ay-MTMt-MTg.jpg",
+  "https://i.ibb.co/0YYgN65/2626-R0l-VIEFOTi-Ay-MTMt-Mj-I.jpg",
+  "https://i.ibb.co/qphb5Xq/2562-R0l-VIEFOTi-Ax-ODEt-MTg.jpg",
+]
+
+function randomiseImage() {
+  const randomInt = Math.floor(Math.random() * 7);
+  return images[randomInt];
+}
+
 
 export default function EventListingCard({
   event_date,
@@ -34,8 +47,8 @@ export default function EventListingCard({
         maxWidth={"1000px"}
         margin={8}
         w={{ sm: "100%" }}
-        height={{ sm: "300px", md: "15rem" }}
-        direction={{ base: "column", md: "row" }}
+        height={{ base: "100%", sm: "100%", md: "15rem" }}
+        direction={{ base: "column", sm: "column", md: "row" }}
         bg={useColorModeValue("white", "gray.900")}
         boxShadow={"md"}
         borderRadius={"12px"}
@@ -74,11 +87,11 @@ export default function EventListingCard({
           </Box>
         </Stack>
         {/* image positioning centred in own box */}
-        <Flex justifyContent={"center"} alignItems={"center"}>
-          <Box boxSize="200px" align="center">
+        <Flex justifyContent={{ sm: "flex-end", md: "center" }} alignItems={"center"}>
+          <Box boxSize="170px" align="center">
             <MainImage
               src={
-                "https://i.ibb.co/4jBv2Fr/online-party-meeting-friends-people-keep-in-touch-using-video-call-on-laptop-vector-illustration.jpg"
+                randomiseImage()
               }
               alt={"image of friends meeting"}
             />
@@ -92,6 +105,6 @@ export default function EventListingCard({
           </Box>
         </Flex>
       </Stack>
-    </Center>
+    </Center >
   );
 }

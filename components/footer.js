@@ -25,12 +25,12 @@ export default function Footer() {
     <Flex fontFamily="Quicksand">
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Flex direction={{ base: "column", sm: "column", md: "row", lg: "row" }}>
-          <Box mr={{ base: "0em", sm: "1em", md: "4em", lg: "10em" }} my={{ sm: "0em", md: "1em" }}>
+          <Box mr={{ base: "0em", sm: "1em", md: "4em", lg: "10em" }}>
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Your Account</Text>
               </Box>
-              <Box my="1em">
+              <Box my="0.5em">
                 <Text fontSize=".9em" color='lightgray'>Settings</Text>
                 <Text fontSize=".9em" color='lightgray'>Log out</Text>
                 <Text fontSize=".9em" color='lightgray'>Help</Text>
@@ -39,26 +39,26 @@ export default function Footer() {
               <Spacer />
             </Flex>
           </Box>
-          <Box mr="10em" my="1em">
+          <Box mr={{ base: "0em", sm: "1em", md: "5em", lg: "10em" }}>
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>Discover</Text>
               </Box>
-              <Box my="1em">
+              <Box my="0.5em">
                 <Text fontSize=".9em" color='lightgray'>Topics</Text>
                 <Text fontSize=".9em" color='lightgray'>Groups</Text>
                 <Text fontSize=".9em" color='lightgray'>Learn</Text>
-                <Text fontSize=".9em" color='lightgray'>Guest speakers</Text>
+                <Text fontSize=".9em" color='lightgray'>Speakers</Text>
               </Box>
               <Spacer />
             </Flex>
           </Box>
-          <Box mr="10em" my="1em">
+          <Box mr={{ base: "0em", sm: "1em", md: "5em", lg: "10em" }}>
             <Flex justify="space-between" direction="column">
               <Box my="1em">
                 <Text fontWeight="bold" fontSize="1.1em" color='white'>&#x7b;co:llab&#x7d;</Text>
               </Box>
-              <Box my="1em">
+              <Box my="0.5em">
                 <Text fontSize=".9em" color='lightgray'>About us</Text>
                 <Text fontSize=".9em" color='lightgray'>Ethos</Text>
                 <Text fontSize=".9em" color='lightgray'>Careers</Text>
@@ -73,10 +73,12 @@ export default function Footer() {
             <Text fontSize={{ base: ".5em", sm: ".5em", lg: ".9em" }} color="white" mr="2em">
               &copy; {new Date().getFullYear()} co:llab
             </Text>
+            <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Vectors by Vecteezy</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Terms & Privacy</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Community Guidelines</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Cookie Policy</Text>
             <Text fontSize={{ base: ".5em", sm: ".6em", lg: ".9em" }} color='lightgray' pr="2em">Help</Text>
+
           </Flex>
           <ButtonGroup variant="ghost">
             <IconButton

@@ -24,7 +24,7 @@ const Links = [
 ];
 const UserLinks = [
   ["Create an event", "/create"],
-  ["See all Events", "/events"],
+  ["See all events", "/events"],
 ];
 const NavLink = ({ children }) => (
   <Box
@@ -68,7 +68,7 @@ export default function Navbar() {
         />
         <HStack spacing={8} alignItems={"center"}>
           <Link href="/">
-            <Box cursor={"pointer"} fontSize="xl" fontWeight="bold">
+            <Box cursor={"pointer"} fontSize="1.8em" fontWeight="bold">
               &#x7b;co:llab&#x7d;
             </Box>
           </Link>
@@ -122,7 +122,6 @@ export default function Navbar() {
           )}
         </Flex>
       </Flex>
-
       {isOpen ? (
         <Box pb={4} display={{ md: "none" }}>
           <Stack as={"nav"} spacing={3} pt={3}>
