@@ -18,7 +18,6 @@ export default function MainButton({ content, route }) {
       borderRadius="25px"
       size="lg"
       letterSpacing="0.5px"
-      fontFamily="Quicksand"
       _hover={{
         textDecoration: "none",
         bg: "brand.primaryDark",

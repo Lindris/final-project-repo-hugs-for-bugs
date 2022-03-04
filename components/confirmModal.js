@@ -35,7 +35,6 @@ function ConfirmModal(props) {
 							pt={2}
 						></Stack>
 					</ModalBody>
-
 					<ModalFooter fontFamily={"Quicksand"}>
 						<Button
 							bgColor={"brand.mainPurple"}

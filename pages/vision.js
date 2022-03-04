@@ -30,9 +30,6 @@ import {
 // Put each component in a box and apply flex properties to the flex container they are within > align center and justify content center
 // Added a placeholder image to the second column of the second row in its own box
 
-const placeholderText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
 export default function Vision() {
   return (
     <>
@@ -71,12 +68,6 @@ export default function Vision() {
             height={"auto"}
             width={["100%", "50%", "75%", "350px"]}
           >
-            {/* <Box>
-              <MainImage
-                src="https://i.ibb.co/WD9rHDW/Wavy-Bus-32-Single-05.jpg"
-                alt="online-party-meeting-friends-people-are-talking-through-a-laptop-at-home-vector-illustration"
-              />
-            </Box> */}
           </Box>
         </Flex>
       </Flex>

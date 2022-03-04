@@ -15,7 +15,6 @@ import {
 import Paragraph from "./paragraph.js";
 
 function BasicModal(props) {
-  console.log(props);
   const {
     event_type,
     event_desc,
@@ -31,7 +30,6 @@ function BasicModal(props) {
     onClick,
     confirm,
   } = props;
-  console.log(event_tags);
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>

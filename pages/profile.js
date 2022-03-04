@@ -50,7 +50,6 @@ export default function Profile({ payload, allEvents }) {
           setConfirmEvent("You have successfully registered for this event");
         }
       } catch (error) {
-        console.log(error);
       }
       setTimeout(function () {
         onClose();
@@ -63,7 +62,6 @@ export default function Profile({ payload, allEvents }) {
     seteventData(datatosend);
     onOpen();
   }
-  console.log(payload[0]);
   return user ? (
     <Box m="0 auto" p={10}>
       <Box textAlign={"center"} pb={10}>
@@ -161,7 +159,6 @@ export default function Profile({ payload, allEvents }) {
           <MainButton content={"Explore all events"} route={"/events"} />
         </Center>
       </Box>
-
       {eventData ? (
         <BasicModal
           isOpen={isOpen}

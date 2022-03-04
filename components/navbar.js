@@ -47,9 +47,8 @@ const NavLink = ({ children }) => (
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
-  console.log(user);
   return (
-    <Box fontFamily="Quicksand" px={4}>
+    <Box px={4}>
       <Flex
         minH={"60px"}
         py={{ base: 2 }}

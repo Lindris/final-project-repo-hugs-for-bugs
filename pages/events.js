@@ -7,7 +7,6 @@ import Header from "../components/headers/header";
 import { API_URL } from "../config/index.js";
 
 export default function Events({ payload }) {
-  console.log(payload);
   const [eventData, seteventData] = useState(false);
   const { user } = useUser();
   const [confirmEvent, setConfirmEvent] = useState("");
@@ -18,7 +17,6 @@ export default function Events({ payload }) {
     seteventData(datatosend);
     onOpen();
   }
-  console.log(eventData);
   async function addUsertoEvent(event_id) {
     if (!user) {
       setConfirmEvent("Please sign up or log in to attend");
@@ -44,7 +42,6 @@ export default function Events({ payload }) {
           setConfirmEvent("You have successfully registered for this event");
         }
       } catch (error) {
-        console.log(error);
       }
       setTimeout(function () {
         onClose();

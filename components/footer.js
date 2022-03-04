@@ -22,7 +22,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <Flex fontFamily="Quicksand">
+    <Flex>
       <Box bg="brand.primaryDark" w="100%" color="brand.primaryLight" p="5">
         <Flex direction={{ base: "column", sm: "column", md: "row", lg: "row" }}>
           <Box mr={{ base: "0em", sm: "1em", md: "4em", lg: "10em" }}>

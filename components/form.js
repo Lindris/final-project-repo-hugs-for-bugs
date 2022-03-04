@@ -28,7 +28,6 @@ export default function CreateEventForm() {
     } else username = user.nickname;
   }
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const [startDate, setStartDate] = useState(new Date());
   const [eventdetails, setEventDetails] = useState([]);
   const [formValues, setFormValues] = useState("");
   const [confirmEvent, setConfirmEvent] = useState("");
@@ -47,18 +46,14 @@ export default function CreateEventForm() {
         values[key] = values[key].toString().slice(16, 24);
       }
     });
-    // console.log(values);
     const valuesArray = Object.entries(values);
     setEventDetails(valuesArray);
-    console.log(user);
     values = { ...values, auth_id: user.sub };
-    console.log(values);
     setFormValues(values);
     onOpen();
   }
 
   async function handleModalSubmit() {
-    console.log(formValues);
     try {
       const response = await fetch("http://localhost:5000/events", {
         method: "POST",
@@ -90,7 +85,6 @@ export default function CreateEventForm() {
       <Box
         py={10}
         px={10}
-        // pl={10}
         maxW="md"
         borderWidth="1px"
         borderRadius="lg"
@@ -98,9 +92,7 @@ export default function CreateEventForm() {
         display="flex"
         m="0 auto"
         my={10}
-        // align="center"
       >
-        {/* event type */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormLabel htmlFor="type" mt={4}>
             Event type
@@ -150,10 +142,7 @@ export default function CreateEventForm() {
               />
             )}
           />
-
-          {/*start time range picker */}
           <FormLabel mt={4}>Start Time</FormLabel>
-
           <Controller
             rules={{ required: true }}
             control={control}
@@ -171,10 +160,7 @@ export default function CreateEventForm() {
               />
             )}
           />
-
-          {/* end time range picker */}
           <FormLabel mt={4}>End Time</FormLabel>
-
           <Controller
             rules={{ required: true }}
             control={control}
@@ -192,8 +178,6 @@ export default function CreateEventForm() {
               />
             )}
           />
-
-          {/* tags  */}
           <FormLabel mt={2}>
             <EditIcon /> Provide three tags to help describe your event
           </FormLabel>
@@ -262,4 +246,3 @@ export default function CreateEventForm() {
   );
 }
 
-// limit description length (discuss length)

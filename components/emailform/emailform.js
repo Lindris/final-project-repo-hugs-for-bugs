@@ -38,28 +38,13 @@ export default function ContactUs() {
 			)
 			.then(
 				(result) => {
-					console.log(result.text);
 					onOpen();
 				},
 				(error) => {
-					console.log(error.text);
 				}
 			);
 		e.target.reset();
 	};
-
-	// function handleInputChange(e) {
-	// 	setInput(e.target.value);
-	// }
-
-	// function onSubmit(e) {
-	// 	const formValues = document.querySelector("form");
-	// 	if (formValues.email.value || formValues.firstname.value === "") {
-	// 		console.log("fill value");
-	// 	} else {
-	// 		;
-	// 	}
-	// }
 
 	return (
 		<>
@@ -122,7 +107,6 @@ export default function ContactUs() {
 								borderRadius="25px"
 								size="lg"
 								letterSpacing="0.5px"
-								fontFamily="Quicksand"
 								_hover={{
 									textDecoration: "none",
 									bg: "brand.primaryDark",

@@ -74,7 +74,7 @@ export default function EventListingCard({
           flexDirection="column"
           justifyContent={"flex-start"}
           alignItems={"flex-start"}
-          p={1} //padding
+          p={1} 
           pb={2}
         >
           <Paragraph

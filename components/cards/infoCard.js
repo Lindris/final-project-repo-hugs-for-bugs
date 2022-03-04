@@ -24,7 +24,6 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
   return (
     <Center py={4}>
       <Box
-        fontFamily="Quicksand"
         bg={useColorModeValue("white", "gray.900")}
         maxWidth={"400px"}
         maxHeight={'auto'}
@@ -40,7 +39,6 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
         }}
       >
         <Box
-          // bg={"gray.100"}
           mt={5}
           mx={-6}
           mb={6}
