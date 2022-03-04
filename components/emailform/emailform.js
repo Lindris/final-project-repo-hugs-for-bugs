@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import SubHeader from "../headers/subheader";
 import Paragraph from "../paragraph";
 import ConfirmModal from "../confirmModal.js";
+import { useState } from "react";
 
 import {
 	Button,
@@ -22,11 +23,12 @@ import {
 
 export default function ContactUs() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
+	const [input, setInput] = useState("");
 	const form = useRef();
 
 	const sendEmail = (e) => {
 		e.preventDefault();
-
+		console.log(form.current);
 		emailjs
 			.sendForm(
 				"service_wuqdwm3",
@@ -37,6 +39,7 @@ export default function ContactUs() {
 			.then(
 				(result) => {
 					console.log(result.text);
+					onOpen();
 				},
 				(error) => {
 					console.log(error.text);
@@ -45,9 +48,18 @@ export default function ContactUs() {
 		e.target.reset();
 	};
 
-	function onSubmit() {
-		onOpen();
-	}
+	// function handleInputChange(e) {
+	// 	setInput(e.target.value);
+	// }
+
+	// function onSubmit(e) {
+	// 	const formValues = document.querySelector("form");
+	// 	if (formValues.email.value || formValues.firstname.value === "") {
+	// 		console.log("fill value");
+	// 	} else {
+	// 		;
+	// 	}
+	// }
 
 	return (
 		<>
@@ -92,17 +104,17 @@ export default function ContactUs() {
 						<FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>
 							First Name
 						</FormLabel>
-						<Input name="firstname" />
+						<Input name="firstname" isRequired />
 						<FormLabel mt={4}>Last Name</FormLabel>
-						<Input name="lastname" />
+						<Input name="lastname" isRequired />
 						<FormLabel mt={4} htmlFor="email">
 							Email address
 						</FormLabel>
-						<Input name="email" type="email" />
+						<Input name="email" type="email" isRequired />
 						<FormLabel mt={4}>Subject</FormLabel>
-						<Input name="subject" />
+						<Input name="subject" isRequired />
 						<FormLabel mt={4}>Message</FormLabel>
-						<Textarea name="message" placeholder="Tell us more" />
+						<Textarea name="message" placeholder="Tell us more" isRequired />
 						<Center py="2em">
 							<Button
 								color="brand.primaryLight"
@@ -116,7 +128,6 @@ export default function ContactUs() {
 									bg: "brand.primaryDark",
 								}}
 								type="submit"
-								onClick={onSubmit}
 							>
 								Submit
 							</Button>
