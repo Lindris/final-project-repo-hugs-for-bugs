@@ -14,11 +14,12 @@ import { EditIcon } from "@chakra-ui/icons";
 import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import SecondaryButton from "./secondaryButton.js";
 import { useUser } from "@auth0/nextjs-auth0";
 import Router from "next/router";
 import BasicModal from "../components/modal.js";
 import SubHeader from "./headers/subheader.js";
+import { API_URL } from "../config/index.js";
+
 export default function CreateEventForm() {
   const { user } = useUser();
   let username;
@@ -55,7 +56,7 @@ export default function CreateEventForm() {
 
   async function handleModalSubmit() {
     try {
-      const response = await fetch("http://localhost:5000/events", {
+      const response = await fetch(`${API_URL}/events`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -245,4 +246,3 @@ export default function CreateEventForm() {
     </>
   );
 }
-
