@@ -41,8 +41,7 @@ export default function Events({ payload }) {
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
         }
-      } catch (error) {
-      }
+      } catch (error) {}
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
@@ -82,13 +81,7 @@ export default function Events({ payload }) {
         <BasicModal
           isOpen={isOpen}
           onClose={onClose}
-          event_type={eventData[0].event_type}
-          event_desc={eventData[0].event_desc}
-          event_date={eventData[0].event_date}
-          event_start_time={eventData[0].event_start_time}
-          event_end_time={eventData[0].event_end_time}
-          event_location={eventData[0].event_location}
-          event_tags={eventData[0].event_tags}
+          {...eventData[0]}
           button1="Close"
           button2="Attend event"
           onClick={() => addUsertoEvent(eventData[0].event_id)}
