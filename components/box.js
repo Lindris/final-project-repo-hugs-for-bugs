@@ -1,6 +1,8 @@
-import { Box, HStack, Spacer, Tag, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, HStack, Button, Tag, Wrap, WrapItem } from "@chakra-ui/react";
+import RemoveUser from "./removeUser.js";
 import Paragraph from "./paragraph.js";
 import EventDetails from "../components/eventListingDetails";
+
 export default function ReusableBox({
   title,
   type,
@@ -11,7 +13,9 @@ export default function ReusableBox({
   link,
   tags,
   payload,
-  Spacer,
+  event_id,
+  remove,
+  refreshData,
 }) {
   return (
     <Box
@@ -40,10 +44,23 @@ export default function ReusableBox({
       <Paragraph content={time} fontSize={"1em"} fontWeight={"bold"} />
       <Paragraph content={description} fontSize={"1em"} fontWeight={"medium"} />
       <Paragraph content={link} fontSize={"1em"} fontWeight={"medium"} />
-
+      {remove ? (
+        <RemoveUser event_id={event_id} refreshData={refreshData} />
+      ) : (
+        <></>
+      )}
       {payload ? (
         payload.map(
-          ({ event_type, event_date, event_start_time, event_end_time }, i) => {
+          (
+            {
+              event_id,
+              event_type,
+              event_date,
+              event_start_time,
+              event_end_time,
+            },
+            i
+          ) => {
             if (i > 0) {
               return (
                 <>
@@ -53,6 +70,7 @@ export default function ReusableBox({
                     starttime={event_start_time}
                     endtime={event_end_time}
                   />
+                  <RemoveUser event_id={event_id} refreshData={refreshData} />
                   <br />
                 </>
               );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Center,
@@ -16,14 +16,41 @@ import Link from "next/link";
 import BasicModal from "../components/modal.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
+import { useRouter } from "next/router";
 
 
 export default function Profile({ userEvents, allEvents }) {
-  console.log(allEvents);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [notAttending, setNotAttending] = useState(allEvents);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [eventData, seteventData] = useState(false);
   const [confirmEvent, setConfirmEvent] = useState("");
   const { user } = useUser();
+  const router = useRouter();
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+    setIsRefreshing(true);
+  };
+
+  useEffect(() => {
+    console.log("refreshing");
+    // const filterNotAttending = () => {
+    const arrayEventId = [];
+    userEvents.map(({ event_id }) => {
+      arrayEventId.push(event_id);
+    });
+    const filteredEvents = allEvents.filter((event) => {
+      return !arrayEventId.includes(event.event_id);
+    });
+    setNotAttending(filteredEvents);
+  }, [userEvents, allEvents]);
+
+  console.log(notAttending);
+  useEffect(() => {
+    setIsRefreshing(false);
+  }, []);
+
   let username;
   if (user) {
     if ("given_name" in user) {
@@ -49,6 +76,7 @@ export default function Profile({ userEvents, allEvents }) {
           setConfirmEvent("You have already signed up to attend this event");
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
+          refreshData();
         }
       } catch (error) {}
       setTimeout(function () {
@@ -79,6 +107,7 @@ export default function Profile({ userEvents, allEvents }) {
             <ReusableBox
               title="Your next event"
               type={userEvents[0].event_type}
+              event_id={userEvents[0].event_id}
               date={new Date(userEvents[0].event_date).toString().slice(0, 15)}
               time={`${userEvents[0].event_start_time.slice(
                 0,
@@ -87,6 +116,8 @@ export default function Profile({ userEvents, allEvents }) {
               description={userEvents[0].event_desc}
               link={userEvents[0].event_location}
               tags={userEvents[0].event_tags}
+              remove="true"
+              refreshData={refreshData}
             />
           </WrapItem>
         ) : (
@@ -99,7 +130,11 @@ export default function Profile({ userEvents, allEvents }) {
         )}
         {userEvents.length >= 2 ? (
           <WrapItem>
-            <ReusableBox title={"Your upcoming events"} payload={userEvents} />
+            <ReusableBox
+              title={"Your upcoming events"}
+              payload={userEvents.slice(0, 3)}
+              refreshData={refreshData}
+            />
           </WrapItem>
         ) : (
           <></>
@@ -128,33 +163,34 @@ export default function Profile({ userEvents, allEvents }) {
         </Box>
         <Spacer />
         <Box>
-        {/* in map method iterate over the images using index - outside the payload data inside the call back & 
-      inside return render 10 cards - using the index of the cards to mirror the index of the images - pull the image from array to match the card index}*/}
-          {allEvents.map(
-            ({
-              event_type,
-              event_date,
-              event_desc,
-              event_id,
-              count,
-              event_end_time,
-              event_start_time,
-            },index) => {
-              return (
-                <EventListingCard
-                  key={event_id}
-                  event_name={event_type}
-                  event_date={event_date.slice(0, 10)}
-                  event_desc={event_desc}
-                  event_end_time={event_end_time}
-                  event_start_time={event_start_time}
-                  onClick={() => sendEventData(event_id)}
-                  count={count}
-                  event_image={index}
-                />
-              );
-            }
-          )}
+
+          {notAttending
+            .slice(0, 3)
+            .map(
+              ({
+                event_type,
+                event_date,
+                event_desc,
+                event_id,
+                count,
+                event_end_time,
+                event_start_time,
+              }, index) => {
+                return (
+                  <EventListingCard
+                    key={event_id}
+                    event_name={event_type}
+                    event_date={event_date.slice(0, 10)}
+                    event_desc={event_desc}
+                    event_end_time={event_end_time}
+                    event_start_time={event_start_time}
+                    onClick={() => sendEventData(event_id)}
+                    count={count}
+                    event_image={index}
+                  />
+                );
+              }
+            )}
         </Box>
         <Center py={10}>
           <MainButton content={"Explore all events"} route={"/events"} />
@@ -198,8 +234,8 @@ export const getServerSideProps = withPageAuthRequired({
       payloadRes.json(),
       allEventsRes.json(),
     ]);
-    userEvents = userEvents.payload.slice(0, 3);
-    allEvents = allEvents.payload.slice(0, 3);
+    userEvents = userEvents.payload;
+    allEvents = allEvents.payload;
     if (!session.user.sub) {
       return {
         redirect: {
