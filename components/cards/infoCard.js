@@ -33,7 +33,7 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
         mx={{
           sm: '1em', md: '1em', lg: "2em"
         }}
-        w={{ sm: '100%', md: '100px', lg: "400px" }}
+        w={{ base: "100%", sm: '100%', md: '100%', lg: "100%" }}
         h={{
           sm: 'auto', md: '100%'
         }}
