@@ -27,21 +27,8 @@ import MainImage from "../mainImage";
 //in CSS specify the hearts and responses
 // Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end
 
-const images = [
-  "https://i.ibb.co/cX4HMrH/2626-R0l-VIEFOTi-Ay-MTMt-NDU.jpg",
-  "https://i.ibb.co/v4yxCp4/2626-R0l-VIEFOTi-Ay-MTMt-NDE.jpg",
-  "https://i.ibb.co/yqLcVxG/2658-R0l-VIEFOTi-Ay-MTQt-Mj-A.jpg",
-  "https://i.ibb.co/wrq4ZXW/2626-R0l-VIEFOTi-Ay-MTMt-Mz-E.jpg",
-  "https://i.ibb.co/d2PjYHW/2626-R0l-VIEFOTi-Ay-MTMt-Mj-Y.jpg",
-  "https://i.ibb.co/jr91jrF/2626-R0l-VIEFOTi-Ay-MTMt-MTg.jpg",
-  "https://i.ibb.co/0YYgN65/2626-R0l-VIEFOTi-Ay-MTMt-Mj-I.jpg",
-  "https://i.ibb.co/qphb5Xq/2562-R0l-VIEFOTi-Ax-ODEt-MTg.jpg",
-];
 
-function randomiseImage() {
-  const randomInt = Math.floor(Math.random() * 7);
-  return images[randomInt];
-}
+
 
 export default function EventListingCard({
   event_date,
@@ -51,6 +38,7 @@ export default function EventListingCard({
   event_end_time,
   onClick,
   count,
+  event_image
 }) {
   return (
     <Center py={6}>
@@ -135,7 +123,8 @@ export default function EventListingCard({
         >
           <Box boxSize="170px" align="center">
             <MainImage
-              src={randomiseImage()}
+            // pass in event image with the value of the source url, pulled from array in events.js
+              src={event_image }
               alt={"image of friends meeting"}
             />
           </Box>
