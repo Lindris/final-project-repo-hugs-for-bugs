@@ -20,6 +20,7 @@ import { useRouter } from "next/router";
 
 export default function Profile({ userEvents, allEvents }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [notAttending, setNotAttending] = useState(allEvents);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [eventData, seteventData] = useState(false);
   const [confirmEvent, setConfirmEvent] = useState("");
@@ -27,14 +28,27 @@ export default function Profile({ userEvents, allEvents }) {
   const router = useRouter();
 
   const refreshData = () => {
-    console.log("refreshing");
     router.replace(router.asPath);
     setIsRefreshing(true);
   };
 
   useEffect(() => {
+    console.log("refreshing");
+    // const filterNotAttending = () => {
+    const arrayEventId = [];
+    userEvents.map(({ event_id }) => {
+      arrayEventId.push(event_id);
+    });
+    const filteredEvents = allEvents.filter((event) => {
+      return !arrayEventId.includes(event.event_id);
+    });
+    setNotAttending(filteredEvents);
+  }, [userEvents, allEvents]);
+
+  console.log(notAttending);
+  useEffect(() => {
     setIsRefreshing(false);
-  }, [userEvents]);
+  }, []);
 
   let username;
   if (user) {
@@ -148,30 +162,32 @@ export default function Profile({ userEvents, allEvents }) {
         </Box>
         <Spacer />
         <Box>
-          {allEvents.map(
-            ({
-              event_type,
-              event_date,
-              event_desc,
-              event_id,
-              count,
-              event_end_time,
-              event_start_time,
-            }) => {
-              return (
-                <EventListingCard
-                  key={event_id}
-                  event_name={event_type}
-                  event_date={event_date.slice(0, 10)}
-                  event_desc={event_desc}
-                  event_end_time={event_end_time}
-                  event_start_time={event_start_time}
-                  onClick={() => sendEventData(event_id)}
-                  count={count}
-                />
-              );
-            }
-          )}
+          {notAttending
+            .slice(0, 3)
+            .map(
+              ({
+                event_type,
+                event_date,
+                event_desc,
+                event_id,
+                count,
+                event_end_time,
+                event_start_time,
+              }) => {
+                return (
+                  <EventListingCard
+                    key={event_id}
+                    event_name={event_type}
+                    event_date={event_date.slice(0, 10)}
+                    event_desc={event_desc}
+                    event_end_time={event_end_time}
+                    event_start_time={event_start_time}
+                    onClick={() => sendEventData(event_id)}
+                    count={count}
+                  />
+                );
+              }
+            )}
         </Box>
         <Center py={10}>
           <MainButton content={"Explore all events"} route={"/events"} />
@@ -216,7 +232,7 @@ export const getServerSideProps = withPageAuthRequired({
       allEventsRes.json(),
     ]);
     userEvents = userEvents.payload;
-    allEvents = allEvents.payload.slice(0, 3);
+    allEvents = allEvents.payload;
     if (!session.user.sub) {
       return {
         redirect: {
