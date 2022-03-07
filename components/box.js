@@ -20,7 +20,7 @@ export default function ReusableBox({
       borderWidth="1px"
       borderRadius="md"
       maxWidth="300px"
-      minWidth="400px"
+      minWidth={{ sm: '100%', md: '100px', lg: "400px" }}
       minHeight="300px"
     >
       <HStack mb="4">

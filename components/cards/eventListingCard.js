@@ -59,7 +59,7 @@ export default function EventListingCard({
       <Stack
         maxWidth={"1000px"}
         margin={8}
-        w={{ sm: "100%" }}
+        w={{ sm: "50%", md: "100%" }}
         height={{ base: "100%", sm: "100%", md: "15rem" }}
         direction={{ base: "column", sm: "column", md: "row" }}
         bg={useColorModeValue("white", "gray.900")}
@@ -110,7 +110,9 @@ export default function EventListingCard({
               </WrapItem>
 
               <WrapItem pt={0.5}>
-                <MdPeople size={30} />
+                <Box mr='1em'>
+                  <MdPeople size={30} />
+                </Box>
               </WrapItem>
             </Wrap>
             <Tooltip
@@ -128,8 +130,8 @@ export default function EventListingCard({
                   borderColor: "brand.primaryDark",
                 }}
               >
-                <Box bg='#6FFD83' px={'.7em'} py={'0.3em'} borderRadius={'9px'} ml='1em'>
-                  <MdPersonAdd size={30} />
+                <Box bg='brand.secondaryPurple' px={'.7em'} py={'0.3em'} borderRadius={'9px'}>
+                  <MdPersonAdd size={30} color="white" />
                 </Box>
               </Button>
             </Tooltip>
@@ -138,10 +140,13 @@ export default function EventListingCard({
 
         {/* image positioning centred in own box */}
         <Flex
-          justifyContent={{ sm: "flex-end", md: "center" }}
+          justifyContent={{ sm: "center", md: "flex-end" }}
           alignItems={"center"}
         >
-          <Box boxSize="170px" align="center">
+          <Box
+            w={{ base: "90%", sm: "70%", md: "170px" }}
+            height={"auto"}
+            align="center">
             <MainImage
               // pass in event image with the value of the source url, pulled from array in events.js
               src={images[event_image]}
