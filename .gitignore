@@ -29,3 +29,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .DS_Store
+
+# cypress
+cypress.env.json
