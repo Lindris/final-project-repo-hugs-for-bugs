@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Center,
@@ -16,14 +16,26 @@ import Link from "next/link";
 import BasicModal from "../components/modal.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
-import RemoveUser from "../components/removeUser.js";
+import { useRouter } from "next/router";
 
 export default function Profile({ userEvents, allEvents }) {
-  console.log(allEvents);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [eventData, seteventData] = useState(false);
   const [confirmEvent, setConfirmEvent] = useState("");
   const { user } = useUser();
+  const router = useRouter();
+
+  const refreshData = () => {
+    console.log("refreshing");
+    router.replace(router.asPath);
+    setIsRefreshing(true);
+  };
+
+  useEffect(() => {
+    setIsRefreshing(false);
+  }, [userEvents]);
+
   let username;
   if (user) {
     if ("given_name" in user) {
@@ -49,6 +61,7 @@ export default function Profile({ userEvents, allEvents }) {
           setConfirmEvent("You have already signed up to attend this event");
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
+          refreshData();
         }
       } catch (error) {}
       setTimeout(function () {
@@ -89,6 +102,7 @@ export default function Profile({ userEvents, allEvents }) {
               link={userEvents[0].event_location}
               tags={userEvents[0].event_tags}
               remove="true"
+              refreshData={refreshData}
             />
           </WrapItem>
         ) : (
@@ -101,7 +115,11 @@ export default function Profile({ userEvents, allEvents }) {
         )}
         {userEvents.length >= 2 ? (
           <WrapItem>
-            <ReusableBox title={"Your upcoming events"} payload={userEvents} />
+            <ReusableBox
+              title={"Your upcoming events"}
+              payload={userEvents.slice(0, 3)}
+              refreshData={refreshData}
+            />
           </WrapItem>
         ) : (
           <></>
@@ -197,7 +215,7 @@ export const getServerSideProps = withPageAuthRequired({
       payloadRes.json(),
       allEventsRes.json(),
     ]);
-    userEvents = userEvents.payload.slice(0, 3);
+    userEvents = userEvents.payload;
     allEvents = allEvents.payload.slice(0, 3);
     if (!session.user.sub) {
       return {
