@@ -16,6 +16,7 @@ import Link from "next/link";
 import BasicModal from "../components/modal.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
+import RemoveUser from "../components/removeUser.js";
 
 export default function Profile({ userEvents, allEvents }) {
   console.log(allEvents);
@@ -78,6 +79,7 @@ export default function Profile({ userEvents, allEvents }) {
             <ReusableBox
               title="Your next event"
               type={userEvents[0].event_type}
+              event_id={userEvents[0].event_id}
               date={new Date(userEvents[0].event_date).toString().slice(0, 15)}
               time={`${userEvents[0].event_start_time.slice(
                 0,
@@ -86,6 +88,7 @@ export default function Profile({ userEvents, allEvents }) {
               description={userEvents[0].event_desc}
               link={userEvents[0].event_location}
               tags={userEvents[0].event_tags}
+              remove="true"
             />
           </WrapItem>
         ) : (
