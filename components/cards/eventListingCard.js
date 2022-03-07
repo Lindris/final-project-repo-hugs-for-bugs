@@ -27,7 +27,21 @@ import MainImage from "../mainImage";
 //in CSS specify the hearts and responses
 // Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end
 
+//created array of images for event cards
 
+const images = [
+  "https://i.ibb.co/cX4HMrH/2626-R0l-VIEFOTi-Ay-MTMt-NDU.jpg",
+  "https://i.ibb.co/v4yxCp4/2626-R0l-VIEFOTi-Ay-MTMt-NDE.jpg",
+  "https://i.ibb.co/yqLcVxG/2658-R0l-VIEFOTi-Ay-MTQt-Mj-A.jpg",
+  "https://i.ibb.co/wrq4ZXW/2626-R0l-VIEFOTi-Ay-MTMt-Mz-E.jpg",
+  "https://i.ibb.co/d2PjYHW/2626-R0l-VIEFOTi-Ay-MTMt-Mj-Y.jpg",
+  "https://i.ibb.co/jr91jrF/2626-R0l-VIEFOTi-Ay-MTMt-MTg.jpg",
+  "https://i.ibb.co/0YYgN65/2626-R0l-VIEFOTi-Ay-MTMt-Mj-I.jpg",
+  "https://i.ibb.co/qphb5Xq/2562-R0l-VIEFOTi-Ax-ODEt-MTg.jpg",
+  "https://i.ibb.co/WnB94GQ/2626-R0l-VIEFOTi-Ay-MTMt-NDI.jpg",
+  "https://i.ibb.co/7g1NmVT/2626-R0l-VIEFOTi-Ay-MTMt-NDM.jpg",
+
+];
 
 
 export default function EventListingCard({
@@ -56,7 +70,7 @@ export default function EventListingCard({
           boxShadow: "0px 0px 0px 5px #580AFF",
         }}
       >
-        <Stack 
+        <Stack
           flex={1}
           flexDirection="column"
           justifyContent={"flex-start"}
@@ -64,18 +78,18 @@ export default function EventListingCard({
           p={1}
           pb={2}
         >
-          <Paragraph 
+          <Paragraph
             content={event_name}
             fontSize={"1.5em"}
             fontWeight={"bold"}
           />
-          <Paragraph 
+          <Paragraph
             content={`${new Date(event_date)
               .toString()
               .slice(0, 10)}, ${event_start_time.slice(
-              0,
-              5
-            )} - ${event_end_time.slice(0, 5)}`}
+                0,
+                5
+              )} - ${event_end_time.slice(0, 5)}`}
             fontSize={"1.2em"}
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
@@ -85,43 +99,43 @@ export default function EventListingCard({
             fontSize={"1em"}
             fontWeight={"medium"}
           />
-           <Flex pt='2em'>
-          <Wrap align="center" spacing={1} >
-            <WrapItem>
-              <Paragraph
-                content={count}
-                fontSize={"1.5em"}
-                fontWeight={"medium"}
-              />
-            </WrapItem>
-           
-            <WrapItem pt={0.5}>
-              <MdPeople size={30} />
-            </WrapItem>
-          </Wrap>
-          <Tooltip
-            hasArrow
-            label="Attend event"
-            fontSize="md"
-            placement="right"
-          >
-            <Button
-              onClick={onClick}
-              bg="none"
-              p={0}
-              _hover={{
-                textDecoration: "none",
-                borderColor: "brand.primaryDark",
-              }}
+          <Flex pt='2em'>
+            <Wrap align="center" spacing={1} >
+              <WrapItem>
+                <Paragraph
+                  content={count}
+                  fontSize={"1.5em"}
+                  fontWeight={"medium"}
+                />
+              </WrapItem>
+
+              <WrapItem pt={0.5}>
+                <MdPeople size={30} />
+              </WrapItem>
+            </Wrap>
+            <Tooltip
+              hasArrow
+              label="Attend event"
+              fontSize="md"
+              placement="right"
             >
-            <Box bg='#6FFD83' px={'.7em'} py={'0.3em'} borderRadius={'9px'} ml='1em'>
-              <MdPersonAdd size={30}/>
-              </Box>
-            </Button>
-          </Tooltip>
+              <Button
+                onClick={onClick}
+                bg="none"
+                p={0}
+                _hover={{
+                  textDecoration: "none",
+                  borderColor: "brand.primaryDark",
+                }}
+              >
+                <Box bg='#6FFD83' px={'.7em'} py={'0.3em'} borderRadius={'9px'} ml='1em'>
+                  <MdPersonAdd size={30} />
+                </Box>
+              </Button>
+            </Tooltip>
           </Flex>
         </Stack>
-        
+
         {/* image positioning centred in own box */}
         <Flex
           justifyContent={{ sm: "flex-end", md: "center" }}
@@ -129,8 +143,8 @@ export default function EventListingCard({
         >
           <Box boxSize="170px" align="center">
             <MainImage
-            // pass in event image with the value of the source url, pulled from array in events.js
-              src={event_image }
+              // pass in event image with the value of the source url, pulled from array in events.js
+              src={images[event_image]}
               alt={"image of friends meeting"}
             />
           </Box>

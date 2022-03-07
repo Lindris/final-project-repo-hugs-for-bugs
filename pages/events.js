@@ -6,22 +6,6 @@ import { useUser } from "@auth0/nextjs-auth0";
 import Header from "../components/headers/header";
 import { API_URL } from "../config/index.js";
 
-//created array of images for event cards
-
-const images = [
-  "https://i.ibb.co/cX4HMrH/2626-R0l-VIEFOTi-Ay-MTMt-NDU.jpg",
-  "https://i.ibb.co/v4yxCp4/2626-R0l-VIEFOTi-Ay-MTMt-NDE.jpg",
-  "https://i.ibb.co/yqLcVxG/2658-R0l-VIEFOTi-Ay-MTQt-Mj-A.jpg",
-  "https://i.ibb.co/wrq4ZXW/2626-R0l-VIEFOTi-Ay-MTMt-Mz-E.jpg",
-  "https://i.ibb.co/d2PjYHW/2626-R0l-VIEFOTi-Ay-MTMt-Mj-Y.jpg",
-  "https://i.ibb.co/jr91jrF/2626-R0l-VIEFOTi-Ay-MTMt-MTg.jpg",
-  "https://i.ibb.co/0YYgN65/2626-R0l-VIEFOTi-Ay-MTMt-Mj-I.jpg",
-  "https://i.ibb.co/qphb5Xq/2562-R0l-VIEFOTi-Ax-ODEt-MTg.jpg",
-  "https://i.ibb.co/WnB94GQ/2626-R0l-VIEFOTi-Ay-MTMt-NDI.jpg",
-  "https://i.ibb.co/7g1NmVT/2626-R0l-VIEFOTi-Ay-MTMt-NDM.jpg",
-
-];
-
 export default function Events({ payload }) {
   const [eventData, seteventData] = useState(false);
   const { user } = useUser();
@@ -90,7 +74,7 @@ export default function Events({ payload }) {
               event_date={event_date.slice(0, 10)}
               event_desc={event_desc}
               count={count}
-              event_image={images[index]}
+              event_image={index}
               onClick={() => sendEventData(event_id)}
             />
           );
