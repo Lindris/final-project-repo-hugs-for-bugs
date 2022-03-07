@@ -36,13 +36,12 @@ const images = [
   "https://i.ibb.co/jr91jrF/2626-R0l-VIEFOTi-Ay-MTMt-MTg.jpg",
   "https://i.ibb.co/0YYgN65/2626-R0l-VIEFOTi-Ay-MTMt-Mj-I.jpg",
   "https://i.ibb.co/qphb5Xq/2562-R0l-VIEFOTi-Ax-ODEt-MTg.jpg",
-]
+];
 
 function randomiseImage() {
   const randomInt = Math.floor(Math.random() * 7);
   return images[randomInt];
 }
-
 
 export default function EventListingCard({
   event_date,
@@ -74,7 +73,7 @@ export default function EventListingCard({
           flexDirection="column"
           justifyContent={"flex-start"}
           alignItems={"flex-start"}
-          p={1} 
+          p={1}
           pb={2}
         >
           <Paragraph
@@ -130,12 +129,13 @@ export default function EventListingCard({
           </Tooltip>
         </Stack>
         {/* image positioning centred in own box */}
-        <Flex justifyContent={{ sm: "flex-end", md: "center" }} alignItems={"center"}>
+        <Flex
+          justifyContent={{ sm: "flex-end", md: "center" }}
+          alignItems={"center"}
+        >
           <Box boxSize="170px" align="center">
             <MainImage
-              src={
-                randomiseImage()
-              }
+              src={randomiseImage()}
               alt={"image of friends meeting"}
             />
           </Box>
@@ -148,6 +148,6 @@ export default function EventListingCard({
           </Box>
         </Flex>
       </Stack>
-    </Center >
+    </Center>
   );
 }

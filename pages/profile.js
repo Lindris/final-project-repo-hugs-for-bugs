@@ -17,7 +17,8 @@ import BasicModal from "../components/modal.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
 
-export default function Profile({ payload, allEvents }) {
+export default function Profile({ userEvents, allEvents }) {
+  console.log(allEvents);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [eventData, seteventData] = useState(false);
   const [confirmEvent, setConfirmEvent] = useState("");
@@ -48,8 +49,7 @@ export default function Profile({ payload, allEvents }) {
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
         }
-      } catch (error) {
-      }
+      } catch (error) {}
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
@@ -73,19 +73,19 @@ export default function Profile({ payload, allEvents }) {
         justify="space-evenly"
         pb={10}
       >
-        {payload.length >= 1 ? (
+        {userEvents.length >= 1 ? (
           <WrapItem>
             <ReusableBox
               title="Your next event"
-              type={payload[0].event_type}
-              date={new Date(payload[0].event_date).toString().slice(0, 15)}
-              time={`${payload[0].event_start_time.slice(
+              type={userEvents[0].event_type}
+              date={new Date(userEvents[0].event_date).toString().slice(0, 15)}
+              time={`${userEvents[0].event_start_time.slice(
                 0,
                 5
-              )} - ${payload[0].event_end_time.slice(0, 5)}`}
-              description={payload[0].event_desc}
-              link={payload[0].event_location}
-              tags={payload[0].event_tags}
+              )} - ${userEvents[0].event_end_time.slice(0, 5)}`}
+              description={userEvents[0].event_desc}
+              link={userEvents[0].event_location}
+              tags={userEvents[0].event_tags}
             />
           </WrapItem>
         ) : (
@@ -96,9 +96,9 @@ export default function Profile({ payload, allEvents }) {
             />
           </WrapItem>
         )}
-        {payload.length >= 1 ? (
+        {userEvents.length >= 2 ? (
           <WrapItem>
-            <ReusableBox title={"Your upcoming events"} payload={payload} />
+            <ReusableBox title={"Your upcoming events"} payload={userEvents} />
           </WrapItem>
         ) : (
           <></>
@@ -121,12 +121,10 @@ export default function Profile({ payload, allEvents }) {
           </a>
         </Link>
       </Wrap>
-
       <Box>
         <Box textAlign={"center"} pt={10} pb={5}>
           <SubHeader content={"Suggested events"} />
         </Box>
-
         <Spacer />
         <Box>
           {allEvents.map(
@@ -162,13 +160,7 @@ export default function Profile({ payload, allEvents }) {
         <BasicModal
           isOpen={isOpen}
           onClose={onClose}
-          event_type={eventData[0].event_type}
-          event_desc={eventData[0].event_desc}
-          event_date={eventData[0].event_date}
-          event_start_time={eventData[0].event_start_time}
-          event_end_time={eventData[0].event_end_time}
-          event_location={eventData[0].event_location}
-          event_tags={eventData[0].event_tags}
+          {...eventData[0]}
           button1="Close"
           button2="Attend event"
           onClick={() => addUsertoEvent(eventData[0].event_id)}
@@ -186,18 +178,24 @@ export default function Profile({ payload, allEvents }) {
 export const getServerSideProps = withPageAuthRequired({
   async getServerSideProps(ctx) {
     const session = getSession(ctx.req, ctx.res);
-    let topic = "all";
-    const res = await fetch(`${API_URL}/users/profile`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        auth_id: session.user.sub,
+    const [payloadRes, allEventsRes] = await Promise.all([
+      fetch(`${API_URL}/users/profile`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          auth_id: session.user.sub,
+        }),
       }),
-    });
-    let { payload } = await res.json();
-    payload = payload.slice(0, 3);
+      fetch(`${API_URL}/events`),
+    ]);
+    let [userEvents, allEvents] = await Promise.all([
+      payloadRes.json(),
+      allEventsRes.json(),
+    ]);
+    userEvents = userEvents.payload.slice(0, 3);
+    allEvents = allEvents.payload.slice(0, 3);
     if (!session.user.sub) {
       return {
         redirect: {
@@ -206,10 +204,8 @@ export const getServerSideProps = withPageAuthRequired({
         },
       };
     }
-
-    const response = await fetch(`${API_URL}/events`);
-    const data = await response.json();
-    let allEvents = data.payload.slice(0, 3);
-    return { props: { payload, allEvents } };
+    return { props: { userEvents, allEvents } };
   },
 });
+
+// using await here does not allow you to call both requests in parallel, hence the promise syntax is used. Promise.all ensures both promises are fulfilled before moving forwards.

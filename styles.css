@@ -134,3 +134,37 @@ form > .chakra-textarea:focus {
     transform: translateY(0%);
   }
 }
+.react-datepicker__month-container,
+.react-datepicker__time-container {
+  font-family: Quicksand;
+  font-size: 1.1em;
+}
+.react-datepicker__week > .react-datepicker__day--selected,
+.react-datepicker__week > .react-datepicker__day:hover,
+.react-datepicker__week > .react-datepicker__day--keyboard-selected,
+.react-datepicker
+  > .react-datepicker__time-container
+  > .react-datepicker__time
+  > .react-datepicker__time-box
+  > ul.react-datepicker__time-list
+  > li.react-datepicker__time-list-item--selected,
+.react-datepicker
+  > .react-datepicker__time-container
+  > .react-datepicker__time
+  > .react-datepicker__time-box
+  > ul.react-datepicker__time-list
+  > li.react-datepicker__time-list-item:hover {
+  background-color: #580aff;
+  color: #ffffff;
+}
+
+.react-datepicker__month-container > .react-datepicker__header,
+.react-datepicker__time-container > .react-datepicker__header {
+  background-color: #ffffff;
+}
+.react-datepicker__day-names > .react-datepicker__day-name {
+  font-weight: bold;
+}
+.react-datepicker__navigation > .react-datepicker__navigation-icon {
+  font-size: 10px;
+}
