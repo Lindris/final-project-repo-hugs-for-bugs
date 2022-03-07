@@ -17,6 +17,7 @@ import BasicModal from "../components/modal.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
 
+
 export default function Profile({ userEvents, allEvents }) {
   console.log(allEvents);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -127,6 +128,8 @@ export default function Profile({ userEvents, allEvents }) {
         </Box>
         <Spacer />
         <Box>
+        {/* in map method iterate over the images using index - outside the payload data inside the call back & 
+      inside return render 10 cards - using the index of the cards to mirror the index of the images - pull the image from array to match the card index}*/}
           {allEvents.map(
             ({
               event_type,
@@ -136,7 +139,7 @@ export default function Profile({ userEvents, allEvents }) {
               count,
               event_end_time,
               event_start_time,
-            }) => {
+            },index) => {
               return (
                 <EventListingCard
                   key={event_id}
@@ -147,6 +150,7 @@ export default function Profile({ userEvents, allEvents }) {
                   event_start_time={event_start_time}
                   onClick={() => sendEventData(event_id)}
                   count={count}
+                  event_image={index}
                 />
               );
             }
