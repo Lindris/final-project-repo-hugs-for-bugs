@@ -56,7 +56,7 @@ export default function EventListingCard({
           boxShadow: "0px 0px 0px 5px #580AFF",
         }}
       >
-        <Stack
+        <Stack 
           flex={1}
           flexDirection="column"
           justifyContent={"flex-start"}
@@ -64,12 +64,12 @@ export default function EventListingCard({
           p={1}
           pb={2}
         >
-          <Paragraph
+          <Paragraph 
             content={event_name}
             fontSize={"1.5em"}
             fontWeight={"bold"}
           />
-          <Paragraph
+          <Paragraph 
             content={`${new Date(event_date)
               .toString()
               .slice(0, 10)}, ${event_start_time.slice(
@@ -85,7 +85,8 @@ export default function EventListingCard({
             fontSize={"1em"}
             fontWeight={"medium"}
           />
-          <Wrap align="center" spacing={1}>
+           <Flex pt='2em'>
+          <Wrap align="center" spacing={1} >
             <WrapItem>
               <Paragraph
                 content={count}
@@ -93,6 +94,7 @@ export default function EventListingCard({
                 fontWeight={"medium"}
               />
             </WrapItem>
+           
             <WrapItem pt={0.5}>
               <MdPeople size={30} />
             </WrapItem>
@@ -112,10 +114,14 @@ export default function EventListingCard({
                 borderColor: "brand.primaryDark",
               }}
             >
-              <MdPersonAdd size={30} />
+            <Box bg='#6FFD83' px={'.7em'} py={'0.3em'} borderRadius={'9px'} ml='1em'>
+              <MdPersonAdd size={30}/>
+              </Box>
             </Button>
           </Tooltip>
+          </Flex>
         </Stack>
+        
         {/* image positioning centred in own box */}
         <Flex
           justifyContent={{ sm: "flex-end", md: "center" }}
