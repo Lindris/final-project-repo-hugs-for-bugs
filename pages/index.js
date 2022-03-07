@@ -75,7 +75,7 @@ export default function Home() {
               content={"A space to program collaboratively"}
             />
             <Box mt="1em" mb="1em">
-              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow."} />
+              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow."} fontSize="1.1em"/>
             </Box>
             <Box pt="1em">
               <SecondaryButton content={"Learn more"} route={"/vision"} />

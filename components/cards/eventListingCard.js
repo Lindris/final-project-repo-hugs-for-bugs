@@ -27,6 +27,8 @@ import MainImage from "../mainImage";
 //in CSS specify the hearts and responses
 // Moved heart to bottom-right corner of box by adding Flex with align-items set to justify-end
 
+//created array of images for event cards
+
 const images = [
   "https://i.ibb.co/cX4HMrH/2626-R0l-VIEFOTi-Ay-MTMt-NDU.jpg",
   "https://i.ibb.co/v4yxCp4/2626-R0l-VIEFOTi-Ay-MTMt-NDE.jpg",
@@ -36,12 +38,11 @@ const images = [
   "https://i.ibb.co/jr91jrF/2626-R0l-VIEFOTi-Ay-MTMt-MTg.jpg",
   "https://i.ibb.co/0YYgN65/2626-R0l-VIEFOTi-Ay-MTMt-Mj-I.jpg",
   "https://i.ibb.co/qphb5Xq/2562-R0l-VIEFOTi-Ax-ODEt-MTg.jpg",
+  "https://i.ibb.co/WnB94GQ/2626-R0l-VIEFOTi-Ay-MTMt-NDI.jpg",
+  "https://i.ibb.co/7g1NmVT/2626-R0l-VIEFOTi-Ay-MTMt-NDM.jpg",
+
 ];
 
-function randomiseImage() {
-  const randomInt = Math.floor(Math.random() * 7);
-  return images[randomInt];
-}
 
 export default function EventListingCard({
   event_date,
@@ -51,13 +52,14 @@ export default function EventListingCard({
   event_end_time,
   onClick,
   count,
+  event_image
 }) {
   return (
     <Center py={6}>
       <Stack
         maxWidth={"1000px"}
         margin={8}
-        w={{ sm: "100%" }}
+        w={{ sm: "50%", md: "100%" }}
         height={{ base: "100%", sm: "100%", md: "15rem" }}
         direction={{ base: "column", sm: "column", md: "row" }}
         bg={useColorModeValue("white", "gray.900")}
@@ -85,9 +87,9 @@ export default function EventListingCard({
             content={`${new Date(event_date)
               .toString()
               .slice(0, 10)}, ${event_start_time.slice(
-              0,
-              5
-            )} - ${event_end_time.slice(0, 5)}`}
+                0,
+                5
+              )} - ${event_end_time.slice(0, 5)}`}
             fontSize={"1.2em"}
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
@@ -97,45 +99,57 @@ export default function EventListingCard({
             fontSize={"1em"}
             fontWeight={"medium"}
           />
-          <Wrap align="center" spacing={1}>
-            <WrapItem>
-              <Paragraph
-                content={count}
-                fontSize={"1.5em"}
-                fontWeight={"medium"}
-              />
-            </WrapItem>
-            <WrapItem pt={0.5}>
-              <MdPeople size={30} />
-            </WrapItem>
-          </Wrap>
-          <Tooltip
-            hasArrow
-            label="Attend event"
-            fontSize="md"
-            placement="right"
-          >
-            <Button
-              onClick={onClick}
-              bg="none"
-              p={0}
-              _hover={{
-                textDecoration: "none",
-                borderColor: "brand.primaryDark",
-              }}
+          <Flex pt='2em'>
+            <Wrap align="center" spacing={1} >
+              <WrapItem>
+                <Paragraph
+                  content={count}
+                  fontSize={"1.5em"}
+                  fontWeight={"medium"}
+                />
+              </WrapItem>
+
+              <WrapItem pt={0.5}>
+                <Box mr='1em'>
+                  <MdPeople size={30} />
+                </Box>
+              </WrapItem>
+            </Wrap>
+            <Tooltip
+              hasArrow
+              label="Attend event"
+              fontSize="md"
+              placement="right"
             >
-              <MdPersonAdd size={30} />
-            </Button>
-          </Tooltip>
+              <Button
+                onClick={onClick}
+                bg="none"
+                p={0}
+                _hover={{
+                  textDecoration: "none",
+                  borderColor: "brand.primaryDark",
+                }}
+              >
+                <Box bg='brand.secondaryPurple' px={'.7em'} py={'0.3em'} borderRadius={'9px'}>
+                  <MdPersonAdd size={30} color="white" />
+                </Box>
+              </Button>
+            </Tooltip>
+          </Flex>
         </Stack>
+
         {/* image positioning centred in own box */}
         <Flex
-          justifyContent={{ sm: "flex-end", md: "center" }}
+          justifyContent={{ sm: "center", md: "flex-end" }}
           alignItems={"center"}
         >
-          <Box boxSize="170px" align="center">
+          <Box
+            w={{ base: "90%", sm: "70%", md: "170px" }}
+            height={"auto"}
+            align="center">
             <MainImage
-              src={randomiseImage()}
+              // pass in event image with the value of the source url, pulled from array in events.js
+              src={images[event_image]}
               alt={"image of friends meeting"}
             />
           </Box>
