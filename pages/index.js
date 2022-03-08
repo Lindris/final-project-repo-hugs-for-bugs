@@ -109,7 +109,7 @@ export default function Home() {
               direction={{
                 base: "column",
                 sm: "column",
-                md: "column",
+                md: "row",
                 lg: "row",
               }}
               justifyContent="center"
