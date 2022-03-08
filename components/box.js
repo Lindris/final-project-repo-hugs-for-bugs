@@ -1,4 +1,4 @@
-import { Box, HStack, Button, Tag, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, HStack, Tag, Wrap, WrapItem } from "@chakra-ui/react";
 import RemoveUser from "./removeUser.js";
 import Paragraph from "./paragraph.js";
 import EventDetails from "../components/eventListingDetails";
