@@ -24,59 +24,59 @@ import { API_URL } from "../config/index.js";
 import MainImage from "../components/mainImage.js";
 
 export default function CreateEventForm() {
-	const { user } = useUser();
-	let username;
-	if (user) {
-		if ("given_name" in user) {
-			username = user.given_name;
-		} else username = user.nickname;
-	}
-	const { isOpen, onOpen, onClose } = useDisclosure();
-	const [eventdetails, setEventDetails] = useState([]);
-	const [formValues, setFormValues] = useState("");
-	const [confirmEvent, setConfirmEvent] = useState("");
-	const {
-		handleSubmit,
-		register,
-		control,
-		formState: { errors, isSubmitting },
-	} = useForm();
+  const { user } = useUser();
+  let username;
+  if (user) {
+    if ("given_name" in user) {
+      username = user.given_name;
+    } else username = user.nickname;
+  }
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [eventdetails, setEventDetails] = useState([]);
+  const [formValues, setFormValues] = useState("");
+  const [confirmEvent, setConfirmEvent] = useState("");
+  const {
+    handleSubmit,
+    register,
+    control,
+    formState: { errors, isSubmitting },
+  } = useForm();
 
-	function onSubmit(values, e) {
-		Object.keys(values).map((key) => {
-			if (key === "event_date") {
-				values[key] = values[key].toString().slice(0, 15);
-			} else if (key === "event_start_time" || key === "event_end_time") {
-				values[key] = values[key].toString().slice(16, 24);
-			}
-		});
-		const valuesArray = Object.entries(values);
-		setEventDetails(valuesArray);
-		values = { ...values, auth_id: user.sub };
-		setFormValues(values);
-		onOpen();
-	}
+  function onSubmit(values, e) {
+    Object.keys(values).map((key) => {
+      if (key === "event_date") {
+        values[key] = values[key].toString().slice(0, 15);
+      } else if (key === "event_start_time" || key === "event_end_time") {
+        values[key] = values[key].toString().slice(16, 24);
+      }
+    });
+    const valuesArray = Object.entries(values);
+    setEventDetails(valuesArray);
+    values = { ...values, auth_id: user.sub };
+    setFormValues(values);
+    onOpen();
+  }
 
-	async function handleModalSubmit() {
-		try {
-			const response = await fetch(`${API_URL}/events`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(formValues),
-			});
-			if (response.status === 200) {
-				setConfirmEvent("Event successfully added");
-			}
-		} catch (error) {
-			setConfirmEvent("An error occurred, please try again");
-		}
+  async function handleModalSubmit() {
+    try {
+      const response = await fetch(`${API_URL}/events`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+      if (response.status === 200) {
+        setConfirmEvent("Event successfully added");
+      }
+    } catch (error) {
+      setConfirmEvent("An error occurred, please try again");
+    }
 
-		setTimeout(function () {
-			Router.reload(window.location.pathname);
-		}, 2000);
-	}
+    setTimeout(function () {
+      Router.reload(window.location.pathname);
+    }, 2000);
+  }
   return (
     <>
       <Box
@@ -98,17 +98,11 @@ export default function CreateEventForm() {
           alignItems={"center"}
           bg={"rgba(158, 137, 241, 0.25)"}
         >
-          <Box
-            w="80%"
-          >
+          <Box w="80%">
             <MainImage src={"https://i.ibb.co/NW9nTfJ/New-Project-14.png"} />
           </Box>
-        </Flex >
-        <Box py={5}
-          px={10}
-          maxW={{ lg: "600px" }}
-          w="auto"
-        >
+        </Flex>
+        <Box py={5} px={10} maxW={{ lg: "600px" }} w="auto">
           <Box m="0 auto" textAlign={"center"} py={5}>
             <Paragraph
               align="center"
@@ -117,7 +111,27 @@ export default function CreateEventForm() {
               content={`${username}, create your own event here!`}
             />
           </Box>
-          <form onSubmit={handleSubmit(onSubmit)} >
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <FormLabel htmlFor="first" mt={4}>
+              First name
+            </FormLabel>
+            <Input
+              id="First Name"
+              {...register("first_name", {
+                required: true,
+              })}
+              className="event-desc-input"
+            />
+            <FormLabel htmlFor="last" mt={4}>
+              Last name
+            </FormLabel>
+            <Input
+              id="Last Name"
+              {...register("last_name", {
+                required: true,
+              })}
+              className="event-desc-input"
+            />
             <FormLabel htmlFor="type" mt={4}>
               Event type
             </FormLabel>
@@ -225,7 +239,8 @@ export default function CreateEventForm() {
               <EditablePreview className="tag-3-input" />
               <EditableInput {...register("event_tags.2")} />
             </Editable>
-            <Box w="100%"
+            <Box
+              w="100%"
               display="flex"
               justifyContent="center"
               alignItems="center"
@@ -253,28 +268,26 @@ export default function CreateEventForm() {
             </Box>
           </form>
         </Box>
-      </Box >
-      {
-        formValues ? (
-          <BasicModal
-            isOpen={isOpen}
-            onClose={onClose}
-            button1="Edit details"
-            button2="Confirm event"
-            onClick={handleModalSubmit}
-            event_date={formValues.event_date}
-            event_type={formValues.event_type}
-            event_desc={formValues.event_desc}
-            event_start_time={formValues.event_start_time}
-            event_end_time={formValues.event_end_time}
-            event_location={formValues.event_location}
-            event_tags={formValues.event_tags}
-            confirm={confirmEvent}
-          />
-        ) : (
-          <></>
-        )
-      }
+      </Box>
+      {formValues ? (
+        <BasicModal
+          isOpen={isOpen}
+          onClose={onClose}
+          button1="Edit details"
+          button2="Confirm event"
+          onClick={handleModalSubmit}
+          event_date={formValues.event_date}
+          event_type={formValues.event_type}
+          event_desc={formValues.event_desc}
+          event_start_time={formValues.event_start_time}
+          event_end_time={formValues.event_end_time}
+          event_location={formValues.event_location}
+          event_tags={formValues.event_tags}
+          confirm={confirmEvent}
+        />
+      ) : (
+        <></>
+      )}
     </>
   );
 }

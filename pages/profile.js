@@ -18,7 +18,6 @@ import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
 import { useRouter } from "next/router";
 
-
 export default function Profile({ userEvents, allEvents }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [notAttending, setNotAttending] = useState(allEvents);
@@ -163,19 +162,23 @@ export default function Profile({ userEvents, allEvents }) {
         </Box>
         <Spacer />
         <Box>
-
           {notAttending
             .slice(0, 3)
             .map(
-              ({
-                event_type,
-                event_date,
-                event_desc,
-                event_id,
-                count,
-                event_end_time,
-                event_start_time,
-              }, index) => {
+              (
+                {
+                  event_type,
+                  event_date,
+                  event_desc,
+                  event_id,
+                  count,
+                  event_end_time,
+                  event_start_time,
+                  first_name,
+                  last_name,
+                },
+                index
+              ) => {
                 return (
                   <EventListingCard
                     key={event_id}
@@ -187,6 +190,8 @@ export default function Profile({ userEvents, allEvents }) {
                     onClick={() => sendEventData(event_id)}
                     count={count}
                     event_image={index}
+                    first={first_name}
+                    last={last_name}
                   />
                 );
               }
