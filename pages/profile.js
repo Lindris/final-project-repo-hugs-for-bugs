@@ -26,7 +26,7 @@ export default function Profile({ userEvents, allEvents }) {
   const [confirmEvent, setConfirmEvent] = useState("");
   const { user } = useUser();
   const router = useRouter();
-
+  console.log(user);
   const refreshData = () => {
     router.replace(router.asPath);
     setIsRefreshing(true);
@@ -81,7 +81,7 @@ export default function Profile({ userEvents, allEvents }) {
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
-      }, 4000);
+      }, 2000);
     }
   }
   function sendEventData(event_id) {
@@ -117,6 +117,8 @@ export default function Profile({ userEvents, allEvents }) {
               tags={userEvents[0].event_tags}
               remove="true"
               refreshData={refreshData}
+              first={userEvents[0].first_name}
+              last={userEvents[0].last_name}
             />
           </WrapItem>
         ) : (

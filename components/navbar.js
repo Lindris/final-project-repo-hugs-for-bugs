@@ -92,6 +92,11 @@ export default function Navbar() {
               <MenuList>
                 <Link href="/profile" passHref>
                   <MenuItem>
+                    <a>My profile</a>
+                  </MenuItem>
+                </Link>
+                <Link href="/organised" passHref>
+                  <MenuItem>
                     <a>My events</a>
                   </MenuItem>
                 </Link>

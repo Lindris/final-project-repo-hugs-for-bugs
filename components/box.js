@@ -16,6 +16,8 @@ export default function ReusableBox({
   event_id,
   remove,
   refreshData,
+  first,
+  last,
 }) {
   return (
     <Box
@@ -34,7 +36,15 @@ export default function ReusableBox({
           content={title}
         />
       </HStack>
-      <Paragraph content={type} fontSize={"1.2em"} fontWeight={"bold"} />
+      {type ? (
+        <Paragraph
+          content={`${type} by ${first} ${last}`}
+          fontSize={"1.2em"}
+          fontWeight={"bold"}
+        />
+      ) : (
+        <></>
+      )}
       <Paragraph
         content={date}
         fontSize={"1em"}
@@ -58,6 +68,8 @@ export default function ReusableBox({
               event_date,
               event_start_time,
               event_end_time,
+              first_name,
+              last_name,
             },
             i
           ) => {
@@ -65,7 +77,7 @@ export default function ReusableBox({
               return (
                 <>
                   <EventDetails
-                    type={event_type}
+                    type={`${event_type} by ${first_name} ${last_name}`}
                     date={event_date}
                     starttime={event_start_time}
                     endtime={event_end_time}
