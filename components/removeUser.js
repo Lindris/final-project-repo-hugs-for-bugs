@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button, Box, Tooltip } from "@chakra-ui/react";
 import { MdPersonRemove } from "react-icons/md";
 import { useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
@@ -30,16 +30,25 @@ export default function RemoveUser({ event_id, refreshData }) {
   }
 
   return (
-    <Button
-      onClick={removeUserFromEvent}
-      bg="none"
-      p={0}
-      _hover={{
-        textDecoration: "none",
-        borderColor: "brand.primaryDark",
-      }}
-    >
-      <MdPersonRemove size={30} />
-    </Button>
+    <Tooltip hasArrow label="Leave event" fontSize="md" placement="right">
+      <Button
+        onClick={removeUserFromEvent}
+        bg="none"
+        p={0}
+        _hover={{
+          textDecoration: "none",
+          borderColor: "brand.primaryDark",
+        }}
+      >
+        <Box
+          bg="brand.secondaryPurple"
+          px={".7em"}
+          py={"0.3em"}
+          borderRadius={"9px"}
+        >
+          <MdPersonRemove size={30} color="white" />
+        </Box>
+      </Button>
+    </Tooltip>
   );
 }
