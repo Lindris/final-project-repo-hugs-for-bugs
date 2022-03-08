@@ -15,8 +15,8 @@ export default function ReusableBox({
   payload,
   event_id,
   remove,
+  refreshData,
 }) {
-  console.log(event_id);
   return (
     <Box
       p={5}
@@ -44,7 +44,11 @@ export default function ReusableBox({
       <Paragraph content={time} fontSize={"1em"} fontWeight={"bold"} />
       <Paragraph content={description} fontSize={"1em"} fontWeight={"medium"} />
       <Paragraph content={link} fontSize={"1em"} fontWeight={"medium"} />
-      {remove ? <RemoveUser event_id={event_id} /> : <></>}
+      {remove ? (
+        <RemoveUser event_id={event_id} refreshData={refreshData} />
+      ) : (
+        <></>
+      )}
       {payload ? (
         payload.map(
           (
@@ -66,7 +70,7 @@ export default function ReusableBox({
                     starttime={event_start_time}
                     endtime={event_end_time}
                   />
-                  <RemoveUser event_id={event_id} />
+                  <RemoveUser event_id={event_id} refreshData={refreshData} />
                   <br />
                 </>
               );

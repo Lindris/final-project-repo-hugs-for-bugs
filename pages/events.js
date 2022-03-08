@@ -41,7 +41,7 @@ export default function Events({ payload }) {
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
         }
-      } catch (error) {}
+      } catch (error) { }
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
@@ -53,6 +53,8 @@ export default function Events({ payload }) {
       <Box pb={5}>
         <Header content={"Upcoming events"} />
       </Box>
+      {/* in map method iterate over the images using index - outside the payload data inside the call back 
+      inside return render 10 cards - using the index of the cards to mirror the index of the images - pull the image from array to match the card index}*/}
       {payload.map(
         ({
           event_type,
@@ -62,7 +64,7 @@ export default function Events({ payload }) {
           count,
           event_start_time,
           event_end_time,
-        }) => {
+        }, index) => {
           return (
             <EventListingCard
               key={event_id}
@@ -72,10 +74,12 @@ export default function Events({ payload }) {
               event_date={event_date.slice(0, 10)}
               event_desc={event_desc}
               count={count}
+              event_image={index}
               onClick={() => sendEventData(event_id)}
             />
           );
         }
+
       )}
       {eventData ? (
         <BasicModal

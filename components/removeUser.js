@@ -3,9 +3,7 @@ import { MdPersonRemove } from "react-icons/md";
 import { useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
 import { useState } from "react";
-export default function RemoveUser({ event_id }) {
-  console.log(event_id);
-  const [disable, setdisabled] = useState(false);
+export default function RemoveUser({ event_id, refreshData }) {
   const { user } = useUser();
   async function removeUserFromEvent() {
     if (!user) {
@@ -23,7 +21,7 @@ export default function RemoveUser({ event_id }) {
           }),
         });
         if (response.status === 200) {
-          setdisabled(true);
+          refreshData();
         }
       } catch (error) {
         console.log(error);
@@ -33,7 +31,6 @@ export default function RemoveUser({ event_id }) {
 
   return (
     <Button
-      isDisabled={disable}
       onClick={removeUserFromEvent}
       bg="none"
       p={0}
