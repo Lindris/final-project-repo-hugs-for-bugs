@@ -95,6 +95,7 @@ export default function Events({ payload }) {
 		</Box>
 	);
 }
+
 export async function getServerSideProps() {
 	// Fetch data from external AP
 	const response = await fetch(`${API_URL}/events`);

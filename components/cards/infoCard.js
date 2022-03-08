@@ -25,7 +25,7 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
     <Center py={4}>
       <Box
         bg={useColorModeValue("white", "gray.900")}
-        maxWidth={"400px"}
+        maxWidth={{ sm: '100%', md: '300px', lg: "400px" }}
         maxHeight={'auto'}
         boxShadow={"2xl"}
         rounded={"md"}
@@ -33,7 +33,7 @@ export default function infoCard({ headerContent, textContent, src, alt }) {
         mx={{
           sm: '1em', md: '1em', lg: "2em"
         }}
-        w={{ sm: '100%', md: '100px', lg: "400px" }}
+        minWidth={{ sm: '100%', md: '200px', lg: "300px" }}
         h={{
           sm: 'auto', md: '100%'
         }}
