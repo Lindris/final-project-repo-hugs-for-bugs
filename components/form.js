@@ -88,16 +88,16 @@ export default function CreateEventForm() {
         display="flex"
         m="0 auto"
         my={10}
-        flexDirection="row"
+        flexDirection={{ base: "column", sm: "column", md: "row" }}
         gap={10}
         boxShadow={"rgba(149, 157, 165, 0.2) 0px 8px 24px"}
       >
         <Flex
-          w="50%"
+          w={{ base: "100%", sm: "100%", md: "50%" }}
           flexDirection="column"
           justifyContent={"flex-end"}
           alignItems={"center"}
-          bg={"rgba(158, 137, 241, 0.4)"}
+          bg={"rgba(158, 137, 241, 0.25)"}
         >
           <Box
             w="80%"
@@ -226,26 +226,32 @@ export default function CreateEventForm() {
               <EditablePreview className="tag-3-input" />
               <EditableInput {...register("event_tags.2")} />
             </Editable>
-            <Button
-              bg="brand.primaryLight"
-              color="brand.mainPurple"
-              borderRadius="25px"
-              letterSpacing="0.5px"
-              border="1px"
-              borderColor="brand.mainPurple"
-              _hover={{
-                textDecoration: "none",
-                color: "brand.primaryDark",
-                borderColor: "brand.primaryDark",
-              }}
-              width="100px"
-              mt={4}
-              type="submit"
-              isLoading={isSubmitting}
-              className="submit-event-btn"
+            <Box w="100%"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              my={1}
             >
-              Submit
-            </Button>
+              <Button
+                bg="brand.primaryLight"
+                color="brand.mainPurple"
+                borderRadius="25px"
+                letterSpacing="0.5px"
+                border="1px"
+                borderColor="brand.mainPurple"
+                _hover={{
+                  textDecoration: "none",
+                  color: "brand.primaryDark",
+                  borderColor: "brand.primaryDark",
+                }}
+                width="100px"
+                type="submit"
+                isLoading={isSubmitting}
+                className="submit-event-btn"
+              >
+                Submit
+              </Button>
+            </Box>
           </form>
         </Box>
       </Box >
