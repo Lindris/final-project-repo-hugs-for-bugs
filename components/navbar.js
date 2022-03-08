@@ -47,17 +47,14 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
   return (
-    <Box px={4}>
+    <Box pos="fixed" w="100%" zIndex={4} top="0">
       <Flex
-        // position="fixed"
-        top="1rem"
-        right="1rem"
-        align="center"
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1.5}
         borderStyle={"solid"}
+        bgColor={"#f8f9fa"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         justifyContent={"space-between"}
       >
@@ -130,7 +127,7 @@ export default function Navbar() {
         </Flex>
       </Flex>
       {isOpen ? (
-        <Box pb={4} display={{ md: "none" }}>
+        <Box pb={4} display={{ md: "none" }} bgColor={"#f8f9fa"}>
           <Stack as={"nav"} spacing={3} pt={3}>
             {user
               ? UserLinks.map((link) => <NavLink key={link}>{link}</NavLink>)
