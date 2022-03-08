@@ -6,15 +6,15 @@ import ConfirmModal from "../confirmModal.js";
 import { useState } from "react";
 
 import {
-	Button,
-	FormLabel,
-	FormControl,
-	Input,
-	Box,
-	Textarea,
-	Flex,
-	Center,
-	useDisclosure,
+  Button,
+  FormLabel,
+  FormControl,
+  Input,
+  Box,
+  Textarea,
+  Flex,
+  Center,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 // import basic modal from components
@@ -22,116 +22,129 @@ import {
 // destructure isOpen, onOpen, onClose from useDisclosure
 
 export default function ContactUs() {
-	const { isOpen, onOpen, onClose } = useDisclosure();
-	const [input, setInput] = useState("");
-	const form = useRef();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [input, setInput] = useState("");
+  const form = useRef();
 
-	const sendEmail = (e) => {
-		e.preventDefault();
-		console.log(form.current);
-		emailjs
-			.sendForm(
-				"service_wuqdwm3",
-				"template_0t019v8",
-				form.current,
-				"gZk2hVOs5f7LTb77V"
-			)
-			.then(
-				(result) => {
-					onOpen();
-				},
-				(error) => {}
-			);
-		e.target.reset();
-	};
+  const sendEmail = (e) => {
+    e.preventDefault();
+    console.log(form.current);
+    emailjs
+      .sendForm(
+        "service_wuqdwm3",
+        "template_0t019v8",
+        form.current,
+        "gZk2hVOs5f7LTb77V"
+      )
+      .then(
+        (result) => {
+          onOpen();
+        },
+        (error) => {}
+      );
+    e.target.reset();
+  };
 
-	return (
-		<>
-			<Flex
-				my="2em"
-				flexDirection={"column"}
-				alignItems="center"
-				px={{ base: "2em" }}
-			>
-				<SubHeader content={"Want to be a guest speaker?"} />
-			</Flex>
-			<Flex
-				my="2em"
-				flexDirection={"column"}
-				alignItems="center"
-				px={{ base: "2em" }}
-			>
-				<Paragraph
-					fontSize="1.4em"
-					content={
-						"If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."
-					}
-				/>
-				<Paragraph
-					fontSize="1.4em"
-					content={
-						"Our ethusiastic and talented community would love to hear from you."
-					}
-				/>
-			</Flex>
-			<Center>
-				<Box
-					py={4}
-					px={10}
-					borderWidth="1px"
-					borderRadius="lg"
-					overflow="hidden"
-					display="flex"
-					mt={10}
-				>
-					<form ref={form} onSubmit={sendEmail}>
-						<FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>
-							First Name
-						</FormLabel>
-						<Input name="firstname" isRequired id="firstname" />
-						<FormLabel mt={4}>Last Name</FormLabel>
-						<Input name="lastname" isRequired className="lastname" />
-						<FormLabel mt={4} htmlFor="email">
-							Email address
-						</FormLabel>
-						<Input name="email" type="email" isRequired className="email" />
-						<FormLabel mt={4}>Subject</FormLabel>
-						<Input name="subject" isRequired className="subject" />
-						<FormLabel mt={4}>Message</FormLabel>
-						<Textarea
-							name="message"
-							placeholder="Tell us more"
-							isRequired
-							className="message"
-						/>
-						<Center py="2em">
-							<Button
-								color="brand.primaryLight"
-								bg="brand.mainPurple"
-								borderRadius="25px"
-								size="lg"
-								letterSpacing="0.5px"
-								_hover={{
-									textDecoration: "none",
-									bg: "brand.primaryDark",
-								}}
-								type="submit"
-								button="submit-email-form"
-							>
-								Submit
-							</Button>
-						</Center>
-					</form>
-					<ConfirmModal
-						isOpen={isOpen}
-						onClose={onClose}
-						button1="Close"
-						confirm_message={
-							"Thank you for getting in touch with us. We will get back to you shortly."
-						}
-					/>
-				</Box>
-			</Center>
-		</>
-	);
+  return (
+    <>
+      <Flex
+        my="2em"
+        flexDirection={"column"}
+        alignItems="center"
+        px={{ base: "2em" }}
+      >
+        <SubHeader content={"Would you like to speak at one of our events?"} />
+      </Flex>
+      <Flex
+        my="2em"
+        flexDirection={"column"}
+        alignItems="center"
+        px={{ base: "2em" }}
+      >
+        <Box mb="1.3em">
+          <Paragraph
+            fontSize="1.4em"
+            content={
+              "Our guest events are an opportunity to get in front of our enthusiastic and talented programmer audience. "
+            }
+          />
+        </Box>
+        <Box mb="1.3em">
+          <Paragraph
+            fontSize="1.4em"
+            content={
+              "Get in touch as an industry expert and showcase a product, share insights into why you do what you do, or run a Q&A session. "
+            }
+          />
+        </Box>
+        <Box>
+          <Paragraph
+            fontSize="1.4em"
+            fontWeight="bold"
+            content={
+              "Please let us know who you are, your organisation, what you would like to share and we’ll get back to you as soon as we can."
+            }
+          />
+        </Box>
+      </Flex>
+      <Center>
+        <Box
+          py={4}
+          px={10}
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+          display="flex"
+          mt={10}
+        >
+          <form ref={form} onSubmit={sendEmail}>
+            <FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>
+              First Name
+            </FormLabel>
+            <Input name="firstname" isRequired id="firstname" />
+            <FormLabel mt={4}>Last Name</FormLabel>
+            <Input name="lastname" isRequired className="lastname" />
+            <FormLabel mt={4} htmlFor="email">
+              Email address
+            </FormLabel>
+            <Input name="email" type="email" isRequired className="email" />
+            <FormLabel mt={4}>Subject</FormLabel>
+            <Input name="subject" isRequired className="subject" />
+            <FormLabel mt={4}>Message</FormLabel>
+            <Textarea
+              name="message"
+              placeholder="Tell us more"
+              isRequired
+              className="message"
+            />
+            <Center py="2em">
+              <Button
+                color="brand.primaryLight"
+                bg="brand.mainPurple"
+                borderRadius="25px"
+                size="lg"
+                letterSpacing="0.5px"
+                _hover={{
+                  textDecoration: "none",
+                  bg: "brand.primaryDark",
+                }}
+                type="submit"
+                button="submit-email-form"
+              >
+                Submit
+              </Button>
+            </Center>
+          </form>
+          <ConfirmModal
+            isOpen={isOpen}
+            onClose={onClose}
+            button1="Close"
+            confirm_message={
+              "Thank you for getting in touch with us. We will get back to you shortly."
+            }
+          />
+        </Box>
+      </Center>
+    </>
+  );
 }

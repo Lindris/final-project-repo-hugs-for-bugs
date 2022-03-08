@@ -10,9 +10,11 @@ import styled from "@emotion/styled";
 import "@fontsource/quicksand";
 import "@fontsource/quicksand/400.css";
 
+//entire app put inside an appContainer which is a div and styled with the Quicksand font family
 const AppContainer = styled.div`
 	font-family: "Quicksand";
 `;
+//take in all our components and pages and pass them down as props 
 
 function App({ Component, pageProps }) {
 	return (
