@@ -5,6 +5,7 @@ import {
   FormLabel,
   Button,
   Input,
+  Textarea,
   Box,
   Editable,
   EditableInput,
@@ -148,7 +149,8 @@ export default function CreateEventForm() {
             <FormLabel htmlFor="name" mt={4}>
               Description
             </FormLabel>
-            <Input
+            <Textarea
+              placeholder="Tell us more"
               id="Description"
               {...register("event_desc", {
                 required: true,
@@ -216,13 +218,17 @@ export default function CreateEventForm() {
                 />
               )}
             />
-            <FormLabel mt={2}>
-              <EditIcon /> Provide three tags to help describe your event
+            <FormLabel mt={3}>
+              <EditIcon /> <b>Optional:</b> Three words to summarize your event
+              <br />
+              (max 15 characters)
             </FormLabel>
             <Editable width="200px" mt={2} placeholder="Tag 1">
               <EditablePreview />
               <EditableInput
-                {...register("event_tags.0")}
+                {...register("event_tags.0", {
+                  maxLength: 15,
+                })}
                 className="tag-1-input"
               />
             </Editable>
@@ -233,11 +239,19 @@ export default function CreateEventForm() {
               className="tag-2-input"
             >
               <EditablePreview />
-              <EditableInput {...register("event_tags.1")} />
+              <EditableInput
+                {...register("event_tags.1", {
+                  maxLength: 15,
+                })}
+              />
             </Editable>
             <Editable placeholder="Tag 3" width="200px" mt={2}>
               <EditablePreview className="tag-3-input" />
-              <EditableInput {...register("event_tags.2")} />
+              <EditableInput
+                {...register("event_tags.2", {
+                  maxLength: 15,
+                })}
+              />
             </Editable>
             <Box
               w="100%"

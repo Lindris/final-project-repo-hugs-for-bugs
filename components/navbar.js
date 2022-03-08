@@ -9,7 +9,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   Stack,
@@ -50,6 +49,10 @@ export default function Navbar() {
   return (
     <Box px={4}>
       <Flex
+        // position="fixed"
+        top="1rem"
+        right="1rem"
+        align="center"
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}

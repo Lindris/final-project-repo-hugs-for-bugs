@@ -102,25 +102,19 @@ export default function Profile({ userEvents, allEvents }) {
         pb={10}
       >
         {userEvents.length >= 1 ? (
-          <WrapItem>
-            <ReusableBox
-              title="Your next event"
-              type={userEvents[0].event_type}
-              event_id={userEvents[0].event_id}
-              date={new Date(userEvents[0].event_date).toString().slice(0, 15)}
-              time={`${userEvents[0].event_start_time.slice(
-                0,
-                5
-              )} - ${userEvents[0].event_end_time.slice(0, 5)}`}
-              description={userEvents[0].event_desc}
-              link={userEvents[0].event_location}
-              tags={userEvents[0].event_tags}
-              remove="true"
-              refreshData={refreshData}
-              first={userEvents[0].first_name}
-              last={userEvents[0].last_name}
-            />
-          </WrapItem>
+          userEvents.map((event, i) => {
+            if (i < 3) {
+              return (
+                <WrapItem>
+                  <ReusableBox
+                    {...event}
+                    remove="true"
+                    refreshData={refreshData}
+                  />
+                </WrapItem>
+              );
+            }
+          })
         ) : (
           <WrapItem>
             <ReusableBox
@@ -129,34 +123,6 @@ export default function Profile({ userEvents, allEvents }) {
             />
           </WrapItem>
         )}
-        {userEvents.length >= 2 ? (
-          <WrapItem>
-            <ReusableBox
-              title={"Your upcoming events"}
-              payload={userEvents.slice(0, 3)}
-              refreshData={refreshData}
-            />
-          </WrapItem>
-        ) : (
-          <></>
-        )}
-        <Link href="/create">
-          <a>
-            <ReusableBox
-              title="Why not host your own?"
-              content1="Have any ideas or like some of our own? Create an event using our form."
-              tags={[
-                "Imposter syndrome",
-                "React Frameworks",
-                "Docker",
-                "API's",
-                "React Hooks",
-                "Rock, Paper, Scissors",
-                "Tick, Tack, Toe",
-              ]}
-            />
-          </a>
-        </Link>
       </Wrap>
       <Box>
         <Box textAlign={"center"} pt={10} pb={5}>
