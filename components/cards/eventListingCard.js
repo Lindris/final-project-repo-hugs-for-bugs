@@ -1,13 +1,13 @@
 import {
-  Box,
-  Center,
-  Flex,
-  Stack,
-  useColorModeValue,
-  Wrap,
-  WrapItem,
-  Button,
-  Tooltip,
+	Box,
+	Center,
+	Flex,
+	Stack,
+	useColorModeValue,
+	Wrap,
+	WrapItem,
+	Button,
+	Tooltip,
 } from "@chakra-ui/react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { MdPeople, MdPersonAdd } from "react-icons/md";
@@ -30,6 +30,7 @@ import MainImage from "../mainImage";
 //created array of images for event cards
 
 const images = [
+
   "https://i.ibb.co/cX4HMrH/2626-R0l-VIEFOTi-Ay-MTMt-NDU.jpg",
   "https://i.ibb.co/v4yxCp4/2626-R0l-VIEFOTi-Ay-MTMt-NDE.jpg",
   "https://i.ibb.co/yqLcVxG/2658-R0l-VIEFOTi-Ay-MTQt-Mj-A.jpg",
@@ -164,4 +165,5 @@ export default function EventListingCard({
       </Stack>
     </Center>
   );
+
 }

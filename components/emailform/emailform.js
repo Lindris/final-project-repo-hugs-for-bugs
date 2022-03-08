@@ -40,8 +40,7 @@ export default function ContactUs() {
 				(result) => {
 					onOpen();
 				},
-				(error) => {
-				}
+				(error) => {}
 			);
 		e.target.reset();
 	};
@@ -89,17 +88,22 @@ export default function ContactUs() {
 						<FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>
 							First Name
 						</FormLabel>
-						<Input name="firstname" isRequired />
+						<Input name="firstname" isRequired id="firstname" />
 						<FormLabel mt={4}>Last Name</FormLabel>
-						<Input name="lastname" isRequired />
+						<Input name="lastname" isRequired className="lastname" />
 						<FormLabel mt={4} htmlFor="email">
 							Email address
 						</FormLabel>
-						<Input name="email" type="email" isRequired />
+						<Input name="email" type="email" isRequired className="email" />
 						<FormLabel mt={4}>Subject</FormLabel>
-						<Input name="subject" isRequired />
+						<Input name="subject" isRequired className="subject" />
 						<FormLabel mt={4}>Message</FormLabel>
-						<Textarea name="message" placeholder="Tell us more" isRequired />
+						<Textarea
+							name="message"
+							placeholder="Tell us more"
+							isRequired
+							className="message"
+						/>
 						<Center py="2em">
 							<Button
 								color="brand.primaryLight"
@@ -112,6 +116,7 @@ export default function ContactUs() {
 									bg: "brand.primaryDark",
 								}}
 								type="submit"
+								button="submit-email-form"
 							>
 								Submit
 							</Button>
