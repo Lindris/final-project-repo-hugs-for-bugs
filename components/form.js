@@ -24,60 +24,59 @@ import { API_URL } from "../config/index.js";
 import MainImage from "../components/mainImage.js";
 
 export default function CreateEventForm() {
-  const { user } = useUser();
-  let username;
-  if (user) {
-    if ("given_name" in user) {
-      username = user.given_name;
-    } else username = user.nickname;
-  }
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [eventdetails, setEventDetails] = useState([]);
-  const [formValues, setFormValues] = useState("");
-  const [confirmEvent, setConfirmEvent] = useState("");
-  const {
-    handleSubmit,
-    register,
-    control,
-    formState: { errors, isSubmitting },
-  } = useForm();
+	const { user } = useUser();
+	let username;
+	if (user) {
+		if ("given_name" in user) {
+			username = user.given_name;
+		} else username = user.nickname;
+	}
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const [eventdetails, setEventDetails] = useState([]);
+	const [formValues, setFormValues] = useState("");
+	const [confirmEvent, setConfirmEvent] = useState("");
+	const {
+		handleSubmit,
+		register,
+		control,
+		formState: { errors, isSubmitting },
+	} = useForm();
 
-  function onSubmit(values, e) {
-    Object.keys(values).map((key) => {
-      if (key === "event_date") {
-        values[key] = values[key].toString().slice(0, 15);
-      } else if (key === "event_start_time" || key === "event_end_time") {
-        values[key] = values[key].toString().slice(16, 24);
-      }
-    });
-    const valuesArray = Object.entries(values);
-    setEventDetails(valuesArray);
-    values = { ...values, auth_id: user.sub };
-    setFormValues(values);
-    onOpen();
-  }
+	function onSubmit(values, e) {
+		Object.keys(values).map((key) => {
+			if (key === "event_date") {
+				values[key] = values[key].toString().slice(0, 15);
+			} else if (key === "event_start_time" || key === "event_end_time") {
+				values[key] = values[key].toString().slice(16, 24);
+			}
+		});
+		const valuesArray = Object.entries(values);
+		setEventDetails(valuesArray);
+		values = { ...values, auth_id: user.sub };
+		setFormValues(values);
+		onOpen();
+	}
 
-  async function handleModalSubmit() {
-    try {
-      const response = await fetch(`${API_URL}/events`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formValues),
-      });
-      if (response.status === 200) {
-        setConfirmEvent("Event successfully added");
-      }
-    } catch (error) {
-      setConfirmEvent("An error occurred, please try again");
-    }
+	async function handleModalSubmit() {
+		try {
+			const response = await fetch(`${API_URL}/events`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formValues),
+			});
+			if (response.status === 200) {
+				setConfirmEvent("Event successfully added");
+			}
+		} catch (error) {
+			setConfirmEvent("An error occurred, please try again");
+		}
 
-    setTimeout(function () {
-      Router.reload(window.location.pathname);
-    }, 2000);
-  }
-
+		setTimeout(function () {
+			Router.reload(window.location.pathname);
+		}, 2000);
+	}
   return (
     <>
       <Box
