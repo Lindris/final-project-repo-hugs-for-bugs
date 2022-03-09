@@ -102,17 +102,18 @@ export default function UpdateEventForm({ formVisible, eventDetails }) {
     <>
       <Box
         style={{ visibility: formVisible ? "visible" : "hidden" }}
-        maxW={{ lg: "600px" }}
+        maxW={{ lg: "500px", md: "500px", sm: "500px" }}
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
         display="flex"
         m="0 auto"
         my={10}
-        gap={10}
         boxShadow={"rgba(149, 157, 165, 0.2) 0px 8px 24px"}
+        py={5}
+        px={12}
       >
-        <Box py={5} px={10} maxW={{ lg: "600px" }} w="auto">
+        <Box w="auto">
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormLabel htmlFor="first" mt={4}>
               First name

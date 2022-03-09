@@ -1,9 +1,7 @@
 import { Box, HStack, Tag, Wrap, WrapItem } from "@chakra-ui/react";
-import RemoveUser from "./removeUser.js";
 import DeleteEvent from "./deleteEvent.js";
 import Paragraph from "./paragraph.js";
-import EditEvent from "./editEvent.js";
-import EventDetails from "../components/eventListingDetails";
+import UpdateEvent from "./updateEvent.js";
 
 export default function OrganisedBox({
   title,
@@ -16,14 +14,14 @@ export default function OrganisedBox({
   event_location,
   event_tags,
   event_id,
-  deleteEvent,
+  removeEvent,
   refreshData,
   first_name,
   last_name,
   editEvent,
   setFormVisible,
 }) {
-  //   console.log(event_id);
+  console.log(removeEvent);
   return (
     <Box
       p={5}
@@ -101,14 +99,18 @@ export default function OrganisedBox({
       ) : (
         <></>
       )}
-      <Wrap>
-        <DeleteEvent
-          event_id={event_id}
-          refreshData={refreshData}
-          setFormVisible={setFormVisible}
-        />
-        <EditEvent event_id={event_id} editEvent={editEvent} />
-      </Wrap>
+      {removeEvent ? (
+        <Wrap>
+          <DeleteEvent
+            event_id={event_id}
+            refreshData={refreshData}
+            setFormVisible={setFormVisible}
+          />
+          <UpdateEvent event_id={event_id} editEvent={editEvent} />
+        </Wrap>
+      ) : (
+        <></>
+      )}
     </Box>
   );
 }

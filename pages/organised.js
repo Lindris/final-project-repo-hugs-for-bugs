@@ -1,7 +1,6 @@
 import { API_URL } from "../config/index.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
-import ReusableBox from "../components/box.js";
 import Header from "../components/headers/header";
 import { Box, Wrap, WrapItem } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
@@ -50,9 +49,10 @@ export default function Created({ payload }) {
             <WrapItem>
               <Link href="/create">
                 <a>
-                  <ReusableBox
+                  <OrganisedBox
                     title="Why not host your own?"
                     content1="Have any ideas or like some of our own? Create an event using our form."
+                    removeEvent={false}
                     event_tags={[
                       "Imposter syndrome",
                       "React Frameworks",
@@ -71,7 +71,7 @@ export default function Created({ payload }) {
               return (
                 <OrganisedBox
                   {...event}
-                  deleteEvent="true"
+                  removeEvent={true}
                   refreshData={refreshData}
                   editEvent={editEvent}
                   setFormVisible={setFormVisible}
