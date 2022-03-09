@@ -28,7 +28,6 @@ import MainImage from "../components/mainImage.js";
 export default function CreateEventForm() {
   const { user } = useUser();
   const form = useRef();
-  // Email
 
   let username;
   if (user) {
@@ -48,20 +47,12 @@ export default function CreateEventForm() {
   } = useForm();
 
   function onSubmit(values, e) {
-    console.log(form.current);
-    emailjs
-      .sendForm(
-        "service_wuqdwm3",
-        "template_unqvmuh",
-        form.current,
-        "gZk2hVOs5f7LTb77V"
-      )
-      .then(
-        (result) => {
-          onOpen();
-        },
-        (error) => {}
-      );
+    emailjs.sendForm(
+      "service_wuqdwm3",
+      "template_unqvmuh",
+      form.current,
+      "gZk2hVOs5f7LTb77V"
+    );
     Object.keys(values).map((key) => {
       if (key === "event_date") {
         values[key] = values[key].toString().slice(0, 15);
@@ -77,6 +68,12 @@ export default function CreateEventForm() {
   }
 
   async function handleModalSubmit() {
+    // emailjs.sendForm(
+    //   "service_wuqdwm3",
+    //   "template_unqvmuh",
+    //   form.current,
+    //   "gZk2hVOs5f7LTb77V"
+    // );
     try {
       const response = await fetch(`${API_URL}/events`, {
         method: "POST",
@@ -135,7 +132,7 @@ export default function CreateEventForm() {
               First name
             </FormLabel>
             <Input
-              name="firstname"
+              name="first_name"
               id="First Name"
               {...register("first_name", {
                 required: true,
@@ -146,7 +143,7 @@ export default function CreateEventForm() {
               Last name
             </FormLabel>
             <Input
-              name="lastname"
+              name="last_name"
               id="Last Name"
               {...register("last_name", {
                 required: true,
@@ -158,7 +155,7 @@ export default function CreateEventForm() {
               Event type
             </FormLabel>
             <Select
-              name="eventtype"
+              name="event_type"
               placeholder="Select the type of event"
               {...register("event_type", {
                 required: true,
@@ -172,7 +169,7 @@ export default function CreateEventForm() {
               Description
             </FormLabel>
             <Textarea
-              name="description"
+              name="event_desc"
               placeholder="Tell us more"
               id="Description"
               {...register("event_desc", {
@@ -184,17 +181,21 @@ export default function CreateEventForm() {
               Meeting URL
             </FormLabel>
             <Input
-              name="meetingurl"
+              name="event_location"
               id="Location"
               {...register("event_location", {
                 required: true,
               })}
               className="meeting-url-input"
             />
-            <FormLabel htmlFor="Location" mt={4}>
+            <FormLabel htmlFor="email" mt={4}>
               Email
             </FormLabel>
-            <Input placeholder="This will be kept private" name="email" />
+            <Input
+              placeholder="This will be kept private"
+              type="email"
+              name="email"
+            />
             <FormLabel mt={4}>Date</FormLabel>
             <Controller
               rules={{ required: true }}
@@ -257,7 +258,7 @@ export default function CreateEventForm() {
             <Editable width="200px" mt={2} placeholder="Tag 1">
               <EditablePreview />
               <EditableInput
-                name="tag1"
+                name="event_tags.0"
                 {...register("event_tags.0", {
                   maxLength: 15,
                 })}
@@ -272,7 +273,7 @@ export default function CreateEventForm() {
             >
               <EditablePreview />
               <EditableInput
-                name="tag2"
+                name="event_tags.1"
                 {...register("event_tags.1", {
                   maxLength: 15,
                 })}
@@ -281,7 +282,6 @@ export default function CreateEventForm() {
             <Editable placeholder="Tag 3" width="200px" mt={2}>
               <EditablePreview className="tag-3-input" />
               <EditableInput
-                name="tag3"
                 {...register("event_tags.2", {
                   maxLength: 15,
                 })}
