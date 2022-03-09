@@ -5,7 +5,7 @@ import Paragraph from "./paragraph.js";
 import EditEvent from "./editEvent.js";
 import EventDetails from "../components/eventListingDetails";
 
-export default function ReusableBox({
+export default function OrganisedBox({
   title,
   event_type,
   content1,
@@ -16,13 +16,14 @@ export default function ReusableBox({
   event_location,
   event_tags,
   event_id,
-  remove,
   deleteEvent,
   refreshData,
   first_name,
   last_name,
   editEvent,
+  setFormVisible,
 }) {
+  //   console.log(event_id);
   return (
     <Box
       p={5}
@@ -77,7 +78,6 @@ export default function ReusableBox({
         fontSize={"1em"}
         fontWeight={"medium"}
       />
-
       <Paragraph content={content1} fontSize={"1.1em"} fontWeight={"bold"} />
       {event_tags ? (
         <Wrap py={3}>
@@ -101,19 +101,14 @@ export default function ReusableBox({
       ) : (
         <></>
       )}
-      {remove ? (
-        <RemoveUser event_id={event_id} refreshData={refreshData} />
-      ) : (
-        <></>
-      )}
-      {deleteEvent ? (
-        <Wrap>
-          <DeleteEvent event_id={event_id} refreshData={refreshData} />
-          <EditEvent event_id={event_id} editEvent={editEvent} />
-        </Wrap>
-      ) : (
-        <></>
-      )}
+      <Wrap>
+        <DeleteEvent
+          event_id={event_id}
+          refreshData={refreshData}
+          setFormVisible={setFormVisible}
+        />
+        <EditEvent event_id={event_id} editEvent={editEvent} />
+      </Wrap>
     </Box>
   );
 }
