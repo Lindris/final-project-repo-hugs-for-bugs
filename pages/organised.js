@@ -4,11 +4,38 @@ import Link from "next/link";
 import ReusableBox from "../components/box.js";
 import Header from "../components/headers/header";
 import { Box, Wrap, WrapItem } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import UpdateEventForm from "../components/updateform.js";
+import OrganisedBox from "../components/organisedBox.js";
+
 export default function Created({ payload }) {
-  console.log(payload);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [eventDetails, setEventDetails] = useState(0);
+  const [formVisible, setFormVisible] = useState(false);
+
+  const editEvent = (event_id) => {
+    const eventToDisplay = payload.filter((event) => {
+      return event.event_id === event_id;
+    });
+    setEventDetails(eventToDisplay);
+    setFormVisible(!formVisible);
+    // console.log(eventDetails);
+  };
+
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+    setIsRefreshing(true);
+  };
+
+  useEffect(() => {
+    setIsRefreshing(false);
+  }, []);
+
   return (
     <>
-      <Box m="0 auto" p={10}>
+      <Box m="0 auto" p={10} py={20}>
         <Box textAlign={"center"} pb={10}>
           <Header content={`Organised events`} />
         </Box>
@@ -40,9 +67,27 @@ export default function Created({ payload }) {
               </Link>
             </WrapItem>
           ) : (
-            <ReusableBox {...payload[0]} />
+            payload.map((event) => {
+              return (
+                <OrganisedBox
+                  {...event}
+                  deleteEvent="true"
+                  refreshData={refreshData}
+                  editEvent={editEvent}
+                  setFormVisible={setFormVisible}
+                />
+              );
+            })
           )}
         </Wrap>
+        {formVisible ? (
+          <UpdateEventForm
+            formVisible={formVisible}
+            eventDetails={eventDetails}
+          />
+        ) : (
+          <></>
+        )}
       </Box>
     </>
   );

@@ -24,8 +24,8 @@ import { Flex, Box, ListItem, UnorderedList } from "@chakra-ui/react";
 export default function Vision() {
   return (
     <>
-      <Flex justifyContent="center" my="3em">
-        <Box p="1em">
+      <Flex justifyContent="center" my="4em" pt={10}>
+        <Box px="1em">
           <SubHeader
             content={"Helping programmers grow and collaborate together."}
           />
@@ -41,7 +41,7 @@ export default function Vision() {
           direction={"column"}
           justifyContent={"center"}
           padding={4}
-          my="2em"
+          my="1em"
         >
           <SubHeader content={"Our vision"} />
           <Box mt="2em">

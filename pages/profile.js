@@ -44,7 +44,6 @@ export default function Profile({ userEvents, allEvents }) {
     setNotAttending(filteredEvents);
   }, [userEvents, allEvents]);
 
-  console.log(notAttending);
   useEffect(() => {
     setIsRefreshing(false);
   }, []);
@@ -89,10 +88,15 @@ export default function Profile({ userEvents, allEvents }) {
     onOpen();
   }
   return user ? (
-    <Box m="0 auto" p={10}>
+    <Box m="0 auto" p={10} pt={20}>
       <Box textAlign={"center"} pb={10}>
         <Header content={`Welcome back ${username}!`} />
       </Box>
+
+      <Box textAlign={"center"} pb={5}>
+        <SubHeader content={"Your upcoming events"} />
+      </Box>
+
       <Wrap
         spacing={10}
         margin="0 auto"
@@ -101,32 +105,35 @@ export default function Profile({ userEvents, allEvents }) {
         pb={10}
       >
         {userEvents.length >= 1 ? (
-          userEvents.map((event, i) => {
-            if (i < 3) {
-              return (
-                <WrapItem>
-                  <ReusableBox
-                    {...event}
-                    remove="true"
-                    refreshData={refreshData}
-                  />
-                </WrapItem>
-              );
-            }
-          })
+          <>
+            {userEvents.map((event, i) => {
+              if (i < 3) {
+                return (
+                  <WrapItem>
+                    <ReusableBox
+                      {...event}
+                      remove="true"
+                      refreshData={refreshData}
+                    />
+                  </WrapItem>
+                );
+              }
+            })}
+          </>
         ) : (
           <WrapItem>
-            <ReusableBox
-              title="Your next event"
-              content1="You have not signed up for any events, please browse our events below"
-            />
+            <ReusableBox title="You have not signed up for any events, please browse our events below" />
           </WrapItem>
         )}
       </Wrap>
       <Box>
-        <Box textAlign={"center"} pt={10} pb={5}>
-          <SubHeader content={"Suggested events"} />
-        </Box>
+        {notAttending.length >= 1 ? (
+          <Box textAlign={"center"} pt={10} pb={5}>
+            <SubHeader content={"Suggested events"} />
+          </Box>
+        ) : (
+          <></>
+        )}
         <Spacer />
         <Box>
           {notAttending

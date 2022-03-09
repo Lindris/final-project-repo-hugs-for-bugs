@@ -1,10 +1,13 @@
-import { useState } from "react";
-import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
+import { useState, useEffect } from "react";
+import { API_URL } from "../config/index.js";
+import { getSession, useUser } from "@auth0/nextjs-auth0";
 import EventListingCard from "../components/cards/eventListingCard.js";
 import BasicModal from "../components/modal.js";
-import { useDisclosure, Box } from "@chakra-ui/react";
+import { useDisclosure, Box, Wrap, WrapItem } from "@chakra-ui/react";
 import Header from "../components/headers/header";
-import { API_URL } from "../config/index.js";
+import Link from "next/link";
+import ReusableBox from "../components/box.js";
+import { useRouter } from "next/router";
 
 export default function Events({ payload }) {
   console.log(payload);
@@ -12,6 +15,17 @@ export default function Events({ payload }) {
   const { user } = useUser();
   const [confirmEvent, setConfirmEvent] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const router = useRouter();
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+    setIsRefreshing(true);
+  };
+
+  useEffect(() => {
+    setIsRefreshing(false);
+  }, []);
 
   function sendEventData(event_id) {
     const datatosend = payload.filter((event) => event.event_id === event_id);
@@ -41,6 +55,7 @@ export default function Events({ payload }) {
           setConfirmEvent("You have already signed up to attend this event");
         } else if (response.status === 200) {
           setConfirmEvent("You have successfully registered for this event");
+          refreshData();
         }
       } catch (error) {}
       setTimeout(function () {
@@ -50,53 +65,72 @@ export default function Events({ payload }) {
     }
   }
   return (
-    <Box m="0 auto" textAlign={"center"} py={10}>
+    <Box m="0 auto" textAlign={"center"} py={20}>
       <Box pb={5}>
         <Header content={"Upcoming events"} />
       </Box>
-      {/* in map method iterate over the images using index - outside the payload data inside the call back 
-      inside return render 10 cards - using the index of the cards to mirror the index of the images - pull the image from array to match the card index}*/}
-      {payload.map(
-        ({
-          event_type,
-          event_date,
-          event_desc,
-          event_id,
-          count,
-          event_start_time,
-          event_end_time,
-          first_name,
-          last_name,
-        }) => {
-          return (
-            <EventListingCard
-              key={event_id}
-              event_start_time={event_start_time}
-              event_end_time={event_end_time}
-              event_name={event_type}
-              event_date={event_date.slice(0, 10)}
-              event_desc={event_desc}
-              count={count}
-              onClick={() => sendEventData(event_id)}
-              first={first_name}
-              last={last_name}
-            />
-          );
-        }
-      )}
-      {eventData ? (
-        <BasicModal
-          isOpen={isOpen}
-          onClose={onClose}
-          {...eventData[0]}
-          button1="Close"
-          button2="Attend event"
-          onClick={() => addUsertoEvent(eventData[0].event_id)}
-          confirm={confirmEvent}
-        />
-      ) : (
-        <></>
-      )}
+      <Wrap
+        spacing={10}
+        margin="0 auto"
+        maxWidth="1500px"
+        justify="center"
+        pb={10}
+      >
+        {payload === undefined || payload.length == 0 ? (
+          <WrapItem>
+            <Link href="/create">
+              <a>
+                <ReusableBox
+                  title="No more events to display"
+                  event_type="It appears you have signed up for all our events. Check back later to see if we have more lined up or create your own"
+                />
+              </a>
+            </Link>
+          </WrapItem>
+        ) : (
+          payload.map(
+            ({
+              event_type,
+              event_date,
+              event_desc,
+              event_id,
+              count,
+              event_start_time,
+              event_end_time,
+              first_name,
+              last_name,
+            }) => {
+              return (
+                <EventListingCard
+                  key={event_id}
+                  event_start_time={event_start_time}
+                  event_end_time={event_end_time}
+                  event_name={event_type}
+                  event_date={event_date.slice(0, 10)}
+                  event_desc={event_desc}
+                  count={count}
+                  onClick={() => sendEventData(event_id)}
+                  first={first_name}
+                  last={last_name}
+                />
+              );
+            }
+          )
+        )}
+        {eventData ? (
+          <BasicModal
+            isOpen={isOpen}
+            onClose={onClose}
+            {...eventData[0]}
+            button1="Close"
+            button2="Attend event"
+            onClick={() => addUsertoEvent(eventData[0].event_id)}
+            confirm={confirmEvent}
+          />
+        ) : (
+          <></>
+        )}
+      </Wrap>
     </Box>
   );
 }
