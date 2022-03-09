@@ -128,7 +128,6 @@ export async function getServerSideProps(ctx) {
     let payload = data.payload;
     if (payload.length > 10) {
       payload = payload.slice(0, 10);
-      console.log(payload);
     }
     return { props: { payload } };
     // call another route excluding events user is attending

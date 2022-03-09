@@ -97,7 +97,7 @@ function BasicModal(props) {
                 <Paragraph
                   pt={3}
                   content={confirm}
-                  fontSize={"0.9em"}
+                  fontSize={"1.2em"}
                   color={"brand.primaryDark"}
                   fontWeight={"bold"}
                 />

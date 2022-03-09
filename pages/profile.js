@@ -12,7 +12,6 @@ import SubHeader from "../components/headers/subheader";
 import MainButton from "../components/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
 import ReusableBox from "../components/box.js";
-import Link from "next/link";
 import BasicModal from "../components/modal.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";

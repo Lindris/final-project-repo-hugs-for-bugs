@@ -20,10 +20,12 @@ import Link from "next/link";
 const Links = [
   ["Create an event", "/api/auth/login"],
   ["See all events", "/events"],
+  ["About us", "/vision"],
 ];
 const UserLinks = [
   ["Create an event", "/create"],
   ["See all events", "/events"],
+  ["About us", "/vision"],
 ];
 const NavLink = ({ children }) => (
   <Box
