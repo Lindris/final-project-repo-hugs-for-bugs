@@ -147,19 +147,19 @@ export default function Footer() {
           <ButtonGroup variant="ghost">
             <IconButton
               as="a"
-              href="#"
+              href="https://www.linkedin.com/school/school-of-code/"
               aria-label="LinkedIn"
               icon={<FaLinkedin fontSize="1.25rem" />}
             />
             <IconButton
               as="a"
-              href="#"
+              href="https://github.com/SchoolOfCode/final-project-repo-hugs-for-bugs"
               aria-label="GitHub"
               icon={<FaGithub fontSize="1.25rem" />}
             />
             <IconButton
               as="a"
-              href="#"
+              href="https://twitter.com/theSchoolOfCode"
               aria-label="Twitter"
               icon={<FaTwitter fontSize="1.25rem" />}
             />
