@@ -1,7 +1,8 @@
 import MainImage from "../components/mainImage";
 import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
-import { Flex, Box, ListItem, UnorderedList } from "@chakra-ui/react";
+import { Flex, Box, ListItem, List } from "@chakra-ui/react";
+import { ArrowRightIcon } from '@chakra-ui/icons'
 
 //import chakra - done
 //Reuse components - header, subheaders = our vision, our story, our ethos, with paragraphs
@@ -151,28 +152,33 @@ export default function Vision() {
                 fontSize="1.2em" fontWeight='bold' />
             </Box>
             <Box>
-              <UnorderedList fontSize="1.2em" mt="8px">
+              <List fontSize="1.2em" mt="8px">
                 <ListItem>
+                  <ArrowRightIcon w={3} color="brand.mainPurple" pr="1" />
                   being friendly and welcoming when collaboratively programming
                   and solving problems with others
                 </ListItem>
                 <ListItem>
+                  <ArrowRightIcon w={3} color="brand.mainPurple" pr="1" />
                   being respectful and understanding towards everyone in the
                   community and visiting guests
                 </ListItem>
                 <ListItem>
+                  <ArrowRightIcon w={3} color="brand.mainPurple" pr="1" />
                   making sure everyone is heard and has the opportunity to share
                 </ListItem>
                 <ListItem>
+                  <ArrowRightIcon w={3} color="brand.mainPurple" pr="1" />
                   being suportive and patient towards others - appreciating the
                   premise that everyone is doing the best they can within their
                   unique cabilities and constraints
                 </ListItem>
                 <ListItem>
+                  <ArrowRightIcon w={3} color="brand.mainPurple" pr="1" />
                   being positive and constructive - not critical - so everyone
                   feels safe to speak openly{" "}
                 </ListItem>
-              </UnorderedList>
+              </List>
             </Box>
             <Box my="1.2em">
               <Paragraph
