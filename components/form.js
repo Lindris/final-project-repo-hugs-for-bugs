@@ -47,12 +47,12 @@ export default function CreateEventForm() {
   } = useForm();
 
   function onSubmit(values, e) {
-    emailjs.sendForm(
-      "service_wuqdwm3",
-      "template_unqvmuh",
-      form.current,
-      "gZk2hVOs5f7LTb77V"
-    );
+    // emailjs.sendForm(
+    //   "service_wuqdwm3",
+    //   "template_unqvmuh",
+    //   form.current,
+    //   "gZk2hVOs5f7LTb77V"
+    // );
     Object.keys(values).map((key) => {
       if (key === "event_date") {
         values[key] = values[key].toString().slice(0, 15);
@@ -68,12 +68,12 @@ export default function CreateEventForm() {
   }
 
   async function handleModalSubmit() {
-    // emailjs.sendForm(
-    //   "service_wuqdwm3",
-    //   "template_unqvmuh",
-    //   form.current,
-    //   "gZk2hVOs5f7LTb77V"
-    // );
+    emailjs.sendForm(
+      "service_wuqdwm3",
+      "template_unqvmuh",
+      form.current,
+      "gZk2hVOs5f7LTb77V"
+    );
     try {
       const response = await fetch(`${API_URL}/events`, {
         method: "POST",
