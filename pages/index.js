@@ -79,7 +79,9 @@ export default function Home() {
               <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community designed to help each other continue on our self-development journey and help each other grow."} fontSize="1.1em" />
             </Box>
             <Box pt="1em">
-              <SecondaryButton content={"Find out more"} route={"#find-out-more"} />
+              <a href={"#find-out-more"}>
+                <SecondaryButton content={"Find out more"} route={"#find-out-more"} />
+              </a>
             </Box>
           </Flex>
           <Flex>
