@@ -87,7 +87,7 @@ export default function Home() {
           <Flex>
             <Box
               px="2em"
-              mt=".5em"
+              mt="2.5em"
               height={"auto"}
               width={{ base: "100%", sm: "50%", md: "75%", lg: "750px" }}
             >
@@ -100,9 +100,9 @@ export default function Home() {
             </Box>
           </Flex>
         </Flex>
-        <svg className={"wave-home"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 290"><path fill="#f8f9fa" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+        <svg className={"wave-home"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240"><path fill="#f8f9fa" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
       </Box>
-      <Box id={"find-out-more"}>
+      <Box id={"find-out-more"} pt={"6em"}>
         <Flex direction={"column"} alignItems="center">
           <SubHeader content={"See what's happening"} />
           <Box m={{ base: "2em", sm: "2em", md: ".5em" }}>
@@ -153,16 +153,17 @@ export default function Home() {
             </Flex>
           </Box>
         </Center>
+        <Box my="4em">
+          <Center>
+            <MainButton content={"Explore all events"} route={"/events"} />
+          </Center>
+        </Box>
       </Box >
-      <Box my="4em">
-        <Center>
-          <MainButton content={"Explore all events"} route={"/events"} />
-        </Center>
-      </Box>
       <Box bg="#f8f9fa" py="5em">
         <ContactUs />
       </Box>
     </Box >
+
   );
 }
 

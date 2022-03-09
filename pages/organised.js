@@ -3,11 +3,12 @@ import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import ReusableBox from "../components/box.js";
 import Header from "../components/headers/header";
-import { Box, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Wrap, WrapItem, Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import UpdateEventForm from "../components/updateform.js";
 import OrganisedBox from "../components/organisedBox.js";
+import MainImage from "../components/mainImage.js";
 
 export default function Created({ payload }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -47,25 +48,32 @@ export default function Created({ payload }) {
           pb={10}
         >
           {payload === undefined || payload.length == 0 ? (
-            <WrapItem>
-              <Link href="/create">
-                <a>
-                  <ReusableBox
-                    title="Why not host your own?"
-                    content1="Have any ideas or like some of our own? Create an event using our form."
-                    event_tags={[
-                      "Imposter syndrome",
-                      "React Frameworks",
-                      "Docker",
-                      "API's",
-                      "React Hooks",
-                      "Rock, Paper, Scissors",
-                      "Tick, Tack, Toe",
-                    ]}
-                  />
-                </a>
-              </Link>
-            </WrapItem>
+            <>
+              <Flex flexDirection={{ base: "column", sm: "column", md: " row", lg: "row" }} justifyContent={"center"} alignItems={"center"} gap={10}>
+                <WrapItem>
+                  <Link href="/create">
+                    <a>
+                      <ReusableBox
+                        title="Why not host your own?"
+                        content1="Have any ideas or like some of our own? Create an event using our form."
+                        event_tags={[
+                          "Imposter syndrome",
+                          "React Frameworks",
+                          "Docker",
+                          "API's",
+                          "React Hooks",
+                          "Rock, Paper, Scissors",
+                          "Tick, Tack, Toe",
+                        ]}
+                      />
+                    </a>
+                  </Link>
+                </WrapItem>
+                <Box pt="2em">
+                  <MainImage src={"https://i.ibb.co/X4KLGSB/2562-R0l-VIEFOTi-Ax-ODEt-NDM.png"} />
+                </Box>
+              </Flex>
+            </>
           ) : (
             payload.map((event) => {
               return (
