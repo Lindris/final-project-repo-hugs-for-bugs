@@ -48,6 +48,7 @@ export default function Home() {
       <Head>
         <title>co:llab</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="&#x7b;co:llab&#x7d;" content="&#x7b;co:llab&#x7d; is a service that allows School of Code graduates and junior programmers to create and organise online events. It is a mutually supportive programming community designed to help each other continue on our self-development journey through code clubs, hackathons and guest speaker events." />
       </Head>
       <Box>
         <Flex
@@ -75,10 +76,10 @@ export default function Home() {
               content={"A space to program collaboratively"}
             />
             <Box mt="1em" mb="1em">
-              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community to help each other continue on our self-development journey and help each other grow."} fontSize="1.1em"/>
+              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community designed to help each other continue on our self-development journey and help each other grow."} fontSize="1.1em" />
             </Box>
             <Box pt="1em">
-              <SecondaryButton content={"Learn more"} route={"/vision"} />
+              <SecondaryButton content={"Find out more"} route={"#find-out-more"} />
             </Box>
           </Flex>
           <Flex>
@@ -99,17 +100,20 @@ export default function Home() {
         </Flex>
         <svg className={"wave-home"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 290"><path fill="#f8f9fa" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
       </Box>
-      <Box>
-        <Center>
+      <Box id={"find-out-more"}>
+        <Flex direction={"column"} alignItems="center">
           <SubHeader content={"See what's happening"} />
-        </Center>
+          <Box m={{ base: "2em", sm: "2em", md: ".5em" }}>
+            <Paragraph fontSize="1.2em" content={"Discover the ways in which you can benefit by joining our community."} />
+          </Box>
+        </Flex>
         <Center>
           <Box mt="2.5em" mx="1em">
             <Flex
               direction={{
                 base: "column",
                 sm: "column",
-                md: "column",
+                md: "row",
                 lg: "row",
               }}
               justifyContent="center"
@@ -147,7 +151,7 @@ export default function Home() {
             </Flex>
           </Box>
         </Center>
-      </Box>
+      </Box >
       <Box my="4em">
         <Center>
           <MainButton content={"Explore all events"} route={"/events"} />
