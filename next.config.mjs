@@ -7,4 +7,8 @@ export default {
     AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
     API_URL: process.env.API_URL,
   },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  }
 };

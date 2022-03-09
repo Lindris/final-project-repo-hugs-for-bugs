@@ -40,7 +40,7 @@ export default function ContactUs() {
 				(result) => {
 					onOpen();
 				},
-				(error) => {}
+				(error) => { }
 			);
 		e.target.reset();
 	};
@@ -85,18 +85,18 @@ export default function ContactUs() {
 					mt={10}
 				>
 					<form ref={form} onSubmit={sendEmail}>
-						<FormLabel mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>
+						<FormLabel for="firstname" mt={4} width={{ sm: "100%", md: "300px", lg: "500px" }}>
 							First Name
 						</FormLabel>
 						<Input name="firstname" isRequired id="firstname" />
-						<FormLabel mt={4}>Last Name</FormLabel>
-						<Input name="lastname" isRequired className="lastname" />
-						<FormLabel mt={4} htmlFor="email">
+						<FormLabel for="lastname" mt={4}>Last Name</FormLabel>
+						<Input name="lastname" id="lastname" isRequired className="lastname" />
+						<FormLabel for="email" mt={4} htmlFor="email">
 							Email address
 						</FormLabel>
-						<Input name="email" type="email" isRequired className="email" />
-						<FormLabel mt={4}>Subject</FormLabel>
-						<Input name="subject" isRequired className="subject" />
+						<Input name="email" id="email" type="email" isRequired className="email" />
+						<FormLabel for="subject" mt={4}>Subject</FormLabel>
+						<Input name="subject" id="subject" isRequired className="subject" />
 						<FormLabel mt={4}>Message</FormLabel>
 						<Textarea
 							name="message"
