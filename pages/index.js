@@ -139,7 +139,7 @@ export default function Home() {
               />
               <Spacer />
               <InfoCard
-                headerContent={"Q&A Events"}
+                headerContent={"Guest Talks"}
                 textContent={
                   "Come along and hear visiting industry experts. Ask questions and listen to answers on burning topics you really want to know more about.  "
                 }

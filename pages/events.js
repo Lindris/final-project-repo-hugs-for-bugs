@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import EventListingCard from "../components/cards/eventListingCard.js";
 import BasicModal from "../components/modal.js";
 import { useDisclosure, Box } from "@chakra-ui/react";
-import { useUser } from "@auth0/nextjs-auth0";
 import Header from "../components/headers/header";
 import { API_URL } from "../config/index.js";
 
@@ -101,17 +101,37 @@ export default function Events({ payload }) {
   );
 }
 
-export async function getServerSideProps() {
-  // Fetch data from external AP
-  const response = await fetch(`${API_URL}/events`);
-  const data = await response.json();
-  let payload = data.payload;
-  // maximum 10 cards
-  if (payload.length > 10) {
-    payload = payload.slice(0, 10);
+export async function getServerSideProps(ctx) {
+  // Fetch data from external API
+  const session = getSession(ctx.req, ctx.res);
+  if (!session) {
+    const response = await fetch(`${API_URL}/events`);
+    const data = await response.json();
+    let payload = data.payload;
+    // maximum 10 cards
+    if (payload.length > 10) {
+      payload = payload.slice(0, 10);
+    }
+    // Pass data to the page via props
+    return { props: { payload } };
+  } else if (session) {
+    const response = await fetch(`${API_URL}/events/notAttending`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        auth_id: session.user.sub,
+      }),
+    });
+    const data = await response.json();
+    let payload = data.payload;
+    if (payload.length > 10) {
+      payload = payload.slice(0, 10);
+    }
+    return { props: { payload } };
+    // call another route excluding events user is attending
   }
-  // Pass data to the page via props
-  return { props: { payload } };
 }
 
 // have a condition that check if user exists first

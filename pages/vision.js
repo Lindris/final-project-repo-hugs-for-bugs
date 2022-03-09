@@ -1,13 +1,7 @@
 import MainImage from "../components/mainImage";
 import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
-
-import {
-  Flex,
-  Box,
-  ListItem,
-  UnorderedList,
-} from "@chakra-ui/react";
+import { Flex, Box, ListItem, UnorderedList } from "@chakra-ui/react";
 
 //import chakra - done
 //Reuse components - header, subheaders = our vision, our story, our ethos, with paragraphs
@@ -50,7 +44,7 @@ export default function Vision() {
           my="2em"
         >
           <SubHeader content={"Our vision"} />
-          <Box mt="2em" >
+          <Box mt="2em">
             <Paragraph
               content={
                 "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for coders and also for the people we are coding for. Our vision in creating {co:llab} is to create opportunities to continue our journey - working through problems together, learning from each other and industry experts, which will ultimately lead to developing better end products for users."
@@ -64,8 +58,7 @@ export default function Vision() {
             my="2em"
             height={"auto"}
             width={["100%", "50%", "75%", "350px"]}
-          >
-          </Box>
+          ></Box>
         </Flex>
       </Flex>
       <Flex direction={{ base: "column", md: "row" }} justifyContent="center">
@@ -109,7 +102,8 @@ export default function Vision() {
                 content={
                   "Mainly we’ve realised that our supportive community is immensely valuable. Coding with others is so much more fun and makes it much easier to manage the intensity."
                 }
-                fontSize="1.2em" />
+                fontSize="1.2em"
+              />
             </Box>
             <Box>
               <Paragraph
@@ -157,13 +151,27 @@ export default function Vision() {
                 fontSize="1.2em" fontWeight='bold' />
             </Box>
             <Box>
-              <UnorderedList fontSize="1.2em" mt='8px'>
-                <ListItem>being friendly and welcoming when collaboratively programming and solving problems with others
+              <UnorderedList fontSize="1.2em" mt="8px">
+                <ListItem>
+                  being friendly and welcoming when collaboratively programming
+                  and solving problems with others
                 </ListItem>
-                <ListItem>being respectful and understanding towards everyone in the community and visiting guests</ListItem>
-                <ListItem>making sure everyone is heard and has the opportunity to share</ListItem>
-                <ListItem>being suportive and patient towards others - appreciating the premise that everyone is doing the best they can within their unique cabilities and constraints</ListItem>
-                <ListItem>being positive and constructive - not critical - so everyone feels safe to speak openly </ListItem>
+                <ListItem>
+                  being respectful and understanding towards everyone in the
+                  community and visiting guests
+                </ListItem>
+                <ListItem>
+                  making sure everyone is heard and has the opportunity to share
+                </ListItem>
+                <ListItem>
+                  being suportive and patient towards others - appreciating the
+                  premise that everyone is doing the best they can within their
+                  unique cabilities and constraints
+                </ListItem>
+                <ListItem>
+                  being positive and constructive - not critical - so everyone
+                  feels safe to speak openly{" "}
+                </ListItem>
               </UnorderedList>
             </Box>
             <Box my="1.2em">
@@ -194,4 +202,3 @@ export default function Vision() {
     </>
   );
 }
-

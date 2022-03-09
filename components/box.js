@@ -5,17 +5,20 @@ import EventDetails from "../components/eventListingDetails";
 
 export default function ReusableBox({
   title,
-  type,
+  event_type,
   content1,
-  date,
-  time,
-  description,
-  link,
-  tags,
+  event_date,
+  event_start_time,
+  event_end_time,
+  event_desc,
+  event_location,
+  event_tags,
   payload,
   event_id,
   remove,
   refreshData,
+  first_name,
+  last_name,
 }) {
   return (
     <Box
@@ -34,56 +37,49 @@ export default function ReusableBox({
           content={title}
         />
       </HStack>
-      <Paragraph content={type} fontSize={"1.2em"} fontWeight={"bold"} />
+      {event_type ? (
+        <Paragraph
+          content={`${event_type} by ${first_name} ${first_name}`}
+          fontSize={"1.2em"}
+          fontWeight={"bold"}
+        />
+      ) : (
+        <></>
+      )}
+      {event_date ? (
+        <Paragraph
+          content={new Date(event_date).toString().slice(0, 15)}
+          fontSize={"1em"}
+          fontWeight={"bold"}
+          colour={"brand.mainPurple"}
+        />
+      ) : (
+        <></>
+      )}
+      {event_start_time ? (
+        <Paragraph
+          content={`${event_start_time} - ${event_end_time}`}
+          fontSize={"1em"}
+          fontWeight={"bold"}
+        />
+      ) : (
+        <></>
+      )}
+      <Paragraph content={event_desc} fontSize={"1em"} fontWeight={"medium"} />
       <Paragraph
-        content={date}
+        content={event_location}
         fontSize={"1em"}
-        fontWeight={"bold"}
-        colour={"brand.mainPurple"}
+        fontWeight={"medium"}
       />
-      <Paragraph content={time} fontSize={"1em"} fontWeight={"bold"} />
-      <Paragraph content={description} fontSize={"1em"} fontWeight={"medium"} />
-      <Paragraph content={link} fontSize={"1em"} fontWeight={"medium"} />
       {remove ? (
         <RemoveUser event_id={event_id} refreshData={refreshData} />
       ) : (
         <></>
       )}
-      {payload ? (
-        payload.map(
-          (
-            {
-              event_id,
-              event_type,
-              event_date,
-              event_start_time,
-              event_end_time,
-            },
-            i
-          ) => {
-            if (i > 0) {
-              return (
-                <>
-                  <EventDetails
-                    type={event_type}
-                    date={event_date}
-                    starttime={event_start_time}
-                    endtime={event_end_time}
-                  />
-                  <RemoveUser event_id={event_id} refreshData={refreshData} />
-                  <br />
-                </>
-              );
-            } else return;
-          }
-        )
-      ) : (
-        <></>
-      )}
       <Paragraph content={content1} fontSize={"1.1em"} fontWeight={"bold"} />
-      {tags ? (
+      {event_tags ? (
         <Wrap pt={3}>
-          {tags.map((tag) =>
+          {event_tags.map((tag) =>
             tag !== "" ? (
               <WrapItem>
                 <Tag

@@ -6,15 +6,15 @@ import ConfirmModal from "../confirmModal.js";
 import { useState } from "react";
 
 import {
-	Button,
-	FormLabel,
-	FormControl,
-	Input,
-	Box,
-	Textarea,
-	Flex,
-	Center,
-	useDisclosure,
+  Button,
+  FormLabel,
+  FormControl,
+  Input,
+  Box,
+  Textarea,
+  Flex,
+  Center,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 // import basic modal from components
@@ -22,9 +22,10 @@ import {
 // destructure isOpen, onOpen, onClose from useDisclosure
 
 export default function ContactUs() {
-	const { isOpen, onOpen, onClose } = useDisclosure();
-	const [input, setInput] = useState("");
-	const form = useRef();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [input, setInput] = useState("");
+  const form = useRef();
+
 
 	const sendEmail = (e) => {
 		e.preventDefault();
