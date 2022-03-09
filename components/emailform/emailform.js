@@ -140,7 +140,7 @@ export default function ContactUs() {
             onClose={onClose}
             button1="Close"
             confirm_message={
-              "Thank you for getting in touch with us. We will get back to you shortly."
+              "Thank you for getting in touch with us. We will get back to you shortly via email."
             }
           />
         </Box>

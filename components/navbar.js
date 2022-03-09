@@ -9,7 +9,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   Stack,
@@ -21,10 +20,12 @@ import Link from "next/link";
 const Links = [
   ["Create an event", "/api/auth/login"],
   ["See all events", "/events"],
+  ["About us", "/vision"],
 ];
 const UserLinks = [
   ["Create an event", "/create"],
   ["See all events", "/events"],
+  ["About us", "/vision"],
 ];
 const NavLink = ({ children }) => (
   <Box
@@ -48,13 +49,14 @@ export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
   return (
-    <Box px={4}>
+    <Box pos="fixed" w="100%" zIndex={4} top="0">
       <Flex
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1.5}
         borderStyle={"solid"}
+        bgColor={"#f8f9fa"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         justifyContent={"space-between"}
       >
@@ -92,6 +94,11 @@ export default function Navbar() {
               <MenuList>
                 <Link href="/profile" passHref>
                   <MenuItem>
+                    <a>My profile</a>
+                  </MenuItem>
+                </Link>
+                <Link href="/organised" passHref>
+                  <MenuItem>
                     <a>My events</a>
                   </MenuItem>
                 </Link>
@@ -122,7 +129,7 @@ export default function Navbar() {
         </Flex>
       </Flex>
       {isOpen ? (
-        <Box pb={4} display={{ md: "none" }}>
+        <Box pb={4} display={{ md: "none" }} bgColor={"#f8f9fa"}>
           <Stack as={"nav"} spacing={3} pt={3}>
             {user
               ? UserLinks.map((link) => <NavLink key={link}>{link}</NavLink>)
