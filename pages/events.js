@@ -65,7 +65,7 @@ export default function Events({ payload }) {
     }
   }
   return (
-    <Box m="0 auto" textAlign={"center"} py={10}>
+    <Box m="0 auto" textAlign={"center"} py={20}>
       <Box pb={5}>
         <Header content={"Upcoming events"} />
       </Box>
@@ -83,7 +83,7 @@ export default function Events({ payload }) {
               <a>
                 <ReusableBox
                   title="No more events to display"
-                  event_type="It appears you have signed up for all our events. Check back later to see if we have more lined up or create your own"
+                  content1="It appears you have signed up for all our events. Check back later to see if we have more lined up or create your own"
                 />
               </a>
             </Link>
