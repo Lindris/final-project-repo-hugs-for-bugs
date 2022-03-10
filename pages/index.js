@@ -47,7 +47,6 @@ export default function Home() {
     <Box w="100%" m="0">
       <Head>
         <title>co:llab</title>
-        <link rel="icon" href="/favicon.ico" />
         <meta name="&#x7b;co:llab&#x7d;" content="&#x7b;co:llab&#x7d; is a service that allows School of Code graduates and junior programmers to create and organise online events. It is a mutually supportive programming community designed to help each other continue on our self-development journey through code clubs, hackathons and guest speaker events." />
       </Head>
       <Box>
