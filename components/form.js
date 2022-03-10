@@ -132,7 +132,7 @@ export default function CreateEventForm() {
               {...register("first_name", {
                 required: true,
               })}
-              className="event-desc-input"
+              className="firstName"
             />
             <FormLabel htmlFor="last" mt={4}>
               Last name
@@ -143,7 +143,7 @@ export default function CreateEventForm() {
               {...register("last_name", {
                 required: true,
               })}
-              className="event-desc-input"
+              className="lastName"
             />
 
             <FormLabel htmlFor="type" mt={4}>
@@ -190,6 +190,7 @@ export default function CreateEventForm() {
               placeholder="This will be kept private"
               type="email"
               name="email"
+              className="email"
             />
             <FormLabel mt={4}>Date</FormLabel>
             <Controller
