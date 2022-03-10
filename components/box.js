@@ -1,9 +1,6 @@
 import { Box, HStack, Tag, Wrap, WrapItem } from "@chakra-ui/react";
 import RemoveUser from "./removeUser.js";
-import DeleteEvent from "./deleteEvent.js";
 import Paragraph from "./paragraph.js";
-import EditEvent from "./editEvent.js";
-import EventDetails from "../components/eventListingDetails";
 
 export default function ReusableBox({
   title,
@@ -17,11 +14,9 @@ export default function ReusableBox({
   event_tags,
   event_id,
   remove,
-  deleteEvent,
   refreshData,
   first_name,
   last_name,
-  editEvent,
 }) {
   return (
     <Box
@@ -103,14 +98,6 @@ export default function ReusableBox({
       )}
       {remove ? (
         <RemoveUser event_id={event_id} refreshData={refreshData} />
-      ) : (
-        <></>
-      )}
-      {deleteEvent ? (
-        <Wrap>
-          <DeleteEvent event_id={event_id} refreshData={refreshData} />
-          <EditEvent event_id={event_id} editEvent={editEvent} />
-        </Wrap>
       ) : (
         <></>
       )}

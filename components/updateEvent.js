@@ -1,7 +1,7 @@
 import { Button, Box, Tooltip } from "@chakra-ui/react";
 import { MdEdit } from "react-icons/md";
 
-export default function EditEvent({ event_id, editEvent }) {
+export default function UpdateEvent({ event_id, editEvent }) {
   return (
     <Tooltip hasArrow label="Edit event" fontSize="md" placement="right">
       <Button

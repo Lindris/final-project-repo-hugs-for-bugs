@@ -61,22 +61,23 @@ export default function Events({ payload }) {
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
-      }, 4000);
+      }, 2000);
     }
   }
   return (
-    <Box m="0 auto" textAlign={"center"} py={20}>
+    <Box m="0 auto" textAlign={"center"} py={10}>
       <Box pb={5}>
         <Header content={"Upcoming events"} />
       </Box>
-      <Wrap
-        spacing={10}
-        margin="0 auto"
-        maxWidth="1500px"
-        justify="center"
-        pb={10}
-      >
-        {payload === undefined || payload.length == 0 ? (
+
+      {payload === undefined || payload.length == 0 ? (
+        <Wrap
+          spacing={10}
+          margin="0 auto"
+          maxWidth="1500px"
+          justify="center"
+          pb={10}
+        >
           <WrapItem>
             <Link href="/create">
               <a>
@@ -87,50 +88,50 @@ export default function Events({ payload }) {
               </a>
             </Link>
           </WrapItem>
-        ) : (
-          payload.map(
-            ({
-              event_type,
-              event_date,
-              event_desc,
-              event_id,
-              count,
-              event_start_time,
-              event_end_time,
-              first_name,
-              last_name,
-            }) => {
-              return (
-                <EventListingCard
-                  key={event_id}
-                  event_start_time={event_start_time}
-                  event_end_time={event_end_time}
-                  event_name={event_type}
-                  event_date={event_date.slice(0, 10)}
-                  event_desc={event_desc}
-                  count={count}
-                  onClick={() => sendEventData(event_id)}
-                  first={first_name}
-                  last={last_name}
-                />
-              );
-            }
-          )
-        )}
-        {eventData ? (
-          <BasicModal
-            isOpen={isOpen}
-            onClose={onClose}
-            {...eventData[0]}
-            button1="Close"
-            button2="Attend event"
-            onClick={() => addUsertoEvent(eventData[0].event_id)}
-            confirm={confirmEvent}
-          />
-        ) : (
-          <></>
-        )}
-      </Wrap>
+        </Wrap>
+      ) : (
+        payload.map(
+          ({
+            event_type,
+            event_date,
+            event_desc,
+            event_id,
+            count,
+            event_start_time,
+            event_end_time,
+            first_name,
+            last_name,
+          }) => {
+            return (
+              <EventListingCard
+                key={event_id}
+                event_start_time={event_start_time}
+                event_end_time={event_end_time}
+                event_name={event_type}
+                event_date={event_date.slice(0, 10)}
+                event_desc={event_desc}
+                count={count}
+                onClick={() => sendEventData(event_id)}
+                first={first_name}
+                last={last_name}
+              />
+            );
+          }
+        )
+      )}
+      {eventData ? (
+        <BasicModal
+          isOpen={isOpen}
+          onClose={onClose}
+          {...eventData[0]}
+          button1="Close"
+          button2="Attend event"
+          onClick={() => addUsertoEvent(eventData[0].event_id)}
+          confirm={confirmEvent}
+        />
+      ) : (
+        <></>
+      )}
     </Box>
   );
 }

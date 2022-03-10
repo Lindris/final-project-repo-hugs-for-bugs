@@ -1,7 +1,6 @@
 import { API_URL } from "../config/index.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
-import ReusableBox from "../components/box.js";
 import Header from "../components/headers/header";
 import { Box, Wrap, WrapItem, Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
@@ -48,28 +47,29 @@ export default function Created({ payload }) {
           pb={10}
         >
           {payload === undefined || payload.length == 0 ? (
-            <>
+             <>
               <Flex flexDirection={{ base: "column", sm: "column", md: " row", lg: "row" }} justifyContent={"center"} alignItems={"center"} gap={10}>
-                <WrapItem>
-                  <Link href="/create">
-                    <a>
-                      <ReusableBox
-                        title="Why not host your own?"
-                        content1="Have any ideas or like some of our own? Create an event using our form."
-                        event_tags={[
-                          "Imposter syndrome",
-                          "React Frameworks",
-                          "Docker",
-                          "API's",
-                          "React Hooks",
-                          "Rock, Paper, Scissors",
-                          "Tick, Tack, Toe",
-                        ]}
-                      />
-                    </a>
-                  </Link>
-                </WrapItem>
-                <Box pt="2em">
+            <WrapItem>
+              <Link href="/create">
+                <a>
+                  <OrganisedBox
+                    title="Why not host your own?"
+                    content1="Have any ideas or like some of our own? Create an event using our form."
+                    removeEvent={false}
+                    event_tags={[
+                      "Imposter syndrome",
+                      "React Frameworks",
+                      "Docker",
+                      "API's",
+                      "React Hooks",
+                      "Rock, Paper, Scissors",
+                      "Tick, Tack, Toe",
+                    ]}
+                  />
+                </a>
+              </Link>
+            </WrapItem>
+ <Box pt="2em">
                   <MainImage src={"https://i.ibb.co/X4KLGSB/2562-R0l-VIEFOTi-Ax-ODEt-NDM.png"} />
                 </Box>
               </Flex>
@@ -79,7 +79,7 @@ export default function Created({ payload }) {
               return (
                 <OrganisedBox
                   {...event}
-                  deleteEvent="true"
+                  removeEvent={true}
                   refreshData={refreshData}
                   editEvent={editEvent}
                   setFormVisible={setFormVisible}
