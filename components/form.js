@@ -80,6 +80,11 @@ export default function CreateEventForm() {
           "Event successfully added, you will shortly receive an email confirmation."
         );
       }
+      if (response.status === 400) {
+        setConfirmEvent(
+          "Event with these details has been found, please create a new event."
+        );
+      }
     } catch (error) {
       setConfirmEvent("An error occurred, please try again.");
     }

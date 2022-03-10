@@ -65,7 +65,7 @@ export default function Events({ payload }) {
     }
   }
   return (
-    <Box m="0 auto" textAlign={"center"} py={10}>
+    <Box m="0 auto" textAlign={"center"} py={20}>
       <Box pb={5}>
         <Header content={"Upcoming events"} />
       </Box>
