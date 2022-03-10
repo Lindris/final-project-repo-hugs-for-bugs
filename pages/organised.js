@@ -2,11 +2,12 @@ import { API_URL } from "../config/index.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import Header from "../components/headers/header";
-import { Box, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Wrap, WrapItem, Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import UpdateEventForm from "../components/updateform.js";
 import OrganisedBox from "../components/organisedBox.js";
+import MainImage from "../components/mainImage.js";
 
 export default function Created({ payload }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -46,6 +47,8 @@ export default function Created({ payload }) {
           pb={10}
         >
           {payload === undefined || payload.length == 0 ? (
+             <>
+              <Flex flexDirection={{ base: "column", sm: "column", md: " row", lg: "row" }} justifyContent={"center"} alignItems={"center"} gap={10}>
             <WrapItem>
               <Link href="/create">
                 <a>
@@ -66,6 +69,11 @@ export default function Created({ payload }) {
                 </a>
               </Link>
             </WrapItem>
+ <Box pt="2em">
+                  <MainImage src={"https://i.ibb.co/X4KLGSB/2562-R0l-VIEFOTi-Ax-ODEt-NDM.png"} />
+                </Box>
+              </Flex>
+            </>
           ) : (
             payload.map((event) => {
               return (
