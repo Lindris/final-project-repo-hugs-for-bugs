@@ -19,16 +19,33 @@ describe("Create-event", () => {
 			.should("have.value", "Code Club");
 	});
 
+	it("should find the element with the classname of firstName and type John", () => {
+		const firstName = "John";
+		cy.get(".firstName").type(`${firstName}{enter}`);
+		cy.get(".firstName").should("have.value", firstName);
+	});
+
+	it("should find the element with the classname of lastName and type Smith", () => {
+		const lastName = "Smith";
+		cy.get(".lastName").type(`${lastName}{enter}`);
+		cy.get(".lastName").should("have.value", lastName);
+	});
+
 	it("should find the element with the classname of event-desc-input and type RESTFUL API", () => {
-		const newDesc = "TEST EVENT 2";
+		const newDesc = "MY TEST EVENT";
 		cy.get(".event-desc-input").type(`${newDesc}{enter}`);
-		cy.get(".event-desc-input").should("have.value", newDesc);
+		//cy.get(".event-desc-input").should("have.value", newDesc);
 	});
 
 	it("should find the element with the classname of meeting-url-input and type in a url", () => {
 		const newURL = "https://zoom.us/j/974222?I";
 		cy.get(".meeting-url-input").type(`${newURL}{enter}`);
 		cy.get(".meeting-url-input").should("have.value", newURL);
+	});
+
+	it("should find the element with the classname of email and add johnsmith@collab.com", () => {
+		const email = "johnsmith@collab.com";
+		cy.get(".email").type(`${email}{enter}`);
 	});
 
 	it("should find the element with the classname of date-input and add in a date", () => {
