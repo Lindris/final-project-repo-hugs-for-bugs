@@ -48,7 +48,7 @@ export default function Vision() {
           <Box mt="2em">
             <Paragraph
               content={
-                "The world of software development is a path littered with obstacles. Navigating the tangled web of coding within a collaborative community is good for coders and also for the people we are coding for. Our vision in creating {co:llab} is to create opportunities to continue our journey - working through problems together, learning from each other and industry experts, which will ultimately lead to developing better end products for users."
+                "The journey into software development is a path full of obstacles however coding within a collaborative community is good for programmers and the people we are coding for. Our vision in creating {co:llab} is to work through problems together, learn from each other and industry experts, which will ultimately lead to developing better end products for users."
               }
               fontSize="1.2em" />
           </Box>
