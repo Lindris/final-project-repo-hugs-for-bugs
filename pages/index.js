@@ -65,6 +65,7 @@ export default function Home() {
             direction={"column"}
             justifyContent={"flex-end"}
             ml="2em"
+            mt={4}
             padding={4}
             className="fadeUpAnimation"
           >

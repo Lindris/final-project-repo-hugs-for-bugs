@@ -1,4 +1,4 @@
-import { Box, HStack, Tag, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, HStack, Tag, Wrap, WrapItem, Flex, Center } from "@chakra-ui/react";
 import RemoveUser from "./removeUser.js";
 import Paragraph from "./paragraph.js";
 
@@ -28,44 +28,52 @@ export default function ReusableBox({
       minWidth="400px"
       minHeight="300px"
     >
-      <HStack mb="4" justify={"center"}>
-        <Paragraph
-          fontSize={"1.3em"}
-          fontWeight={"extrabold"}
-          content={title}
-        />
-      </HStack>
-      {event_type ? (
-        <Paragraph
-          content={`${event_type} by ${first_name} ${last_name}`}
-          fontSize={"1.2em"}
-          fontWeight={"bold"}
-        />
-      ) : (
-        <></>
-      )}
-      {event_date ? (
-        <Paragraph
-          content={new Date(event_date).toString().slice(0, 15)}
-          fontSize={"1em"}
-          fontWeight={"bold"}
-          colour={"brand.mainPurple"}
-        />
-      ) : (
-        <></>
-      )}
-      {event_start_time ? (
-        <Paragraph
-          content={`${event_start_time.slice(0, 5)} - ${event_end_time.slice(
-            0,
-            5
-          )}`}
-          fontSize={"1em"}
-          fontWeight={"bold"}
-        />
-      ) : (
-        <></>
-      )}
+      <Flex>
+        <HStack mb="4">
+          <Paragraph
+            fontSize={"1.3em"}
+            fontWeight={"extrabold"}
+            content={title}
+          />
+        </HStack>
+      </Flex>
+      {
+        event_type ? (
+          <Paragraph
+            content={`${event_type} by ${first_name} ${last_name}`}
+            fontSize={"1.2em"}
+            fontWeight={"bold"}
+          />
+        ) : (
+          <></>
+        )
+      }
+      {
+        event_date ? (
+          <Paragraph
+            content={new Date(event_date).toString().slice(0, 15)}
+            fontSize={"1em"}
+            fontWeight={"bold"}
+            colour={"brand.mainPurple"}
+          />
+        ) : (
+          <></>
+        )
+      }
+      {
+        event_start_time ? (
+          <Paragraph
+            content={`${event_start_time.slice(0, 5)} - ${event_end_time.slice(
+              0,
+              5
+            )}`}
+            fontSize={"1em"}
+            fontWeight={"bold"}
+          />
+        ) : (
+          <></>
+        )
+      }
       <Paragraph content={event_desc} fontSize={"1em"} fontWeight={"medium"} />
       <Paragraph
         content={event_location}
@@ -74,33 +82,37 @@ export default function ReusableBox({
       />
 
       <Paragraph content={content1} fontSize={"1.1em"} fontWeight={"bold"} />
-      {event_tags ? (
-        <Wrap py={3}>
-          {event_tags.map((tag) =>
-            tag !== "" ? (
-              <WrapItem>
-                <Tag
-                  size={"md"}
-                  key={tag}
-                  variant="solid"
-                  bgColor={"brand.secondaryPurple"}
-                >
-                  {tag}
-                </Tag>
-              </WrapItem>
-            ) : (
-              <></>
-            )
-          )}
-        </Wrap>
-      ) : (
-        <></>
-      )}
-      {remove ? (
-        <RemoveUser event_id={event_id} refreshData={refreshData} />
-      ) : (
-        <></>
-      )}
-    </Box>
+      {
+        event_tags ? (
+          <Wrap py={3}>
+            {event_tags.map((tag) =>
+              tag !== "" ? (
+                <WrapItem>
+                  <Tag
+                    size={"md"}
+                    key={tag}
+                    variant="solid"
+                    bgColor={"brand.secondaryPurple"}
+                  >
+                    {tag}
+                  </Tag>
+                </WrapItem>
+              ) : (
+                <></>
+              )
+            )}
+          </Wrap>
+        ) : (
+          <></>
+        )
+      }
+      {
+        remove ? (
+          <RemoveUser event_id={event_id} refreshData={refreshData} />
+        ) : (
+          <></>
+        )
+      }
+    </Box >
   );
 }

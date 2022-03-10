@@ -65,13 +65,19 @@ export default function ContactUs() {
 				<Paragraph
 					fontSize="1.4em"
 					content={
-						"If you'd like to share your experience, product or provide an insight into to your organisation then get in touch with us."
+						"Would you like to speak at one of our events? Our guest events are an opportunity to get in front of our enthusiastic and talented programmer audience."}
+
+				/>
+				<Paragraph
+					fontSize="1.4em"
+					content={
+						"Get in touch as an industry expert and showcase a product, share insights into why you do what you do, or run a Q&A session."
 					}
 				/>
 				<Paragraph
 					fontSize="1.4em"
 					content={
-						"Our ethusiastic and talented community would love to hear from you."
+						"Please let us know who you are, your organisation, what you would like to share and we’ll get back to you as soon as we can."
 					}
 				/>
 			</Flex>

@@ -75,7 +75,7 @@ export default function Profile({ userEvents, allEvents }) {
           setConfirmEvent("You have successfully registered for this event");
           refreshData();
         }
-      } catch (error) {}
+      } catch (error) { }
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
@@ -122,7 +122,9 @@ export default function Profile({ userEvents, allEvents }) {
           </>
         ) : (
           <WrapItem>
-            <ReusableBox title="You have not signed up for any events, please browse our events below" />
+            <Center>
+              <ReusableBox title="You have not signed up for any events, please browse our events below" />
+            </Center>
           </WrapItem>
         )}
       </Wrap>

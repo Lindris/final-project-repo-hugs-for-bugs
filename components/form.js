@@ -47,12 +47,6 @@ export default function CreateEventForm() {
   } = useForm();
 
   function onSubmit(values, e) {
-    // emailjs.sendForm(
-    //   "service_wuqdwm3",
-    //   "template_unqvmuh",
-    //   form.current,
-    //   "gZk2hVOs5f7LTb77V"
-    // );
     Object.keys(values).map((key) => {
       if (key === "event_date") {
         values[key] = values[key].toString().slice(0, 15);
@@ -66,7 +60,6 @@ export default function CreateEventForm() {
     setFormValues(values);
     onOpen();
   }
-
   async function handleModalSubmit() {
     emailjs.sendForm(
       "service_wuqdwm3",
@@ -104,7 +97,7 @@ export default function CreateEventForm() {
         overflow="hidden"
         display="flex"
         m="0 auto"
-        my={10}
+        my={20}
         flexDirection={{ base: "column", sm: "column", md: "row" }}
         gap={10}
         boxShadow={"rgba(149, 157, 165, 0.2) 0px 8px 24px"}
@@ -112,7 +105,7 @@ export default function CreateEventForm() {
         <Flex
           w={{ base: "100%", sm: "100%", md: "50%" }}
           flexDirection="column"
-          justifyContent={"flex-end"}
+          justifyContent={"center"}
           alignItems={"center"}
           bg={"rgba(158, 137, 241, 0.25)"}
         >
