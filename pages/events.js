@@ -83,7 +83,7 @@ export default function Events({ payload }) {
               <a>
                 <ReusableBox
                   title="No more events to display"
-                  event_type="It appears you have signed up for all our events. Check back later to see if we have more lined up or create your own"
+                  content1="It appears you have signed up for all our events. Check back later to see if we have more lined up or create your own"
                 />
               </a>
             </Link>

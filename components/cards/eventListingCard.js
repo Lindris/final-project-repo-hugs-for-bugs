@@ -8,6 +8,7 @@ import {
   WrapItem,
   Button,
   Tooltip,
+  Text,
 } from "@chakra-ui/react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { MdPeople, MdPersonAdd } from "react-icons/md";
@@ -86,12 +87,10 @@ export default function EventListingCard({
             fontWeight={"bold"}
             colour={"brand.mainPurple"}
           />
-          <Paragraph
-            content={event_desc}
-            fontSize={"1em"}
-            fontWeight={"medium"}
-          />
-          <Flex pt="2em">
+          <Text noOfLines={[3, 3, 2]} fontSize={"1em"} fontWeight={"medium"}>
+            {event_desc}
+          </Text>
+          <Flex pt="1em">
             <Wrap align="center" spacing={1}>
               <WrapItem>
                 <Paragraph
