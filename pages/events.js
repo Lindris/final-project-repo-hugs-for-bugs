@@ -57,7 +57,7 @@ export default function Events({ payload }) {
           setConfirmEvent("You have successfully registered for this event");
           refreshData();
         }
-      } catch (error) {}
+      } catch (error) { }
       setTimeout(function () {
         onClose();
         setConfirmEvent("");

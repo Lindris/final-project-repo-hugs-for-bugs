@@ -35,67 +35,69 @@ export default function Created({ payload }) {
 
   return (
     <>
-      <Box m="0 auto" p={10} py={20}>
-        <Box textAlign={"center"} pb={10}>
-          <Header content={`Organised events`} />
-        </Box>
-        <Wrap
-          spacing={10}
-          margin="0 auto"
-          maxWidth="1500px"
-          justify="center"
-          pb={10}
-        >
-          {payload === undefined || payload.length == 0 ? (
-             <>
-              <Flex flexDirection={{ base: "column", sm: "column", md: " row", lg: "row" }} justifyContent={"center"} alignItems={"center"} gap={10}>
-            <WrapItem>
-              <Link href="/create">
-                <a>
+      <Box minHeight="100vh">
+        <Box m="0 auto" p={10} py={20}>
+          <Box textAlign={"center"} pb={10}>
+            <Header content={`Organised events`} />
+          </Box>
+          <Wrap
+            spacing={10}
+            margin="0 auto"
+            maxWidth="1500px"
+            justify="center"
+            pb={10}
+          >
+            {payload === undefined || payload.length == 0 ? (
+              <>
+                <Flex flexDirection={{ base: "column", sm: "column", md: " row", lg: "row" }} justifyContent={"center"} alignItems={"center"} gap={10}>
+                  <WrapItem>
+                    <Link href="/create">
+                      <a>
+                        <OrganisedBox
+                          title="Why not host your own?"
+                          content1="Have any ideas or like some of our own? Create an event using our form."
+                          removeEvent={false}
+                          event_tags={[
+                            "Imposter syndrome",
+                            "React Frameworks",
+                            "Docker",
+                            "API's",
+                            "React Hooks",
+                            "Rock, Paper, Scissors",
+                            "Tick, Tack, Toe",
+                          ]}
+                        />
+                      </a>
+                    </Link>
+                  </WrapItem>
+                  <Box pt="2em">
+                    <MainImage src={"https://i.ibb.co/X4KLGSB/2562-R0l-VIEFOTi-Ax-ODEt-NDM.png"} />
+                  </Box>
+                </Flex>
+              </>
+            ) : (
+              payload.map((event) => {
+                return (
                   <OrganisedBox
-                    title="Why not host your own?"
-                    content1="Have any ideas or like some of our own? Create an event using our form."
-                    removeEvent={false}
-                    event_tags={[
-                      "Imposter syndrome",
-                      "React Frameworks",
-                      "Docker",
-                      "API's",
-                      "React Hooks",
-                      "Rock, Paper, Scissors",
-                      "Tick, Tack, Toe",
-                    ]}
+                    {...event}
+                    removeEvent={true}
+                    refreshData={refreshData}
+                    editEvent={editEvent}
+                    setFormVisible={setFormVisible}
                   />
-                </a>
-              </Link>
-            </WrapItem>
- <Box pt="2em">
-                  <MainImage src={"https://i.ibb.co/X4KLGSB/2562-R0l-VIEFOTi-Ax-ODEt-NDM.png"} />
-                </Box>
-              </Flex>
-            </>
+                );
+              })
+            )}
+          </Wrap>
+          {formVisible ? (
+            <UpdateEventForm
+              formVisible={formVisible}
+              eventDetails={eventDetails}
+            />
           ) : (
-            payload.map((event) => {
-              return (
-                <OrganisedBox
-                  {...event}
-                  removeEvent={true}
-                  refreshData={refreshData}
-                  editEvent={editEvent}
-                  setFormVisible={setFormVisible}
-                />
-              );
-            })
+            <></>
           )}
-        </Wrap>
-        {formVisible ? (
-          <UpdateEventForm
-            formVisible={formVisible}
-            eventDetails={eventDetails}
-          />
-        ) : (
-          <></>
-        )}
+        </Box>
       </Box>
     </>
   );

@@ -7,6 +7,7 @@ import "../styles.css"
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import styled from "@emotion/styled";
+import Head from 'next/head';
 import "@fontsource/quicksand";
 import "@fontsource/quicksand/400.css";
 
@@ -20,6 +21,9 @@ function App({ Component, pageProps }) {
 	return (
 		<ChakraProvider theme={theme}>
 			<AppContainer>
+				<Head>
+					<link rel="icon" href="https://i.ibb.co/h2R4X1p/Frame-1-4.png" />
+				</Head>
 				<UserProvider>
 					<Navbar />
 					<div className="container">
