@@ -60,26 +60,20 @@ export default function ContactUs() {
 				my="2em"
 				flexDirection={"column"}
 				alignItems="center"
-				px={{ base: "2em" }}
+				textAlign="center"
+				px={{ base: "2em", sm: "3em", md: "3em", lg: "5em" }}
 			>
 				<Paragraph
 					fontSize="1.4em"
 					content={
-						"Would you like to speak at one of our events? Our guest events are an opportunity to get in front of our enthusiastic and talented programmer audience."}
-
+						"Would you like to speak at one of our events? Our guest events are an opportunity to get in front of our enthusiastic and talented programmer audience. Get in touch as an industry expert and showcase a product, share insights into why you do what you do, or run a Q&A session."}
 				/>
-				<Paragraph
-					fontSize="1.4em"
-					content={
-						"Get in touch as an industry expert and showcase a product, share insights into why you do what you do, or run a Q&A session."
-					}
-				/>
-				<Paragraph
-					fontSize="1.4em"
-					content={
-						"Please let us know who you are, your organisation, what you would like to share and we’ll get back to you as soon as we can."
-					}
-				/>
+				<Box mt="2em">
+					<Paragraph
+						fontSize="1.2em"
+						content={"Please let us know who you are, your organisation, what you would like to share and we’ll get back to you as soon as we can."}
+					/>
+				</Box>
 			</Flex>
 			<Center>
 				<Box
