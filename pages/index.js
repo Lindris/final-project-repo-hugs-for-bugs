@@ -68,7 +68,7 @@ export default function Home() {
             padding={4}
             className="fadeUpAnimation"
           >
-            <Box mt="1em" mb="1em">
+            <Box mt="1em" mb="1em" pt={{ base: "2em", sm: "2em", md: "1em" }}>
               <Header content={"Code & Collab."} />
             </Box>
             <Paragraph
@@ -80,7 +80,7 @@ export default function Home() {
             </Box>
             <Box pt="1em">
               <a href={"#find-out-more"}>
-                <SecondaryButton content={"Find out more"} route={"#find-out-more"} />
+                <SecondaryButton content={"How it works"} route={"#find-out-more"} />
               </a>
             </Box>
           </Flex>
