@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { API_URL } from "../config/index.js";
 import { getSession, useUser } from "@auth0/nextjs-auth0";
-import EventListingCard from "../components/cards/eventListingCard.js";
 import BasicModal from "../components/modals/modal.js";
 import { useDisclosure, Box, Wrap, WrapItem } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import NoEventBox from "../components/Boxes/noEvent.js";
+import EventFilter from "../components/tabs.js";
 
 export default function Events({ payload }) {
   const [eventData, seteventData] = useState(false);
@@ -92,15 +92,23 @@ export default function Events({ payload }) {
           </WrapItem>
         </Wrap>
       ) : (
-        payload.map((event) => {
-          return (
-            <EventListingCard
-              key={event.event_id}
-              onClick={() => sendEventData(event.event_id)}
-              {...event}
-            />
-          );
-        })
+        <>
+          {payload ? (
+            <EventFilter payload={payload} sendEventData={sendEventData} />
+          ) : (
+            <></>
+          )}
+
+          {/* {payload.map((event) => {
+            return (
+              <EventListingCard
+                key={event.event_id}
+                onClick={() => sendEventData(event.event_id)}
+                {...event}
+              />
+            );
+          })} */}
+        </>
       )}
       {eventData ? (
         <BasicModal
