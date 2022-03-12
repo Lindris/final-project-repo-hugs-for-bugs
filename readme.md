@@ -61,3 +61,6 @@ If you have any feedback, please reach out to any of the team via GitHub. We rea
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
+### Credit
+
+Vectors by Vecteezy
