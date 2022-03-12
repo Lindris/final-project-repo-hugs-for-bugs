@@ -308,8 +308,8 @@ export default function UpdateEventForm({ formVisible, eventDetails }) {
         <BasicModal
           isOpen={isOpen}
           onClose={onClose}
-          button1="Edit details"
-          button2="Confirm event"
+          button1="Continue editing"
+          button2="Confirm changes"
           onClick={handleFormUpdate}
           event_date={formValues.event_date}
           event_type={formValues.event_type}

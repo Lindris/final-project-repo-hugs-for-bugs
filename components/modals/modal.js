@@ -61,7 +61,7 @@ function BasicModal(props) {
                 fontWeight={"bold"}
                 colour={"brand.primaryDark"}
               />
-              {/* <Paragraph
+              <Paragraph
                 content={`${event_start_time.slice(
                   0,
                   5
@@ -69,7 +69,7 @@ function BasicModal(props) {
                 fontSize={"1em"}
                 fontWeight={"bold"}
                 colour={"brand.mainPurple"}
-              /> */}
+              />
               <Paragraph
                 content={event_location}
                 fontSize={"0.9em"}
@@ -114,10 +114,16 @@ function BasicModal(props) {
               onClick={onClose}
               color={"brand.primaryLight"}
               className="button-1"
+              // isDisabled={confirm}
             >
               {button1}
             </Button>
-            <Button variant="ghost" onClick={onClick} className="button-2">
+            <Button
+              variant="ghost"
+              onClick={onClick}
+              className="button-2"
+              isDisabled={confirm}
+            >
               {button2}
             </Button>
           </ModalFooter>
