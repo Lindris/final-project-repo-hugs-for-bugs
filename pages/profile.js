@@ -42,9 +42,8 @@ export default function Profile({ userEvents, allEvents }) {
     } else username = user.nickname;
   }
   async function addUsertoEvent(event_id) {
-    if (!user) {
-      // display something in the modal to create an account
-    } else if (user) {
+    console.log(true);
+    if (user) {
       try {
         const response = await fetch(`${API_URL}/users`, {
           method: "POST",
@@ -95,7 +94,7 @@ export default function Profile({ userEvents, allEvents }) {
           <>
             {userEvents.slice(0, 3).map((event) => {
               return (
-                <WrapItem>
+                <WrapItem key={event.event_id}>
                   <EventDetailsBox
                     {...event}
                     removeUser="true"

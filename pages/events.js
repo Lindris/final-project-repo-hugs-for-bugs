@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 import NoEventBox from "../components/Boxes/noEvent.js";
 
 export default function Events({ payload }) {
-  console.log(payload);
   const [eventData, seteventData] = useState(false);
   const { user } = useUser();
   const [confirmEvent, setConfirmEvent] = useState("");
@@ -33,6 +32,7 @@ export default function Events({ payload }) {
     seteventData(datatosend);
     onOpen();
   }
+
   async function addUsertoEvent(event_id) {
     if (!user) {
       setConfirmEvent("Please sign up or log in to attend");
@@ -65,6 +65,7 @@ export default function Events({ payload }) {
       }, 2000);
     }
   }
+
   return (
     <Box m="0 auto" textAlign={"center"} py={20}>
       <Box pb={5}>

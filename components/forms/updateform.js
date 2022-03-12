@@ -20,6 +20,7 @@ import Router from "next/router";
 import BasicModal from "../modals/modal.js";
 import { API_URL } from "../../config/index.js";
 import { addDays } from "date-fns";
+import { useCallback } from "react";
 
 function toDate(dStr, format) {
   dStr = dStr.slice(0, 5);
@@ -45,7 +46,6 @@ export default function UpdateEventForm({ formVisible, eventDetails }) {
     first_name,
     last_name,
   } = eventDetails[0];
-  console.log(event_date);
 
   let newDate = new Date(Date.parse(event_date));
   let newStartTime = toDate(event_start_time, "h:m");
@@ -77,7 +77,7 @@ export default function UpdateEventForm({ formVisible, eventDetails }) {
     onOpen();
   }
 
-  async function handleFormUpdate() {
+  const handleFormUpdate = useCallback(async () => {
     try {
       const response = await fetch(`${API_URL}/events`, {
         method: "PATCH",
@@ -96,7 +96,8 @@ export default function UpdateEventForm({ formVisible, eventDetails }) {
     setTimeout(function () {
       Router.reload(window.location.pathname);
     }, 2000);
-  }
+  }, [formValues]);
+
   return (
     <>
       <Box

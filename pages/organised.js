@@ -9,6 +9,7 @@ import UpdateEventForm from "../components/forms/updateform.js";
 import MainImage from "../components/mainImage.js";
 import EventDetailsBox from "../components/Boxes/eventdetailsbox.js";
 import NoEventBox from "../components/Boxes/noEvent.js";
+import { nanoid } from "nanoid";
 export default function Created({ payload }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [eventDetails, setEventDetails] = useState(0);
@@ -49,6 +50,7 @@ export default function Created({ payload }) {
             {payload === undefined || payload.length == 0 ? (
               <>
                 <Flex
+                  key={nanoid()}
                   flexDirection={{
                     base: "column",
                     sm: "column",
@@ -59,7 +61,7 @@ export default function Created({ payload }) {
                   alignItems={"center"}
                   gap={10}
                 >
-                  <WrapItem>
+                  <WrapItem key={nanoid()}>
                     <Link href="/create">
                       <a>
                         <NoEventBox
@@ -90,13 +92,15 @@ export default function Created({ payload }) {
             ) : (
               payload.map((event) => {
                 return (
-                  <EventDetailsBox
-                    {...event}
-                    removeEvent={true}
-                    refreshData={refreshData}
-                    editEvent={editEvent}
-                    setFormVisible={setFormVisible}
-                  />
+                  <WrapItem key={event.event_id}>
+                    <EventDetailsBox
+                      {...event}
+                      removeEvent={true}
+                      refreshData={refreshData}
+                      editEvent={editEvent}
+                      setFormVisible={setFormVisible}
+                    />
+                  </WrapItem>
                 );
               })
             )}

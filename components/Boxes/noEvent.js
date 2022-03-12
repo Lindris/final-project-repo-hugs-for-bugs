@@ -19,10 +19,9 @@ export default function NoEventBox({ title, text, tags }) {
         <Wrap py={3}>
           {tags.map((tag) =>
             tag !== "" ? (
-              <WrapItem>
+              <WrapItem key={tag}>
                 <Tag
                   size={"md"}
-                  key={tag}
                   variant="solid"
                   bgColor={"brand.secondaryPurple"}
                 >

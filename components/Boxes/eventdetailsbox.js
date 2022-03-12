@@ -3,6 +3,7 @@ import RemoveUser from "../apiOperations/removeUser.js";
 import Paragraph from "../paragraph.js";
 import DeleteEvent from "../apiOperations/deleteEvent.js";
 import UpdateEvent from "../apiOperations/updateEvent.js";
+import { nanoid } from "nanoid";
 
 export default function EventDetailsBox({
   event_type,
@@ -63,10 +64,10 @@ export default function EventDetailsBox({
       <Wrap py={3}>
         {event_tags.map((tag) =>
           tag !== "" ? (
-            <WrapItem>
+            <WrapItem key={tag}>
               <Tag
-                size={"md"}
                 key={tag}
+                size={"md"}
                 variant="solid"
                 bgColor={"brand.secondaryPurple"}
               >
@@ -74,7 +75,7 @@ export default function EventDetailsBox({
               </Tag>
             </WrapItem>
           ) : (
-            <></>
+            <p key={nanoid()}></p>
           )
         )}
       </Wrap>
@@ -86,12 +87,16 @@ export default function EventDetailsBox({
       )}
       {removeEvent ? (
         <Wrap>
-          <DeleteEvent
-            event_id={event_id}
-            refreshData={refreshData}
-            setFormVisible={setFormVisible}
-          />
-          <UpdateEvent event_id={event_id} editEvent={editEvent} />
+          <WrapItem>
+            <DeleteEvent
+              event_id={event_id}
+              refreshData={refreshData}
+              setFormVisible={setFormVisible}
+            />
+          </WrapItem>
+          <WrapItem>
+            <UpdateEvent event_id={event_id} editEvent={editEvent} />
+          </WrapItem>
         </Wrap>
       ) : (
         <></>
