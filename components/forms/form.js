@@ -19,11 +19,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useUser } from "@auth0/nextjs-auth0";
 import Router from "next/router";
-import BasicModal from "../components/modal.js";
-import SubHeader from "./headers/subheader.js";
-import Paragraph from "../components/paragraph.js";
-import { API_URL } from "../config/index.js";
-import MainImage from "../components/mainImage.js";
+import BasicModal from "../modals/modal.js";
+import Paragraph from "../paragraph.js";
+import { API_URL } from "../../config/index.js";
+import MainImage from "../mainImage.js";
 import { addDays } from "date-fns";
 export default function CreateEventForm() {
   const { user } = useUser();

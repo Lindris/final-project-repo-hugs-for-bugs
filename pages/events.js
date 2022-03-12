@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { API_URL } from "../config/index.js";
 import { getSession, useUser } from "@auth0/nextjs-auth0";
 import EventListingCard from "../components/cards/eventListingCard.js";
-import BasicModal from "../components/modal.js";
+import BasicModal from "../components/modals/modal.js";
 import { useDisclosure, Box, Wrap, WrapItem } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import Link from "next/link";
-import ReusableBox from "../components/box.js";
 import { useRouter } from "next/router";
+import NoEventBox from "../components/Boxes/noEvent.js";
 
 export default function Events({ payload }) {
   console.log(payload);
@@ -28,6 +28,7 @@ export default function Events({ payload }) {
   }, []);
 
   function sendEventData(event_id) {
+    console.log(event_id);
     const datatosend = payload.filter((event) => event.event_id === event_id);
     seteventData(datatosend);
     onOpen();
@@ -57,7 +58,7 @@ export default function Events({ payload }) {
           setConfirmEvent("You have successfully registered for this event");
           refreshData();
         }
-      } catch (error) { }
+      } catch (error) {}
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
@@ -81,43 +82,24 @@ export default function Events({ payload }) {
           <WrapItem>
             <Link href="/create">
               <a>
-                <ReusableBox
+                <NoEventBox
                   title="No more events to display"
-                  content1="It appears you have signed up for all our events. Check back later to see if we have more lined up or create your own"
+                  text="It appears you have signed up for all our events. Check back later to see if we have more lined up or create your own"
                 />
               </a>
             </Link>
           </WrapItem>
         </Wrap>
       ) : (
-        payload.map(
-          ({
-            event_type,
-            event_date,
-            event_desc,
-            event_id,
-            count,
-            event_start_time,
-            event_end_time,
-            first_name,
-            last_name,
-          }) => {
-            return (
-              <EventListingCard
-                key={event_id}
-                event_start_time={event_start_time}
-                event_end_time={event_end_time}
-                event_name={event_type}
-                event_date={event_date.slice(0, 10)}
-                event_desc={event_desc}
-                count={count}
-                onClick={() => sendEventData(event_id)}
-                first={first_name}
-                last={last_name}
-              />
-            );
-          }
-        )
+        payload.map((event) => {
+          return (
+            <EventListingCard
+              key={event.event_id}
+              onClick={() => sendEventData(event.event_id)}
+              {...event}
+            />
+          );
+        })
       )}
       {eventData ? (
         <BasicModal
@@ -143,11 +125,7 @@ export async function getServerSideProps(ctx) {
     const response = await fetch(`${API_URL}/events`);
     const data = await response.json();
     let payload = data.payload;
-    // maximum 10 cards
-    if (payload.length > 10) {
-      payload = payload.slice(0, 10);
-    }
-    // Pass data to the page via props
+    payload = payload.slice(0, 10);
     return { props: { payload } };
   } else if (session) {
     const response = await fetch(`${API_URL}/events/notAttending`, {
@@ -161,11 +139,8 @@ export async function getServerSideProps(ctx) {
     });
     const data = await response.json();
     let payload = data.payload;
-    if (payload.length > 10) {
-      payload = payload.slice(0, 10);
-    }
+    payload = payload.slice(0, 10);
     return { props: { payload } };
-    // call another route excluding events user is attending
   }
 }
 

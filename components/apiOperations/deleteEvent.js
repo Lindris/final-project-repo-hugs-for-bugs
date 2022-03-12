@@ -1,9 +1,8 @@
 import { Button, Box, Tooltip } from "@chakra-ui/react";
 import { MdDelete } from "react-icons/md";
 import { useUser } from "@auth0/nextjs-auth0";
-import { API_URL } from "../config/index.js";
-// import
-// import { useState } from "react";
+import { API_URL } from "../../config/index.js";
+
 export default function DeleteEvent({ event_id, refreshData, setFormVisible }) {
   const { user } = useUser();
   async function removeEvent() {

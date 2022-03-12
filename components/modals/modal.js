@@ -10,9 +10,8 @@ import {
   Stack,
   Tag,
   HStack,
-  background,
 } from "@chakra-ui/react";
-import Paragraph from "./paragraph.js";
+import Paragraph from "../paragraph.js";
 
 function BasicModal(props) {
   const {
@@ -62,7 +61,7 @@ function BasicModal(props) {
                 fontWeight={"bold"}
                 colour={"brand.primaryDark"}
               />
-              <Paragraph
+              {/* <Paragraph
                 content={`${event_start_time.slice(
                   0,
                   5
@@ -70,7 +69,7 @@ function BasicModal(props) {
                 fontSize={"1em"}
                 fontWeight={"bold"}
                 colour={"brand.mainPurple"}
-              />
+              /> */}
               <Paragraph
                 content={event_location}
                 fontSize={"0.9em"}

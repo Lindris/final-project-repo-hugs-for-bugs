@@ -1,18 +1,13 @@
 import Head from "next/head";
-import MainButton from "../components/mainButton";
-import SecondaryButton from "../components/secondaryButton";
+import MainButton from "../components/buttons/mainButton";
+import SecondaryButton from "../components/buttons/secondaryButton";
 import MainImage from "../components/mainImage";
 import InfoCard from "../components/cards/infoCard";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
-import ContactUs from "../components/emailform/emailform";
-import {
-  Spacer,
-  Flex,
-  Box,
-  Center,
-} from "@chakra-ui/react";
+import ContactUs from "../components/forms/emailform";
+import { Spacer, Flex, Box, Center } from "@chakra-ui/react";
 
 //add button tag below h1
 //import mainButon from components/button
@@ -47,7 +42,10 @@ export default function Home() {
     <Box w="100%" m="0">
       <Head>
         <title>co:llab</title>
-        <meta name="&#x7b;co:llab&#x7d;" content="&#x7b;co:llab&#x7d; is a service that allows School of Code graduates and junior programmers to create and organise online events. It is a mutually supportive programming community designed to help each other continue on our self-development journey through code clubs, hackathons and guest speaker events." />
+        <meta
+          name="&#x7b;co:llab&#x7d;"
+          content="&#x7b;co:llab&#x7d; is a service that allows School of Code graduates and junior programmers to create and organise online events. It is a mutually supportive programming community designed to help each other continue on our self-development journey through code clubs, hackathons and guest speaker events."
+        />
       </Head>
       <Box>
         <Flex
@@ -76,11 +74,19 @@ export default function Home() {
               content={"A space to program collaboratively"}
             />
             <Box mt="1em" mb="1em">
-              <Paragraph content={"Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community designed to help each other continue on our self-development journey and help each other grow."} fontSize="1.1em" />
+              <Paragraph
+                content={
+                  "Welcome to the space to code and collaborate with other programmers. Join like-minded people who love to share coding and learn together. {co:llab} is a mutually supportive programming community designed to help each other continue on our self-development journey and help each other grow."
+                }
+                fontSize="1.1em"
+              />
             </Box>
             <Box pt="1em">
               <a href={"#find-out-more"}>
-                <SecondaryButton content={"How it works"} route={"#find-out-more"} />
+                <SecondaryButton
+                  content={"How it works"}
+                  route={"#find-out-more"}
+                />
               </a>
             </Box>
           </Flex>
@@ -100,13 +106,28 @@ export default function Home() {
             </Box>
           </Flex>
         </Flex>
-        <svg className={"wave-home"} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240"><path fill="#f8f9fa" fill-opacity="1" d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+        <svg
+          className={"wave-home"}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 240"
+        >
+          <path
+            fill="#f8f9fa"
+            fill-opacity="1"
+            d="M0,192L80,170.7C160,149,320,107,480,106.7C640,107,800,149,960,154.7C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+          ></path>
+        </svg>
       </Box>
       <Box id={"find-out-more"} pt={"6em"}>
         <Flex direction={"column"} alignItems="center">
           <SubHeader content={"See what's happening"} />
           <Box m={{ base: "2em", sm: "2em", md: ".5em" }}>
-            <Paragraph fontSize="1.2em" content={"Discover the ways in which you can benefit by joining our community."} />
+            <Paragraph
+              fontSize="1.2em"
+              content={
+                "Discover the ways in which you can benefit by joining our community."
+              }
+            />
           </Box>
         </Flex>
         <Center>
@@ -127,7 +148,6 @@ export default function Home() {
                 }
                 src={"https://i.ibb.co/1zSMfnC/icons8-programming-256.png"}
                 alt={"code on a screen"}
-
               />
               <Spacer />
               <InfoCard
@@ -135,9 +155,10 @@ export default function Home() {
                 textContent={
                   "Join others to tackle a ‘Hackathon for Fun!’  Collaborate in a team to overcome a group challenge and build a working solution that ticks all the boxes. "
                 }
-                src={"https://i.ibb.co/CHydWcQ/icons8-backend-development-256.png"}
+                src={
+                  "https://i.ibb.co/CHydWcQ/icons8-backend-development-256.png"
+                }
                 alt={"cogwheel"}
-
               />
               <Spacer />
               <InfoCard
@@ -147,8 +168,6 @@ export default function Home() {
                 }
                 src={"https://i.ibb.co/wh5h8cf/icons8-lecturer-512.png"}
                 alt={"speaker"}
-
-
               />
             </Flex>
           </Box>
@@ -158,12 +177,10 @@ export default function Home() {
             <MainButton content={"Explore all events"} route={"/events"} />
           </Center>
         </Box>
-      </Box >
+      </Box>
       <Box bg="#f8f9fa" py="5em">
         <ContactUs />
       </Box>
-    </Box >
-
+    </Box>
   );
 }
-

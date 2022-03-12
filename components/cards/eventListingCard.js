@@ -38,14 +38,14 @@ const images = {
 
 export default function EventListingCard({
   event_date,
-  event_name,
+  event_type,
   event_desc,
   event_start_time,
   event_end_time,
   onClick,
   count,
-  first,
-  last,
+  first_name,
+  last_name,
 }) {
   return (
     <Center py={6}>
@@ -72,7 +72,7 @@ export default function EventListingCard({
           pb={2}
         >
           <Paragraph
-            content={`${event_name} by ${first} ${last}`}
+            content={`${event_type} by ${first_name} ${last_name}`}
             fontSize={"1.5em"}
             fontWeight={"bold"}
           />
@@ -146,7 +146,7 @@ export default function EventListingCard({
           >
             <MainImage
               // pass in event image with the value of the source url, pulled from array in events.js
-              src={images[event_name[0]]}
+              src={images[event_type[0]]}
               alt={"image of friends meeting"}
             />
           </Box>

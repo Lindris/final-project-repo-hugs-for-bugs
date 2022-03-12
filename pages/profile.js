@@ -9,40 +9,27 @@ import {
 } from "@chakra-ui/react";
 import Header from "../components/headers/header";
 import SubHeader from "../components/headers/subheader";
-import MainButton from "../components/mainButton";
+import MainButton from "../components/buttons/mainButton";
 import EventListingCard from "../components/cards/eventListingCard";
-import ReusableBox from "../components/box.js";
-import BasicModal from "../components/modal.js";
+import EventDetailsBox from "../components/Boxes/eventdetailsbox.js";
+import BasicModal from "../components/modals/modal.js";
 import { getSession, withPageAuthRequired, useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../config/index.js";
 import { useRouter } from "next/router";
+import NoEventBox from "../components/Boxes/noEvent.js";
 
 export default function Profile({ userEvents, allEvents }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const [notAttending, setNotAttending] = useState(allEvents);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [eventData, seteventData] = useState(false);
   const [confirmEvent, setConfirmEvent] = useState("");
   const { user } = useUser();
   const router = useRouter();
-  console.log(user);
+
   const refreshData = () => {
     router.replace(router.asPath);
     setIsRefreshing(true);
   };
-
-  useEffect(() => {
-    console.log("refreshing");
-    // const filterNotAttending = () => {
-    const arrayEventId = [];
-    userEvents.map(({ event_id }) => {
-      arrayEventId.push(event_id);
-    });
-    const filteredEvents = allEvents.filter((event) => {
-      return !arrayEventId.includes(event.event_id);
-    });
-    setNotAttending(filteredEvents);
-  }, [userEvents, allEvents]);
 
   useEffect(() => {
     setIsRefreshing(false);
@@ -75,7 +62,7 @@ export default function Profile({ userEvents, allEvents }) {
           setConfirmEvent("You have successfully registered for this event");
           refreshData();
         }
-      } catch (error) { }
+      } catch (error) {}
       setTimeout(function () {
         onClose();
         setConfirmEvent("");
@@ -106,30 +93,31 @@ export default function Profile({ userEvents, allEvents }) {
       >
         {userEvents.length >= 1 ? (
           <>
-            {userEvents.map((event, i) => {
-              if (i < 3) {
-                return (
-                  <WrapItem>
-                    <ReusableBox
-                      {...event}
-                      remove="true"
-                      refreshData={refreshData}
-                    />
-                  </WrapItem>
-                );
-              }
+            {userEvents.slice(0, 3).map((event) => {
+              return (
+                <WrapItem>
+                  <EventDetailsBox
+                    {...event}
+                    removeUser="true"
+                    refreshData={refreshData}
+                  />
+                </WrapItem>
+              );
             })}
           </>
         ) : (
           <WrapItem>
             <Center>
-              <ReusableBox title="You have not signed up for any events, please browse our events below" />
+              <NoEventBox
+                title="No events found"
+                text="You have not signed up for any events, please browse our events below"
+              />
             </Center>
           </WrapItem>
         )}
       </Wrap>
       <Box>
-        {notAttending.length >= 1 ? (
+        {allEvents.length >= 1 ? (
           <Box textAlign={"center"} pt={10} pb={5}>
             <SubHeader content={"Suggested events"} />
           </Box>
@@ -138,40 +126,15 @@ export default function Profile({ userEvents, allEvents }) {
         )}
         <Spacer />
         <Box>
-          {notAttending
-            .slice(0, 3)
-            .map(
-              (
-                {
-                  event_type,
-                  event_date,
-                  event_desc,
-                  event_id,
-                  count,
-                  event_end_time,
-                  event_start_time,
-                  first_name,
-                  last_name,
-                },
-                index
-              ) => {
-                return (
-                  <EventListingCard
-                    key={event_id}
-                    event_name={event_type}
-                    event_date={event_date.slice(0, 10)}
-                    event_desc={event_desc}
-                    event_end_time={event_end_time}
-                    event_start_time={event_start_time}
-                    onClick={() => sendEventData(event_id)}
-                    count={count}
-                    event_image={index}
-                    first={first_name}
-                    last={last_name}
-                  />
-                );
-              }
-            )}
+          {allEvents.slice(0, 3).map((event) => {
+            return (
+              <EventListingCard
+                key={event.event_id}
+                onClick={() => sendEventData(event.event_id)}
+                {...event}
+              />
+            );
+          })}
         </Box>
         <Center py={10}>
           <MainButton content={"Explore all events"} route={"/events"} />
@@ -209,7 +172,15 @@ export const getServerSideProps = withPageAuthRequired({
           auth_id: session.user.sub,
         }),
       }),
-      fetch(`${API_URL}/events`),
+      fetch(`${API_URL}/events/notAttending`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          auth_id: session.user.sub,
+        }),
+      }),
     ]);
     let [userEvents, allEvents] = await Promise.all([
       payloadRes.json(),

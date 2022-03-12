@@ -16,10 +16,9 @@ import { EditIcon } from "@chakra-ui/icons";
 import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Paragraph from "../components/paragraph.js";
 import Router from "next/router";
-import BasicModal from "../components/modal.js";
-import { API_URL } from "../config/index.js";
+import BasicModal from "../modals/modal.js";
+import { API_URL } from "../../config/index.js";
 import { addDays } from "date-fns";
 
 function toDate(dStr, format) {

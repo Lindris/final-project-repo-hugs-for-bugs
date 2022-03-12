@@ -1,7 +1,7 @@
 import { Button, Box, Tooltip } from "@chakra-ui/react";
 import { MdPersonRemove } from "react-icons/md";
 import { useUser } from "@auth0/nextjs-auth0";
-import { API_URL } from "../config/index.js";
+import { API_URL } from "../../config/index.js";
 import { useState } from "react";
 export default function RemoveUser({ event_id, refreshData }) {
   const { user } = useUser();
