@@ -15,7 +15,7 @@ TBC
 ## Screenshots
 
 <p align="center">
-  <img src="https://i.postimg.cc/5ynrmxdC/Group-15.png" alt="screenshot"/>
+  <img src="https://i.postimg.cc/zfzt7x1g/Group-15-1.png" alt="screenshot"/>
  </p>
 
 <p align="center">
