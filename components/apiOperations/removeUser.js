@@ -1,11 +1,12 @@
 import { Button, Box, Tooltip } from "@chakra-ui/react";
 import { MdPersonRemove } from "react-icons/md";
 import { useUser } from "@auth0/nextjs-auth0";
-import { API_URL } from "../config/index.js";
-import { useState } from "react";
+import { API_URL } from "../../config/index.js";
+import { useCallback } from "react";
+
 export default function RemoveUser({ event_id, refreshData }) {
   const { user } = useUser();
-  async function removeUserFromEvent() {
+  const removeUserFromEvent = useCallback(async () => {
     if (!user) {
       //  thnk about what should be done here
     } else if (user) {
@@ -27,7 +28,7 @@ export default function RemoveUser({ event_id, refreshData }) {
         console.log(error);
       }
     }
-  }
+  }, [event_id]);
 
   return (
     <Tooltip hasArrow label="Leave event" fontSize="md" placement="right">
@@ -44,7 +45,7 @@ export default function RemoveUser({ event_id, refreshData }) {
           bg="brand.secondaryPurple"
           px={".7em"}
           py={"0.3em"}
-          borderRadius={"9px"}
+          borderRadius={"7px"}
         >
           <MdPersonRemove size={30} color="white" />
         </Box>

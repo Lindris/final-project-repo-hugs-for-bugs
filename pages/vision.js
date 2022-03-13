@@ -2,7 +2,7 @@ import MainImage from "../components/mainImage";
 import SubHeader from "../components/headers/subheader";
 import Paragraph from "../components/paragraph";
 import { Flex, Box, ListItem, List } from "@chakra-ui/react";
-import { ArrowRightIcon } from '@chakra-ui/icons'
+import { ArrowRightIcon } from "@chakra-ui/icons";
 
 //import chakra - done
 //Reuse components - header, subheaders = our vision, our story, our ethos, with paragraphs
@@ -50,7 +50,8 @@ export default function Vision() {
               content={
                 "The journey into software development is a path full of obstacles however coding within a collaborative community is good for programmers and the people we are coding for. Our vision in creating {co:llab} is to work through problems together, learn from each other and industry experts, which will ultimately lead to developing better end products for users."
               }
-              fontSize="1.2em" />
+              fontSize="1.2em"
+            />
           </Box>
         </Flex>
         <Flex>
@@ -96,7 +97,8 @@ export default function Vision() {
                 content={
                   "As School of Code Bootcamp Graduates, in a very short time we’ve come a very long way, from 'Zero to Programmer'. Our journey has been one of the hardest we’ve ever travelled and climbing this intensive learning curve has been hugely challenging."
                 }
-                fontSize="1.2em" />
+                fontSize="1.2em"
+              />
             </Box>
             <Box my="1.2em">
               <Paragraph
@@ -111,7 +113,8 @@ export default function Vision() {
                 content={
                   "Now we’re moving onto the next stage in our developer careers, we’ve created this site to continue mutually sharing our programming experience. The {co:llab} space gives us a platform to keep doing what we've come to value - working in tandem, practising with each other through pair programming and team working to keep learning and growing."
                 }
-                fontSize="1.2em" />
+                fontSize="1.2em"
+              />
             </Box>
           </Flex>
         </Flex>
@@ -135,21 +138,23 @@ export default function Vision() {
                 content={
                   "Our aspiration to make a change in the world of programming through creating better opportunities to code collaboratively with like-minded people, we are confident in sharing our community manifesto - we know it works and want to engage others in it."
                 }
-                fontSize="1.2em" />
+                fontSize="1.2em"
+              />
             </Box>
             <Box my="1.2em">
               <Paragraph
                 content={
                   "To make our space as open and welcoming as possible we set out our culture and values. Embracing our ethos is an essential requirement of community membership."
                 }
-                fontSize="1.2em" />
+                fontSize="1.2em"
+              />
             </Box>
             <Box mb="1em">
               <Paragraph
-                content={
-                  "Our ethos is enveloped in our Manifesto:-"
-                }
-                fontSize="1.2em" fontWeight='bold' />
+                content={"Our ethos is enveloped in our Manifesto:-"}
+                fontSize="1.2em"
+                fontWeight="bold"
+              />
             </Box>
             <Box>
               <List fontSize="1.2em" mt="8px">
@@ -185,7 +190,8 @@ export default function Vision() {
                 content={
                   "We hope our manifesto is appreciated and resonates with all our members. Keeping our shared values in mind at all times will ensure a safe, fun and productive community experience. "
                 }
-                fontSize="1.2em" />
+                fontSize="1.2em"
+              />
             </Box>
           </Flex>
         </Flex>

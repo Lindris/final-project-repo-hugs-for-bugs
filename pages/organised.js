@@ -5,10 +5,11 @@ import Header from "../components/headers/header";
 import { Box, Wrap, WrapItem, Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import UpdateEventForm from "../components/updateform.js";
-import OrganisedBox from "../components/organisedBox.js";
+import UpdateEventForm from "../components/forms/updateform.js";
 import MainImage from "../components/mainImage.js";
-
+import EventDetailsBox from "../components/Boxes/eventdetailsbox.js";
+import NoEventBox from "../components/Boxes/noEvent.js";
+import { nanoid } from "nanoid";
 export default function Created({ payload }) {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [eventDetails, setEventDetails] = useState(0);
@@ -20,7 +21,6 @@ export default function Created({ payload }) {
     });
     setEventDetails(eventToDisplay);
     setFormVisible(!formVisible);
-    // console.log(eventDetails);
   };
 
   const router = useRouter();
@@ -49,15 +49,25 @@ export default function Created({ payload }) {
           >
             {payload === undefined || payload.length == 0 ? (
               <>
-                <Flex flexDirection={{ base: "column", sm: "column", md: " row", lg: "row" }} justifyContent={"center"} alignItems={"center"} gap={10}>
-                  <WrapItem>
+                <Flex
+                  key={nanoid()}
+                  flexDirection={{
+                    base: "column",
+                    sm: "column",
+                    md: " row",
+                    lg: "row",
+                  }}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  gap={10}
+                >
+                  <WrapItem key={nanoid()}>
                     <Link href="/create">
                       <a>
-                        <OrganisedBox
+                        <NoEventBox
                           title="Why not host your own?"
-                          content1="Have any ideas or like some of our own? Create an event using our form."
-                          removeEvent={false}
-                          event_tags={[
+                          text="Have any ideas or like some of our own? Create an event using our form."
+                          tags={[
                             "Imposter syndrome",
                             "React Frameworks",
                             "Docker",
@@ -71,20 +81,26 @@ export default function Created({ payload }) {
                     </Link>
                   </WrapItem>
                   <Box pt="2em">
-                    <MainImage src={"https://i.ibb.co/X4KLGSB/2562-R0l-VIEFOTi-Ax-ODEt-NDM.png"} />
+                    <MainImage
+                      src={
+                        "https://i.ibb.co/X4KLGSB/2562-R0l-VIEFOTi-Ax-ODEt-NDM.png"
+                      }
+                    />
                   </Box>
                 </Flex>
               </>
             ) : (
               payload.map((event) => {
                 return (
-                  <OrganisedBox
-                    {...event}
-                    removeEvent={true}
-                    refreshData={refreshData}
-                    editEvent={editEvent}
-                    setFormVisible={setFormVisible}
-                  />
+                  <WrapItem key={event.event_id}>
+                    <EventDetailsBox
+                      {...event}
+                      removeEvent={true}
+                      refreshData={refreshData}
+                      editEvent={editEvent}
+                      setFormVisible={setFormVisible}
+                    />
+                  </WrapItem>
                 );
               })
             )}

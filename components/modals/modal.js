@@ -9,11 +9,11 @@ import {
   Button,
   Stack,
   Tag,
-  HStack,
-  background,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
-import Paragraph from "./paragraph.js";
-
+import Paragraph from "../paragraph.js";
+import { nanoid } from "nanoid";
 function BasicModal(props) {
   const {
     event_type,
@@ -51,6 +51,7 @@ function BasicModal(props) {
               alignItems={"flex-start"}
               p={1}
               pt={2}
+              shouldWrapChildren
             >
               <Paragraph
                 content={
@@ -77,22 +78,23 @@ function BasicModal(props) {
                 color={"brand.primaryDark"}
               />
               <Paragraph content={event_desc} fontSize={"0.9em"} />
-              <HStack spacing={4}>
+              <Wrap py={3}>
                 {event_tags.map((tag) =>
                   tag !== "" ? (
-                    <Tag
-                      size={"md"}
-                      key={tag}
-                      variant="solid"
-                      bgColor={"brand.secondaryPurple"}
-                    >
-                      {tag}
-                    </Tag>
+                    <WrapItem key={nanoid()}>
+                      <Tag
+                        size={"md"}
+                        variant="solid"
+                        bgColor={"brand.secondaryPurple"}
+                      >
+                        {tag}
+                      </Tag>
+                    </WrapItem>
                   ) : (
-                    <></>
+                    <p key={nanoid()}></p>
                   )
                 )}
-              </HStack>
+              </Wrap>
               {confirm ? (
                 <Paragraph
                   pt={3}
@@ -115,10 +117,16 @@ function BasicModal(props) {
               onClick={onClose}
               color={"brand.primaryLight"}
               className="button-1"
+              isDisabled={button1 !== "Close" && confirm}
             >
               {button1}
             </Button>
-            <Button variant="ghost" onClick={onClick} className="button-2">
+            <Button
+              variant="ghost"
+              onClick={onClick}
+              className="button-2"
+              isDisabled={confirm}
+            >
               {button2}
             </Button>
           </ModalFooter>

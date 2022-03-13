@@ -45,7 +45,7 @@ const NavLink = ({ children }) => (
   </Box>
 );
 
-export default function Navbar() {
+export default function Navbar({ eventToday }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
   return (

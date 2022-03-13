@@ -1,12 +1,12 @@
 import { Button, Box, Tooltip } from "@chakra-ui/react";
 import { MdDelete } from "react-icons/md";
 import { useUser } from "@auth0/nextjs-auth0";
-import { API_URL } from "../config/index.js";
-// import
-// import { useState } from "react";
+import { API_URL } from "../../config/index.js";
+import { useCallback } from "react";
 export default function DeleteEvent({ event_id, refreshData, setFormVisible }) {
   const { user } = useUser();
-  async function removeEvent() {
+
+  const removeEvent = useCallback(async () => {
     setFormVisible(false);
     if (!user) {
     } else if (user) {
@@ -28,7 +28,7 @@ export default function DeleteEvent({ event_id, refreshData, setFormVisible }) {
         console.log(error);
       }
     }
-  }
+  }, [event_id]);
 
   return (
     <Tooltip hasArrow label="Delete event" fontSize="md" placement="right">
@@ -45,7 +45,7 @@ export default function DeleteEvent({ event_id, refreshData, setFormVisible }) {
           bg="brand.secondaryPurple"
           px={".7em"}
           py={"0.3em"}
-          borderRadius={"9px"}
+          borderRadius={"7px"}
         >
           <MdDelete size={30} color="white" />
         </Box>
