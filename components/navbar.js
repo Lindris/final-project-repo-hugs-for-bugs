@@ -16,6 +16,7 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
+import Reminder from "./Reminder/notification";
 
 const Links = [
   ["Create an event", "/api/auth/login"],
@@ -45,7 +46,7 @@ const NavLink = ({ children }) => (
   </Box>
 );
 
-export default function Navbar() {
+export default function Navbar({ eventToday }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useUser();
   return (
@@ -81,34 +82,38 @@ export default function Navbar() {
         </HStack>
         <Flex alignItems={"center"}>
           {user ? (
-            <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-                minW={0}
-              >
-                <Avatar size={"sm"} src={user.picture} />
-              </MenuButton>
-              <MenuList>
-                <Link href="/profile" passHref>
-                  <MenuItem>
-                    <a>My profile</a>
-                  </MenuItem>
-                </Link>
-                <Link href="/organised" passHref>
-                  <MenuItem>
-                    <a>My events</a>
-                  </MenuItem>
-                </Link>
-                <Link href="/api/auth/logout" passHref>
-                  <MenuItem>
-                    <a>Log out</a>
-                  </MenuItem>
-                </Link>
-              </MenuList>
-            </Menu>
+            <>
+              <Reminder reminder={eventToday} />
+
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                  minW={0}
+                >
+                  <Avatar size={"sm"} src={user.picture} />
+                </MenuButton>
+                <MenuList>
+                  <Link href="/profile" passHref>
+                    <MenuItem>
+                      <a>My profile</a>
+                    </MenuItem>
+                  </Link>
+                  <Link href="/organised" passHref>
+                    <MenuItem>
+                      <a>My events</a>
+                    </MenuItem>
+                  </Link>
+                  <Link href="/api/auth/logout" passHref>
+                    <MenuItem>
+                      <a>Log out</a>
+                    </MenuItem>
+                  </Link>
+                </MenuList>
+              </Menu>
+            </>
           ) : (
             <Link href="/api/auth/login">
               <Box

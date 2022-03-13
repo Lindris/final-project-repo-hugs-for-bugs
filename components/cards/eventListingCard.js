@@ -14,7 +14,7 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { MdPeople, MdPersonAdd } from "react-icons/md";
 import Paragraph from "../paragraph";
 import MainImage from "../mainImage";
-
+import Share from "../share/share.js";
 // Import template from Chakra
 // Import Paragraph component, customise text, font weight and size, colour accordingly - for name and date
 // Created variables (event_name, event_date) to act as placeholders until we're able to fetch data from the database
@@ -47,7 +47,9 @@ export default function EventListingCard({
   first_name,
   last_name,
   event_id,
+  event_tags,
 }) {
+  console.log(event_tags);
   return (
     <Center py={6}>
       <Stack
@@ -154,7 +156,21 @@ export default function EventListingCard({
         </Flex>
         {/* heart = 2 icons 1 empty, replaced by 1 red when hover. See css*/}
         <Flex alignItems={"flex-end"}>
-          <Box className="favourite">
+          <Tooltip hasArrow label="Share event" fontSize="md" placement="right">
+            <Box mr="1em">
+              <Share
+                title={`${event_type} by ${first_name} ${last_name} on ${new Date(
+                  event_date
+                )
+                  .toString()
+                  .slice(0, 10)}`}
+                url={"https://co-llab.netlify.app/events"}
+                desc={event_desc}
+                tags={event_tags}
+              />
+            </Box>
+          </Tooltip>
+          <Box className="favourite" pb={3}>
             <FaRegHeart className="fav--before" />
             <FaHeart className="fav--after" />
           </Box>
