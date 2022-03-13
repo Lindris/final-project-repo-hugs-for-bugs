@@ -8,6 +8,19 @@
 organise events that focuses on collaborative programming. The web application
 is what our team created during School of Code's final four week project.
 
+## Aims
+
+TBC
+
+## Screenshots
+
+<p align="center">
+  <img src="https://i.postimg.cc/5ynrmxdC/Group-15.png" alt="screenshot"/>
+ </p>
+
+<p align="center">
+  <img src="https://i.postimg.cc/k4xD1gcD/Group-14-6.png" alt="screenshot"/>
+</p>
 
 ## Run Locally
 
@@ -49,6 +62,10 @@ What did you learn while building this project? What challenges did you face and
 
 If you have any feedback, please reach out to any of the team via GitHub. We really value feedback and hope that {co:llab} can continue growing.
 
+## Video Presentation
+
+TBC
+
 ## Authors
 
 - [Amrit Atwal](https://www.github.com/amritatwal)
@@ -57,10 +74,6 @@ If you have any feedback, please reach out to any of the team via GitHub. We rea
 - [Kavita Kaur](https://github.com/kavita202)
 - [Linda Harris](https://github.com/Lindris)
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-### Credit
+##### Credit
 
 Vectors by Vecteezy
