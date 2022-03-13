@@ -46,6 +46,7 @@ export default function EventListingCard({
   count,
   first_name,
   last_name,
+  event_id,
 }) {
   return (
     <Center py={6}>
@@ -125,7 +126,7 @@ export default function EventListingCard({
                   bg="brand.secondaryPurple"
                   px={".7em"}
                   py={"0.3em"}
-                  borderRadius={"9px"}
+                  borderRadius={"7px"}
                 >
                   <MdPersonAdd size={30} color="white" />
                 </Box>

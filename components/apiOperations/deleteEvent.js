@@ -45,7 +45,7 @@ export default function DeleteEvent({ event_id, refreshData, setFormVisible }) {
           bg="brand.secondaryPurple"
           px={".7em"}
           py={"0.3em"}
-          borderRadius={"9px"}
+          borderRadius={"7px"}
         >
           <MdDelete size={30} color="white" />
         </Box>

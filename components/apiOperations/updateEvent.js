@@ -17,7 +17,7 @@ export default function UpdateEvent({ event_id, editEvent }) {
           bg="brand.secondaryPurple"
           px={".7em"}
           py={"0.3em"}
-          borderRadius={"9px"}
+          borderRadius={"7px"}
         >
           <MdEdit size={30} color="white" />
         </Box>

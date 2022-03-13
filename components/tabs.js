@@ -6,7 +6,6 @@ function filterEvent(payload, type) {
 }
 
 export default function EventFilter({ payload, sendEventData }) {
-  console.log(sendEventData);
   return (
     <Tabs
       align="center"

@@ -98,16 +98,6 @@ export default function Events({ payload }) {
           ) : (
             <></>
           )}
-
-          {/* {payload.map((event) => {
-            return (
-              <EventListingCard
-                key={event.event_id}
-                onClick={() => sendEventData(event.event_id)}
-                {...event}
-              />
-            );
-          })} */}
         </>
       )}
       {eventData ? (

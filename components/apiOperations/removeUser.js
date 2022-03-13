@@ -3,6 +3,7 @@ import { MdPersonRemove } from "react-icons/md";
 import { useUser } from "@auth0/nextjs-auth0";
 import { API_URL } from "../../config/index.js";
 import { useCallback } from "react";
+
 export default function RemoveUser({ event_id, refreshData }) {
   const { user } = useUser();
   const removeUserFromEvent = useCallback(async () => {
@@ -44,7 +45,7 @@ export default function RemoveUser({ event_id, refreshData }) {
           bg="brand.secondaryPurple"
           px={".7em"}
           py={"0.3em"}
-          borderRadius={"9px"}
+          borderRadius={"7px"}
         >
           <MdPersonRemove size={30} color="white" />
         </Box>

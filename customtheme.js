@@ -58,7 +58,7 @@ export const theme = extendTheme({
     // an existing theme section.
     // It creates a CSS variable named --chakra-shadows-focus-ring-color
     // 'focus-ring-color': 'rgba(255, 0, 125, 0.6)',
-    outline: "0 0 0 3px var(--chakra-ui-focus-ring-color)",
+    outline: "0 0 0 2px var(--chakra-ui-focus-ring-color)",
   },
   components: {
     Input: {
