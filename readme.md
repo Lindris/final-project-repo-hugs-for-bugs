@@ -53,6 +53,10 @@ Start the development server
 ## Features
 
 To-do
+<p align="center">
+  <img src="https://i.ibb.co/WKw4NyL/Group-22.png" alt="screenshot"/>
+</p>
+
 
 ## Lessons Learned
 
