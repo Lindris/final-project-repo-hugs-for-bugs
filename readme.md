@@ -35,12 +35,13 @@ Start the development server
 ```bash
   npm run dev
 ```
----
+
+
 <p align="center">
   <img src="https://i.postimg.cc/sxbt8sCt/Group-9-2.png" alt="collab stock images"/>
 </p>
 
----
+
 ## Tech Stack
 
 **Client:** Next.js, Auth0, React.js, Chakra UI, EmailJs, CSS, HTML
