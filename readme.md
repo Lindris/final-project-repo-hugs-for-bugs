@@ -68,7 +68,7 @@ We placed importance on choosing and planning our technology. Why? Because of in
   <img src="https://i.ibb.co/WKw4NyL/Group-22.png" alt="screenshot"/>
 </p>
 
-* Users can browse around but can only create or join events if they are logged in, and if not, they are directed to the login page.
+* Users can browse around but can only create or join events if they are logged in, and if not, they are directed to the login/sign up page.
 * Appropriately placed buttons and call-to-action buttons to make the user experience smooth and easy. This involved inticing users to explore the benefits of joining the community from the portion of the page they see on their screen without scrolling on initial load, to placing 'explore events' buttons on the homepage and profile page to encourage them to view more events. Through usability testing, we examined whether pivotal content on the page(s) was being reached or not and made amendments.
 * Two user pages: profile and events. This does well to seperate out the events the user is attending and information on their next event(s), and their own organised events of which they can easily edit and delete.   
 * Should users not yet, or currently, have any organised events there are helpful tags shown with topic ideas to encourage as much engagement from them as possible.
