@@ -52,7 +52,7 @@ Start the development server
 
 **Testing:** Jest, Supertest, Cypress
 
-We placed importance on choosing and planning our technology. Why? Because of intentionality! Why we chose a particular tech was really important to us. We did not incorporate anything for the sake of it, but rather, choosing the right tools for our aims. For instance, Next.js  allowed us to perform server-side rendering that helped pages to load faster, thereby improving the user experience. Also important to note was:
+We placed importance on choosing and planning our technology. Why? Because of intentionality! Why we chose a particular tech was really important to us, choosing the right tools for our aims. For instance, Next.js  allowed us to perform server-side rendering that helped pages to load faster, thereby improving the user experience. Also important to note was:
 
 - Using a UI library such as Chakra to speed up the component-building process and piecing together the front-end. Not only did we want the challenge of adopting a new techonology that none of us had used before, but to also benefit from Chakra's ability to give us more time to spend on solving the problem and working on logic, and leaving the design, responsiveness and UI in Chakra's hands. We were operating just like a start-up so added time to spend on other areas of the development process was a bonus. 
 
